@@ -79,6 +79,9 @@ class S04ScriptedRunTest(unittest.TestCase):
         metrics = json.loads((self.pack_dir / "metrics.json").read_text(encoding="utf-8"))
         event_ids = {record["event_id"] for record in events}
 
+        self.assertEqual({record["review_status"] for record in events}, {"proposed"})
+        self.assertEqual(metrics["review_status"], "not_human_reviewed")
+
         for event in events:
             for ref in event["source_refs"]:
                 self.assertTrue(ref in ids or ref in paths, ref)

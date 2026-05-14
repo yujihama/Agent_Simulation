@@ -16,13 +16,23 @@ Metrics records must preserve denominator choices, source evidence, and limitati
 
 This contract is a protocol-level artifact. It is not a JSON schema, production API, implementation code, automated analysis, baseline result, or statistical claim.
 
-## Required Fields
+## Supported Record Shapes
+
+Metrics may be stored as standalone metric records or inside an envelope.
+
+For a standalone metric record, `run_id` and `metrics_version` must appear on the record itself.
+
+For an envelope format, top-level `run_id` and `metrics_version` apply to every object in `metrics[]`. Nested metric records may omit those inherited fields. If a nested metric record includes `run_id` or `metrics_version`, the value must match the envelope.
+
+## Required Effective Fields
+
+Each metric record must have the following effective fields, either directly on the record or inherited from the envelope where noted.
 
 | Field | Meaning |
 |---|---|
 | `metric_id` | Stable identifier unique within the run or report. |
-| `run_id` | Run, dry-run package, or run set identifier. |
-| `metrics_version` | Metrics protocol version used. |
+| `run_id` | Run, dry-run package, or run set identifier. May be inherited from an envelope. |
+| `metrics_version` | Metrics protocol version used. May be inherited from an envelope. |
 | `metric_group` | Metric group from Metrics v0.1. |
 | `metric_name` | Human-readable metric name. |
 | `value` | Metric value, which may be numeric, categorical, or structured. |

@@ -21,6 +21,10 @@ This glossary keeps early project terms stable. It should stay concise; detailed
 | Institution Layer | The environment-side definition of formal rules, informal norms, authority, audit rules, sanctions, and control modes. |
 | Evidence pack | The structured record for a run, including manifest, trace, messages, actions, Game Master decisions, events, metrics, and review material. |
 | Event taxonomy | The codebook for classifying observed social disorder, institutional failure, and communication breakdown events. |
+| Metrics | Exploratory summaries derived from coded events, evidence completeness, and case outcomes. They do not by themselves establish real-world validity. |
+| Human review | Human inspection of evidence packs, event labels, metrics, and claim strength. |
+| LLM-assisted review | Optional review support from an LLM. It may suggest labels or evidence gaps but does not replace human acceptance. |
+| Claim boundary | A rule for matching statement strength to evidence quality, from run observation through bounded claim and limitation. |
 | ODD-Social | A planned extension of the ODD protocol for describing artificial organizations, institution rules, social structure, and chaos factors. |
 | Scenario matrix | A set of controlled comparison conditions that vary selected social and institutional variables. |
 | Soft control | A control mode where a questionable action can proceed unless rejected by social or procedural friction. |

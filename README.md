@@ -7,6 +7,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 ## Current Canonical Documents
 
 - Working rules: [docs/research/03_working_rules_and_pr_policy.md](docs/research/03_working_rules_and_pr_policy.md)
+- Coverage ledger: [docs/coverage_ledger.md](docs/coverage_ledger.md)
 
 ## Initial PR Sequence
 

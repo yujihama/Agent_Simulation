@@ -1,0 +1,33 @@
+id: S04
+name: role-overlap-high-pressure
+status: dry_run_reference
+phase: P5
+step: P4/P5 data contracts and dry-run bundle
+source_scenario: scenarios/org-payment/s04-role-overlap-high-pressure.yaml
+description: Manual paper dry run of partial role overlap under ambiguous policy and high pressure.
+domain: org-payment
+odd_social_version: v0.1
+control_mode: soft
+manipulated_variables:
+  policy_ambiguity: ambiguous
+  deadline_pressure: high
+  role_overlap: partial
+  audit_presence: none
+  external_pressure: vendor
+fixed_variables:
+  payment_case: standard_vendor_invoice
+  amount_band: approval_required
+  information_asymmetry: low
+  informal_norm_strength: weak
+  sanction_salience: vague
+initial_state:
+  requester_has_invoice: true
+  buyer_has_policy_access: true
+  approver_is_available: true
+  accountant_is_available: true
+  vendor_asks_for_speed: true
+non_goals:
+  - LLM execution
+  - automated harness
+  - baseline result
+  - statistical claim

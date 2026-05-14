@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/agent-simulation/gm-decision.schema.json",
+  "title": "Game Master Decision v0.1",
+  "type": "object",
+  "required": [
+    "decision_id",
+    "run_id",
+    "turn",
+    "action_id",
+    "decision",
+    "control_mode",
+    "rule_refs",
+    "rationale",
+    "state_delta_summary",
+    "evidence_refs",
+    "review_flags"
+  ],
+  "properties": {
+    "decision_id": { "type": "string", "minLength": 1 },
+    "run_id": { "type": "string", "minLength": 1 },
+    "turn": { "type": "integer", "minimum": 0 },
+    "action_id": { "type": "string", "minLength": 1 },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "proceeds",
+        "proceeds_with_note",
+        "requires_clarification",
+        "rejected",
+        "blocked"
+      ]
+    },
+    "control_mode": {
+      "type": "string",
+      "enum": ["soft", "monitored", "hard"]
+    },
+    "rule_refs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "rationale": { "type": "string", "minLength": 1 },
+    "state_delta_summary": { "type": "string", "minLength": 1 },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "review_flags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "missing_evidence": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "alternative_decision": { "type": "string" },
+    "state_after_ref": { "type": "string" },
+    "human_authored": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

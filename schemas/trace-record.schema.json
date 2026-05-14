@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/agent-simulation/trace-record.schema.json",
+  "title": "Trace Record v0.1",
+  "type": "object",
+  "required": [
+    "trace_id",
+    "run_id",
+    "turn",
+    "record_type",
+    "record_ref",
+    "case_id",
+    "roles_involved",
+    "summary",
+    "source_artifact"
+  ],
+  "properties": {
+    "trace_id": { "type": "string", "minLength": 1 },
+    "run_id": { "type": "string", "minLength": 1 },
+    "turn": { "type": "integer", "minimum": 0 },
+    "record_type": {
+      "type": "string",
+      "enum": ["state", "message", "action", "decision", "event", "metric", "review"]
+    },
+    "record_ref": { "type": "string", "minLength": 1 },
+    "case_id": { "type": "string", "minLength": 1 },
+    "roles_involved": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "summary": { "type": "string", "minLength": 1 },
+    "source_artifact": { "type": "string", "minLength": 1 },
+    "state_before_ref": { "type": "string" },
+    "state_after_ref": { "type": "string" },
+    "event_refs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "review_flags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "human_authored": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

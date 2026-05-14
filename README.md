@@ -27,6 +27,13 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Event record contract v0.1: [protocols/data-contracts/event-record-contract-v0.1.md](protocols/data-contracts/event-record-contract-v0.1.md)
 - Metrics record contract v0.1: [protocols/data-contracts/metrics-record-contract-v0.1.md](protocols/data-contracts/metrics-record-contract-v0.1.md)
 - S04 paper dry-run package: [dry-runs/org-payment/s04-paper-dry-run/README.md](dry-runs/org-payment/s04-paper-dry-run/README.md)
+- Run manifest schema: [schemas/run-manifest.schema.json](schemas/run-manifest.schema.json)
+- Action proposal schema: [schemas/action-proposal.schema.json](schemas/action-proposal.schema.json)
+- Game Master decision schema: [schemas/gm-decision.schema.json](schemas/gm-decision.schema.json)
+- Trace record schema: [schemas/trace-record.schema.json](schemas/trace-record.schema.json)
+- Event record schema: [schemas/event-record.schema.json](schemas/event-record.schema.json)
+- Metrics record schema: [schemas/metrics-record.schema.json](schemas/metrics-record.schema.json)
+- Evidence pack validator: [scripts/validate_evidence_pack.py](scripts/validate_evidence_pack.py)
 
 ## Initial PR Sequence
 
@@ -38,5 +45,6 @@ The project should be built up in small decision-oriented pull requests:
 4. P1/P2 design bundle: introduce ODD-Social v0.1 and the org-payment scenario matrix.
 5. P3 evaluation protocol bundle: introduce event taxonomy, metrics, evidence pack, human review, and claim boundaries.
 6. P4/P5 data contract and dry-run bundle: introduce data contracts and a non-LLM paper dry run.
+7. P4/P5 schema and validator bundle: introduce JSON Schemas and executable validation for the S04 paper dry run.
 
 A project glossary was introduced with PR-C and should be kept concise.

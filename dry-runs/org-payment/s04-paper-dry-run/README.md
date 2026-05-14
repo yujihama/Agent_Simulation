@@ -37,6 +37,7 @@ Key review artifacts:
 - [metrics.json](evidence-pack/metrics.json)
 - [reviewer_notes.md](evidence-pack/reviewer_notes.md)
 - [reconstruction-checklist.md](evidence-pack/reconstruction-checklist.md)
+- [validation-output.md](validation-output.md)
 
 ## Dry-Run Result
 

@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/agent-simulation/metrics-record.schema.json",
+  "title": "Metrics Record or Envelope v0.1",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "metric_id",
+        "run_id",
+        "metrics_version",
+        "metric_group",
+        "metric_name",
+        "value",
+        "denominator",
+        "source_event_ids",
+        "source_record_refs",
+        "interpretation_limit",
+        "known_limitations"
+      ],
+      "properties": {
+        "metric_id": { "type": "string", "minLength": 1 },
+        "run_id": { "type": "string", "minLength": 1 },
+        "metrics_version": { "type": "string", "minLength": 1 },
+        "metric_group": { "type": "string", "minLength": 1 },
+        "metric_name": { "type": "string", "minLength": 1 },
+        "value": {},
+        "denominator": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "number" },
+            { "type": "integer" }
+          ]
+        },
+        "source_event_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "source_record_refs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "interpretation_limit": { "type": "string", "minLength": 1 },
+        "known_limitations": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "scenario_id": { "type": "string" },
+        "calculation_note": { "type": "string" },
+        "review_status": { "type": "string" },
+        "human_authored": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "run_id",
+        "metrics_version",
+        "metrics_record_contract",
+        "scenario_id",
+        "review_status",
+        "metrics"
+      ],
+      "properties": {
+        "run_id": { "type": "string", "minLength": 1 },
+        "metrics_version": { "type": "string", "minLength": 1 },
+        "metrics_record_contract": { "type": "string", "minLength": 1 },
+        "scenario_id": { "type": "string", "minLength": 1 },
+        "review_status": { "type": "string", "minLength": 1 },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "metric_id",
+              "metric_group",
+              "metric_name",
+              "value",
+              "denominator",
+              "source_event_ids",
+              "source_record_refs",
+              "interpretation_limit",
+              "known_limitations"
+            ],
+            "properties": {
+              "metric_id": { "type": "string", "minLength": 1 },
+              "run_id": { "type": "string" },
+              "metrics_version": { "type": "string" },
+              "metric_group": { "type": "string", "minLength": 1 },
+              "metric_name": { "type": "string", "minLength": 1 },
+              "value": {},
+              "denominator": {
+                "anyOf": [
+                  { "type": "string" },
+                  { "type": "number" },
+                  { "type": "integer" }
+                ]
+              },
+              "source_event_ids": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "source_record_refs": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "interpretation_limit": { "type": "string", "minLength": 1 },
+              "known_limitations": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "scenario_id": { "type": "string" },
+              "calculation_note": { "type": "string" },
+              "review_status": { "type": "string" },
+              "human_authored": { "type": "boolean" }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

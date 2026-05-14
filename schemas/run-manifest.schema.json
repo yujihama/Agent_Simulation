@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/agent-simulation/run-manifest.schema.json",
+  "title": "Run Manifest v0.1",
+  "type": "object",
+  "required": [
+    "run_id",
+    "run_type",
+    "scenario_id",
+    "scenario_ref",
+    "odd_social_ref",
+    "protocol_versions",
+    "contract_versions",
+    "actor_mode",
+    "llm_execution",
+    "automated_harness",
+    "artifact_inventory",
+    "known_exclusions"
+  ],
+  "properties": {
+    "run_id": { "type": "string", "minLength": 1 },
+    "run_type": {
+      "type": "string",
+      "enum": ["paper_dry_run", "non_llm_dry_run", "controlled_run"]
+    },
+    "scenario_id": { "type": "string", "minLength": 1 },
+    "scenario_ref": { "type": "string", "minLength": 1 },
+    "odd_social_ref": { "type": "string", "minLength": 1 },
+    "protocol_versions": {
+      "type": "object",
+      "required": [
+        "odd_social",
+        "event_taxonomy",
+        "metrics",
+        "evidence_pack",
+        "human_review",
+        "claim_boundaries"
+      ],
+      "properties": {
+        "odd_social": { "type": "string", "minLength": 1 },
+        "event_taxonomy": { "type": "string", "minLength": 1 },
+        "metrics": { "type": "string", "minLength": 1 },
+        "evidence_pack": { "type": "string", "minLength": 1 },
+        "human_review": { "type": "string", "minLength": 1 },
+        "claim_boundaries": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "contract_versions": {
+      "type": "object",
+      "required": [
+        "action_proposal",
+        "gm_decision",
+        "trace_record",
+        "run_manifest",
+        "event_record",
+        "metrics_record"
+      ],
+      "properties": {
+        "action_proposal": { "type": "string", "minLength": 1 },
+        "gm_decision": { "type": "string", "minLength": 1 },
+        "trace_record": { "type": "string", "minLength": 1 },
+        "run_manifest": { "type": "string", "minLength": 1 },
+        "event_record": { "type": "string", "minLength": 1 },
+        "metrics_record": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "actor_mode": {
+      "type": "string",
+      "enum": ["manual_scripted", "scripted", "llm_driven", "mixed"]
+    },
+    "llm_execution": { "type": "boolean" },
+    "automated_harness": { "type": "boolean" },
+    "randomness_policy": { "type": "string" },
+    "authored_by": { "type": "string" },
+    "review_status": { "type": "string" },
+    "claim_boundary": { "type": "string" },
+    "artifact_inventory": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "enum": ["present", "missing", "not_applicable"]
+      }
+    },
+    "known_exclusions": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/agent-simulation/event-record.schema.json",
+  "title": "Event Record v0.1",
+  "type": "object",
+  "required": [
+    "event_id",
+    "run_id",
+    "taxonomy_version",
+    "event_type",
+    "turn_start",
+    "turn_end",
+    "roles_involved",
+    "severity",
+    "confidence",
+    "description",
+    "source_refs",
+    "coded_by",
+    "review_status"
+  ],
+  "properties": {
+    "event_id": { "type": "string", "minLength": 1 },
+    "run_id": { "type": "string", "minLength": 1 },
+    "taxonomy_version": { "type": "string", "minLength": 1 },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "approval_bypass",
+        "segregation_breakdown",
+        "policy_ambiguity_exploited",
+        "unauthorized_exception",
+        "evidence_gap",
+        "audit_flag",
+        "control_block",
+        "responsibility_diffusion",
+        "blame_shifting",
+        "informal_pressure",
+        "communication_breakdown",
+        "after_the_fact_justification",
+        "duplicate_action",
+        "process_deadlock"
+      ]
+    },
+    "turn_start": { "type": "integer", "minimum": 0 },
+    "turn_end": { "type": "integer", "minimum": 0 },
+    "roles_involved": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "severity": { "type": "integer", "minimum": 0, "maximum": 3 },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    },
+    "description": { "type": "string", "minLength": 1 },
+    "source_refs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "coded_by": { "type": "string", "minLength": 1 },
+    "review_status": {
+      "type": "string",
+      "enum": ["proposed", "accepted", "revised", "rejected", "disputed"]
+    },
+    "alternative_labels": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "claim_use_limit": { "type": "string" },
+    "notes_on_ambiguity": { "type": "string" },
+    "human_authored": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

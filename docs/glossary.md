@@ -25,6 +25,11 @@ This glossary keeps early project terms stable. It should stay concise; detailed
 | Human review | Human inspection of evidence packs, event labels, metrics, and claim strength. |
 | LLM-assisted review | Optional review support from an LLM. It may suggest labels or evidence gaps but does not replace human acceptance. |
 | Claim boundary | A rule for matching statement strength to evidence quality, from run observation through bounded claim and limitation. |
+| Action proposal | A reviewable actor request for the Game Master / Arbiter to decide; it does not directly mutate world state. |
+| Game Master decision | The record of how the Game Master / Arbiter applies rules, control mode, and state to an action proposal. |
+| Trace record | An ordered run-level record that links messages, actions, decisions, events, metrics, and review notes. |
+| Run manifest | The evidence-pack artifact that identifies protocol versions, contracts, artifacts, exclusions, and run mode. |
+| Paper dry run | A manually authored non-LLM run used to test whether protocols fit together before implementation. |
 | ODD-Social | A planned extension of the ODD protocol for describing artificial organizations, institution rules, social structure, and chaos factors. |
 | Scenario matrix | A set of controlled comparison conditions that vary selected social and institutional variables. |
 | Soft control | A control mode where a questionable action can proceed unless rejected by social or procedural friction. |

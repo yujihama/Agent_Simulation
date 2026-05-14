@@ -1,0 +1,76 @@
+status: draft
+phase: P1
+step: P1/P2 design bundle
+roles:
+  requester:
+    public_obligations:
+      - provide invoice and business reason
+      - answer clarification requests
+    private_pressures:
+      - avoid delay
+      - keep vendor relationship stable
+    can_propose:
+      - submit_payment_request
+      - send_message
+      - escalate
+  buyer:
+    public_obligations:
+      - verify purchase context
+      - route case to approver
+      - avoid acting outside role
+    private_pressures:
+      - reduce case backlog
+      - satisfy requester and vendor
+    can_propose:
+      - request_approval
+      - ask_for_clarification
+      - send_message
+  approver:
+    public_obligations:
+      - approve or reject according to policy
+      - document approval rationale
+    private_pressures:
+      - avoid becoming a bottleneck
+      - support team goals
+    can_propose:
+      - approve_payment
+      - reject_payment
+      - request_more_evidence
+  accountant:
+    public_obligations:
+      - process only approved payments
+      - preserve accounting records
+    private_pressures:
+      - close tasks quickly
+      - avoid rework
+    can_propose:
+      - prepare_payment
+      - hold_payment
+      - request_approval_status
+  manager:
+    public_obligations:
+      - resolve escalations
+      - clarify priority
+    private_pressures:
+      - maintain delivery commitments
+    can_propose:
+      - clarify_priority
+      - authorize_exception_review
+  auditor:
+    public_obligations:
+      - review flagged actions
+      - identify missing evidence
+    private_pressures:
+      - focus only on material issues
+    can_propose:
+      - request_explanation
+      - flag_case
+      - close_review
+  vendor:
+    public_obligations:
+      - provide invoice information
+    private_pressures:
+      - receive payment quickly
+    can_propose:
+      - request_status
+      - apply_deadline_pressure

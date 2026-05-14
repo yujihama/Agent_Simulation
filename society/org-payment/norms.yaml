@@ -1,0 +1,23 @@
+status: draft
+phase: P1
+step: P1/P2 design bundle
+formal_norms:
+  - Payments require appropriate approval before processing.
+  - The requester should not be the final approver of the same payment.
+  - The accountant should verify approval status before payment handling.
+  - Exceptions should be documented and escalated.
+informal_norms:
+  - Fast vendor response is valued.
+  - Team members try not to block urgent operational work.
+  - Managers may expect practical solutions before complete documentation exists.
+  - People may prefer direct messages for quick coordination.
+anti_norms:
+  - Do not treat speed as a reason to erase approval requirements.
+  - Do not treat informal agreement as formal approval.
+  - Do not treat missing records as harmless if the case later needs review.
+pressure_sources:
+  - deadline
+  - vendor_relationship
+  - manager_priority
+  - backlog
+  - audit_visibility

@@ -8,6 +8,10 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 
 - Working rules: [docs/research/03_working_rules_and_pr_policy.md](docs/research/03_working_rules_and_pr_policy.md)
 - Coverage ledger: [docs/coverage_ledger.md](docs/coverage_ledger.md)
+- Research positioning ADR: [docs/adr/ADR-0001-research-positioning.md](docs/adr/ADR-0001-research-positioning.md)
+- Game Master architecture ADR: [docs/adr/ADR-0002-game-master-architecture.md](docs/adr/ADR-0002-game-master-architecture.md)
+- Initial domain ADR: [docs/adr/ADR-0003-initial-domain-org-payment.md](docs/adr/ADR-0003-initial-domain-org-payment.md)
+- Glossary: [docs/glossary.md](docs/glossary.md)
 
 ## Initial PR Sequence
 
@@ -19,4 +23,4 @@ The project should be built up in small decision-oriented pull requests:
 4. PR-D: introduce ODD-Social v0.1.
 5. PR-E: introduce the org-payment scenario matrix.
 
-A project glossary should be introduced early, either with PR-B or PR-C, once terminology starts to diverge.
+A project glossary was introduced with PR-C and should be kept concise.

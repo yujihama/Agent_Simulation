@@ -2,14 +2,19 @@
 
 作成日: 2026-05-14  
 位置づけ: 研究プロジェクト運用ルール / PRレビュー方針  
-Status: proposed  
+Status: accepted  
 Phase: P0  
 Step: PR-A  
-Covers: C01, C03, C16, C18, C20  
+Covers: governance for C01, C03, C16, C18, C20  
+Coverage note: governance rules introduced; substantive design specs are not yet accepted  
 Supersedes: none  
 Related ADR: none  
 対象研究: LLMエージェントによる人間社会カオス・シミュレーション  
-前提文書: `research_history_and_rationale.md`, `research_framework_design.md`, `technical_selection_for_social_simulation.md`, `phase_step_checkpoint_coverage_plan.md`
+前提草案: 以下はリポジトリ外で作成済みの検討メモであり、後続PRで順次取り込む。
+- `research_history_and_rationale.md`
+- `research_framework_design.md`
+- `technical_selection_for_social_simulation.md`
+- `phase_step_checkpoint_coverage_plan.md`
 
 ---
 

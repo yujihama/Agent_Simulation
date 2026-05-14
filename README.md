@@ -14,6 +14,8 @@ The project should be built up in small decision-oriented pull requests:
 
 1. PR-A: introduce working rules and repository references.
 2. PR-B: introduce `docs/coverage_ledger.md`.
-3. PR-C: introduce ADRs for research positioning, Game Master architecture, and initial org-payment domain.
+3. PR-C: introduce ADRs for research positioning, Game Master architecture, initial org-payment domain, and summaries of prior research-positioning drafts.
 4. PR-D: introduce ODD-Social v0.1.
 5. PR-E: introduce the org-payment scenario matrix.
+
+A project glossary should be introduced early, either with PR-B or PR-C, once terminology starts to diverge.

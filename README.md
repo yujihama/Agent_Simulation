@@ -48,3 +48,25 @@ The project should be built up in small decision-oriented pull requests:
 7. P4/P5 schema and validator bundle: introduce JSON Schemas and executable validation for the S04 paper dry run.
 
 A project glossary was introduced with PR-C and should be kept concise.
+
+## Minimal Non-LLM S04 Run
+
+Generate a deterministic S04 evidence pack:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim generate-s04 --output tmp/s04-generated-evidence-pack
+```
+
+Validate the generated evidence pack:
+
+```powershell
+python scripts/validate_evidence_pack.py tmp/s04-generated-evidence-pack
+```
+
+Run the non-LLM skeleton tests:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m unittest discover -s tests
+```

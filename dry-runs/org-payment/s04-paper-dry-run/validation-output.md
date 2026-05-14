@@ -12,6 +12,8 @@ Result: PASS
 - PASS: scenario YAML files parse and scenario id matches manifest
 - PASS: JSON and JSONL records validate against contract schemas
 - PASS: run_id and metrics envelope inheritance are consistent
+- PASS: action proposal source references resolve
+- PASS: every current action proposal has a corresponding Game Master decision
 - PASS: cross-references among actions, decisions, trace, events, and metrics resolve
 
 ## Boundary

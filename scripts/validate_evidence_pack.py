@@ -334,6 +334,21 @@ def validate_pack(pack_dir: Path) -> ValidationReport:
             if not check_ref(ref, ids, pack_dir):
                 raise ValidationError(f"decision {decision['decision_id']} has unknown evidence ref {ref}")
 
+    for action in actions:
+        for ref in action.get("source_refs", []):
+            if not check_ref(ref, ids, pack_dir):
+                raise ValidationError(f"action {action['action_id']} has unknown source ref {ref}")
+    report.add("action proposal source references resolve")
+
+    decided_action_ids = {decision["action_id"] for decision in decisions}
+    undecided_action_ids = sorted(set(action_by_id) - decided_action_ids)
+    if undecided_action_ids:
+        raise ValidationError(
+            "current action proposals require Game Master decisions; "
+            f"missing decision for action_id(s): {', '.join(undecided_action_ids)}"
+        )
+    report.add("every current action proposal has a corresponding Game Master decision")
+
     for event in events:
         if event["turn_end"] < event["turn_start"]:
             raise ValidationError(f"event {event['event_id']} has turn_end before turn_start")

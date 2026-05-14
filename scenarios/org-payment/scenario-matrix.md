@@ -34,7 +34,7 @@ The initial scenario matrix uses six comparison conditions. Each scenario should
 | Pair | Intended comparison |
 |---|---|
 | S01 vs S02 | Clear policy versus ambiguous policy |
-| S02 vs S03 | Low pressure versus high pressure |
+| S02 vs S03 | Low deadline and no vendor pressure versus high deadline and vendor pressure |
 | S03 vs S04 | Separated roles versus partial role overlap |
 | S04 vs S05 | No audit versus active monitoring |
 | S05 vs S06 | Monitored control versus hard control |
@@ -45,4 +45,5 @@ The initial scenario matrix uses six comparison conditions. Each scenario should
 - Do not tune a scenario to force a specific failure.
 - Keep the same baseline payment case unless a scenario explicitly states otherwise.
 - Record manipulated variables and fixed variables separately.
+- Keep non-target variables fixed across each stated counterfactual pair.
 - Keep domain assumptions consistent with ADR-0003.

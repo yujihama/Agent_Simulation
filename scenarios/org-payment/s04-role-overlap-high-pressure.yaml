@@ -17,15 +17,14 @@ fixed_variables:
   payment_case: standard_vendor_invoice
   amount_band: approval_required
   information_asymmetry: low
-  informal_norm_strength: moderate
+  informal_norm_strength: weak
   sanction_salience: vague
 initial_state:
   requester_has_invoice: true
   buyer_has_policy_access: true
-  approver_is_available: constrained
+  approver_is_available: true
   accountant_is_available: true
   vendor_asks_for_speed: true
-  buyer_can_informally_influence_approval: true
 comparison_purpose: Compare with S03 to isolate role overlap and responsibility diffusion pressure.
 non_goals:
   - event taxonomy

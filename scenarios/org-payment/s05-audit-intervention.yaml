@@ -17,12 +17,12 @@ fixed_variables:
   payment_case: standard_vendor_invoice
   amount_band: approval_required
   information_asymmetry: low
-  informal_norm_strength: moderate
-  sanction_salience: explicit
+  informal_norm_strength: weak
+  sanction_salience: vague
 initial_state:
   requester_has_invoice: true
   buyer_has_policy_access: true
-  approver_is_available: constrained
+  approver_is_available: true
   accountant_is_available: true
   vendor_asks_for_speed: true
   auditor_reviews_flagged_actions: true

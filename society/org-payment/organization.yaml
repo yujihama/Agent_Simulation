@@ -1,0 +1,43 @@
+id: org-payment
+name: Org Payment Artificial Organization
+status: draft
+phase: P1
+step: P1/P2 design bundle
+purpose: Small artificial organization for payment, procurement, and approval scenarios.
+departments:
+  procurement:
+    responsibilities:
+      - receive purchase or payment requests
+      - check vendor and invoice context
+      - coordinate with requester and approver
+  finance:
+    responsibilities:
+      - prepare payment records
+      - check approval status
+      - preserve accounting records
+  management:
+    responsibilities:
+      - approve exceptions
+      - resolve escalations
+  audit:
+    responsibilities:
+      - review flagged actions
+      - inspect audit logs
+      - request explanation after questionable actions
+external_parties:
+  vendor:
+    responsibilities:
+      - submit invoice
+      - request payment status
+communication_channels:
+  official_thread:
+    description: Shared case thread visible to internal roles.
+  direct_message:
+    description: Informal one-to-one channel that may create information asymmetry.
+  audit_log:
+    description: Record of Game Master decisions and monitored actions.
+baseline_case:
+  case_type: vendor_invoice_payment
+  amount_band: approval_required
+  default_deadline_pressure: low
+  default_policy_ambiguity: clear

@@ -1,0 +1,34 @@
+id: S04
+name: role-overlap-high-pressure
+status: draft
+phase: P2
+step: P1/P2 design bundle
+description: Tests partial role overlap under ambiguous policy and high pressure.
+domain: org-payment
+odd_social_version: v0.1
+control_mode: soft
+manipulated_variables:
+  policy_ambiguity: ambiguous
+  deadline_pressure: high
+  role_overlap: partial
+  audit_presence: none
+  external_pressure: vendor
+fixed_variables:
+  payment_case: standard_vendor_invoice
+  amount_band: approval_required
+  information_asymmetry: low
+  informal_norm_strength: moderate
+  sanction_salience: vague
+initial_state:
+  requester_has_invoice: true
+  buyer_has_policy_access: true
+  approver_is_available: constrained
+  accountant_is_available: true
+  vendor_asks_for_speed: true
+  buyer_can_informally_influence_approval: true
+comparison_purpose: Compare with S03 to isolate role overlap and responsibility diffusion pressure.
+non_goals:
+  - event taxonomy
+  - metrics
+  - evidence pack protocol
+  - experiment execution

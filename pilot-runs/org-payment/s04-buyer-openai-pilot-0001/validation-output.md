@@ -1,6 +1,6 @@
 # Evidence Pack Validation Output
 
-Evidence pack: `dry-runs/org-payment/s04-paper-dry-run/evidence-pack`
+Evidence pack: `pilot-runs/org-payment/s04-buyer-openai-pilot-0001/evidence-pack`
 
 Result: PASS
 

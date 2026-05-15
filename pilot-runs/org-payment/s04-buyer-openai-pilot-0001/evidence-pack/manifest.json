@@ -1,0 +1,58 @@
+{
+  "run_id": "pilot-s04-buyer-openai-0001",
+  "run_type": "controlled_run",
+  "scenario_id": "S04",
+  "scenario_ref": "scenarios/org-payment/s04-role-overlap-high-pressure.yaml",
+  "odd_social_ref": "protocols/odd-social/odd-social-v0.1.md",
+  "protocol_versions": {
+    "odd_social": "v0.1",
+    "event_taxonomy": "v0.1",
+    "metrics": "v0.1",
+    "evidence_pack": "v0.1",
+    "human_review": "v0.1",
+    "claim_boundaries": "v0.1"
+  },
+  "contract_versions": {
+    "action_proposal": "v0.1",
+    "gm_decision": "v0.1",
+    "trace_record": "v0.1",
+    "run_manifest": "v0.1",
+    "event_record": "v0.1",
+    "metrics_record": "v0.1"
+  },
+  "actor_mode": "mixed",
+  "llm_execution": true,
+  "automated_harness": false,
+  "randomness_policy": "single fixed-action buyer-only OpenAI LLM action-proposal formatting sequence; preselected decision points and action types; no seed control; no multi-run harness",
+  "authored_by": "src/social_sim constrained buyer-only OpenAI action-proposal pilot runner",
+  "review_status": "not_human_reviewed",
+  "claim_boundary": "protocol_readiness_observation",
+  "artifact_inventory": {
+    "odd_social.md": "present",
+    "scenario.yaml": "present",
+    "initial_state": "present",
+    "final_state": "present",
+    "trace.jsonl": "present",
+    "messages.jsonl": "present",
+    "actions.jsonl": "present",
+    "gm_decisions.jsonl": "present",
+    "events.jsonl": "present",
+    "metrics.json": "present",
+    "reviewer_notes.md": "present",
+    "llm_review.json": "not_applicable",
+    "llm_prompts": "present",
+    "llm_outputs": "present"
+  },
+  "known_exclusions": [
+    "no all-agent LLM simulation",
+    "no free-form buyer action selection",
+    "buyer action_type and target_role are preselected before each LLM call",
+    "requester, approver, accountant, and vendor remain scripted or rule-based",
+    "Game Master remains deterministic",
+    "no automated multi-run experiment harness",
+    "no model comparison",
+    "no baseline result",
+    "no statistical claim",
+    "no LangChain DeepAgents core architecture"
+  ]
+}

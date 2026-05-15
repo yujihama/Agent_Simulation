@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Validate a manually authored evidence pack.
+"""Validate a mechanically generated evidence pack.
 
-This is a non-LLM validation skeleton for protocol and schema work. It validates
+This is a validation skeleton for protocol and schema work. It validates
 JSON, JSONL, YAML, selected JSON Schema constraints, and cross-record references.
-It does not execute agents, run experiments, call provider SDKs, or compute
-baseline results.
+It does not execute agents, call providers, run a multi-run harness, or compute
+baseline results. Evidence packs may record prior LLM execution when declared in
+their manifest.
 """
 
 from __future__ import annotations
@@ -255,11 +256,11 @@ def validate_pack(pack_dir: Path) -> ValidationReport:
     assert_schema(manifest, "run-manifest.schema.json", "manifest.json")
     report.add("manifest.json validates against run-manifest.schema.json")
 
-    if manifest.get("llm_execution") is not False:
-        raise ValidationError("non-LLM dry-run validation requires llm_execution=false")
+    if not isinstance(manifest.get("llm_execution"), bool):
+        raise ValidationError("manifest llm_execution must be an explicit boolean")
     if manifest.get("automated_harness") is not False:
-        raise ValidationError("paper dry-run validation requires automated_harness=false")
-    report.add("manifest declares no LLM execution and no automated harness")
+        raise ValidationError("single-pack validation requires automated_harness=false")
+    report.add("manifest declares explicit LLM execution status and no automated harness")
 
     require_pack_artifacts(pack_dir, manifest)
     report.add("manifest artifact inventory matches files on disk")

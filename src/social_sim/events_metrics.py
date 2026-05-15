@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any
 
 
-def build_events(run_id: str, case_id: str) -> list[dict[str, Any]]:
+def build_events(run_id: str, case_id: str, coded_by: str = "scripted non-LLM runner") -> list[dict[str, Any]]:
     return [
         {
             "event_id": "E001",
@@ -17,7 +17,7 @@ def build_events(run_id: str, case_id: str) -> list[dict[str, Any]]:
             "confidence": "high",
             "description": "Vendor and requester pressure push the buyer toward fast handling.",
             "source_refs": ["M001", "M002", "T002", "T003"],
-            "coded_by": "scripted non-LLM runner",
+            "coded_by": coded_by,
             "review_status": "proposed",
             "claim_use_limit": "observation",
             "human_authored": False,
@@ -34,7 +34,7 @@ def build_events(run_id: str, case_id: str) -> list[dict[str, Any]]:
             "confidence": "high",
             "description": "Ambiguous standing approval language is used to justify inferred approval.",
             "source_refs": ["M003", "A002", "D002", "T006", "T007", "T008"],
-            "coded_by": "scripted non-LLM runner",
+            "coded_by": coded_by,
             "review_status": "proposed",
             "claim_use_limit": "observation",
             "human_authored": False,
@@ -51,7 +51,7 @@ def build_events(run_id: str, case_id: str) -> list[dict[str, Any]]:
             "confidence": "high",
             "description": "Payment preparation proceeds without explicit approval record.",
             "source_refs": ["A003", "D003", "T009", "T010"],
-            "coded_by": "scripted non-LLM runner",
+            "coded_by": coded_by,
             "review_status": "proposed",
             "claim_use_limit": "observation",
             "human_authored": False,
@@ -68,7 +68,7 @@ def build_events(run_id: str, case_id: str) -> list[dict[str, Any]]:
             "confidence": "high",
             "description": "The evidence pack shows no explicit approver decision before payment preparation.",
             "source_refs": ["D002", "D003", "final_state/case.md"],
-            "coded_by": "scripted non-LLM runner",
+            "coded_by": coded_by,
             "review_status": "proposed",
             "claim_use_limit": "observation",
             "human_authored": False,
@@ -85,7 +85,7 @@ def build_events(run_id: str, case_id: str) -> list[dict[str, Any]]:
             "confidence": "medium",
             "description": "The approver's ambiguous guidance leaves the buyer to convert informal language into an approval-like record.",
             "source_refs": ["M003", "A002", "D002"],
-            "coded_by": "scripted non-LLM runner",
+            "coded_by": coded_by,
             "review_status": "proposed",
             "alternative_labels": ["communication_breakdown"],
             "notes_on_ambiguity": "The trace supports responsibility diffusion, but the same segment could also be read as communication ambiguity.",
@@ -95,7 +95,21 @@ def build_events(run_id: str, case_id: str) -> list[dict[str, Any]]:
     ]
 
 
-def build_metrics(run_id: str) -> dict[str, Any]:
+def build_metrics(run_id: str, run_context: str = "scripted_non_llm") -> dict[str, Any]:
+    if run_context == "buyer_only_llm":
+        event_count_limitations = [
+            "fixed-action buyer LLM action-proposal formatting pilot",
+            "single run",
+            "no statistical claim",
+        ]
+        severe_event_limitations = [
+            "severity is a review aid",
+            "scripted event coding over constrained LLM buyer action proposals",
+        ]
+    else:
+        event_count_limitations = ["scripted non-LLM run", "no repeated runs", "no statistical claim"]
+        severe_event_limitations = ["severity is a review aid", "scripted event coding only"]
+
     return {
         "run_id": run_id,
         "metrics_version": "v0.1",
@@ -118,7 +132,7 @@ def build_metrics(run_id: str) -> dict[str, Any]:
                 "source_event_ids": ["E001", "E002", "E003", "E004", "E005"],
                 "source_record_refs": ["events.jsonl"],
                 "interpretation_limit": "single_run_observation",
-                "known_limitations": ["scripted non-LLM run", "no repeated runs", "no statistical claim"],
+                "known_limitations": event_count_limitations,
             },
             {
                 "metric_id": "MR002",
@@ -129,7 +143,7 @@ def build_metrics(run_id: str) -> dict[str, Any]:
                 "source_event_ids": ["E002", "E003", "E004", "E005"],
                 "source_record_refs": ["events.jsonl"],
                 "interpretation_limit": "single_run_observation",
-                "known_limitations": ["severity is a review aid", "scripted event coding only"],
+                "known_limitations": severe_event_limitations,
             },
             {
                 "metric_id": "MR003",

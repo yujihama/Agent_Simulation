@@ -53,6 +53,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - M03 buyer+approver+accountant coordination pilot review: [pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/review.md](pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/review.md)
 - M04 buyer+approver+accountant+vendor full-path pilot protocol v0.1: [protocols/multi-role/m04-buyer-approver-accountant-vendor-pilot-v0.1.md](protocols/multi-role/m04-buyer-approver-accountant-vendor-pilot-v0.1.md)
 - M04 buyer+approver+accountant+vendor full-path pilot result: [pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/summary.md](pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/summary.md)
+- M04 buyer+approver+accountant+vendor full-path pilot review: [pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/review.md](pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/review.md)
+- Requester free-choice action prompt template v0.1: [prompts/org-payment/requester-free-choice-action-v0.1.md](prompts/org-payment/requester-free-choice-action-v0.1.md)
+- M05 full org-payment multi-role pilot protocol v0.1: [protocols/multi-role/m05-full-org-payment-pilot-v0.1.md](protocols/multi-role/m05-full-org-payment-pilot-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -80,6 +83,7 @@ The project should be built up in small decision-oriented pull requests:
 20. P8 M03 execution bundle: execute the frozen S04 buyer+approver+accountant coordination pilot without changing protocol conditions.
 21. P8 M03 review and M04 protocol bundle: review M03 and freeze the buyer+approver+accountant+vendor full-path pilot protocol without executing M04.
 22. P8 M04 execution bundle: execute the frozen S04 buyer+approver+accountant+vendor full-path pilot without changing protocol conditions.
+23. P8 M04 review and M05 protocol bundle: review M04 and freeze the requester+vendor+buyer+approver+accountant pilot protocol without executing M05.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -360,3 +364,15 @@ Reference M04 pilot output:
 - Representative validation output: [path-001.md](pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/representative-validation-outputs/path-001.md)
 
 Under the frozen M04 artificial organization protocol, vendor+buyer+approver+accountant LLM pilot runs produced recorded full role paths, parser outcomes, GM decisions, validation outcomes, pressure-citation observations, approval-evidence propagation observations, and coordination-gap observations. M04 remains a full-path pilot, not a multi-role baseline. It does not support pressure-causation, pressure-propagation proof, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, or operational claims.
+
+## M04 Review and M05 Full Org-Payment Protocol
+
+The M04 review is recorded in [pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/review.md](pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/review.md).
+
+The review records that M04 established mechanically valid vendor+buyer+approver+accountant full-path evidence generation, with 5 attempted runs, 5 accepted runs, 0 exclusions, no parser failures, no validation failures, and no rejected or invalid proposals. Vendor selected `apply_deadline_pressure` in all 5 runs, buyer selected `request_approval`, approver selected `approve_payment`, buyer handed off with `submit_payment_request`, and accountant selected `prepare_payment`. No ambiguous approval, evidence-gap, approval-bypass, or responsibility-diffusion path was observed.
+
+The checkpoint decision is to advance to M05 requester+vendor+buyer+approver+accountant protocol. The M05 protocol is frozen in [protocols/multi-role/m05-full-org-payment-pilot-v0.1.md](protocols/multi-role/m05-full-org-payment-pilot-v0.1.md). M05 is S04 only, 5 attempted runs, requester + vendor + buyer + approver + accountant LLM-controlled, deterministic menu-aware Game Master, OpenAI `gpt-4.1-mini`, generated/proposed event labels only, and claim boundary `multi_role_full_org_payment_pilot_observation_only`.
+
+The requester prompt template is [prompts/org-payment/requester-free-choice-action-v0.1.md](prompts/org-payment/requester-free-choice-action-v0.1.md). It instructs the requester not to simulate other roles, bypass the Game Master, fabricate evidence, or represent urgency as approval evidence.
+
+This protocol-freeze step does not execute M05 and does not add M05 results. It does not make requester-framing causation, pressure-causation, pressure-propagation, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, model comparison, or multi-role baseline claims.

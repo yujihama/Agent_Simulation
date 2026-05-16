@@ -21,6 +21,10 @@ from social_sim.multi_role_baseline_runner import CLAIM_BOUNDARY as BASELINE_CLA
 from social_sim.multi_role_baseline_runner import EXPERIMENT_ID, PROTOCOL_REF as BASELINE_PROTOCOL_REF
 from social_sim.multi_role_baseline_runner import run_multi_role_baseline
 from social_sim.multi_role_sweep_runner import CLAIM_BOUNDARY, PROTOCOL_REF, SCENARIO_IDS, SWEEP_ID, run_multi_role_scenario_sweep_pilot
+from social_sim.sensitivity_runner import CLAIM_BOUNDARY as SENSITIVITY_CLAIM_BOUNDARY
+from social_sim.sensitivity_runner import EXPERIMENT_ID as SENSITIVITY_EXPERIMENT_ID
+from social_sim.sensitivity_runner import PROTOCOL_REF as SENSITIVITY_PROTOCOL_REF
+from social_sim.sensitivity_runner import run_provider_randomness_sensitivity
 
 
 TARGET_ROLES_BY_ACTION_ID = {
@@ -270,6 +274,56 @@ class MultiRoleScenarioSweepTest(unittest.TestCase):
             summary = (results_output / "summary.md").read_text(encoding="utf-8")
             self.assertIn("EXP-0002", summary)
             self.assertIn("does not support scenario-causation", summary)
+
+    def test_provider_randomness_sensitivity_adds_exp_0002_comparison(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            raw_output = tmp_path / "runs" / "provider-randomness"
+            results_output = tmp_path / "results" / "provider-randomness"
+            baseline_path = ROOT / "results" / "org-payment" / "exp-0002-multi-role-baseline" / "aggregate.json"
+            run_provider_randomness_sensitivity(
+                output_root=raw_output,
+                results_output=results_output,
+                count_per_scenario=1,
+                baseline_aggregate_path=baseline_path,
+                requester_provider=SweepRoleStubProvider(
+                    "requester",
+                    {"A001": ["send_message", "request_approval", "escalate", "send_message", "request_approval", "escalate"]},
+                ),
+                vendor_provider=SweepRoleStubProvider(
+                    "vendor",
+                    {"A002": ["apply_deadline_pressure", "request_payment_status", "offer_flexible_timing", "signal_service_continuity_risk", "escalate_vendor_pressure", "apply_deadline_pressure"]},
+                ),
+                buyer_provider=SweepRoleStubProvider(
+                    "buyer",
+                    {
+                        "A003": ["request_approval", "request_approval_status", "escalate", "request_approval", "request_approval", "request_approval_status"],
+                        "A005": ["submit_payment_request", "hold_payment", "request_more_evidence", "mark_approval_inferred", "escalate", "submit_payment_request"],
+                    },
+                ),
+                approver_provider=SweepRoleStubProvider(
+                    "approver",
+                    {"A004": ["approve_payment", "request_more_evidence", "provide_ambiguous_guidance", "reject_payment", "escalate", "approve_payment"]},
+                ),
+                accountant_provider=SweepRoleStubProvider(
+                    "accountant",
+                    {"A006": ["prepare_payment", "hold_payment", "request_more_evidence", "authorize_exception_review", "escalate", "prepare_payment"]},
+                ),
+            )
+
+            aggregate = load_json(results_output / "aggregate.json")
+            manifest = load_json(results_output / "execution-manifest.json")
+            self.assertEqual(aggregate["experiment_id"], SENSITIVITY_EXPERIMENT_ID)
+            self.assertEqual(aggregate["protocol_ref"], SENSITIVITY_PROTOCOL_REF)
+            self.assertEqual(aggregate["claim_boundary"], SENSITIVITY_CLAIM_BOUNDARY)
+            self.assertEqual(manifest["replacement_policy"], "excluded runs are not replaced in EXP-0004")
+            self.assertEqual(aggregate["comparison_to_exp_0002"]["baseline_experiment_id"], EXPERIMENT_ID)
+            self.assertEqual(aggregate["comparison_to_exp_0002"]["sensitivity_runs_per_scenario"], 1)
+            self.assertTrue((results_output / "comparison-table.csv").exists())
+            self.assertTrue((results_output / "claim-boundary-review.md").exists())
+            summary = (results_output / "summary.md").read_text(encoding="utf-8")
+            self.assertIn("provider-randomness", summary)
+            self.assertIn("does not support model comparison", summary)
 
 
 if __name__ == "__main__":

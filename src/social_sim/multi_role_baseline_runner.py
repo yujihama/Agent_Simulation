@@ -69,6 +69,16 @@ def run_multi_role_baseline(
     accountant_provider: LLMProvider | None = None,
     batch_id: str = DEFAULT_BASELINE_BATCH_ID,
     count_per_scenario: int = DEFAULT_COUNT_PER_SCENARIO,
+    experiment_id: str = EXPERIMENT_ID,
+    protocol_id: str = PROTOCOL_ID,
+    protocol_ref: str = PROTOCOL_REF,
+    claim_boundary: str = CLAIM_BOUNDARY,
+    scenario_status: str = "generated_exp_0002_multi_role_baseline_reference",
+    scenario_step: str = "EXP-0002 multi-role controlled baseline execution",
+    run_label: str = "EXP-0002 multi-role baseline",
+    runner_label: str = "EXP-0002 multi-role baseline runner",
+    scope_limit: str = "multi-role baseline observation only; no statistical, causal, human, or real-world claim",
+    replacement_policy: str = "excluded runs are not replaced in EXP-0002 unless a later protocol revision freezes a replacement policy",
 ) -> Path:
     requester_provider = requester_provider or provider
     vendor_provider = vendor_provider or provider
@@ -103,13 +113,13 @@ def run_multi_role_baseline(
                     approver_provider=approver_provider,
                     accountant_provider=accountant_provider,
                     scenario_id=scenario_id,
-                    claim_boundary=CLAIM_BOUNDARY,
-                    protocol_ref=PROTOCOL_REF,
-                    scenario_status="generated_exp_0002_multi_role_baseline_reference",
-                    scenario_step="EXP-0002 multi-role controlled baseline execution",
-                    run_label="EXP-0002 multi-role baseline",
-                    runner_label="EXP-0002 multi-role baseline runner",
-                    scope_limit="multi-role baseline observation only; no statistical, causal, human, or real-world claim",
+                    claim_boundary=claim_boundary,
+                    protocol_ref=protocol_ref,
+                    scenario_status=scenario_status,
+                    scenario_step=scenario_step,
+                    run_label=run_label,
+                    runner_label=runner_label,
+                    scope_limit=scope_limit,
                 )
                 report = validate_pack(pack_dir)
                 write_text(run_root / "validation-output.md", report.as_markdown())
@@ -134,6 +144,11 @@ def run_multi_role_baseline(
         completed_at=completed_at,
         records=records,
         exclusions=exclusions,
+        experiment_id=experiment_id,
+        protocol_id=protocol_id,
+        protocol_ref=protocol_ref,
+        claim_boundary=claim_boundary,
+        replacement_policy=replacement_policy,
     )
     aggregate = build_baseline_aggregate(
         requester_provider=requester_provider,
@@ -147,6 +162,11 @@ def run_multi_role_baseline(
         exclusions=exclusions,
         representatives=representatives,
         execution_manifest=execution_manifest,
+        experiment_id=experiment_id,
+        protocol_id=protocol_id,
+        protocol_ref=protocol_ref,
+        claim_boundary=claim_boundary,
+        scope_limit=scope_limit,
     )
     write_json(results_output / "execution-manifest.json", execution_manifest)
     write_json(results_output / "aggregate.json", aggregate)
@@ -209,12 +229,17 @@ def build_baseline_execution_manifest(
     completed_at: str,
     records: list[SweepRunRecord],
     exclusions: list[SweepExcludedRunRecord],
+    experiment_id: str = EXPERIMENT_ID,
+    protocol_id: str = PROTOCOL_ID,
+    protocol_ref: str = PROTOCOL_REF,
+    claim_boundary: str = CLAIM_BOUNDARY,
+    replacement_policy: str = "excluded runs are not replaced in EXP-0002 unless a later protocol revision freezes a replacement policy",
 ) -> dict[str, Any]:
     return {
-        "experiment_id": EXPERIMENT_ID,
-        "protocol_id": PROTOCOL_ID,
+        "experiment_id": experiment_id,
+        "protocol_id": protocol_id,
         "batch_id": batch_id,
-        "protocol_ref": PROTOCOL_REF,
+        "protocol_ref": protocol_ref,
         "scenario_set": SCENARIO_IDS,
         "runs_per_scenario": count_per_scenario,
         "total_planned_attempted_runs": count_per_scenario * len(SCENARIO_IDS),
@@ -226,9 +251,9 @@ def build_baseline_execution_manifest(
         "provider": m05_provider_label(requester_provider, vendor_provider, buyer_provider, approver_provider, accountant_provider),
         "model": m05_model_label(requester_provider, vendor_provider, buyer_provider, approver_provider, accountant_provider),
         "observed_model_versions": sorted({version for record in records for version in record.inner.model_versions}),
-        "replacement_policy": "excluded runs are not replaced in EXP-0002 unless a later protocol revision freezes a replacement policy",
+        "replacement_policy": replacement_policy,
         "exclusions": [exclusion_to_dict(exclusion) for exclusion in exclusions],
-        "claim_boundary": CLAIM_BOUNDARY,
+        "claim_boundary": claim_boundary,
     }
 
 
@@ -245,14 +270,19 @@ def build_baseline_aggregate(
     exclusions: list[SweepExcludedRunRecord],
     representatives: list[dict[str, str]],
     execution_manifest: dict[str, Any],
+    experiment_id: str = EXPERIMENT_ID,
+    protocol_id: str = PROTOCOL_ID,
+    protocol_ref: str = PROTOCOL_REF,
+    claim_boundary: str = CLAIM_BOUNDARY,
+    scope_limit: str = "multi-role baseline observation only",
 ) -> dict[str, Any]:
     by_scenario = {scenario_id: [record for record in records if record.scenario_id == scenario_id] for scenario_id in SCENARIO_IDS}
     exclusions_by_scenario = {scenario_id: [exclusion for exclusion in exclusions if exclusion.scenario_id == scenario_id] for scenario_id in SCENARIO_IDS}
     return {
-        "experiment_id": EXPERIMENT_ID,
-        "protocol_id": PROTOCOL_ID,
+        "experiment_id": experiment_id,
+        "protocol_id": protocol_id,
         "batch_id": batch_id,
-        "protocol_ref": PROTOCOL_REF,
+        "protocol_ref": protocol_ref,
         "scenario_set": SCENARIO_IDS,
         "runs_per_scenario": count_per_scenario,
         "attempted_runs": count_per_scenario * len(SCENARIO_IDS),
@@ -277,7 +307,7 @@ def build_baseline_aggregate(
             "buyer_accounting_handoff": BUYER_ACCOUNTING_HANDOFF_MENU_ID,
             "accountant": ACCOUNTANT_ACTION_MENU_ID,
         },
-        "claim_boundary": CLAIM_BOUNDARY,
+        "claim_boundary": claim_boundary,
         "scenarios": {
             scenario_id: baseline_scenario_aggregate(
                 scenario_id=scenario_id,
@@ -296,7 +326,7 @@ def build_baseline_aggregate(
         "representative_evidence_packs": representatives,
         "execution_manifest": "execution-manifest.json",
         "limitations": [
-            "multi-role baseline observation only",
+            scope_limit,
             "S01-S06 only",
             f"{count_per_scenario} attempted runs per scenario before exclusions",
             "deterministic/rule-based Game Master",
@@ -411,7 +441,8 @@ def render_baseline_summary(aggregate: dict[str, Any]) -> str:
         f"- `{item['scenario_id']}` {item['label']}: [{item['evidence_pack']}]({item['evidence_pack']}) / [{item['validation_output']}]({item['validation_output']})"
         for item in aggregate["representative_evidence_packs"]
     ) or "- none"
-    return f"""# EXP-0002 Multi-Role Baseline Summary
+    title = "EXP-0002 Multi-Role Baseline Summary" if aggregate["experiment_id"] == EXPERIMENT_ID else f"{aggregate['experiment_id']} Multi-Role Run Summary"
+    return f"""# {title}
 
 Protocol reference: `{aggregate['protocol_ref']}`
 Scenario set: `{', '.join(aggregate['scenario_set'])}`
@@ -446,9 +477,9 @@ Representative scenario-level action, parser, Game Master, proposed event, reque
 
 ## Claim Boundary
 
-Under the frozen EXP-0002 artificial organization protocol, multi-role LLM runs produced the recorded full org-payment action paths, parser outcomes, Game Master decisions, validation outcomes, proposed event observations, requester-framing observations, pressure-citation observations, approval-evidence propagation observations, and coordination-gap observations across S01-S06.
+Under the frozen {aggregate['experiment_id']} artificial organization protocol, multi-role LLM runs produced the recorded full org-payment action paths, parser outcomes, Game Master decisions, validation outcomes, proposed event observations, requester-framing observations, pressure-citation observations, approval-evidence propagation observations, and coordination-gap observations across S01-S06.
 
-This result is bounded to `multi_role_baseline_observation_only`. It does not support scenario-causation, requester-framing causation, pressure-causation, pressure-propagation proof, responsibility-diffusion, approval-bypass, statistical significance, human behavior, real-world organization, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.
+This result is bounded to `{aggregate['claim_boundary']}`. It does not support scenario-causation, requester-framing causation, pressure-causation, pressure-propagation proof, responsibility-diffusion, approval-bypass, statistical significance, human behavior, real-world organization, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.
 
 ## Limitations
 

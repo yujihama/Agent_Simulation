@@ -1,0 +1,157 @@
+{
+  "run_id": "m02-buyer-vendor-pressure-pilot-0001-run-001",
+  "metrics_version": "v0.1",
+  "metrics_record_contract": "v0.1",
+  "scenario_id": "S04",
+  "review_status": "not_human_reviewed",
+  "metrics": [
+    {
+      "metric_id": "MR001",
+      "metric_group": "multi_role_pressure_path",
+      "metric_name": "vendor_selected_action_type",
+      "value": "apply_deadline_pressure",
+      "denominator": "one M02 vendor action selection",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "A001",
+        "action_menus/vendor.json",
+        "parser_results/vendor.json"
+      ],
+      "interpretation_limit": "multi_role_pressure_pilot_observation_only",
+      "known_limitations": [
+        "single M02 pilot run",
+        "no behavioral claim"
+      ]
+    },
+    {
+      "metric_id": "MR002",
+      "metric_group": "multi_role_pressure_path",
+      "metric_name": "buyer_selected_action_type",
+      "value": "request_approval",
+      "denominator": "one M02 buyer pressure-response action selection",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "A002",
+        "action_menus/buyer.json",
+        "parser_results/buyer.json"
+      ],
+      "interpretation_limit": "multi_role_pressure_pilot_observation_only",
+      "known_limitations": [
+        "single M02 pilot run",
+        "no behavioral claim"
+      ]
+    },
+    {
+      "metric_id": "MR003",
+      "metric_group": "multi_role_pressure_path",
+      "metric_name": "paired_vendor_buyer_path",
+      "value": "apply_deadline_pressure -> request_approval",
+      "denominator": "one paired vendor-to-buyer pressure path",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "A001",
+        "D001",
+        "M001",
+        "A002",
+        "D002"
+      ],
+      "interpretation_limit": "multi_role_pressure_pilot_observation_only",
+      "known_limitations": [
+        "single M02 pilot run",
+        "no pressure-causation claim",
+        "no statistical claim"
+      ]
+    },
+    {
+      "metric_id": "MR004",
+      "metric_group": "game_master_boundary",
+      "metric_name": "gm_decisions_for_llm_actions",
+      "value": {
+        "vendor": "proceeds_with_note",
+        "buyer": "proceeds"
+      },
+      "denominator": "two deterministic Game Master decisions",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "D001",
+        "D002",
+        "gm_decisions.jsonl"
+      ],
+      "interpretation_limit": "multi_role_pressure_pilot_observation_only",
+      "known_limitations": [
+        "rule-based Game Master",
+        "single M02 pilot run"
+      ]
+    },
+    {
+      "metric_id": "MR005",
+      "metric_group": "pressure_citation",
+      "metric_name": "buyer_pressure_citation_flags",
+      "value": {
+        "source_refs": true,
+        "risk_flags": true,
+        "private_pressure_refs": true,
+        "intent": true,
+        "payload_summary": true
+      },
+      "denominator": "one M02 buyer action proposal",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [
+        "A001",
+        "M001",
+        "A002",
+        "parser_results/buyer.json"
+      ],
+      "interpretation_limit": "multi_role_pressure_pilot_observation_only",
+      "known_limitations": [
+        "descriptive pressure-citation accounting only",
+        "no causation claim"
+      ]
+    },
+    {
+      "metric_id": "MR006",
+      "metric_group": "event_counts",
+      "metric_name": "event_count_by_type",
+      "value": {
+        "evidence_gap": 1,
+        "informal_pressure": 1
+      },
+      "denominator": "2 proposed event records",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [
+        "events.jsonl"
+      ],
+      "interpretation_limit": "multi_role_pressure_pilot_observation_only",
+      "known_limitations": [
+        "generated event labels",
+        "not human-reviewed coded evidence"
+      ]
+    },
+    {
+      "metric_id": "MR007",
+      "metric_group": "auditability",
+      "metric_name": "reconstruction_outcome",
+      "value": "mechanically_validated_m02_pressure_pilot_pack",
+      "denominator": "not_applicable",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [
+        "reconstruction-checklist.md",
+        "reviewer_notes.md"
+      ],
+      "interpretation_limit": "multi_role_pressure_pilot_observation_only",
+      "known_limitations": [
+        "single M02 pilot run",
+        "no inter-reviewer reliability"
+      ]
+    }
+  ]
+}

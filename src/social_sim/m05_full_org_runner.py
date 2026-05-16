@@ -1264,16 +1264,19 @@ def approval_evidence_propagation_flags(actions: list[dict[str, Any]], decisions
     buyer_handoff = actions[4]
     accountant = actions[5]
     explicit_approval = approver["action_type"] == "approve_payment"
+    explicit_absent = not explicit_approval
+    ambiguous_guidance = approver["action_type"] == "provide_ambiguous_guidance"
     handoff_refs = set(buyer_handoff.get("source_refs", []))
     accountant_refs = set(accountant.get("source_refs", []))
     return {
         "buyer_handoff_cited_approver_action": "A004" in handoff_refs,
         "buyer_handoff_cited_approver_gm_decision": "D004" in handoff_refs,
-        "buyer_handoff_represented_explicit_approval_correctly": explicit_approval and buyer_handoff["action_type"] in {"submit_payment_request", "request_more_evidence", "hold_payment", "escalate"} or (not explicit_approval and buyer_handoff["action_type"] != "submit_payment_request"),
-        "buyer_handoff_represented_ambiguous_guidance_as_ambiguous": approver["action_type"] != "provide_ambiguous_guidance" or buyer_handoff["action_type"] != "submit_payment_request",
+        "buyer_handoff_represented_explicit_approval_correctly": explicit_approval and bool(handoff_refs & {"A004", "D004", "M004"}),
+        "buyer_handoff_represented_ambiguous_guidance_as_ambiguous": ambiguous_guidance and buyer_handoff["action_type"] != "submit_payment_request",
         "accountant_cited_buyer_handoff": bool(accountant_refs & {"A005", "D005", "M005"}),
         "accountant_cited_approver_action_or_decision": bool(accountant_refs & {"A004", "D004", "M004"}),
-        "accountant_preserved_approval_gap_when_explicit_approval_absent": explicit_approval or accountant["action_type"] != "prepare_payment" or decisions[5]["decision"] == "proceeds_with_note",
+        "accountant_preserved_approval_gap_when_explicit_approval_absent": explicit_absent
+        and (accountant["action_type"] != "prepare_payment" or decisions[5]["decision"] == "proceeds_with_note"),
     }
 
 

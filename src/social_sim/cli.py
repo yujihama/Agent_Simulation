@@ -10,6 +10,8 @@ from .m02_pressure_runner import run_m02_buyer_vendor_pressure_pilot
 from .m03_coordination_runner import run_m03_coordination_pilot
 from .m04_full_role_runner import run_m04_full_role_pilot
 from .m05_full_org_runner import run_m05_full_org_payment_pilot
+from .multi_role_baseline_runner import DEFAULT_BASELINE_BATCH_ID as DEFAULT_MULTI_ROLE_BASELINE_BATCH_ID
+from .multi_role_baseline_runner import run_multi_role_baseline
 from .multi_role_sweep_runner import DEFAULT_SWEEP_BATCH_ID as DEFAULT_MULTI_ROLE_SWEEP_BATCH_ID
 from .multi_role_sweep_runner import run_multi_role_scenario_sweep_pilot
 from .multirole_runner import run_m01_buyer_approver_pilot
@@ -326,6 +328,39 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="Optional dotenv file containing OPENAI_API_KEY.",
     )
+    multi_role_baseline = subparsers.add_parser(
+        "execute-multi-role-baseline",
+        help="Execute frozen EXP-0002 requester+vendor+buyer+approver+accountant baseline and write curated results.",
+    )
+    multi_role_baseline.add_argument(
+        "--output",
+        required=True,
+        type=Path,
+        help="Raw baseline output directory under ignored runs/. Must be new or empty.",
+    )
+    multi_role_baseline.add_argument(
+        "--results-output",
+        required=True,
+        type=Path,
+        help="Curated baseline result directory. Must be new or empty.",
+    )
+    multi_role_baseline.add_argument(
+        "--count-per-scenario",
+        default=5,
+        type=int,
+        help="Number of attempted runs per scenario before exclusions. Defaults to 5.",
+    )
+    multi_role_baseline.add_argument(
+        "--batch-id",
+        default=DEFAULT_MULTI_ROLE_BASELINE_BATCH_ID,
+        help="Stable batch id prefix used for per-run ids.",
+    )
+    multi_role_baseline.add_argument(
+        "--dotenv",
+        default=Path(".env"),
+        type=Path,
+        help="Optional dotenv file containing OPENAI_API_KEY.",
+    )
 
     args = parser.parse_args(argv)
     if args.command == "generate-s04":
@@ -491,6 +526,23 @@ def main(argv: list[str] | None = None) -> int:
             batch_id=args.batch_id,
         )
         print(curated_output)
+        return 0
+    if args.command == "execute-multi-role-baseline":
+        output = args.output
+        results_output = args.results_output
+        if output.exists() and any(output.iterdir()):
+            parser.error(f"output directory is not empty: {output}")
+        if results_output.exists() and any(results_output.iterdir()):
+            parser.error(f"results output directory is not empty: {results_output}")
+        provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model="gpt-4.1-mini")
+        run_multi_role_baseline(
+            output_root=output,
+            results_output=results_output,
+            provider=provider,
+            count_per_scenario=args.count_per_scenario,
+            batch_id=args.batch_id,
+        )
+        print(results_output)
         return 0
 
     parser.error(f"unknown command: {args.command}")

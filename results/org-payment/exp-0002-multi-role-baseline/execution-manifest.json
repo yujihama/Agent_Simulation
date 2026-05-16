@@ -1,0 +1,29 @@
+{
+  "experiment_id": "EXP-0002",
+  "protocol_id": "multi-role-baseline-v0.1",
+  "batch_id": "exp-0002-multi-role-baseline",
+  "protocol_ref": "protocols/baseline/multi-role-baseline-v0.1.md",
+  "scenario_set": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06"
+  ],
+  "runs_per_scenario": 5,
+  "total_planned_attempted_runs": 30,
+  "started_at": "2026-05-16T17:28:39Z",
+  "completed_at": "2026-05-16T17:42:22Z",
+  "attempted_runs": 30,
+  "accepted_runs": 30,
+  "excluded_runs": 0,
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "observed_model_versions": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "replacement_policy": "excluded runs are not replaced in EXP-0002 unless a later protocol revision freezes a replacement policy",
+  "exclusions": [],
+  "claim_boundary": "multi_role_baseline_observation_only"
+}

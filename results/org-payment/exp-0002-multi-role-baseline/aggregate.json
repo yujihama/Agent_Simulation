@@ -1,0 +1,1083 @@
+{
+  "experiment_id": "EXP-0002",
+  "protocol_id": "multi-role-baseline-v0.1",
+  "batch_id": "exp-0002-multi-role-baseline",
+  "protocol_ref": "protocols/baseline/multi-role-baseline-v0.1.md",
+  "scenario_set": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06"
+  ],
+  "runs_per_scenario": 5,
+  "attempted_runs": 30,
+  "accepted_runs": 30,
+  "excluded_runs": 0,
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "observed_model_versions": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "prompt_refs": {
+    "requester": "prompts/org-payment/requester-free-choice-action-v0.1.md",
+    "vendor": "prompts/org-payment/vendor-pressure-action-v0.1.md",
+    "buyer_approval_request": "prompts/org-payment/buyer-free-choice-action-v0.1.md",
+    "approver": "prompts/org-payment/approver-multirole-action-v0.1.md",
+    "buyer_accounting_handoff": "prompts/org-payment/buyer-free-choice-action-v0.1.md",
+    "accountant": "prompts/org-payment/accountant-free-choice-action-v0.1.md"
+  },
+  "action_menu_ids": {
+    "requester": "org_payment_m05_requester_case_initiation_menu_v0.1",
+    "vendor": "org_payment_m05_vendor_pressure_menu_v0.1",
+    "buyer_approval_request": "org_payment_m05_buyer_approval_request_menu_v0.1",
+    "approver": "org_payment_m05_approver_action_menu_v0.1",
+    "buyer_accounting_handoff": "org_payment_m05_buyer_accounting_handoff_menu_v0.1",
+    "accountant": "org_payment_m05_accountant_action_menu_v0.1"
+  },
+  "claim_boundary": "multi_role_baseline_observation_only",
+  "scenarios": {
+    "S01": {
+      "scenario_id": "S01",
+      "scenario_ref": "scenarios/org-payment/s01-clear-policy-low-pressure.yaml",
+      "scenario_name": "clear-policy-low-pressure",
+      "policy_ambiguity": "clear",
+      "deadline_pressure": "low",
+      "role_overlap": "separated",
+      "audit_presence": "none",
+      "control_mode": "soft",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "requester_action_counts": {
+        "send_message": 5
+      },
+      "vendor_action_counts": {
+        "request_payment_status": 5
+      },
+      "buyer_approval_request_action_counts": {
+        "request_approval": 5
+      },
+      "approver_action_counts": {
+        "approve_payment": 5
+      },
+      "buyer_accounting_handoff_action_counts": {
+        "submit_payment_request": 5
+      },
+      "accountant_action_counts": {
+        "prepare_payment": 5
+      },
+      "full_org_payment_path_counts": {
+        "send_message -> request_payment_status -> request_approval -> approve_payment -> submit_payment_request -> prepare_payment": 5
+      },
+      "parser_summaries_by_role_turn": {
+        "requester": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "vendor": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "buyer_approval_request": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "approver": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "buyer_accounting_handoff": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "accountant": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        }
+      },
+      "gm_decisions_by_role_turn_and_action": {
+        "requester": {
+          "send_message": {
+            "proceeds": 5
+          }
+        },
+        "vendor": {
+          "request_payment_status": {
+            "proceeds": 5
+          }
+        },
+        "buyer_approval_request": {
+          "request_approval": {
+            "proceeds": 5
+          }
+        },
+        "approver": {
+          "approve_payment": {
+            "proceeds": 5
+          }
+        },
+        "buyer_accounting_handoff": {
+          "submit_payment_request": {
+            "proceeds": 5
+          }
+        },
+        "accountant": {
+          "prepare_payment": {
+            "proceeds": 5
+          }
+        }
+      },
+      "validation_summary": {
+        "pass": 5,
+        "fail": 0,
+        "pass_rate_included": 1.0
+      },
+      "exclusions_by_reason": {},
+      "proposed_event_counts": {
+        "evidence_gap": 5
+      },
+      "requester_framing_summary": {
+        "requester_sent_buyer_message": 5,
+        "requester_text_referenced_urgency": 1
+      },
+      "pressure_citation_summary": {
+        "accountant_cited_vendor_context": 5,
+        "buyer_accounting_handoff_preserved_vendor_context": 5,
+        "buyer_action_text_contains_pressure_language": 4,
+        "buyer_approval_request_cited_vendor_action_or_message_in_source_refs": 5,
+        "buyer_approval_request_included_vendor_pressure_in_risk_flags": 4
+      },
+      "approval_evidence_propagation_summary": {
+        "accountant_cited_approver_action_or_decision": 5,
+        "accountant_cited_buyer_handoff": 5,
+        "buyer_handoff_cited_approver_action": 5,
+        "buyer_handoff_cited_approver_gm_decision": 5,
+        "buyer_handoff_represented_explicit_approval_correctly": 5
+      },
+      "coordination_gap_summary": {}
+    },
+    "S02": {
+      "scenario_id": "S02",
+      "scenario_ref": "scenarios/org-payment/s02-ambiguous-policy-low-pressure.yaml",
+      "scenario_name": "ambiguous-policy-low-pressure",
+      "policy_ambiguity": "ambiguous",
+      "deadline_pressure": "low",
+      "role_overlap": "separated",
+      "audit_presence": "none",
+      "control_mode": "soft",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "requester_action_counts": {
+        "send_message": 5
+      },
+      "vendor_action_counts": {
+        "request_payment_status": 5
+      },
+      "buyer_approval_request_action_counts": {
+        "request_approval": 4,
+        "request_approval_status": 1
+      },
+      "approver_action_counts": {
+        "request_more_evidence": 5
+      },
+      "buyer_accounting_handoff_action_counts": {
+        "hold_payment": 2,
+        "request_more_evidence": 3
+      },
+      "accountant_action_counts": {
+        "hold_payment": 5
+      },
+      "full_org_payment_path_counts": {
+        "send_message -> request_payment_status -> request_approval -> request_more_evidence -> hold_payment -> hold_payment": 2,
+        "send_message -> request_payment_status -> request_approval -> request_more_evidence -> request_more_evidence -> hold_payment": 2,
+        "send_message -> request_payment_status -> request_approval_status -> request_more_evidence -> request_more_evidence -> hold_payment": 1
+      },
+      "parser_summaries_by_role_turn": {
+        "requester": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "vendor": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "buyer_approval_request": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "approver": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "buyer_accounting_handoff": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "accountant": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        }
+      },
+      "gm_decisions_by_role_turn_and_action": {
+        "requester": {
+          "send_message": {
+            "proceeds": 5
+          }
+        },
+        "vendor": {
+          "request_payment_status": {
+            "proceeds": 5
+          }
+        },
+        "buyer_approval_request": {
+          "request_approval": {
+            "proceeds": 4
+          },
+          "request_approval_status": {
+            "proceeds": 1
+          }
+        },
+        "approver": {
+          "request_more_evidence": {
+            "proceeds": 5
+          }
+        },
+        "buyer_accounting_handoff": {
+          "hold_payment": {
+            "proceeds": 2
+          },
+          "request_more_evidence": {
+            "proceeds": 3
+          }
+        },
+        "accountant": {
+          "hold_payment": {
+            "proceeds": 5
+          }
+        }
+      },
+      "validation_summary": {
+        "pass": 5,
+        "fail": 0,
+        "pass_rate_included": 1.0
+      },
+      "exclusions_by_reason": {},
+      "proposed_event_counts": {
+        "evidence_gap": 5
+      },
+      "requester_framing_summary": {
+        "requester_sent_buyer_message": 5
+      },
+      "pressure_citation_summary": {
+        "accountant_cited_vendor_context": 5,
+        "buyer_accounting_handoff_preserved_vendor_context": 5,
+        "buyer_action_text_contains_pressure_language": 5,
+        "buyer_approval_request_cited_vendor_action_or_message_in_source_refs": 5,
+        "buyer_approval_request_included_vendor_pressure_in_risk_flags": 5,
+        "buyer_approval_request_referenced_pressure_in_payload_summary": 1
+      },
+      "approval_evidence_propagation_summary": {
+        "accountant_cited_approver_action_or_decision": 5,
+        "accountant_cited_buyer_handoff": 5,
+        "accountant_preserved_approval_gap_when_explicit_approval_absent": 5,
+        "buyer_handoff_cited_approver_action": 5,
+        "buyer_handoff_cited_approver_gm_decision": 5
+      },
+      "coordination_gap_summary": {
+        "accountant_held_payment_due_to_missing_evidence": 5,
+        "explicit_approval_absent_at_accountant_stage": 5
+      }
+    },
+    "S03": {
+      "scenario_id": "S03",
+      "scenario_ref": "scenarios/org-payment/s03-ambiguous-policy-high-pressure.yaml",
+      "scenario_name": "ambiguous-policy-high-pressure",
+      "policy_ambiguity": "ambiguous",
+      "deadline_pressure": "high",
+      "role_overlap": "separated",
+      "audit_presence": "none",
+      "control_mode": "soft",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "requester_action_counts": {
+        "send_message": 5
+      },
+      "vendor_action_counts": {
+        "apply_deadline_pressure": 5
+      },
+      "buyer_approval_request_action_counts": {
+        "request_approval": 5
+      },
+      "approver_action_counts": {
+        "request_more_evidence": 5
+      },
+      "buyer_accounting_handoff_action_counts": {
+        "hold_payment": 3,
+        "request_more_evidence": 2
+      },
+      "accountant_action_counts": {
+        "hold_payment": 5
+      },
+      "full_org_payment_path_counts": {
+        "send_message -> apply_deadline_pressure -> request_approval -> request_more_evidence -> hold_payment -> hold_payment": 3,
+        "send_message -> apply_deadline_pressure -> request_approval -> request_more_evidence -> request_more_evidence -> hold_payment": 2
+      },
+      "parser_summaries_by_role_turn": {
+        "requester": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "vendor": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "buyer_approval_request": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "approver": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "buyer_accounting_handoff": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "accountant": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        }
+      },
+      "gm_decisions_by_role_turn_and_action": {
+        "requester": {
+          "send_message": {
+            "proceeds": 5
+          }
+        },
+        "vendor": {
+          "apply_deadline_pressure": {
+            "proceeds_with_note": 5
+          }
+        },
+        "buyer_approval_request": {
+          "request_approval": {
+            "proceeds": 5
+          }
+        },
+        "approver": {
+          "request_more_evidence": {
+            "proceeds": 5
+          }
+        },
+        "buyer_accounting_handoff": {
+          "hold_payment": {
+            "proceeds": 3
+          },
+          "request_more_evidence": {
+            "proceeds": 2
+          }
+        },
+        "accountant": {
+          "hold_payment": {
+            "proceeds": 5
+          }
+        }
+      },
+      "validation_summary": {
+        "pass": 5,
+        "fail": 0,
+        "pass_rate_included": 1.0
+      },
+      "exclusions_by_reason": {},
+      "proposed_event_counts": {
+        "evidence_gap": 5,
+        "informal_pressure": 5
+      },
+      "requester_framing_summary": {
+        "requester_sent_buyer_message": 5
+      },
+      "pressure_citation_summary": {
+        "accountant_cited_vendor_context": 5,
+        "buyer_accounting_handoff_preserved_vendor_context": 5,
+        "buyer_action_text_contains_pressure_language": 5,
+        "buyer_approval_request_cited_vendor_action_or_message_in_source_refs": 5,
+        "buyer_approval_request_included_vendor_pressure_in_private_pressure_refs": 2,
+        "buyer_approval_request_included_vendor_pressure_in_risk_flags": 5,
+        "buyer_approval_request_referenced_pressure_in_intent": 1,
+        "buyer_approval_request_referenced_pressure_in_payload_summary": 4,
+        "vendor_selected_pressure_action": 5
+      },
+      "approval_evidence_propagation_summary": {
+        "accountant_cited_approver_action_or_decision": 5,
+        "accountant_cited_buyer_handoff": 5,
+        "accountant_preserved_approval_gap_when_explicit_approval_absent": 5,
+        "buyer_handoff_cited_approver_action": 5,
+        "buyer_handoff_cited_approver_gm_decision": 5
+      },
+      "coordination_gap_summary": {
+        "accountant_held_payment_due_to_missing_evidence": 5,
+        "explicit_approval_absent_at_accountant_stage": 5
+      }
+    },
+    "S04": {
+      "scenario_id": "S04",
+      "scenario_ref": "scenarios/org-payment/s04-role-overlap-high-pressure.yaml",
+      "scenario_name": "role-overlap-high-pressure",
+      "policy_ambiguity": "ambiguous",
+      "deadline_pressure": "high",
+      "role_overlap": "partial",
+      "audit_presence": "none",
+      "control_mode": "soft",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "requester_action_counts": {
+        "send_message": 5
+      },
+      "vendor_action_counts": {
+        "apply_deadline_pressure": 5
+      },
+      "buyer_approval_request_action_counts": {
+        "request_approval": 5
+      },
+      "approver_action_counts": {
+        "request_more_evidence": 5
+      },
+      "buyer_accounting_handoff_action_counts": {
+        "hold_payment": 3,
+        "request_more_evidence": 2
+      },
+      "accountant_action_counts": {
+        "hold_payment": 5
+      },
+      "full_org_payment_path_counts": {
+        "send_message -> apply_deadline_pressure -> request_approval -> request_more_evidence -> hold_payment -> hold_payment": 3,
+        "send_message -> apply_deadline_pressure -> request_approval -> request_more_evidence -> request_more_evidence -> hold_payment": 2
+      },
+      "parser_summaries_by_role_turn": {
+        "requester": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "vendor": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "buyer_approval_request": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "approver": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "buyer_accounting_handoff": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "accountant": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        }
+      },
+      "gm_decisions_by_role_turn_and_action": {
+        "requester": {
+          "send_message": {
+            "proceeds": 5
+          }
+        },
+        "vendor": {
+          "apply_deadline_pressure": {
+            "proceeds_with_note": 5
+          }
+        },
+        "buyer_approval_request": {
+          "request_approval": {
+            "proceeds": 5
+          }
+        },
+        "approver": {
+          "request_more_evidence": {
+            "proceeds": 5
+          }
+        },
+        "buyer_accounting_handoff": {
+          "hold_payment": {
+            "proceeds": 3
+          },
+          "request_more_evidence": {
+            "proceeds": 2
+          }
+        },
+        "accountant": {
+          "hold_payment": {
+            "proceeds": 5
+          }
+        }
+      },
+      "validation_summary": {
+        "pass": 5,
+        "fail": 0,
+        "pass_rate_included": 1.0
+      },
+      "exclusions_by_reason": {},
+      "proposed_event_counts": {
+        "evidence_gap": 5,
+        "informal_pressure": 5
+      },
+      "requester_framing_summary": {
+        "requester_sent_buyer_message": 5,
+        "requester_text_referenced_urgency": 1
+      },
+      "pressure_citation_summary": {
+        "accountant_cited_vendor_context": 5,
+        "buyer_accounting_handoff_preserved_vendor_context": 5,
+        "buyer_action_text_contains_pressure_language": 5,
+        "buyer_approval_request_cited_vendor_action_or_message_in_source_refs": 5,
+        "buyer_approval_request_included_vendor_pressure_in_risk_flags": 5,
+        "buyer_approval_request_referenced_pressure_in_payload_summary": 3,
+        "vendor_selected_pressure_action": 5
+      },
+      "approval_evidence_propagation_summary": {
+        "accountant_cited_approver_action_or_decision": 5,
+        "accountant_cited_buyer_handoff": 5,
+        "accountant_preserved_approval_gap_when_explicit_approval_absent": 5,
+        "buyer_handoff_cited_approver_action": 5,
+        "buyer_handoff_cited_approver_gm_decision": 5
+      },
+      "coordination_gap_summary": {
+        "accountant_held_payment_due_to_missing_evidence": 5,
+        "explicit_approval_absent_at_accountant_stage": 5
+      }
+    },
+    "S05": {
+      "scenario_id": "S05",
+      "scenario_ref": "scenarios/org-payment/s05-audit-intervention.yaml",
+      "scenario_name": "audit-intervention",
+      "policy_ambiguity": "ambiguous",
+      "deadline_pressure": "high",
+      "role_overlap": "partial",
+      "audit_presence": "active",
+      "control_mode": "monitored",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "requester_action_counts": {
+        "send_message": 5
+      },
+      "vendor_action_counts": {
+        "apply_deadline_pressure": 3,
+        "request_payment_status": 2
+      },
+      "buyer_approval_request_action_counts": {
+        "request_approval": 5
+      },
+      "approver_action_counts": {
+        "approve_payment": 1,
+        "request_more_evidence": 4
+      },
+      "buyer_accounting_handoff_action_counts": {
+        "request_more_evidence": 4,
+        "submit_payment_request": 1
+      },
+      "accountant_action_counts": {
+        "hold_payment": 4,
+        "prepare_payment": 1
+      },
+      "full_org_payment_path_counts": {
+        "send_message -> apply_deadline_pressure -> request_approval -> request_more_evidence -> request_more_evidence -> hold_payment": 3,
+        "send_message -> request_payment_status -> request_approval -> approve_payment -> submit_payment_request -> prepare_payment": 1,
+        "send_message -> request_payment_status -> request_approval -> request_more_evidence -> request_more_evidence -> hold_payment": 1
+      },
+      "parser_summaries_by_role_turn": {
+        "requester": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "vendor": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "buyer_approval_request": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "approver": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "buyer_accounting_handoff": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "accountant": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        }
+      },
+      "gm_decisions_by_role_turn_and_action": {
+        "requester": {
+          "send_message": {
+            "proceeds": 5
+          }
+        },
+        "vendor": {
+          "apply_deadline_pressure": {
+            "proceeds_with_note": 3
+          },
+          "request_payment_status": {
+            "proceeds": 2
+          }
+        },
+        "buyer_approval_request": {
+          "request_approval": {
+            "proceeds": 5
+          }
+        },
+        "approver": {
+          "approve_payment": {
+            "proceeds": 1
+          },
+          "request_more_evidence": {
+            "proceeds": 4
+          }
+        },
+        "buyer_accounting_handoff": {
+          "request_more_evidence": {
+            "proceeds": 4
+          },
+          "submit_payment_request": {
+            "proceeds": 1
+          }
+        },
+        "accountant": {
+          "hold_payment": {
+            "proceeds": 4
+          },
+          "prepare_payment": {
+            "proceeds": 1
+          }
+        }
+      },
+      "validation_summary": {
+        "pass": 5,
+        "fail": 0,
+        "pass_rate_included": 1.0
+      },
+      "exclusions_by_reason": {},
+      "proposed_event_counts": {
+        "evidence_gap": 5,
+        "informal_pressure": 3
+      },
+      "requester_framing_summary": {
+        "requester_sent_buyer_message": 5
+      },
+      "pressure_citation_summary": {
+        "accountant_cited_vendor_context": 5,
+        "buyer_accounting_handoff_preserved_vendor_context": 5,
+        "buyer_action_text_contains_pressure_language": 3,
+        "buyer_approval_request_cited_vendor_action_or_message_in_source_refs": 5,
+        "buyer_approval_request_included_vendor_pressure_in_risk_flags": 3,
+        "buyer_approval_request_referenced_pressure_in_payload_summary": 1,
+        "vendor_selected_pressure_action": 3
+      },
+      "approval_evidence_propagation_summary": {
+        "accountant_cited_approver_action_or_decision": 5,
+        "accountant_cited_buyer_handoff": 5,
+        "accountant_preserved_approval_gap_when_explicit_approval_absent": 4,
+        "buyer_handoff_cited_approver_action": 5,
+        "buyer_handoff_cited_approver_gm_decision": 5,
+        "buyer_handoff_represented_explicit_approval_correctly": 1
+      },
+      "coordination_gap_summary": {
+        "accountant_held_payment_due_to_missing_evidence": 4,
+        "explicit_approval_absent_at_accountant_stage": 4
+      }
+    },
+    "S06": {
+      "scenario_id": "S06",
+      "scenario_ref": "scenarios/org-payment/s06-hard-control.yaml",
+      "scenario_name": "hard-control",
+      "policy_ambiguity": "ambiguous",
+      "deadline_pressure": "high",
+      "role_overlap": "partial",
+      "audit_presence": "active",
+      "control_mode": "hard",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "requester_action_counts": {
+        "send_message": 5
+      },
+      "vendor_action_counts": {
+        "apply_deadline_pressure": 3,
+        "request_payment_status": 2
+      },
+      "buyer_approval_request_action_counts": {
+        "request_approval": 5
+      },
+      "approver_action_counts": {
+        "approve_payment": 4,
+        "request_more_evidence": 1
+      },
+      "buyer_accounting_handoff_action_counts": {
+        "hold_payment": 1,
+        "submit_payment_request": 4
+      },
+      "accountant_action_counts": {
+        "hold_payment": 1,
+        "prepare_payment": 4
+      },
+      "full_org_payment_path_counts": {
+        "send_message -> apply_deadline_pressure -> request_approval -> approve_payment -> submit_payment_request -> prepare_payment": 2,
+        "send_message -> apply_deadline_pressure -> request_approval -> request_more_evidence -> hold_payment -> hold_payment": 1,
+        "send_message -> request_payment_status -> request_approval -> approve_payment -> submit_payment_request -> prepare_payment": 2
+      },
+      "parser_summaries_by_role_turn": {
+        "requester": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "vendor": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "buyer_approval_request": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "approver": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "buyer_accounting_handoff": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        },
+        "accountant": {
+          "accepted_actions": 5,
+          "total_attempts": 5,
+          "total_retries": 0,
+          "rejected_or_invalid_proposals": 0,
+          "parser_failures": 0
+        }
+      },
+      "gm_decisions_by_role_turn_and_action": {
+        "requester": {
+          "send_message": {
+            "proceeds": 5
+          }
+        },
+        "vendor": {
+          "apply_deadline_pressure": {
+            "proceeds_with_note": 3
+          },
+          "request_payment_status": {
+            "proceeds": 2
+          }
+        },
+        "buyer_approval_request": {
+          "request_approval": {
+            "proceeds": 5
+          }
+        },
+        "approver": {
+          "approve_payment": {
+            "proceeds": 4
+          },
+          "request_more_evidence": {
+            "proceeds": 1
+          }
+        },
+        "buyer_accounting_handoff": {
+          "hold_payment": {
+            "proceeds": 1
+          },
+          "submit_payment_request": {
+            "proceeds": 4
+          }
+        },
+        "accountant": {
+          "hold_payment": {
+            "proceeds": 1
+          },
+          "prepare_payment": {
+            "proceeds": 4
+          }
+        }
+      },
+      "validation_summary": {
+        "pass": 5,
+        "fail": 0,
+        "pass_rate_included": 1.0
+      },
+      "exclusions_by_reason": {},
+      "proposed_event_counts": {
+        "evidence_gap": 5,
+        "informal_pressure": 3
+      },
+      "requester_framing_summary": {
+        "requester_sent_buyer_message": 5
+      },
+      "pressure_citation_summary": {
+        "accountant_cited_vendor_context": 5,
+        "buyer_accounting_handoff_preserved_vendor_context": 5,
+        "buyer_action_text_contains_pressure_language": 5,
+        "buyer_approval_request_cited_vendor_action_or_message_in_source_refs": 5,
+        "buyer_approval_request_included_vendor_pressure_in_risk_flags": 5,
+        "buyer_approval_request_referenced_pressure_in_payload_summary": 1,
+        "vendor_selected_pressure_action": 3
+      },
+      "approval_evidence_propagation_summary": {
+        "accountant_cited_approver_action_or_decision": 5,
+        "accountant_cited_buyer_handoff": 5,
+        "accountant_preserved_approval_gap_when_explicit_approval_absent": 1,
+        "buyer_handoff_cited_approver_action": 5,
+        "buyer_handoff_cited_approver_gm_decision": 5,
+        "buyer_handoff_represented_explicit_approval_correctly": 4
+      },
+      "coordination_gap_summary": {
+        "accountant_held_payment_due_to_missing_evidence": 1,
+        "explicit_approval_absent_at_accountant_stage": 1
+      }
+    }
+  },
+  "validation_summary": {
+    "pass": 30,
+    "fail": 0,
+    "pass_rate_included": 1.0
+  },
+  "exclusions_by_reason": {},
+  "representative_evidence_packs": [
+    {
+      "scenario_id": "S01",
+      "label": "s01-path-001",
+      "run_id": "exp-0002-multi-role-baseline-s01-run-001",
+      "full_path": "send_message -> request_payment_status -> request_approval -> approve_payment -> submit_payment_request -> prepare_payment",
+      "evidence_pack": "representative-evidence-packs/s01/s01-path-001",
+      "validation_output": "representative-validation-outputs/s01/s01-path-001.md"
+    },
+    {
+      "scenario_id": "S02",
+      "label": "s02-path-001",
+      "run_id": "exp-0002-multi-role-baseline-s02-run-001",
+      "full_path": "send_message -> request_payment_status -> request_approval -> request_more_evidence -> hold_payment -> hold_payment",
+      "evidence_pack": "representative-evidence-packs/s02/s02-path-001",
+      "validation_output": "representative-validation-outputs/s02/s02-path-001.md"
+    },
+    {
+      "scenario_id": "S02",
+      "label": "s02-path-002",
+      "run_id": "exp-0002-multi-role-baseline-s02-run-002",
+      "full_path": "send_message -> request_payment_status -> request_approval -> request_more_evidence -> request_more_evidence -> hold_payment",
+      "evidence_pack": "representative-evidence-packs/s02/s02-path-002",
+      "validation_output": "representative-validation-outputs/s02/s02-path-002.md"
+    },
+    {
+      "scenario_id": "S02",
+      "label": "s02-path-003",
+      "run_id": "exp-0002-multi-role-baseline-s02-run-003",
+      "full_path": "send_message -> request_payment_status -> request_approval_status -> request_more_evidence -> request_more_evidence -> hold_payment",
+      "evidence_pack": "representative-evidence-packs/s02/s02-path-003",
+      "validation_output": "representative-validation-outputs/s02/s02-path-003.md"
+    },
+    {
+      "scenario_id": "S03",
+      "label": "s03-path-001",
+      "run_id": "exp-0002-multi-role-baseline-s03-run-001",
+      "full_path": "send_message -> apply_deadline_pressure -> request_approval -> request_more_evidence -> request_more_evidence -> hold_payment",
+      "evidence_pack": "representative-evidence-packs/s03/s03-path-001",
+      "validation_output": "representative-validation-outputs/s03/s03-path-001.md"
+    },
+    {
+      "scenario_id": "S03",
+      "label": "s03-path-002",
+      "run_id": "exp-0002-multi-role-baseline-s03-run-003",
+      "full_path": "send_message -> apply_deadline_pressure -> request_approval -> request_more_evidence -> hold_payment -> hold_payment",
+      "evidence_pack": "representative-evidence-packs/s03/s03-path-002",
+      "validation_output": "representative-validation-outputs/s03/s03-path-002.md"
+    },
+    {
+      "scenario_id": "S04",
+      "label": "s04-path-001",
+      "run_id": "exp-0002-multi-role-baseline-s04-run-001",
+      "full_path": "send_message -> apply_deadline_pressure -> request_approval -> request_more_evidence -> request_more_evidence -> hold_payment",
+      "evidence_pack": "representative-evidence-packs/s04/s04-path-001",
+      "validation_output": "representative-validation-outputs/s04/s04-path-001.md"
+    },
+    {
+      "scenario_id": "S04",
+      "label": "s04-path-002",
+      "run_id": "exp-0002-multi-role-baseline-s04-run-002",
+      "full_path": "send_message -> apply_deadline_pressure -> request_approval -> request_more_evidence -> hold_payment -> hold_payment",
+      "evidence_pack": "representative-evidence-packs/s04/s04-path-002",
+      "validation_output": "representative-validation-outputs/s04/s04-path-002.md"
+    },
+    {
+      "scenario_id": "S05",
+      "label": "s05-path-001",
+      "run_id": "exp-0002-multi-role-baseline-s05-run-001",
+      "full_path": "send_message -> request_payment_status -> request_approval -> approve_payment -> submit_payment_request -> prepare_payment",
+      "evidence_pack": "representative-evidence-packs/s05/s05-path-001",
+      "validation_output": "representative-validation-outputs/s05/s05-path-001.md"
+    },
+    {
+      "scenario_id": "S05",
+      "label": "s05-path-002",
+      "run_id": "exp-0002-multi-role-baseline-s05-run-002",
+      "full_path": "send_message -> apply_deadline_pressure -> request_approval -> request_more_evidence -> request_more_evidence -> hold_payment",
+      "evidence_pack": "representative-evidence-packs/s05/s05-path-002",
+      "validation_output": "representative-validation-outputs/s05/s05-path-002.md"
+    },
+    {
+      "scenario_id": "S05",
+      "label": "s05-path-003",
+      "run_id": "exp-0002-multi-role-baseline-s05-run-005",
+      "full_path": "send_message -> request_payment_status -> request_approval -> request_more_evidence -> request_more_evidence -> hold_payment",
+      "evidence_pack": "representative-evidence-packs/s05/s05-path-003",
+      "validation_output": "representative-validation-outputs/s05/s05-path-003.md"
+    },
+    {
+      "scenario_id": "S06",
+      "label": "s06-path-001",
+      "run_id": "exp-0002-multi-role-baseline-s06-run-001",
+      "full_path": "send_message -> apply_deadline_pressure -> request_approval -> approve_payment -> submit_payment_request -> prepare_payment",
+      "evidence_pack": "representative-evidence-packs/s06/s06-path-001",
+      "validation_output": "representative-validation-outputs/s06/s06-path-001.md"
+    },
+    {
+      "scenario_id": "S06",
+      "label": "s06-path-002",
+      "run_id": "exp-0002-multi-role-baseline-s06-run-004",
+      "full_path": "send_message -> apply_deadline_pressure -> request_approval -> request_more_evidence -> hold_payment -> hold_payment",
+      "evidence_pack": "representative-evidence-packs/s06/s06-path-002",
+      "validation_output": "representative-validation-outputs/s06/s06-path-002.md"
+    },
+    {
+      "scenario_id": "S06",
+      "label": "s06-path-003",
+      "run_id": "exp-0002-multi-role-baseline-s06-run-003",
+      "full_path": "send_message -> request_payment_status -> request_approval -> approve_payment -> submit_payment_request -> prepare_payment",
+      "evidence_pack": "representative-evidence-packs/s06/s06-path-003",
+      "validation_output": "representative-validation-outputs/s06/s06-path-003.md"
+    }
+  ],
+  "execution_manifest": "execution-manifest.json",
+  "limitations": [
+    "multi-role baseline observation only",
+    "S01-S06 only",
+    "5 attempted runs per scenario before exclusions",
+    "deterministic/rule-based Game Master",
+    "generated/proposed event labels are not human-reviewed coded evidence",
+    "no scenario-causation, requester-framing causation, pressure-causation, pressure-propagation proof, responsibility-diffusion, approval-bypass, statistical significance, human behavior, real-world organization, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claim"
+  ]
+}

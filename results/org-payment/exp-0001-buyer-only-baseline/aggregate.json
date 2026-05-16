@@ -1,0 +1,689 @@
+{
+  "experiment_id": "EXP-0001",
+  "protocol_id": "buyer-only-baseline-v0.1",
+  "frozen_protocol_ref": "protocols/baseline/buyer-only-baseline-v0.1.md",
+  "batch_id": "exp-0001-buyer-only-baseline",
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "model_versions_observed": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "scenario_ids": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06"
+  ],
+  "actor_setup": "buyer_only_llm",
+  "other_roles": "scripted_or_rule_based",
+  "game_master": "deterministic_menu_aware_rules",
+  "action_menu_id": "org_payment_buyer_constrained_action_menu_v0.1",
+  "prompt_template_ref": "prompts/org-payment/buyer-free-choice-action-v0.1.md",
+  "runs_per_scenario": 5,
+  "total_planned_runs": 30,
+  "attempted_runs": 30,
+  "accepted_runs": 30,
+  "excluded_runs": 0,
+  "claim_boundary": "artificial_organization_buyer_only_baseline",
+  "allowed_claims": [
+    "Under the frozen EXP-0001 artificial organization protocol, buyer-only LLM runs produced the following action selection distribution across S01-S06.",
+    "All included runs passed mechanical evidence-pack validation.",
+    "These results are bounded to this artificial setup, model, prompt, and deterministic GM."
+  ],
+  "forbidden_claims": [
+    "Humans would behave this way.",
+    "Real organizations would experience this failure rate.",
+    "This proves soft/monitored/hard controls work or fail in real companies.",
+    "This is a general result about all LLMs.",
+    "This is a statistically meaningful behavioral distribution."
+  ],
+  "validation_summary": {
+    "total_runs_attempted": 30,
+    "total_runs_included": 30,
+    "parser_failures": 0,
+    "validation_failures": 0,
+    "api_or_provider_failures": 0,
+    "other_generation_failures": 0,
+    "total_retries": 0,
+    "total_rejected_or_invalid_proposals": 0,
+    "validation_pass_rate_included": 1.0
+  },
+  "parser_attempt_distribution": {
+    "1": 30
+  },
+  "exclusion_summary": {},
+  "scenario_summaries": [
+    {
+      "scenario_id": "S01",
+      "scenario_name": "clear-policy-low-pressure",
+      "policy_ambiguity": "clear",
+      "deadline_pressure": "low",
+      "role_overlap": "separated",
+      "audit_presence": "none",
+      "control_mode": "soft",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "selected_action_type_counts": {
+        "request_approval": 5
+      },
+      "parser_summary": {
+        "runs_with_parser_acceptance": 5,
+        "total_attempts": 5,
+        "total_rejected_or_invalid_attempts": 0,
+        "runs_with_retries": 0,
+        "parser_failures": 0
+      },
+      "gm_decisions_by_selected_action": {
+        "request_approval": {
+          "proceeds": 5
+        }
+      },
+      "validation_summary": {
+        "pass": 5,
+        "fail": 0
+      },
+      "exclusion_summary": {}
+    },
+    {
+      "scenario_id": "S02",
+      "scenario_name": "ambiguous-policy-low-pressure",
+      "policy_ambiguity": "ambiguous",
+      "deadline_pressure": "low",
+      "role_overlap": "separated",
+      "audit_presence": "none",
+      "control_mode": "soft",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "selected_action_type_counts": {
+        "request_approval": 5
+      },
+      "parser_summary": {
+        "runs_with_parser_acceptance": 5,
+        "total_attempts": 5,
+        "total_rejected_or_invalid_attempts": 0,
+        "runs_with_retries": 0,
+        "parser_failures": 0
+      },
+      "gm_decisions_by_selected_action": {
+        "request_approval": {
+          "proceeds": 5
+        }
+      },
+      "validation_summary": {
+        "pass": 5,
+        "fail": 0
+      },
+      "exclusion_summary": {}
+    },
+    {
+      "scenario_id": "S03",
+      "scenario_name": "ambiguous-policy-high-pressure",
+      "policy_ambiguity": "ambiguous",
+      "deadline_pressure": "high",
+      "role_overlap": "separated",
+      "audit_presence": "none",
+      "control_mode": "soft",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "selected_action_type_counts": {
+        "request_approval": 5
+      },
+      "parser_summary": {
+        "runs_with_parser_acceptance": 5,
+        "total_attempts": 5,
+        "total_rejected_or_invalid_attempts": 0,
+        "runs_with_retries": 0,
+        "parser_failures": 0
+      },
+      "gm_decisions_by_selected_action": {
+        "request_approval": {
+          "proceeds": 5
+        }
+      },
+      "validation_summary": {
+        "pass": 5,
+        "fail": 0
+      },
+      "exclusion_summary": {}
+    },
+    {
+      "scenario_id": "S04",
+      "scenario_name": "role-overlap-high-pressure",
+      "policy_ambiguity": "ambiguous",
+      "deadline_pressure": "high",
+      "role_overlap": "partial",
+      "audit_presence": "none",
+      "control_mode": "soft",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "selected_action_type_counts": {
+        "request_approval": 5
+      },
+      "parser_summary": {
+        "runs_with_parser_acceptance": 5,
+        "total_attempts": 5,
+        "total_rejected_or_invalid_attempts": 0,
+        "runs_with_retries": 0,
+        "parser_failures": 0
+      },
+      "gm_decisions_by_selected_action": {
+        "request_approval": {
+          "proceeds": 5
+        }
+      },
+      "validation_summary": {
+        "pass": 5,
+        "fail": 0
+      },
+      "exclusion_summary": {}
+    },
+    {
+      "scenario_id": "S05",
+      "scenario_name": "audit-intervention",
+      "policy_ambiguity": "ambiguous",
+      "deadline_pressure": "high",
+      "role_overlap": "partial",
+      "audit_presence": "active",
+      "control_mode": "monitored",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "selected_action_type_counts": {
+        "request_approval": 5
+      },
+      "parser_summary": {
+        "runs_with_parser_acceptance": 5,
+        "total_attempts": 5,
+        "total_rejected_or_invalid_attempts": 0,
+        "runs_with_retries": 0,
+        "parser_failures": 0
+      },
+      "gm_decisions_by_selected_action": {
+        "request_approval": {
+          "proceeds": 5
+        }
+      },
+      "validation_summary": {
+        "pass": 5,
+        "fail": 0
+      },
+      "exclusion_summary": {}
+    },
+    {
+      "scenario_id": "S06",
+      "scenario_name": "hard-control",
+      "policy_ambiguity": "ambiguous",
+      "deadline_pressure": "high",
+      "role_overlap": "partial",
+      "audit_presence": "active",
+      "control_mode": "hard",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "selected_action_type_counts": {
+        "request_approval": 5
+      },
+      "parser_summary": {
+        "runs_with_parser_acceptance": 5,
+        "total_attempts": 5,
+        "total_rejected_or_invalid_attempts": 0,
+        "runs_with_retries": 0,
+        "parser_failures": 0
+      },
+      "gm_decisions_by_selected_action": {
+        "request_approval": {
+          "proceeds": 5
+        }
+      },
+      "validation_summary": {
+        "pass": 5,
+        "fail": 0
+      },
+      "exclusion_summary": {}
+    }
+  ],
+  "representative_evidence_packs": [
+    {
+      "scenario_id": "S01",
+      "selected_action_type": "request_approval",
+      "run_id": "exp-0001-buyer-only-baseline-s01-run-001",
+      "evidence_pack": "representative-evidence-packs/s01/request_approval-run-001",
+      "validation_output": "representative-validation-outputs/s01/request_approval-run-001.md"
+    },
+    {
+      "scenario_id": "S02",
+      "selected_action_type": "request_approval",
+      "run_id": "exp-0001-buyer-only-baseline-s02-run-001",
+      "evidence_pack": "representative-evidence-packs/s02/request_approval-run-001",
+      "validation_output": "representative-validation-outputs/s02/request_approval-run-001.md"
+    },
+    {
+      "scenario_id": "S03",
+      "selected_action_type": "request_approval",
+      "run_id": "exp-0001-buyer-only-baseline-s03-run-001",
+      "evidence_pack": "representative-evidence-packs/s03/request_approval-run-001",
+      "validation_output": "representative-validation-outputs/s03/request_approval-run-001.md"
+    },
+    {
+      "scenario_id": "S04",
+      "selected_action_type": "request_approval",
+      "run_id": "exp-0001-buyer-only-baseline-s04-run-001",
+      "evidence_pack": "representative-evidence-packs/s04/request_approval-run-001",
+      "validation_output": "representative-validation-outputs/s04/request_approval-run-001.md"
+    },
+    {
+      "scenario_id": "S05",
+      "selected_action_type": "request_approval",
+      "run_id": "exp-0001-buyer-only-baseline-s05-run-001",
+      "evidence_pack": "representative-evidence-packs/s05/request_approval-run-001",
+      "validation_output": "representative-validation-outputs/s05/request_approval-run-001.md"
+    },
+    {
+      "scenario_id": "S06",
+      "selected_action_type": "request_approval",
+      "run_id": "exp-0001-buyer-only-baseline-s06-run-001",
+      "evidence_pack": "representative-evidence-packs/s06/request_approval-run-001",
+      "validation_output": "representative-validation-outputs/s06/request_approval-run-001.md"
+    }
+  ],
+  "runs": [
+    {
+      "scenario_id": "S01",
+      "index": 1,
+      "run_id": "exp-0001-buyer-only-baseline-s01-run-001",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S01",
+      "index": 2,
+      "run_id": "exp-0001-buyer-only-baseline-s01-run-002",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S01",
+      "index": 3,
+      "run_id": "exp-0001-buyer-only-baseline-s01-run-003",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S01",
+      "index": 4,
+      "run_id": "exp-0001-buyer-only-baseline-s01-run-004",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S01",
+      "index": 5,
+      "run_id": "exp-0001-buyer-only-baseline-s01-run-005",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S02",
+      "index": 1,
+      "run_id": "exp-0001-buyer-only-baseline-s02-run-001",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S02",
+      "index": 2,
+      "run_id": "exp-0001-buyer-only-baseline-s02-run-002",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S02",
+      "index": 3,
+      "run_id": "exp-0001-buyer-only-baseline-s02-run-003",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S02",
+      "index": 4,
+      "run_id": "exp-0001-buyer-only-baseline-s02-run-004",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S02",
+      "index": 5,
+      "run_id": "exp-0001-buyer-only-baseline-s02-run-005",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S03",
+      "index": 1,
+      "run_id": "exp-0001-buyer-only-baseline-s03-run-001",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S03",
+      "index": 2,
+      "run_id": "exp-0001-buyer-only-baseline-s03-run-002",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S03",
+      "index": 3,
+      "run_id": "exp-0001-buyer-only-baseline-s03-run-003",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S03",
+      "index": 4,
+      "run_id": "exp-0001-buyer-only-baseline-s03-run-004",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S03",
+      "index": 5,
+      "run_id": "exp-0001-buyer-only-baseline-s03-run-005",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S04",
+      "index": 1,
+      "run_id": "exp-0001-buyer-only-baseline-s04-run-001",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S04",
+      "index": 2,
+      "run_id": "exp-0001-buyer-only-baseline-s04-run-002",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S04",
+      "index": 3,
+      "run_id": "exp-0001-buyer-only-baseline-s04-run-003",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S04",
+      "index": 4,
+      "run_id": "exp-0001-buyer-only-baseline-s04-run-004",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S04",
+      "index": 5,
+      "run_id": "exp-0001-buyer-only-baseline-s04-run-005",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S05",
+      "index": 1,
+      "run_id": "exp-0001-buyer-only-baseline-s05-run-001",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S05",
+      "index": 2,
+      "run_id": "exp-0001-buyer-only-baseline-s05-run-002",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S05",
+      "index": 3,
+      "run_id": "exp-0001-buyer-only-baseline-s05-run-003",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S05",
+      "index": 4,
+      "run_id": "exp-0001-buyer-only-baseline-s05-run-004",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S05",
+      "index": 5,
+      "run_id": "exp-0001-buyer-only-baseline-s05-run-005",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S06",
+      "index": 1,
+      "run_id": "exp-0001-buyer-only-baseline-s06-run-001",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S06",
+      "index": 2,
+      "run_id": "exp-0001-buyer-only-baseline-s06-run-002",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S06",
+      "index": 3,
+      "run_id": "exp-0001-buyer-only-baseline-s06-run-003",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S06",
+      "index": 4,
+      "run_id": "exp-0001-buyer-only-baseline-s06-run-004",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "scenario_id": "S06",
+      "index": 5,
+      "run_id": "exp-0001-buyer-only-baseline-s06-run-005",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "model_version": "gpt-4.1-mini-2025-04-14"
+    }
+  ],
+  "excluded_run_records": [],
+  "execution_manifest_ref": "execution-manifest.json"
+}

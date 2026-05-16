@@ -1,0 +1,61 @@
+{
+  "run_id": "exp-0001-buyer-only-baseline-s04-run-001",
+  "run_type": "controlled_run",
+  "scenario_id": "S04",
+  "scenario_ref": "scenarios/org-payment/s04-role-overlap-high-pressure.yaml",
+  "odd_social_ref": "protocols/odd-social/odd-social-v0.1.md",
+  "protocol_versions": {
+    "odd_social": "v0.1",
+    "event_taxonomy": "v0.1",
+    "metrics": "v0.1",
+    "evidence_pack": "v0.1",
+    "human_review": "v0.1",
+    "claim_boundaries": "v0.1"
+  },
+  "contract_versions": {
+    "action_proposal": "v0.1",
+    "gm_decision": "v0.1",
+    "trace_record": "v0.1",
+    "run_manifest": "v0.1",
+    "event_record": "v0.1",
+    "metrics_record": "v0.1"
+  },
+  "actor_mode": "mixed",
+  "llm_execution": true,
+  "automated_harness": false,
+  "randomness_policy": "one constrained buyer-only OpenAI LLM action selection from a five-item menu as an EXP-0001 baseline run; provider randomness is not explicitly seeded; aggregate reporting is handled in the EXP-0001 result package",
+  "authored_by": "src/social_sim EXP-0001 buyer-only baseline runner",
+  "review_status": "not_human_reviewed",
+  "claim_boundary": "artificial_organization_buyer_only_baseline",
+  "artifact_inventory": {
+    "odd_social.md": "present",
+    "scenario.yaml": "present",
+    "initial_state": "present",
+    "final_state": "present",
+    "trace.jsonl": "present",
+    "messages.jsonl": "present",
+    "actions.jsonl": "present",
+    "gm_decisions.jsonl": "present",
+    "events.jsonl": "present",
+    "metrics.json": "present",
+    "reviewer_notes.md": "present",
+    "llm_review.json": "not_applicable",
+    "action_menu.json": "present",
+    "parser_result.json": "present",
+    "proposal_attempts.jsonl": "present",
+    "llm_prompts": "present",
+    "llm_outputs": "present"
+  },
+  "known_exclusions": [
+    "no multi-role LLM simulation",
+    "requester, approver, accountant, and vendor remain scripted or rule-based",
+    "Game Master remains deterministic",
+    "single scenario S04 as one EXP-0001 baseline run",
+    "one LLM-controlled role only",
+    "no model comparison",
+    "no statistical claim",
+    "no real-world behavior claim",
+    "no human behavior claim",
+    "excluded runs are not replaced in EXP-0001"
+  ]
+}

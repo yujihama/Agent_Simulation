@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from .baseline_runner import run_buyer_only_baseline
 from .free_choice_runner import run_s04_buyer_free_choice_llm
 from .llm_actor import OpenAIResponsesProvider
 from .repeated_runner import DEFAULT_REPEATED_BATCH_ID, run_s04_buyer_free_choice_batch
@@ -153,6 +154,28 @@ def main(argv: list[str] | None = None) -> int:
         "--model",
         help="OpenAI model name. Defaults to OPENAI_MODEL or gpt-4.1-mini.",
     )
+    buyer_baseline = subparsers.add_parser(
+        "execute-buyer-only-baseline",
+        help="Execute frozen EXP-0001 buyer-only baseline and write curated results.",
+    )
+    buyer_baseline.add_argument(
+        "--output",
+        required=True,
+        type=Path,
+        help="Raw baseline output directory under ignored runs/. Must be new or empty.",
+    )
+    buyer_baseline.add_argument(
+        "--results-output",
+        required=True,
+        type=Path,
+        help="Curated baseline result directory. Must be new or empty.",
+    )
+    buyer_baseline.add_argument(
+        "--dotenv",
+        default=Path(".env"),
+        type=Path,
+        help="Optional dotenv file containing OPENAI_API_KEY.",
+    )
 
     args = parser.parse_args(argv)
     if args.command == "generate-s04":
@@ -211,6 +234,21 @@ def main(argv: list[str] | None = None) -> int:
             batch_id=args.batch_id,
         )
         print(curated_output)
+        return 0
+    if args.command == "execute-buyer-only-baseline":
+        output = args.output
+        results_output = args.results_output
+        if output.exists() and any(output.iterdir()):
+            parser.error(f"output directory is not empty: {output}")
+        if results_output.exists() and any(results_output.iterdir()):
+            parser.error(f"results output directory is not empty: {results_output}")
+        provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model="gpt-4.1-mini")
+        run_buyer_only_baseline(
+            output_root=output,
+            results_output=results_output,
+            provider=provider,
+        )
+        print(results_output)
         return 0
 
     parser.error(f"unknown command: {args.command}")

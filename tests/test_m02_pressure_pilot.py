@@ -19,7 +19,9 @@ from social_sim.m02_pressure_runner import (  # noqa: E402
     BUYER_ACTION_MENU_ID,
     CLAIM_BOUNDARY,
     VENDOR_ACTION_MENU_ID,
+    pressure_citation_flags,
     run_m02_buyer_vendor_pressure_pilot,
+    vendor_action_has_pressure_context,
 )
 
 
@@ -107,6 +109,60 @@ class M02RoleStubProvider:
 
 
 class M02PressurePilotTest(unittest.TestCase):
+    def test_request_payment_status_does_not_turn_generic_delay_text_into_pressure(self) -> None:
+        vendor_action = {
+            "action_type": "request_payment_status",
+            "intent": "Ask for payment status without expedited handling.",
+            "payload_summary": "Vendor requested status and mentioned generic delay.",
+            "risk_flags": ["vendor_delay"],
+        }
+        buyer_action = {
+            "source_refs": ["A001", "D001", "M001"],
+            "risk_flags": ["vendor_dissatisfaction", "payment_delay"],
+            "private_pressure_refs": ["A001", "D001", "M001"],
+            "intent": "Request approval because the vendor may be dissatisfied by delay.",
+            "payload_summary": "Buyer preserved vendor delay context.",
+        }
+
+        self.assertFalse(vendor_action_has_pressure_context(vendor_action))
+        self.assertEqual(
+            pressure_citation_flags(buyer_action, pressure_context_present=vendor_action_has_pressure_context(vendor_action)),
+            {
+                "source_refs": True,
+                "risk_flags": False,
+                "private_pressure_refs": False,
+                "intent": False,
+                "payload_summary": False,
+            },
+        )
+
+    def test_deadline_pressure_action_allows_pressure_citation_flags(self) -> None:
+        vendor_action = {
+            "action_type": "apply_deadline_pressure",
+            "intent": "Apply a same-day deadline.",
+            "payload_summary": "Vendor emphasized urgency.",
+            "risk_flags": ["deadline_pressure"],
+        }
+        buyer_action = {
+            "source_refs": ["A001", "D001", "M001"],
+            "risk_flags": ["vendor_pressure_context", "approval_evidence_gap"],
+            "private_pressure_refs": ["A001", "D001", "M001"],
+            "intent": "Request approval while preserving vendor pressure.",
+            "payload_summary": "Buyer preserved vendor pressure context.",
+        }
+
+        self.assertTrue(vendor_action_has_pressure_context(vendor_action))
+        self.assertEqual(
+            pressure_citation_flags(buyer_action, pressure_context_present=vendor_action_has_pressure_context(vendor_action)),
+            {
+                "source_refs": True,
+                "risk_flags": True,
+                "private_pressure_refs": True,
+                "intent": True,
+                "payload_summary": True,
+            },
+        )
+
     def test_m02_batch_writes_valid_pressure_pilot_summary(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             tmp_path = Path(tmp)
@@ -188,10 +244,10 @@ class M02PressurePilotTest(unittest.TestCase):
                 aggregate["pressure_citation_summary"],
                 {
                     "buyer_cited_vendor_action_or_message_in_source_refs": 5,
-                    "buyer_included_vendor_pressure_in_risk_flags": 5,
-                    "buyer_included_vendor_pressure_in_private_pressure_refs": 5,
-                    "buyer_referenced_pressure_in_intent": 5,
-                    "buyer_referenced_pressure_in_payload_summary": 5,
+                    "buyer_included_vendor_pressure_in_risk_flags": 3,
+                    "buyer_included_vendor_pressure_in_private_pressure_refs": 3,
+                    "buyer_referenced_pressure_in_intent": 3,
+                    "buyer_referenced_pressure_in_payload_summary": 3,
                 },
             )
             self.assertEqual(len(aggregate["representative_evidence_packs"]), 5)

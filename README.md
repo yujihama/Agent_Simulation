@@ -17,6 +17,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Org-payment scenario matrix: [scenarios/org-payment/scenario-matrix.md](scenarios/org-payment/scenario-matrix.md)
 - Event taxonomy v0.1: [protocols/evaluation/event-taxonomy-v0.1.md](protocols/evaluation/event-taxonomy-v0.1.md)
 - Metrics v0.1: [protocols/evaluation/metrics-v0.1.md](protocols/evaluation/metrics-v0.1.md)
+- Pressure-citation metric correction v0.1: [protocols/evaluation/pressure-citation-metric-correction-v0.1.md](protocols/evaluation/pressure-citation-metric-correction-v0.1.md)
 - Evidence pack v0.1: [protocols/evaluation/evidence-pack-v0.1.md](protocols/evaluation/evidence-pack-v0.1.md)
 - Human review protocol v0.1: [protocols/evaluation/human-review-protocol-v0.1.md](protocols/evaluation/human-review-protocol-v0.1.md)
 - Claim boundaries v0.1: [protocols/evaluation/claim-boundaries-v0.1.md](protocols/evaluation/claim-boundaries-v0.1.md)
@@ -107,6 +108,7 @@ The project should be built up in small decision-oriented pull requests:
 31. P9 human evidence review bundle: record primary human confirmation for EXP-0002-HR-0001 representative evidence review and preserve metric revision items.
 32. P9 construct validity protocol bundle: freeze EXP-0002-CV-0001 construct definitions, evidence requirements, examples, and claim boundaries before construct-level synthesis.
 33. P9 construct validity execution bundle: execute EXP-0002-CV-0001 and record construct support, limitations, examples, and pressure metric revision needs.
+34. P9 pressure-citation metric correction bundle: tighten future pressure-citation metrics so routine `request_payment_status` paths preserve vendor context without being counted as vendor pressure.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -582,3 +584,11 @@ Construct status summary:
 - `communication_breakdown`: not observed in reviewed representative packs.
 
 This check is limited to construct validity observations for curated representative packs. It does not support statistical significance, scenario causation, pressure causation, pressure-propagation proof, responsibility-diffusion proof, approval-bypass proof, human behavior, real-world organization, compliance, audit, operational sufficiency, model-comparison, or general LLM behavior claims.
+
+## Pressure-Citation Metric Correction
+
+The forward-looking pressure-citation metric correction is recorded in [protocols/evaluation/pressure-citation-metric-correction-v0.1.md](protocols/evaluation/pressure-citation-metric-correction-v0.1.md).
+
+Future generated metrics now distinguish vendor context from vendor pressure. Routine `request_payment_status` paths may preserve vendor context in source references, buyer handoff text, or accountant context, but generic payment-delay or vendor-dissatisfaction wording no longer counts as vendor pressure unless the vendor action/message independently contains explicit deadline, urgency, service-continuity-risk, or escalation wording.
+
+Frozen EXP-0002 results are not rewritten. Reports that cite historical EXP-0002 pressure aggregates must continue to preserve the human-review and construct-validity limitation that six pressure-citation metric checks were marked `needs_revision`.

@@ -59,6 +59,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - M05 full org-payment multi-role pilot result: [pilot-runs/org-payment/m05-full-org-payment-pilot-0001/summary.md](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/summary.md)
 - M05 full org-payment multi-role pilot review: [pilot-runs/org-payment/m05-full-org-payment-pilot-0001/review.md](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/review.md)
 - Multi-role scenario sweep pilot protocol v0.1: [protocols/multi-role/multi-role-scenario-sweep-pilot-v0.1.md](protocols/multi-role/multi-role-scenario-sweep-pilot-v0.1.md)
+- Multi-role scenario sweep pilot result: [pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/summary.md](pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/summary.md)
 
 ## Initial PR Sequence
 
@@ -89,6 +90,7 @@ The project should be built up in small decision-oriented pull requests:
 23. P8 M04 review and M05 protocol bundle: review M04 and freeze the requester+vendor+buyer+approver+accountant pilot protocol without executing M05.
 24. P8 M05 execution bundle: execute the frozen S04 requester+vendor+buyer+approver+accountant pilot without changing protocol conditions.
 25. P8 M05 review and multi-role scenario sweep protocol bundle: review M05 and freeze the S01-S06 full org-payment scenario sweep pilot protocol without executing the sweep.
+26. P8 multi-role scenario sweep execution bundle: execute the frozen S01-S06 requester+vendor+buyer+approver+accountant scenario sweep pilot without changing protocol conditions.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -421,3 +423,29 @@ The review records that M05 established mechanically valid requester+vendor+buye
 The checkpoint decision is to advance to a multi-role scenario sweep pilot. The sweep protocol is frozen in [protocols/multi-role/multi-role-scenario-sweep-pilot-v0.1.md](protocols/multi-role/multi-role-scenario-sweep-pilot-v0.1.md). The sweep covers S01-S06, 3 attempted runs per scenario, 18 total planned attempts, requester + vendor + buyer + approver + accountant LLM-controlled, deterministic menu-aware Game Master, OpenAI `gpt-4.1-mini`, generated/proposed event labels only, and claim boundary `multi_role_scenario_sweep_pilot_observation_only`.
 
 This protocol-freeze step does not execute the scenario sweep and does not add sweep results. It does not make scenario-causation, requester-framing causation, pressure-causation, pressure-propagation, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, model comparison, general LLM behavior, or multi-role baseline claims.
+
+## Multi-Role Scenario Sweep Pilot
+
+Run the frozen S01-S06 multi-role scenario sweep locally with raw and generated curated output under ignored `runs/` paths:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-multi-role-scenario-sweep-pilot `
+  --output runs/org-payment/multi-role-scenario-sweep-pilot-local/raw `
+  --curated-output runs/org-payment/multi-role-scenario-sweep-pilot-local/curated `
+  --count-per-scenario 3 `
+  --dotenv .env
+```
+
+Reference scenario sweep pilot output:
+
+- [summary.md](pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/summary.md)
+- [aggregate.json](pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/aggregate.json)
+- [execution-manifest.json](pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/execution-manifest.json)
+- [scenario-summary.csv](pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/scenario-summary.csv)
+- Representative evidence packs: [representative-evidence-packs](pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/representative-evidence-packs)
+- Representative validation outputs: [representative-validation-outputs](pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/representative-validation-outputs)
+
+Under the frozen multi-role scenario sweep pilot protocol, requester+vendor+buyer+approver+accountant LLM pilot runs produced recorded full org-payment paths, parser outcomes, GM decisions, validation outcomes, proposed event observations, requester-framing observations, pressure-citation observations, approval-evidence propagation observations, and coordination-gap observations across S01-S06.
+
+The sweep attempted 18 runs, accepted 18 runs, and recorded 0 exclusions. It remains a scenario sweep pilot, not a multi-role baseline. It does not support scenario-causation, requester-framing causation, pressure-causation, pressure-propagation proof, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.

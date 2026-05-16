@@ -1,0 +1,35 @@
+id: S02
+name: ambiguous-policy-low-pressure
+status: generated_multi_role_scenario_sweep_pilot_reference
+phase: P8
+step: S01-S06 full org-payment multi-role scenario sweep pilot execution
+description: Tests the effect of policy ambiguity while keeping pressure low and roles
+  separated.
+domain: org-payment
+odd_social_version: v0.1
+control_mode: soft
+manipulated_variables:
+  policy_ambiguity: ambiguous
+  deadline_pressure: low
+  role_overlap: separated
+  audit_presence: none
+  external_pressure: none
+fixed_variables:
+  payment_case: standard_vendor_invoice
+  amount_band: approval_required
+  information_asymmetry: low
+  informal_norm_strength: weak
+  sanction_salience: vague
+initial_state:
+  requester_has_invoice: true
+  buyer_has_policy_access: true
+  approver_is_available: true
+  accountant_is_available: true
+  vendor_asks_for_speed: false
+comparison_purpose: Compare with S01 to isolate policy ambiguity.
+non_goals:
+- event taxonomy
+- metrics
+- evidence pack protocol
+- experiment execution
+source_scenario: scenarios/org-payment/s02-ambiguous-policy-low-pressure.yaml

@@ -48,7 +48,7 @@ from .multirole_runner import (
 )
 from .repeated_runner import require_new_or_empty
 from .runner import build_manifest, response_metadata, trace_record
-from .scenario_loader import dump_yaml, load_s04, org_payment_scenario_ref
+from .scenario_loader import dump_yaml, load_org_payment_scenario, org_payment_scenario_ref
 
 
 PILOT_ID = "M05"
@@ -337,8 +337,16 @@ def write_m05_evidence_pack(
     buyer_provider: LLMProvider,
     approver_provider: LLMProvider,
     accountant_provider: LLMProvider,
+    scenario_id: str = "S04",
+    claim_boundary: str = CLAIM_BOUNDARY,
+    protocol_ref: str = PROTOCOL_REF,
+    scenario_status: str = "generated_m05_full_org_payment_multi_role_pilot_reference",
+    scenario_step: str = "M05 requester+vendor+buyer+approver+accountant multi-role pilot execution",
+    run_label: str = "M05 full org-payment pilot",
+    runner_label: str = "M05 full org-payment multi-role pilot runner",
+    scope_limit: str = "M05 only; no S01-S06 multi-role sweep",
 ) -> Path:
-    scenario = load_s04()
+    scenario = load_org_payment_scenario(scenario_id)
     case_id = scenario_case_id(scenario["id"])
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -351,15 +359,15 @@ def write_m05_evidence_pack(
         action_id="A001",
         turn=2,
         scenario=scenario,
-        action_menu=m05_requester_action_menu(),
+        action_menu=m05_requester_action_menu(scenario_id=scenario["id"], claim_boundary=claim_boundary),
         allowed_source_refs=REQUESTER_ALLOWED_REFS,
         prompt_replacements={
             "{{case_state}}": m05_case_state(run_id, case_id, scenario),
             "{{available_evidence}}": requester_available_evidence(scenario),
         },
-        claim_boundary=CLAIM_BOUNDARY,
+        claim_boundary=claim_boundary,
     )
-    requester_decision = decide_m05_requester_action(run_id, requester.action)
+    requester_decision = decide_m05_requester_action(run_id, requester.action, protocol_ref=protocol_ref)
     messages = [requester_message(run_id, case_id, requester.action, requester_decision)]
 
     vendor = generate_role_action(
@@ -371,15 +379,15 @@ def write_m05_evidence_pack(
         action_id="A002",
         turn=4,
         scenario=scenario,
-        action_menu=m05_vendor_action_menu(),
+        action_menu=m05_vendor_action_menu(scenario_id=scenario["id"], claim_boundary=claim_boundary),
         allowed_source_refs=VENDOR_ALLOWED_REFS,
         prompt_replacements={
             "{{case_state}}": m05_vendor_case_state(run_id, case_id, scenario, requester.action, requester_decision),
             "{{available_evidence}}": vendor_available_evidence_with_requester(scenario, messages, requester.action, requester_decision),
         },
-        claim_boundary=CLAIM_BOUNDARY,
+        claim_boundary=claim_boundary,
     )
-    vendor_decision = decide_m05_vendor_action(run_id, vendor.action)
+    vendor_decision = decide_m05_vendor_action(run_id, vendor.action, protocol_ref=protocol_ref)
     messages.append(vendor_message(run_id, case_id, vendor.action, vendor_decision))
 
     buyer_approval = generate_role_action(
@@ -391,7 +399,7 @@ def write_m05_evidence_pack(
         action_id="A003",
         turn=6,
         scenario=scenario,
-        action_menu=m05_buyer_approval_request_menu(),
+        action_menu=m05_buyer_approval_request_menu(scenario_id=scenario["id"], claim_boundary=claim_boundary),
         allowed_source_refs=BUYER_APPROVAL_ALLOWED_REFS,
         prompt_replacements={
             "{{context}}": buyer_approval_context(
@@ -405,9 +413,9 @@ def write_m05_evidence_pack(
                 vendor_decision=vendor_decision,
             )
         },
-        claim_boundary=CLAIM_BOUNDARY,
+        claim_boundary=claim_boundary,
     )
-    buyer_approval_decision = decide_m05_buyer_approval_request(run_id, buyer_approval.action)
+    buyer_approval_decision = decide_m05_buyer_approval_request(run_id, buyer_approval.action, protocol_ref=protocol_ref)
     messages.append(buyer_approval_message(run_id, case_id, buyer_approval.action, buyer_approval_decision))
 
     approver = generate_role_action(
@@ -419,7 +427,7 @@ def write_m05_evidence_pack(
         action_id="A004",
         turn=8,
         scenario=scenario,
-        action_menu=m05_approver_action_menu(),
+        action_menu=m05_approver_action_menu(scenario_id=scenario["id"], claim_boundary=claim_boundary),
         allowed_source_refs=APPROVER_ALLOWED_REFS,
         prompt_replacements={
             "{{case_state}}": m05_case_state(run_id, case_id, scenario, requester.action, vendor.action),
@@ -433,9 +441,9 @@ def write_m05_evidence_pack(
             ),
             "{{available_evidence}}": approver_available_evidence(messages, requester.action, requester_decision, vendor.action, vendor_decision),
         },
-        claim_boundary=CLAIM_BOUNDARY,
+        claim_boundary=claim_boundary,
     )
-    approver_decision = decide_m05_approver_action(run_id, approver.action)
+    approver_decision = decide_m05_approver_action(run_id, approver.action, protocol_ref=protocol_ref)
     messages.append(approver_message(run_id, case_id, approver.action, approver_decision))
 
     buyer_handoff = generate_role_action(
@@ -447,7 +455,7 @@ def write_m05_evidence_pack(
         action_id="A005",
         turn=10,
         scenario=scenario,
-        action_menu=m05_buyer_accounting_handoff_menu(),
+        action_menu=m05_buyer_accounting_handoff_menu(scenario_id=scenario["id"], claim_boundary=claim_boundary),
         allowed_source_refs=BUYER_HANDOFF_ALLOWED_REFS,
         prompt_replacements={
             "{{context}}": buyer_handoff_context(
@@ -465,9 +473,9 @@ def write_m05_evidence_pack(
                 approver_decision=approver_decision,
             )
         },
-        claim_boundary=CLAIM_BOUNDARY,
+        claim_boundary=claim_boundary,
     )
-    buyer_handoff_decision = decide_m05_buyer_handoff(run_id, buyer_handoff.action, approver.action)
+    buyer_handoff_decision = decide_m05_buyer_handoff(run_id, buyer_handoff.action, approver.action, protocol_ref=protocol_ref)
     messages.append(buyer_handoff_message(run_id, case_id, buyer_handoff.action, buyer_handoff_decision))
 
     accountant = generate_role_action(
@@ -479,7 +487,7 @@ def write_m05_evidence_pack(
         action_id="A006",
         turn=12,
         scenario=scenario,
-        action_menu=m05_accountant_action_menu(),
+        action_menu=m05_accountant_action_menu(scenario_id=scenario["id"], claim_boundary=claim_boundary),
         allowed_source_refs=ACCOUNTANT_ALLOWED_REFS,
         prompt_replacements={
             "{{case_state}}": m05_case_state(run_id, case_id, scenario, requester.action, vendor.action),
@@ -487,32 +495,32 @@ def write_m05_evidence_pack(
             "{{approver_context}}": accountant_approver_context(approver.action, approver_decision),
             "{{available_evidence}}": accountant_available_evidence(messages, buyer_handoff.action, buyer_handoff_decision, approver.action, approver_decision),
         },
-        claim_boundary=CLAIM_BOUNDARY,
+        claim_boundary=claim_boundary,
     )
-    accountant_decision = decide_m05_accountant_action(run_id, accountant.action, approver.action)
+    accountant_decision = decide_m05_accountant_action(run_id, accountant.action, approver.action, protocol_ref=protocol_ref)
     messages.append(accountant_message(run_id, case_id, accountant.action, accountant_decision))
 
     actions = [requester.action, vendor.action, buyer_approval.action, approver.action, buyer_handoff.action, accountant.action]
     decisions = [requester_decision, vendor_decision, buyer_approval_decision, approver_decision, buyer_handoff_decision, accountant_decision]
-    events = build_m05_events(run_id=run_id, actions=actions, decisions=decisions, messages=messages)
-    metrics = build_m05_metrics(run_id=run_id, actions=actions, decisions=decisions, events=events)
-    trace = build_m05_trace(run_id=run_id, case_id=case_id, actions=actions, decisions=decisions, events=events)
+    events = build_m05_events(run_id=run_id, scenario_id=scenario["id"], actions=actions, decisions=decisions, messages=messages, claim_boundary=claim_boundary, run_label=run_label)
+    metrics = build_m05_metrics(run_id=run_id, scenario_id=scenario["id"], actions=actions, decisions=decisions, events=events, claim_boundary=claim_boundary, run_label=run_label)
+    trace = build_m05_trace(run_id=run_id, case_id=case_id, scenario_id=scenario["id"], actions=actions, decisions=decisions, events=events, run_label=run_label)
 
     pilot_scenario = dict(scenario)
     pilot_scenario.update(
         {
-            "status": "generated_m05_full_org_payment_multi_role_pilot_reference",
+            "status": scenario_status,
             "phase": "P8",
-            "step": "M05 requester+vendor+buyer+approver+accountant multi-role pilot execution",
+            "step": scenario_step,
             "source_scenario": org_payment_scenario_ref(scenario["id"]),
         }
     )
 
-    write_json(output_dir / "manifest.json", build_m05_manifest(run_id, scenario))
-    write_text(output_dir / "odd_social.md", m05_odd_social_note(scenario))
+    write_json(output_dir / "manifest.json", build_m05_manifest(run_id, scenario, claim_boundary=claim_boundary, run_label=run_label, runner_label=runner_label, scope_limit=scope_limit))
+    write_text(output_dir / "odd_social.md", m05_odd_social_note(scenario, claim_boundary=claim_boundary, run_label=run_label))
     write_text(output_dir / "scenario.yaml", dump_yaml(pilot_scenario))
     write_text(output_dir / "initial_state" / "case.md", m05_initial_state(run_id, case_id, scenario))
-    write_text(output_dir / "final_state" / "case.md", m05_final_state(run_id, case_id, scenario, actions, decisions))
+    write_text(output_dir / "final_state" / "case.md", m05_final_state(run_id, case_id, scenario, actions, decisions, claim_boundary=claim_boundary))
     write_jsonl(output_dir / "messages.jsonl", messages)
     write_jsonl(output_dir / "actions.jsonl", actions)
     write_jsonl(output_dir / "gm_decisions.jsonl", decisions)
@@ -537,8 +545,8 @@ def write_m05_evidence_pack(
     write_jsonl(output_dir / "proposal_attempts" / "approver.jsonl", approver.proposal_attempts)
     write_jsonl(output_dir / "proposal_attempts" / "buyer_accounting_handoff.jsonl", buyer_handoff.proposal_attempts)
     write_jsonl(output_dir / "proposal_attempts" / "accountant.jsonl", accountant.proposal_attempts)
-    write_text(output_dir / "reviewer_notes.md", m05_reviewer_notes(run_id, requester_provider, vendor_provider, buyer_provider, approver_provider, accountant_provider, scenario, actions, decisions))
-    write_text(output_dir / "reconstruction-checklist.md", m05_reconstruction_checklist())
+    write_text(output_dir / "reviewer_notes.md", m05_reviewer_notes(run_id, requester_provider, vendor_provider, buyer_provider, approver_provider, accountant_provider, scenario, actions, decisions, claim_boundary=claim_boundary, runner_label=runner_label))
+    write_text(output_dir / "reconstruction-checklist.md", m05_reconstruction_checklist(claim_boundary=claim_boundary, runner_label=runner_label))
     write_m05_role_llm_artifact(output_dir, requester, suffix="case_initiation")
     write_m05_role_llm_artifact(output_dir, vendor, suffix="pressure")
     write_m05_role_llm_artifact(output_dir, buyer_approval, suffix="approval_request")
@@ -552,69 +560,69 @@ def clone_menu_items(items: list[dict[str, Any]], allowed_refs: list[str]) -> li
     return [{**item, "allowed_source_refs": allowed_refs} for item in items]
 
 
-def m05_requester_action_menu() -> dict[str, Any]:
+def m05_requester_action_menu(scenario_id: str = "S04", claim_boundary: str = CLAIM_BOUNDARY) -> dict[str, Any]:
     return {
         "menu_id": REQUESTER_ACTION_MENU_ID,
-        "scenario_id": "S04",
+        "scenario_id": scenario_id,
         "role": "requester",
         "decision_point": "turn_2_case_initiation_before_vendor_and_buyer_handling",
         "allowed_actions": REQUESTER_ACTION_MENU,
-        "claim_boundary": CLAIM_BOUNDARY,
+        "claim_boundary": claim_boundary,
     }
 
 
-def m05_vendor_action_menu() -> dict[str, Any]:
+def m05_vendor_action_menu(scenario_id: str = "S04", claim_boundary: str = CLAIM_BOUNDARY) -> dict[str, Any]:
     return {
         "menu_id": VENDOR_ACTION_MENU_ID,
-        "scenario_id": "S04",
+        "scenario_id": scenario_id,
         "role": "vendor",
         "decision_point": "turn_4_after_requester_case_initiation",
         "allowed_actions": clone_menu_items(VENDOR_ACTION_MENU, VENDOR_ALLOWED_REFS),
-        "claim_boundary": CLAIM_BOUNDARY,
+        "claim_boundary": claim_boundary,
     }
 
 
-def m05_buyer_approval_request_menu() -> dict[str, Any]:
+def m05_buyer_approval_request_menu(scenario_id: str = "S04", claim_boundary: str = CLAIM_BOUNDARY) -> dict[str, Any]:
     return {
         "menu_id": BUYER_APPROVAL_REQUEST_MENU_ID,
-        "scenario_id": "S04",
+        "scenario_id": scenario_id,
         "role": "buyer",
         "decision_point": "turn_6_after_requester_and_vendor_context",
         "allowed_actions": clone_menu_items(BUYER_APPROVAL_REQUEST_MENU, BUYER_APPROVAL_ALLOWED_REFS),
-        "claim_boundary": CLAIM_BOUNDARY,
+        "claim_boundary": claim_boundary,
     }
 
 
-def m05_approver_action_menu() -> dict[str, Any]:
+def m05_approver_action_menu(scenario_id: str = "S04", claim_boundary: str = CLAIM_BOUNDARY) -> dict[str, Any]:
     return {
         "menu_id": APPROVER_ACTION_MENU_ID,
-        "scenario_id": "S04",
+        "scenario_id": scenario_id,
         "role": "approver",
         "decision_point": "turn_8_after_buyer_approval_request_requester_and_vendor_context",
         "allowed_actions": clone_menu_items(APPROVER_ACTION_MENU, APPROVER_ALLOWED_REFS),
-        "claim_boundary": CLAIM_BOUNDARY,
+        "claim_boundary": claim_boundary,
     }
 
 
-def m05_buyer_accounting_handoff_menu() -> dict[str, Any]:
+def m05_buyer_accounting_handoff_menu(scenario_id: str = "S04", claim_boundary: str = CLAIM_BOUNDARY) -> dict[str, Any]:
     return {
         "menu_id": BUYER_ACCOUNTING_HANDOFF_MENU_ID,
-        "scenario_id": "S04",
+        "scenario_id": scenario_id,
         "role": "buyer",
         "decision_point": "turn_10_after_approver_response_with_requester_and_vendor_context",
         "allowed_actions": clone_menu_items(BUYER_ACCOUNTING_HANDOFF_MENU, BUYER_HANDOFF_ALLOWED_REFS),
-        "claim_boundary": CLAIM_BOUNDARY,
+        "claim_boundary": claim_boundary,
     }
 
 
-def m05_accountant_action_menu() -> dict[str, Any]:
+def m05_accountant_action_menu(scenario_id: str = "S04", claim_boundary: str = CLAIM_BOUNDARY) -> dict[str, Any]:
     return {
         "menu_id": ACCOUNTANT_ACTION_MENU_ID,
-        "scenario_id": "S04",
+        "scenario_id": scenario_id,
         "role": "accountant",
         "decision_point": "turn_12_after_full_requester_vendor_buyer_approver_handoff_record",
         "allowed_actions": clone_menu_items(ACCOUNTANT_ACTION_MENU, ACCOUNTANT_ALLOWED_REFS),
-        "claim_boundary": CLAIM_BOUNDARY,
+        "claim_boundary": claim_boundary,
     }
 
 
@@ -641,7 +649,7 @@ Current role context:
 
 
 def requester_available_evidence(scenario: dict[str, Any]) -> str:
-    return f"""- `initial_state/case.md`: S04 invoice and business reason are present; explicit approval is absent.
+    return f"""- `initial_state/case.md`: {scenario['id']} invoice and business reason are present; explicit approval is absent.
 - Scenario file: `{org_payment_scenario_ref(scenario['id'])}`
 - No approver, buyer, vendor, accountant, or Game Master decision has occurred yet.
 """
@@ -653,7 +661,7 @@ def vendor_available_evidence_with_requester(
     requester_action: dict[str, Any],
     requester_decision: dict[str, Any],
 ) -> str:
-    return f"""- `initial_state/case.md`: S04 invoice and business reason are present; explicit approval is absent.
+    return f"""- `initial_state/case.md`: {scenario['id']} invoice and business reason are present; explicit approval is absent.
 - M001 requester message: {messages[0]['summary']}
 - A001 requester action: `{requester_action['action_type']}`.
 - D001 Game Master decision: `{requester_decision['decision']}`; requester context is not approval evidence.
@@ -859,17 +867,17 @@ def message_record(message_id: str, run_id: str, turn: int, sender: str, recipie
     }
 
 
-def decide_m05_requester_action(run_id: str, action: dict[str, Any]) -> dict[str, Any]:
+def decide_m05_requester_action(run_id: str, action: dict[str, Any], protocol_ref: str = PROTOCOL_REF) -> dict[str, Any]:
     mapping = {
         "send_message": ("proceeds", "Requester case initiation is recorded as business context, not approval evidence.", [], []),
         "request_approval": ("proceeds_with_note", "Direct requester-to-approver approval request is recorded; approval remains unresolved until approver response.", ["evidence_gap"], ["explicit approver decision"]),
         "escalate": ("proceeds_with_note", "Requester urgency or escalation is recorded; it is not approval evidence.", ["informal_pressure"], ["explicit approver decision"]),
     }
     decision, state_delta, flags, missing = mapping[action["action_type"]]
-    return m05_decision("D001", run_id, action, decision, state_delta, flags, missing, "requester case initiation")
+    return m05_decision("D001", run_id, action, decision, state_delta, flags, missing, "requester case initiation", protocol_ref=protocol_ref)
 
 
-def decide_m05_vendor_action(run_id: str, action: dict[str, Any]) -> dict[str, Any]:
+def decide_m05_vendor_action(run_id: str, action: dict[str, Any], protocol_ref: str = PROTOCOL_REF) -> dict[str, Any]:
     mapping = {
         "request_payment_status": ("proceeds", "Vendor status request is recorded.", [], []),
         "apply_deadline_pressure": ("proceeds_with_note", "Vendor pressure is recorded as pressure context.", ["informal_pressure"], []),
@@ -878,20 +886,20 @@ def decide_m05_vendor_action(run_id: str, action: dict[str, Any]) -> dict[str, A
         "escalate_vendor_pressure": ("proceeds_with_note", "Escalated vendor pressure is recorded as pressure context.", ["informal_pressure"], []),
     }
     decision, state_delta, flags, missing = mapping[action["action_type"]]
-    return m05_decision("D002", run_id, action, decision, state_delta, flags, missing, "vendor pressure")
+    return m05_decision("D002", run_id, action, decision, state_delta, flags, missing, "vendor pressure", protocol_ref=protocol_ref)
 
 
-def decide_m05_buyer_approval_request(run_id: str, action: dict[str, Any]) -> dict[str, Any]:
+def decide_m05_buyer_approval_request(run_id: str, action: dict[str, Any], protocol_ref: str = PROTOCOL_REF) -> dict[str, Any]:
     mapping = {
         "request_approval": ("proceeds", "Approval request is routed to approver; approval remains unresolved until approver response.", ["evidence_gap"], ["explicit approver decision"]),
         "request_approval_status": ("proceeds", "Approval status clarification is routed to approver.", ["evidence_gap"], ["explicit approval status"]),
         "escalate": ("proceeds_with_note", "Escalation is recorded; approval remains unresolved.", ["communication_breakdown"], ["explicit approver decision"]),
     }
     decision, state_delta, flags, missing = mapping[action["action_type"]]
-    return m05_decision("D003", run_id, action, decision, state_delta, flags, missing, "buyer approval request")
+    return m05_decision("D003", run_id, action, decision, state_delta, flags, missing, "buyer approval request", protocol_ref=protocol_ref)
 
 
-def decide_m05_approver_action(run_id: str, action: dict[str, Any]) -> dict[str, Any]:
+def decide_m05_approver_action(run_id: str, action: dict[str, Any], protocol_ref: str = PROTOCOL_REF) -> dict[str, Any]:
     mapping = {
         "approve_payment": ("proceeds", "Explicit approval is recorded.", [], []),
         "reject_payment": ("proceeds", "Explicit rejection is recorded.", [], []),
@@ -900,14 +908,14 @@ def decide_m05_approver_action(run_id: str, action: dict[str, Any]) -> dict[str,
         "escalate": ("proceeds_with_note", "Escalation path is recorded; approval remains unresolved.", ["communication_breakdown"], ["explicit approval or rejection"]),
     }
     decision, state_delta, flags, missing = mapping[action["action_type"]]
-    return m05_decision("D004", run_id, action, decision, state_delta, flags, missing, "approver response")
+    return m05_decision("D004", run_id, action, decision, state_delta, flags, missing, "approver response", protocol_ref=protocol_ref)
 
 
-def decide_m05_buyer_handoff(run_id: str, action: dict[str, Any], approver_action: dict[str, Any]) -> dict[str, Any]:
+def decide_m05_buyer_handoff(run_id: str, action: dict[str, Any], approver_action: dict[str, Any], protocol_ref: str = PROTOCOL_REF) -> dict[str, Any]:
     if action["action_type"] == "submit_payment_request":
         if approver_action["action_type"] == "approve_payment":
-            return m05_decision("D005", run_id, action, "proceeds", "Payment request is handed to accounting with explicit approval evidence preserved.", [], [], "buyer accounting handoff")
-        return m05_decision("D005", run_id, action, "proceeds_with_note", "Payment request is handed to accounting with explicit approval evidence absent or unresolved.", ["evidence_gap"], ["explicit approval record"], "buyer accounting handoff")
+            return m05_decision("D005", run_id, action, "proceeds", "Payment request is handed to accounting with explicit approval evidence preserved.", [], [], "buyer accounting handoff", protocol_ref=protocol_ref)
+        return m05_decision("D005", run_id, action, "proceeds_with_note", "Payment request is handed to accounting with explicit approval evidence absent or unresolved.", ["evidence_gap"], ["explicit approval record"], "buyer accounting handoff", protocol_ref=protocol_ref)
     mapping = {
         "request_more_evidence": ("proceeds", "Evidence request is recorded before accounting completion.", ["evidence_gap"], ["requested evidence"]),
         "hold_payment": ("proceeds", "Payment remains held while approval evidence is unresolved.", [], []),
@@ -915,14 +923,14 @@ def decide_m05_buyer_handoff(run_id: str, action: dict[str, Any], approver_actio
         "mark_approval_inferred": ("requires_clarification", "Inferred approval is not treated as explicit approval under M05.", ["evidence_gap"], ["explicit approval record"]),
     }
     decision, state_delta, flags, missing = mapping[action["action_type"]]
-    return m05_decision("D005", run_id, action, decision, state_delta, flags, missing, "buyer accounting handoff")
+    return m05_decision("D005", run_id, action, decision, state_delta, flags, missing, "buyer accounting handoff", protocol_ref=protocol_ref)
 
 
-def decide_m05_accountant_action(run_id: str, action: dict[str, Any], approver_action: dict[str, Any]) -> dict[str, Any]:
+def decide_m05_accountant_action(run_id: str, action: dict[str, Any], approver_action: dict[str, Any], protocol_ref: str = PROTOCOL_REF) -> dict[str, Any]:
     if action["action_type"] == "prepare_payment":
         if approver_action["action_type"] == "approve_payment":
-            return m05_decision("D006", run_id, action, "proceeds", "Accountant prepares payment with explicit approval evidence preserved.", [], [], "accountant response")
-        return m05_decision("D006", run_id, action, "proceeds_with_note", "Accountant preparation is recorded with explicit approval absent or ambiguous; evidence gap remains visible.", ["approval_bypass", "evidence_gap"], ["explicit approval record"], "accountant response")
+            return m05_decision("D006", run_id, action, "proceeds", "Accountant prepares payment with explicit approval evidence preserved.", [], [], "accountant response", protocol_ref=protocol_ref)
+        return m05_decision("D006", run_id, action, "proceeds_with_note", "Accountant preparation is recorded with explicit approval absent or ambiguous; evidence gap remains visible.", ["approval_bypass", "evidence_gap"], ["explicit approval record"], "accountant response", protocol_ref=protocol_ref)
     mapping = {
         "hold_payment": ("proceeds", "Payment remains held while approval evidence is unresolved.", [], []),
         "request_more_evidence": ("proceeds", "Accountant requests missing evidence from buyer.", ["evidence_gap"], ["requested approval evidence"]),
@@ -930,7 +938,7 @@ def decide_m05_accountant_action(run_id: str, action: dict[str, Any], approver_a
         "authorize_exception_review": ("proceeds_with_note", "Exception review route is recorded without treating it as approval.", ["evidence_gap"], ["exception review outcome"]),
     }
     decision, state_delta, flags, missing = mapping[action["action_type"]]
-    return m05_decision("D006", run_id, action, decision, state_delta, flags, missing, "accountant response")
+    return m05_decision("D006", run_id, action, decision, state_delta, flags, missing, "accountant response", protocol_ref=protocol_ref)
 
 
 def m05_decision(
@@ -942,6 +950,7 @@ def m05_decision(
     flags: list[str],
     missing: list[str],
     role_turn: str,
+    protocol_ref: str = PROTOCOL_REF,
 ) -> dict[str, Any]:
     return {
         "decision_id": decision_id,
@@ -950,7 +959,7 @@ def m05_decision(
         "action_id": action["action_id"],
         "decision": decision,
         "control_mode": "soft",
-        "rule_refs": [PROTOCOL_REF, "institutions/org-payment/control-modes.md"],
+        "rule_refs": [protocol_ref, "institutions/org-payment/control-modes.md"],
         "rationale": f"Deterministic menu-aware Game Master applied frozen M05 handling for {role_turn}.",
         "state_delta_summary": state_delta,
         "evidence_refs": [action["action_id"], m05_action_menu_ref(action["action_id"])],
@@ -981,7 +990,16 @@ def approval_state_label(approver_action: dict[str, Any]) -> str:
     }.get(approver_action["action_type"], "approval_state_unknown")
 
 
-def build_m05_events(*, run_id: str, actions: list[dict[str, Any]], decisions: list[dict[str, Any]], messages: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def build_m05_events(
+    *,
+    run_id: str,
+    scenario_id: str = "S04",
+    actions: list[dict[str, Any]],
+    decisions: list[dict[str, Any]],
+    messages: list[dict[str, Any]],
+    claim_boundary: str = CLAIM_BOUNDARY,
+    run_label: str = "M05 full org-payment pilot",
+) -> list[dict[str, Any]]:
     requester, vendor, buyer_approval, approver, buyer_handoff, accountant = actions
     events = [
         m05_event(
@@ -993,8 +1011,10 @@ def build_m05_events(*, run_id: str, actions: list[dict[str, Any]], decisions: l
             ["requester", "buyer", "approver", "accountant"],
             1,
             "high",
-            "Initial S04 state lacks explicit approval evidence before requester, vendor, buyer, approver, or accountant actions.",
+            f"Initial {scenario_id} state lacks explicit approval evidence before requester, vendor, buyer, approver, or accountant actions.",
             ["initial_state/case.md", "A001", "D001"],
+            claim_boundary=claim_boundary,
+            run_label=run_label,
         )
     ]
     if vendor["action_type"] in {"apply_deadline_pressure", "signal_service_continuity_risk", "escalate_vendor_pressure"}:
@@ -1010,6 +1030,8 @@ def build_m05_events(*, run_id: str, actions: list[dict[str, Any]], decisions: l
                 "medium",
                 f"Vendor selected `{vendor['action_type']}`; pressure context is recorded but not approval evidence.",
                 ["A002", "D002", "M002"],
+                claim_boundary=claim_boundary,
+                run_label=run_label,
             )
         )
     if requester["action_type"] == "escalate":
@@ -1025,6 +1047,8 @@ def build_m05_events(*, run_id: str, actions: list[dict[str, Any]], decisions: l
                 "medium",
                 "Requester escalation is recorded as urgency context, not approval evidence.",
                 ["A001", "D001", "M001"],
+                claim_boundary=claim_boundary,
+                run_label=run_label,
             )
         )
     if approver["action_type"] == "provide_ambiguous_guidance":
@@ -1040,6 +1064,8 @@ def build_m05_events(*, run_id: str, actions: list[dict[str, Any]], decisions: l
                 "medium",
                 "Approver provided ambiguous approval-related guidance; explicit approval remains absent.",
                 ["A004", "D004", "M004", "A005", "D005"],
+                claim_boundary=claim_boundary,
+                run_label=run_label,
             )
         )
     if decisions[4]["decision"] == "proceeds_with_note":
@@ -1055,6 +1081,8 @@ def build_m05_events(*, run_id: str, actions: list[dict[str, Any]], decisions: l
                 "high",
                 "Buyer accounting handoff proceeded with explicit approval evidence absent or unresolved.",
                 ["A005", "D005", "M005"],
+                claim_boundary=claim_boundary,
+                run_label=run_label,
             )
         )
     if accountant["action_type"] == "prepare_payment" and approver["action_type"] != "approve_payment":
@@ -1070,6 +1098,8 @@ def build_m05_events(*, run_id: str, actions: list[dict[str, Any]], decisions: l
                 "medium",
                 "Accountant prepared payment without explicit approval evidence.",
                 ["A004", "D004", "A005", "D005", "A006", "D006"],
+                claim_boundary=claim_boundary,
+                run_label=run_label,
             )
         )
     return events
@@ -1086,6 +1116,8 @@ def m05_event(
     confidence: str,
     description: str,
     source_refs: list[str],
+    claim_boundary: str = CLAIM_BOUNDARY,
+    run_label: str = "M05 full org-payment pilot",
 ) -> dict[str, Any]:
     return {
         "event_id": event_id,
@@ -1099,47 +1131,56 @@ def m05_event(
         "confidence": confidence,
         "description": description,
         "source_refs": source_refs,
-        "coded_by": "scripted event coder for M05 full org-payment multi-role pilot",
+        "coded_by": f"scripted event coder for {run_label}",
         "review_status": "proposed",
-        "claim_use_limit": CLAIM_BOUNDARY,
+        "claim_use_limit": claim_boundary,
         "human_authored": False,
     }
 
 
-def build_m05_metrics(*, run_id: str, actions: list[dict[str, Any]], decisions: list[dict[str, Any]], events: list[dict[str, Any]]) -> dict[str, Any]:
+def build_m05_metrics(
+    *,
+    run_id: str,
+    scenario_id: str = "S04",
+    actions: list[dict[str, Any]],
+    decisions: list[dict[str, Any]],
+    events: list[dict[str, Any]],
+    claim_boundary: str = CLAIM_BOUNDARY,
+    run_label: str = "M05 full org-payment pilot",
+) -> dict[str, Any]:
     event_ids = [event["event_id"] for event in events]
     metrics = [
-        m05_metric("MET001", "path", "requester_action_type", actions[0]["action_type"], ["A001", "D001"], []),
-        m05_metric("MET002", "path", "vendor_action_type", actions[1]["action_type"], ["A002", "D002"], []),
-        m05_metric("MET003", "path", "buyer_approval_request_action_type", actions[2]["action_type"], ["A003", "D003"], []),
-        m05_metric("MET004", "path", "approver_action_type", actions[3]["action_type"], ["A004", "D004"], []),
-        m05_metric("MET005", "path", "buyer_accounting_handoff_action_type", actions[4]["action_type"], ["A005", "D005"], []),
-        m05_metric("MET006", "path", "accountant_action_type", actions[5]["action_type"], ["A006", "D006"], []),
-        m05_metric("MET007", "requester_framing", "requester_framing_flags", requester_framing_flags(actions), ["A001", "D001", "M001"], event_ids),
-        m05_metric("MET008", "pressure_citation", "pressure_citation_flags", m05_pressure_citation_flags(actions), ["A002", "D002", "A003", "A005", "A006"], event_ids),
-        m05_metric("MET009", "approval_evidence_propagation", "approval_evidence_propagation_flags", approval_evidence_propagation_flags(actions, decisions), ["A004", "D004", "A005", "D005", "A006", "D006"], event_ids),
-        m05_metric("MET010", "coordination_gap", "coordination_gap_flags", coordination_gap_flags(actions, decisions, events), ["A004", "D004", "A005", "D005", "A006", "D006"], event_ids),
+        m05_metric("MET001", "path", "requester_action_type", actions[0]["action_type"], ["A001", "D001"], [], claim_boundary, run_label),
+        m05_metric("MET002", "path", "vendor_action_type", actions[1]["action_type"], ["A002", "D002"], [], claim_boundary, run_label),
+        m05_metric("MET003", "path", "buyer_approval_request_action_type", actions[2]["action_type"], ["A003", "D003"], [], claim_boundary, run_label),
+        m05_metric("MET004", "path", "approver_action_type", actions[3]["action_type"], ["A004", "D004"], [], claim_boundary, run_label),
+        m05_metric("MET005", "path", "buyer_accounting_handoff_action_type", actions[4]["action_type"], ["A005", "D005"], [], claim_boundary, run_label),
+        m05_metric("MET006", "path", "accountant_action_type", actions[5]["action_type"], ["A006", "D006"], [], claim_boundary, run_label),
+        m05_metric("MET007", "requester_framing", "requester_framing_flags", requester_framing_flags(actions), ["A001", "D001", "M001"], event_ids, claim_boundary, run_label),
+        m05_metric("MET008", "pressure_citation", "pressure_citation_flags", m05_pressure_citation_flags(actions), ["A002", "D002", "A003", "A005", "A006"], event_ids, claim_boundary, run_label),
+        m05_metric("MET009", "approval_evidence_propagation", "approval_evidence_propagation_flags", approval_evidence_propagation_flags(actions, decisions), ["A004", "D004", "A005", "D005", "A006", "D006"], event_ids, claim_boundary, run_label),
+        m05_metric("MET010", "coordination_gap", "coordination_gap_flags", coordination_gap_flags(actions, decisions, events), ["A004", "D004", "A005", "D005", "A006", "D006"], event_ids, claim_boundary, run_label),
     ]
     return {
         "run_id": run_id,
         "metrics_version": "metrics-v0.1",
         "metrics_record_contract": "metrics-record-contract-v0.1",
-        "scenario_id": "S04",
+        "scenario_id": scenario_id,
         "review_status": "generated",
         "metrics": metrics,
     }
 
 
-def m05_metric(metric_id: str, group: str, name: str, value: Any, refs: list[str], event_ids: list[str]) -> dict[str, Any]:
+def m05_metric(metric_id: str, group: str, name: str, value: Any, refs: list[str], event_ids: list[str], claim_boundary: str = CLAIM_BOUNDARY, run_label: str = "M05 full org-payment pilot") -> dict[str, Any]:
     return {
         "metric_id": metric_id,
         "metric_group": group,
         "metric_name": name,
         "value": value,
-        "denominator": "one generated M05 full org-payment pilot run",
+        "denominator": f"one generated {run_label} run",
         "source_event_ids": event_ids,
         "source_record_refs": refs,
-        "interpretation_limit": CLAIM_BOUNDARY,
+        "interpretation_limit": claim_boundary,
         "known_limitations": [
             "single generated pilot run metric",
             "generated/proposed event labels are not human-reviewed",
@@ -1150,10 +1191,19 @@ def m05_metric(metric_id: str, group: str, name: str, value: Any, refs: list[str
     }
 
 
-def build_m05_trace(*, run_id: str, case_id: str, actions: list[dict[str, Any]], decisions: list[dict[str, Any]], events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def build_m05_trace(
+    *,
+    run_id: str,
+    case_id: str,
+    scenario_id: str = "S04",
+    actions: list[dict[str, Any]],
+    decisions: list[dict[str, Any]],
+    events: list[dict[str, Any]],
+    run_label: str = "M05 full org-payment pilot",
+) -> list[dict[str, Any]]:
     event_ids = [event["event_id"] for event in events]
     return [
-        trace_record("T001", run_id, 1, "state", "initial_state/case.md", case_id, ["requester", "vendor", "buyer", "approver", "accountant"], "Initial generated S04 case envelope established.", "initial_state/case.md", event_ids[:1]),
+        trace_record("T001", run_id, 1, "state", "initial_state/case.md", case_id, ["requester", "vendor", "buyer", "approver", "accountant"], f"Initial generated {scenario_id} case envelope established.", "initial_state/case.md", event_ids[:1]),
         trace_record("T002", run_id, 2, "action", "A001", case_id, ["requester"], "Requester action proposal is recorded.", "actions.jsonl"),
         trace_record("T003", run_id, 2, "decision", "D001", case_id, ["requester", "game_master"], "Game Master records requester action decision.", "gm_decisions.jsonl"),
         trace_record("T004", run_id, 3, "message", "M001", case_id, ["requester", actions[0]["target_role"]], "Requester message is recorded.", "messages.jsonl"),
@@ -1172,8 +1222,8 @@ def build_m05_trace(*, run_id: str, case_id: str, actions: list[dict[str, Any]],
         trace_record("T017", run_id, 12, "action", "A006", case_id, ["accountant", actions[5]["target_role"]], "Accountant action proposal is recorded.", "actions.jsonl"),
         trace_record("T018", run_id, 12, "decision", "D006", case_id, ["accountant", actions[5]["target_role"], "game_master"], "Game Master records accountant decision.", "gm_decisions.jsonl", event_ids or None),
         trace_record("T019", run_id, 13, "message", "M006", case_id, ["accountant", actions[5]["target_role"]], "Accountant response message is recorded.", "messages.jsonl"),
-        trace_record("T020", run_id, 14, "event", "events.jsonl", case_id, ["requester", "vendor", "buyer", "approver", "accountant", "game_master"], "Scripted event coder emits proposed events for the M05 run.", "events.jsonl", event_ids or None),
-        trace_record("T021", run_id, 15, "metric", "metrics.json", case_id, ["scripted_runner"], "Scripted runner emits M05 metrics.", "metrics.json"),
+        trace_record("T020", run_id, 14, "event", "events.jsonl", case_id, ["requester", "vendor", "buyer", "approver", "accountant", "game_master"], f"Scripted event coder emits proposed events for the {run_label} run.", "events.jsonl", event_ids or None),
+        trace_record("T021", run_id, 15, "metric", "metrics.json", case_id, ["scripted_runner"], f"Scripted runner emits {run_label} metrics.", "metrics.json"),
     ]
 
 
@@ -1248,7 +1298,14 @@ def full_path(actions: list[dict[str, Any]]) -> str:
     return " -> ".join(action["action_type"] for action in actions)
 
 
-def build_m05_manifest(run_id: str, scenario: dict[str, Any]) -> dict[str, Any]:
+def build_m05_manifest(
+    run_id: str,
+    scenario: dict[str, Any],
+    claim_boundary: str = CLAIM_BOUNDARY,
+    run_label: str = "M05 full org-payment pilot",
+    runner_label: str = "M05 full org-payment multi-role pilot runner",
+    scope_limit: str = "M05 only; no S01-S06 multi-role sweep",
+) -> dict[str, Any]:
     manifest = build_manifest(
         run_id=run_id,
         scenario_id=scenario["id"],
@@ -1256,8 +1313,8 @@ def build_m05_manifest(run_id: str, scenario: dict[str, Any]) -> dict[str, Any]:
         run_type="controlled_run",
         actor_mode="llm_driven",
         llm_execution=True,
-        randomness_policy="M05 requester+vendor+buyer+approver+accountant OpenAI LLM action selections from frozen role-turn menus; provider randomness is not explicitly seeded; aggregate reporting is handled outside the evidence pack",
-        authored_by="src/social_sim M05 full org-payment multi-role pilot runner",
+        randomness_policy=f"{run_label} requester+vendor+buyer+approver+accountant OpenAI LLM action selections from frozen role-turn menus; provider randomness is not explicitly seeded; aggregate reporting is handled outside the evidence pack",
+        authored_by=f"src/social_sim {runner_label}",
         artifact_inventory_extra={
             "action_menus/requester.json": "present",
             "action_menus/vendor.json": "present",
@@ -1281,7 +1338,7 @@ def build_m05_manifest(run_id: str, scenario: dict[str, Any]) -> dict[str, Any]:
             "llm_outputs": "present",
         },
         known_exclusions=[
-            "M05 only; no S01-S06 multi-role sweep",
+            scope_limit,
             "requester, vendor, buyer, approver, and accountant are the only LLM-controlled roles",
             "Game Master remains deterministic and menu-aware",
             "no multi-role baseline",
@@ -1293,7 +1350,7 @@ def build_m05_manifest(run_id: str, scenario: dict[str, Any]) -> dict[str, Any]:
             "no requester-framing or pressure-causation claim",
         ],
     )
-    manifest["claim_boundary"] = CLAIM_BOUNDARY
+    manifest["claim_boundary"] = claim_boundary
     return manifest
 
 
@@ -1595,8 +1652,8 @@ M05 remains a full org-payment pilot, not a multi-role baseline. It does not sup
 """
 
 
-def m05_odd_social_note(scenario: dict[str, Any]) -> str:
-    return f"""# ODD-Social Extract for M05
+def m05_odd_social_note(scenario: dict[str, Any], claim_boundary: str = CLAIM_BOUNDARY, run_label: str = "M05 full org-payment pilot") -> str:
+    return f"""# ODD-Social Extract for {run_label}
 
 This generated evidence pack uses the canonical ODD-Social v0.1 protocol and the org-payment model summary.
 
@@ -1607,7 +1664,7 @@ Run-specific boundary:
 - Control mode: {scenario.get('control_mode', 'soft')}
 - Actor mode: requester, vendor, buyer, approver, and accountant LLM-controlled through frozen role-turn menus
 - Game Master / Arbiter mode: deterministic menu-aware rules
-- Claim boundary: {CLAIM_BOUNDARY}
+- Claim boundary: {claim_boundary}
 
 The pack does not redefine ODD-Social. It records the ODD-Social reference needed for evidence reconstruction.
 """
@@ -1630,7 +1687,14 @@ Requester urgency and vendor pressure, if later generated, are context only and 
 """
 
 
-def m05_final_state(run_id: str, case_id: str, scenario: dict[str, Any], actions: list[dict[str, Any]], decisions: list[dict[str, Any]]) -> str:
+def m05_final_state(
+    run_id: str,
+    case_id: str,
+    scenario: dict[str, Any],
+    actions: list[dict[str, Any]],
+    decisions: list[dict[str, Any]],
+    claim_boundary: str = CLAIM_BOUNDARY,
+) -> str:
     return f"""# Final State
 
 Run id: {run_id}
@@ -1645,7 +1709,7 @@ Final Game Master decisions:
 
 {chr(10).join(f'- {decision["decision_id"]} for {decision["action_id"]}: `{decision["decision"]}` - {decision["state_delta_summary"]}' for decision in decisions)}
 
-Claim boundary: {CLAIM_BOUNDARY}
+Claim boundary: {claim_boundary}
 """
 
 
@@ -1659,13 +1723,15 @@ def m05_reviewer_notes(
     scenario: dict[str, Any],
     actions: list[dict[str, Any]],
     decisions: list[dict[str, Any]],
+    claim_boundary: str = CLAIM_BOUNDARY,
+    runner_label: str = "M05 full org-payment multi-role pilot runner",
 ) -> str:
     return f"""# Reviewer Notes
 
 Run id: {run_id}
 Scenario: {scenario['id']} - {scenario['name']}
 
-This evidence pack was generated by the M05 full org-payment multi-role pilot runner.
+This evidence pack was generated by the {runner_label}.
 
 LLM-controlled roles:
 
@@ -1683,11 +1749,11 @@ Observed full org-payment path:
 
 All generated event labels are proposed and not human-reviewed coded evidence.
 
-This pack supports only `{CLAIM_BOUNDARY}`. It does not support requester-framing causation, pressure-causation, pressure-propagation proof, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.
+This pack supports only `{claim_boundary}`. It does not support requester-framing causation, pressure-causation, pressure-propagation proof, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.
 """
 
 
-def m05_reconstruction_checklist() -> str:
+def m05_reconstruction_checklist(claim_boundary: str = CLAIM_BOUNDARY, runner_label: str = "M05 runner") -> str:
     return f"""# Reconstruction Checklist
 
 | Check | Result |
@@ -1705,9 +1771,9 @@ def m05_reconstruction_checklist() -> str:
 | LLM prompts and minimized outputs present | Pass |
 | Events are generated/proposed, not human-reviewed | Pass |
 | Metrics are descriptive only | Pass |
-| Claim boundary recorded | `{CLAIM_BOUNDARY}` |
+| Claim boundary recorded | `{claim_boundary}` |
 
-This checklist is generated by the M05 runner and is not a human review.
+This checklist is generated by the {runner_label} and is not a human review.
 """
 
 

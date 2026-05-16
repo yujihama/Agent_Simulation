@@ -11,9 +11,7 @@
       "metric_name": "selected_action_type",
       "value": "request_approval",
       "denominator": "one constrained buyer action menu selection",
-      "source_event_ids": [
-        "E002"
-      ],
+      "source_event_ids": [],
       "source_record_refs": [
         "A001",
         "action_menu.json",
@@ -32,9 +30,7 @@
       "metric_name": "game_master_decision_for_selected_action",
       "value": "proceeds",
       "denominator": "one deterministic Game Master decision",
-      "source_event_ids": [
-        "E002"
-      ],
+      "source_event_ids": [],
       "source_record_refs": [
         "D001",
         "gm_decisions.jsonl"
@@ -50,13 +46,11 @@
       "metric_group": "event_counts",
       "metric_name": "event_count_by_type",
       "value": {
-        "informal_pressure": 1,
-        "audit_flag": 1
+        "informal_pressure": 1
       },
-      "denominator": "2 proposed event records",
+      "denominator": "1 proposed event records",
       "source_event_ids": [
-        "E001",
-        "E002"
+        "E001"
       ],
       "source_record_refs": [
         "events.jsonl"
@@ -73,8 +67,7 @@
       "value": "mechanically_validated_single_free_choice_pilot_pack",
       "denominator": "not_applicable",
       "source_event_ids": [
-        "E001",
-        "E002"
+        "E001"
       ],
       "source_record_refs": [
         "reconstruction-checklist.md",

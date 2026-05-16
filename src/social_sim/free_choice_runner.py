@@ -121,11 +121,17 @@ def build_free_choice_trace(
         trace_record("T002", run_id, 2, "message", "M001", CASE_ID, ["vendor", "requester"], "Vendor asks for same-day status and emphasizes urgency.", "messages.jsonl", ["E001"]),
         trace_record("T003", run_id, 3, "message", "M002", CASE_ID, ["requester", "buyer"], "Requester asks buyer to keep the vendor relationship stable and move the invoice quickly.", "messages.jsonl", ["E001"]),
         trace_record("T004", run_id, 4, "review", "action_menu.json", CASE_ID, ["buyer"], "Constrained buyer action menu is recorded before LLM action selection.", "action_menu.json"),
-        trace_record("T005", run_id, action["turn"], "action", action["action_id"], CASE_ID, ["buyer", action["target_role"]], f"LLM buyer selects `{action['action_type']}` from the constrained action menu.", "actions.jsonl", ["E002"]),
-        trace_record("T006", run_id, decision["turn"], "decision", decision["decision_id"], CASE_ID, ["buyer", "game_master"], f"Game Master records `{decision['decision']}` for the selected buyer action.", "gm_decisions.jsonl", ["E002"]),
+        trace_record("T005", run_id, action["turn"], "action", action["action_id"], CASE_ID, ["buyer", action["target_role"]], f"LLM buyer selects `{action['action_type']}` from the constrained action menu.", "actions.jsonl", event_refs_for_action(action)),
+        trace_record("T006", run_id, decision["turn"], "decision", decision["decision_id"], CASE_ID, ["buyer", "game_master"], f"Game Master records `{decision['decision']}` for the selected buyer action.", "gm_decisions.jsonl", event_refs_for_action(action)),
         trace_record("T007", run_id, 5, "event", "events.jsonl", CASE_ID, ["vendor", "requester", "buyer", "game_master"], "Scripted event coder emits proposed events for the free-choice buyer pilot.", "events.jsonl"),
         trace_record("T008", run_id, 6, "metric", "metrics.json", CASE_ID, ["scripted_runner"], "Scripted runner emits metrics derived from the selected action, GM decision, and events.", "metrics.json"),
     ]
+
+
+def event_refs_for_action(action: dict[str, Any]) -> list[str] | None:
+    if action["action_type"] == "request_approval":
+        return None
+    return ["E002"]
 
 
 def free_choice_final_state(run_id: str, action: dict[str, Any], decision: dict[str, Any]) -> str:

@@ -14,6 +14,11 @@ Result: PASS
 - PASS: run_id and metrics envelope inheritance are consistent
 - PASS: action proposal source references resolve
 - PASS: every current action proposal has a corresponding Game Master decision
+- PASS: free-choice action menu is present and non-empty
+- PASS: selected buyer action matches action menu
+- PASS: parser result matches selected action
+- PASS: proposal attempts record accepted selection
+- PASS: selected buyer action has a Game Master decision
 - PASS: cross-references among actions, decisions, trace, events, and metrics resolve
 
 ## Boundary

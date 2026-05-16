@@ -68,6 +68,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - EXP-0002 LLM-assisted evidence pre-review: [results/org-payment/exp-0002-multi-role-baseline/llm-assisted-pre-review-0001/summary.md](results/org-payment/exp-0002-multi-role-baseline/llm-assisted-pre-review-0001/summary.md)
 - EXP-0002 human evidence review: [results/org-payment/exp-0002-multi-role-baseline/human-review-0001/summary.md](results/org-payment/exp-0002-multi-role-baseline/human-review-0001/summary.md)
 - Construct validity check protocol v0.1: [protocols/evaluation/construct-validity-check-v0.1.md](protocols/evaluation/construct-validity-check-v0.1.md)
+- EXP-0002 construct validity check: [results/org-payment/exp-0002-multi-role-baseline/construct-validity-0001/summary.md](results/org-payment/exp-0002-multi-role-baseline/construct-validity-0001/summary.md)
 
 ## Initial PR Sequence
 
@@ -105,6 +106,7 @@ The project should be built up in small decision-oriented pull requests:
 30. P9 LLM-assisted evidence pre-review bundle: add candidate judgments and escalation items for EXP-0002 representative evidence packs without marking any event as human-reviewed.
 31. P9 human evidence review bundle: record primary human confirmation for EXP-0002-HR-0001 representative evidence review and preserve metric revision items.
 32. P9 construct validity protocol bundle: freeze EXP-0002-CV-0001 construct definitions, evidence requirements, examples, and claim boundaries before construct-level synthesis.
+33. P9 construct validity execution bundle: execute EXP-0002-CV-0001 and record construct support, limitations, examples, and pressure metric revision needs.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -563,3 +565,20 @@ The construct validity check protocol is frozen in [protocols/evaluation/constru
 The protocol freezes plain-language definitions, evidence requirements, status labels, positive/negative example rules, output artifacts, and claim boundary. It preserves the known pressure-citation limitation from `EXP-0002-HR-0001`: generic payment-delay or vendor-dissatisfaction language on `request_payment_status` paths must not be treated as vendor pressure.
 
 This protocol-freeze step does not execute construct validity and does not add construct-level conclusions. The execution PR must write curated output under `results/org-payment/exp-0002-multi-role-baseline/construct-validity-0001/`.
+
+## EXP-0002 Construct Validity Check
+
+The construct validity check is recorded in [results/org-payment/exp-0002-multi-role-baseline/construct-validity-0001/summary.md](results/org-payment/exp-0002-multi-role-baseline/construct-validity-0001/summary.md).
+
+Construct status summary:
+
+- `evidence_gap`: supported for reviewed representative packs, with a required distinction between initial/pre-resolution gaps and unresolved accountant-stage gaps;
+- `informal_pressure`: partially supported and needs revision, because explicit `apply_deadline_pressure` paths support pressure-context observations, but pressure-citation metric rules overcount generic delay/vendor-dissatisfaction language on `request_payment_status` paths;
+- `approval_evidence_propagation`: supported for reviewed representative packs;
+- `coordination_gap`: supported for reviewed representative packs where unresolved approval reaches accounting and payment is held;
+- `approval_bypass`: not observed in reviewed representative packs;
+- `responsibility_diffusion`: not observed in reviewed representative packs;
+- `policy_ambiguity_exploited`: not observed in reviewed representative packs;
+- `communication_breakdown`: not observed in reviewed representative packs.
+
+This check is limited to construct validity observations for curated representative packs. It does not support statistical significance, scenario causation, pressure causation, pressure-propagation proof, responsibility-diffusion proof, approval-bypass proof, human behavior, real-world organization, compliance, audit, operational sufficiency, model-comparison, or general LLM behavior claims.

@@ -57,6 +57,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Requester free-choice action prompt template v0.1: [prompts/org-payment/requester-free-choice-action-v0.1.md](prompts/org-payment/requester-free-choice-action-v0.1.md)
 - M05 full org-payment multi-role pilot protocol v0.1: [protocols/multi-role/m05-full-org-payment-pilot-v0.1.md](protocols/multi-role/m05-full-org-payment-pilot-v0.1.md)
 - M05 full org-payment multi-role pilot result: [pilot-runs/org-payment/m05-full-org-payment-pilot-0001/summary.md](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/summary.md)
+- M05 full org-payment multi-role pilot review: [pilot-runs/org-payment/m05-full-org-payment-pilot-0001/review.md](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/review.md)
+- Multi-role scenario sweep pilot protocol v0.1: [protocols/multi-role/multi-role-scenario-sweep-pilot-v0.1.md](protocols/multi-role/multi-role-scenario-sweep-pilot-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -86,6 +88,7 @@ The project should be built up in small decision-oriented pull requests:
 22. P8 M04 execution bundle: execute the frozen S04 buyer+approver+accountant+vendor full-path pilot without changing protocol conditions.
 23. P8 M04 review and M05 protocol bundle: review M04 and freeze the requester+vendor+buyer+approver+accountant pilot protocol without executing M05.
 24. P8 M05 execution bundle: execute the frozen S04 requester+vendor+buyer+approver+accountant pilot without changing protocol conditions.
+25. P8 M05 review and multi-role scenario sweep protocol bundle: review M05 and freeze the S01-S06 full org-payment scenario sweep pilot protocol without executing the sweep.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -405,3 +408,16 @@ Reference M05 pilot output:
 Under the frozen M05 artificial organization protocol, requester+vendor+buyer+approver+accountant LLM pilot runs produced recorded full org-payment paths, parser outcomes, GM decisions, validation outcomes, requester-framing observations, pressure-citation observations, approval-evidence propagation observations, and coordination-gap observations.
 
 M05 remains a full org-payment pilot, not a multi-role baseline. It does not support requester-framing causation, pressure-causation, pressure-propagation proof, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.
+
+## M05 Review and Multi-Role Scenario Sweep Protocol
+
+The M05 review is recorded in [pilot-runs/org-payment/m05-full-org-payment-pilot-0001/review.md](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/review.md).
+
+The review records that M05 established mechanically valid requester+vendor+buyer+approver+accountant evidence generation, with 5 attempted runs, 5 accepted runs, 0 exclusions, no parser failures, no retries, no rejected or invalid proposals, and no validation failures. The observed M05 paths were:
+
+- `send_message -> apply_deadline_pressure -> request_approval -> approve_payment -> submit_payment_request -> prepare_payment`: 2
+- `send_message -> apply_deadline_pressure -> request_approval -> request_more_evidence -> hold_payment -> hold_payment`: 3
+
+The checkpoint decision is to advance to a multi-role scenario sweep pilot. The sweep protocol is frozen in [protocols/multi-role/multi-role-scenario-sweep-pilot-v0.1.md](protocols/multi-role/multi-role-scenario-sweep-pilot-v0.1.md). The sweep covers S01-S06, 3 attempted runs per scenario, 18 total planned attempts, requester + vendor + buyer + approver + accountant LLM-controlled, deterministic menu-aware Game Master, OpenAI `gpt-4.1-mini`, generated/proposed event labels only, and claim boundary `multi_role_scenario_sweep_pilot_observation_only`.
+
+This protocol-freeze step does not execute the scenario sweep and does not add sweep results. It does not make scenario-causation, requester-framing causation, pressure-causation, pressure-propagation, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, model comparison, general LLM behavior, or multi-role baseline claims.

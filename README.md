@@ -66,6 +66,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - EXP-0002 multi-role baseline review: [results/org-payment/exp-0002-multi-role-baseline/review.md](results/org-payment/exp-0002-multi-role-baseline/review.md)
 - EXP-0002 human evidence review protocol v0.1: [protocols/evaluation/exp-0002-human-evidence-review-v0.1.md](protocols/evaluation/exp-0002-human-evidence-review-v0.1.md)
 - EXP-0002 LLM-assisted evidence pre-review: [results/org-payment/exp-0002-multi-role-baseline/llm-assisted-pre-review-0001/summary.md](results/org-payment/exp-0002-multi-role-baseline/llm-assisted-pre-review-0001/summary.md)
+- EXP-0002 human evidence review: [results/org-payment/exp-0002-multi-role-baseline/human-review-0001/summary.md](results/org-payment/exp-0002-multi-role-baseline/human-review-0001/summary.md)
 
 ## Initial PR Sequence
 
@@ -101,6 +102,7 @@ The project should be built up in small decision-oriented pull requests:
 28. P8 multi-role baseline execution bundle: execute EXP-0002 under frozen conditions and add curated aggregate baseline result.
 29. P9 EXP-0002 review and human evidence review protocol bundle: review the multi-role baseline and freeze EXP-0002-HR-0001 before any human-reviewed judgments are recorded.
 30. P9 LLM-assisted evidence pre-review bundle: add candidate judgments and escalation items for EXP-0002 representative evidence packs without marking any event as human-reviewed.
+31. P9 human evidence review bundle: record primary human confirmation for EXP-0002-HR-0001 representative evidence review and preserve metric revision items.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -520,3 +522,23 @@ Candidate findings:
 - 6 pressure-citation metric checks are candidate-marked `needs_revision` where the vendor selected `request_payment_status` but generic payment-delay or vendor-dissatisfaction language appears to have been counted as pressure language.
 
 Escalation topics are listed in [escalations.md](results/org-payment/exp-0002-multi-role-baseline/llm-assisted-pre-review-0001/escalations.md). The project still needs primary human confirmation before BC15 can be treated as completed.
+
+## EXP-0002 Human Evidence Review
+
+The primary human-confirmed EXP-0002 representative evidence review is recorded in [results/org-payment/exp-0002-multi-role-baseline/human-review-0001/summary.md](results/org-payment/exp-0002-multi-role-baseline/human-review-0001/summary.md).
+
+This review covers the same 14 curated representative EXP-0002 evidence packs under `EXP-0002-HR-0001`. It records:
+
+- 14/14 representative packs accepted for full path reconstruction;
+- 21/21 proposed event labels accepted with explicit interpretation limits;
+- 120/126 metric checks accepted;
+- 6/126 metric checks marked `needs_revision`, all related to pressure-citation flags on `request_payment_status` paths;
+- claim-boundary review accepted.
+
+Human-confirmed interpretation limits:
+
+- initial missing approval can be accepted as `evidence_gap` only as an initial/pre-resolution evidence gap when explicit approval is later obtained;
+- `apply_deadline_pressure` can be accepted as `informal_pressure` only as pressure-context evidence, not pressure causation;
+- `request_payment_status` should not count generic delay or vendor-dissatisfaction language as vendor pressure.
+
+This review covers curated representative packs, not all raw EXP-0002 runs. It does not support scenario-causation, requester-framing causation, pressure-causation, pressure-propagation proof, responsibility-diffusion proof, approval-bypass proof, statistical significance, human behavior, real-world organization, compliance, audit, operational sufficiency, model-comparison, or general LLM behavior claims.

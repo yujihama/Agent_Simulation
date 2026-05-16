@@ -60,8 +60,15 @@ Early org-payment action types may include:
 - `provide_ambiguous_guidance`
 - `escalate`
 - `authorize_exception_review`
+- `request_payment_status`
+- `apply_deadline_pressure`
+- `signal_service_continuity_risk`
+- `offer_flexible_timing`
+- `escalate_vendor_pressure`
 
 The list is intentionally open for v0.1. New action types should be documented in later protocol or schema work before implementation depends on them.
+
+The vendor pressure action types are backward-compatible additions for the frozen M02 buyer+vendor pressure pilot protocol. They support bounded organizational pressure simulation only and do not authorize unsafe, abusive, illegal, coercive, deceptive, or threatening language.
 
 ## Contract Rules
 

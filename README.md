@@ -50,6 +50,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - M03 buyer+approver+accountant coordination pilot protocol v0.1: [protocols/multi-role/m03-buyer-approver-accountant-coordination-pilot-v0.1.md](protocols/multi-role/m03-buyer-approver-accountant-coordination-pilot-v0.1.md)
 - Accountant free-choice action prompt template v0.1: [prompts/org-payment/accountant-free-choice-action-v0.1.md](prompts/org-payment/accountant-free-choice-action-v0.1.md)
 - M03 buyer+approver+accountant coordination pilot result: [pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/summary.md](pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/summary.md)
+- M03 buyer+approver+accountant coordination pilot review: [pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/review.md](pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/review.md)
+- M04 buyer+approver+accountant+vendor full-path pilot protocol v0.1: [protocols/multi-role/m04-buyer-approver-accountant-vendor-pilot-v0.1.md](protocols/multi-role/m04-buyer-approver-accountant-vendor-pilot-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -75,6 +77,7 @@ The project should be built up in small decision-oriented pull requests:
 18. P8 M02 execution bundle: execute the frozen S04 buyer+vendor pressure pilot without changing protocol conditions.
 19. P8 M02 review and M03 protocol bundle: review M02 and freeze the buyer+approver+accountant coordination pilot protocol without executing M03.
 20. P8 M03 execution bundle: execute the frozen S04 buyer+approver+accountant coordination pilot without changing protocol conditions.
+21. P8 M03 review and M04 protocol bundle: review M03 and freeze the buyer+approver+accountant+vendor full-path pilot protocol without executing M04.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -322,3 +325,13 @@ Reference M03 pilot output:
 - Representative validation output: [path-001.md](pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/representative-validation-outputs/path-001.md)
 
 Under the frozen M03 artificial organization protocol, buyer+approver+accountant LLM pilot runs produced recorded coordination paths, parser outcomes, GM decisions, validation outcomes, approval-evidence propagation observations, and coordination-gap observations. M03 remains a coordination pilot, not a multi-role baseline. It does not support responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, or operational claims.
+
+## M03 Review and M04 Full-Path Protocol
+
+The M03 review is recorded in [pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/review.md](pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/review.md).
+
+The review records that M03 established mechanically valid buyer+approver+accountant coordination-pilot evidence generation, with 5 attempted runs, 5 accepted runs, 0 exclusions, no parser failures, no validation failures, and no rejected or invalid proposals. The observed full coordination path was `request_approval -> approve_payment -> submit_payment_request -> prepare_payment` in all 5 runs. No ambiguous approval, evidence-gap, approval-bypass, or responsibility-diffusion path was observed in the curated 5-run pilot.
+
+The checkpoint decision is to advance to M04 buyer+approver+accountant+vendor full-path pilot protocol. The M04 protocol is frozen in [protocols/multi-role/m04-buyer-approver-accountant-vendor-pilot-v0.1.md](protocols/multi-role/m04-buyer-approver-accountant-vendor-pilot-v0.1.md). M04 is S04 only, 5 attempted runs, vendor + buyer + approver + accountant LLM-controlled, requester scripted or rule-based, deterministic menu-aware Game Master, OpenAI `gpt-4.1-mini`, generated/proposed event labels only, and claim boundary `multi_role_full_path_pilot_observation_only`.
+
+This protocol-freeze step does not execute M04 and does not add M04 results. It does not make pressure-causation, pressure-propagation, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, model comparison, or multi-role baseline claims.

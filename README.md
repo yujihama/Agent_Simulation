@@ -35,6 +35,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Metrics record schema: [schemas/metrics-record.schema.json](schemas/metrics-record.schema.json)
 - Evidence pack validator: [scripts/validate_evidence_pack.py](scripts/validate_evidence_pack.py)
 - Buyer action prompt template v0.1: [prompts/org-payment/buyer-action-proposal-v0.1.md](prompts/org-payment/buyer-action-proposal-v0.1.md)
+- Buyer free-choice action prompt template v0.1: [prompts/org-payment/buyer-free-choice-action-v0.1.md](prompts/org-payment/buyer-free-choice-action-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -48,7 +49,8 @@ The project should be built up in small decision-oriented pull requests:
 6. P4/P5 data contract and dry-run bundle: introduce data contracts and a non-LLM paper dry run.
 7. P4/P5 schema and validator bundle: introduce JSON Schemas and executable validation for the S04 paper dry run.
 8. P4 skeleton bundle: introduce a deterministic non-LLM S04 runner that generates a valid evidence pack.
-9. P6 LLM pilot bundle: introduce the first fixed-action buyer LLM action-proposal path for S04.
+9. P6 fixed-action LLM pilot bundle: introduce the first fixed-action buyer LLM action-proposal path for S04.
+10. P6 free-choice LLM pilot bundle: introduce constrained buyer action selection for S04.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -95,3 +97,25 @@ Reference pilot output:
 - [pilot-runs/org-payment/s04-buyer-openai-pilot-0001/evidence-pack](pilot-runs/org-payment/s04-buyer-openai-pilot-0001/evidence-pack)
 
 This pilot tests whether a buyer LLM can produce schema-valid action proposal records for preselected decision points. It does not yet test free-form buyer action selection. Requester, approver, accountant, and vendor records remain scripted or rule-based, and the Game Master remains deterministic.
+
+## Free-Choice Buyer OpenAI S04 Pilot
+
+Generate an opt-in S04 evidence pack where OpenAI chooses one buyer action from a constrained action menu:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim generate-s04-buyer-free-choice-llm --output runs/org-payment/s04-buyer-free-choice-openai-pilot-local/evidence-pack --dotenv .env
+```
+
+Validate the generated pilot pack:
+
+```powershell
+python scripts/validate_evidence_pack.py runs/org-payment/s04-buyer-free-choice-openai-pilot-local/evidence-pack
+```
+
+Reference pilot output:
+
+- [pilot-runs/org-payment/s04-buyer-free-choice-openai-pilot-0001/validation-output.md](pilot-runs/org-payment/s04-buyer-free-choice-openai-pilot-0001/validation-output.md)
+- [pilot-runs/org-payment/s04-buyer-free-choice-openai-pilot-0001/evidence-pack](pilot-runs/org-payment/s04-buyer-free-choice-openai-pilot-0001/evidence-pack)
+
+This pilot tests whether a buyer LLM can choose one action from a constrained menu, produce a schema-valid action proposal, pass through the deterministic Game Master boundary, and leave a mechanically valid evidence pack. It remains a single pilot observation only.

@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from .free_choice_runner import run_s04_buyer_free_choice_llm
 from .llm_actor import OpenAIResponsesProvider
 from .runner import run_s04, run_s04_buyer_llm
 
@@ -51,6 +52,31 @@ def main(argv: list[str] | None = None) -> int:
         "--model",
         help="OpenAI model name. Defaults to OPENAI_MODEL or gpt-4.1-mini.",
     )
+    buyer_free_choice = subparsers.add_parser(
+        "generate-s04-buyer-free-choice-llm",
+        help="Generate an S04 pack where OpenAI chooses one buyer action from a constrained menu.",
+    )
+    buyer_free_choice.add_argument(
+        "--output",
+        required=True,
+        type=Path,
+        help="Output evidence-pack directory. Must be new or empty.",
+    )
+    buyer_free_choice.add_argument(
+        "--run-id",
+        default="pilot-s04-buyer-free-choice-openai-0001",
+        help="Run id to write into the generated evidence pack.",
+    )
+    buyer_free_choice.add_argument(
+        "--dotenv",
+        default=Path(".env"),
+        type=Path,
+        help="Optional dotenv file containing OPENAI_API_KEY.",
+    )
+    buyer_free_choice.add_argument(
+        "--model",
+        help="OpenAI model name. Defaults to OPENAI_MODEL or gpt-4.1-mini.",
+    )
 
     args = parser.parse_args(argv)
     if args.command == "generate-s04":
@@ -66,6 +92,14 @@ def main(argv: list[str] | None = None) -> int:
             parser.error(f"output directory is not empty: {output}")
         provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model=args.model)
         run_s04_buyer_llm(output_dir=output, provider=provider, run_id=args.run_id)
+        print(output)
+        return 0
+    if args.command == "generate-s04-buyer-free-choice-llm":
+        output = args.output
+        if output.exists() and any(output.iterdir()):
+            parser.error(f"output directory is not empty: {output}")
+        provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model=args.model)
+        run_s04_buyer_free_choice_llm(output_dir=output, provider=provider, run_id=args.run_id)
         print(output)
         return 0
 

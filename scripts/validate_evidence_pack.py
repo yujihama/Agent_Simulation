@@ -350,6 +350,9 @@ def validate_pack(pack_dir: Path) -> ValidationReport:
         )
     report.add("every current action proposal has a corresponding Game Master decision")
 
+    if (pack_dir / "action_menu.json").exists():
+        validate_free_choice_artifacts(pack_dir, actions, decisions, report)
+
     for event in events:
         if event["turn_end"] < event["turn_start"]:
             raise ValidationError(f"event {event['event_id']} has turn_end before turn_start")
@@ -374,6 +377,75 @@ def validate_pack(pack_dir: Path) -> ValidationReport:
     report.add("cross-references among actions, decisions, trace, events, and metrics resolve")
 
     return report
+
+
+def validate_free_choice_artifacts(
+    pack_dir: Path,
+    actions: list[dict[str, Any]],
+    decisions: list[dict[str, Any]],
+    report: ValidationReport,
+) -> None:
+    action_menu = load_json(pack_dir / "action_menu.json")
+    if not isinstance(action_menu, dict):
+        raise ValidationError("action_menu.json must be an object")
+    allowed_actions = action_menu.get("allowed_actions")
+    if not isinstance(allowed_actions, list) or not allowed_actions:
+        raise ValidationError("action_menu.json allowed_actions must be a non-empty array")
+    menu_pairs: set[tuple[str, Any]] = set()
+    for index, item in enumerate(allowed_actions):
+        if not isinstance(item, dict):
+            raise ValidationError(f"action_menu.json allowed_actions[{index}] must be an object")
+        action_type = item.get("action_type")
+        target_role = item.get("target_role")
+        if not isinstance(action_type, str) or not action_type:
+            raise ValidationError(f"action_menu.json allowed_actions[{index}] missing action_type")
+        if not (isinstance(target_role, str) and target_role):
+            raise ValidationError(f"action_menu.json allowed_actions[{index}] missing target_role")
+        menu_pairs.add((action_type, target_role))
+    report.add("free-choice action menu is present and non-empty")
+
+    buyer_actions = [action for action in actions if action.get("proposed_by") == "buyer"]
+    if len(buyer_actions) != 1:
+        raise ValidationError(f"free-choice packs require exactly one buyer action, found {len(buyer_actions)}")
+    selected_action = buyer_actions[0]
+    selected_pair = (selected_action.get("action_type"), selected_action.get("target_role"))
+    if selected_pair not in menu_pairs:
+        raise ValidationError(
+            "selected buyer action is not in action_menu.json: "
+            f"action_type={selected_pair[0]!r}, target_role={selected_pair[1]!r}"
+        )
+    report.add("selected buyer action matches action menu")
+
+    parser_result = load_json(pack_dir / "parser_result.json")
+    if not isinstance(parser_result, dict):
+        raise ValidationError("parser_result.json must be an object")
+    expected_parser_fields = {
+        "selected_action_type": selected_action["action_type"],
+        "selected_target_role": selected_action["target_role"],
+        "selected_action_id": selected_action["action_id"],
+    }
+    for field, expected in expected_parser_fields.items():
+        if parser_result.get(field) != expected:
+            raise ValidationError(f"parser_result.json {field} must be {expected!r}, got {parser_result.get(field)!r}")
+    report.add("parser result matches selected action")
+
+    attempts = load_jsonl(pack_dir / "proposal_attempts.jsonl")
+    accepted_attempts = [attempt for attempt in attempts if attempt.get("status") == "accepted_by_parser"]
+    if not accepted_attempts:
+        raise ValidationError("proposal_attempts.jsonl must include at least one accepted_by_parser attempt")
+    if len(accepted_attempts) != 1:
+        raise ValidationError("proposal_attempts.jsonl must include exactly one accepted_by_parser attempt")
+    accepted = accepted_attempts[0]
+    if accepted.get("selected_action_type") != parser_result["selected_action_type"]:
+        raise ValidationError("accepted proposal attempt selected_action_type does not match parser_result")
+    if accepted.get("selected_target_role") != parser_result["selected_target_role"]:
+        raise ValidationError("accepted proposal attempt selected_target_role does not match parser_result")
+    report.add("proposal attempts record accepted selection")
+
+    matching_decisions = [decision for decision in decisions if decision.get("action_id") == selected_action["action_id"]]
+    if not matching_decisions:
+        raise ValidationError(f"selected buyer action {selected_action['action_id']} has no Game Master decision")
+    report.add("selected buyer action has a Game Master decision")
 
 
 def main() -> int:

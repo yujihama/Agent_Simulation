@@ -65,6 +65,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - EXP-0002 multi-role baseline result: [results/org-payment/exp-0002-multi-role-baseline/summary.md](results/org-payment/exp-0002-multi-role-baseline/summary.md)
 - EXP-0002 multi-role baseline review: [results/org-payment/exp-0002-multi-role-baseline/review.md](results/org-payment/exp-0002-multi-role-baseline/review.md)
 - EXP-0002 human evidence review protocol v0.1: [protocols/evaluation/exp-0002-human-evidence-review-v0.1.md](protocols/evaluation/exp-0002-human-evidence-review-v0.1.md)
+- EXP-0002 LLM-assisted evidence pre-review: [results/org-payment/exp-0002-multi-role-baseline/llm-assisted-pre-review-0001/summary.md](results/org-payment/exp-0002-multi-role-baseline/llm-assisted-pre-review-0001/summary.md)
 
 ## Initial PR Sequence
 
@@ -99,6 +100,7 @@ The project should be built up in small decision-oriented pull requests:
 27. P8 multi-role scenario sweep review and baseline protocol bundle: review the S01-S06 full org-payment scenario sweep and freeze EXP-0002 multi-role baseline conditions before baseline execution.
 28. P8 multi-role baseline execution bundle: execute EXP-0002 under frozen conditions and add curated aggregate baseline result.
 29. P9 EXP-0002 review and human evidence review protocol bundle: review the multi-role baseline and freeze EXP-0002-HR-0001 before any human-reviewed judgments are recorded.
+30. P9 LLM-assisted evidence pre-review bundle: add candidate judgments and escalation items for EXP-0002 representative evidence packs without marking any event as human-reviewed.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -503,3 +505,18 @@ The review records that EXP-0002 executed under frozen baseline conditions with 
 The checkpoint decision is to advance to human evidence review. The frozen review protocol is [protocols/evaluation/exp-0002-human-evidence-review-v0.1.md](protocols/evaluation/exp-0002-human-evidence-review-v0.1.md). EXP-0002-HR-0001 covers all 14 curated representative EXP-0002 evidence packs and freezes review questions for trace reconstruction, proposed event labels, source references, Game Master boundaries, approval-evidence propagation, coordination gaps, metrics support, and claim-boundary compliance.
 
 This protocol-freeze step does not execute human review, does not mark any event label as human-reviewed, and does not change EXP-0002 results. The next execution PR must use `results/org-payment/exp-0002-multi-role-baseline/human-review-0001/` for curated review outputs and must keep raw run output out of git.
+
+## EXP-0002 LLM-Assisted Evidence Pre-Review
+
+The LLM-assisted candidate review is recorded in [results/org-payment/exp-0002-multi-role-baseline/llm-assisted-pre-review-0001/summary.md](results/org-payment/exp-0002-multi-role-baseline/llm-assisted-pre-review-0001/summary.md).
+
+This package reviews the same 14 curated representative EXP-0002 evidence packs as `EXP-0002-HR-0001`, but it is explicitly not a primary human review. It records candidate judgments, metric issues, and escalation topics to reduce human review workload. It does not mark events, metrics, gaps, or claims as human-reviewed.
+
+Candidate findings:
+
+- all 14 packs are candidate-accepted for full path reconstruction and Game Master boundary reconstruction;
+- all 21 proposed event labels are candidate-accepted with the boundary that resolved explicit-approval paths treat `evidence_gap` as initial/pre-resolution only;
+- 120 metric checks are candidate-accepted;
+- 6 pressure-citation metric checks are candidate-marked `needs_revision` where the vendor selected `request_payment_status` but generic payment-delay or vendor-dissatisfaction language appears to have been counted as pressure language.
+
+Escalation topics are listed in [escalations.md](results/org-payment/exp-0002-multi-role-baseline/llm-assisted-pre-review-0001/escalations.md). The project still needs primary human confirmation before BC15 can be treated as completed.

@@ -80,10 +80,14 @@ def generate_free_choice_buyer_action(
     turn: int,
     context: str,
     allowed_source_refs: list[str],
+    scenario_id: str | None = None,
+    scenario_name: str | None = None,
     action_menu: dict[str, Any] | None = None,
     attempts: int = 2,
 ) -> BuyerFreeChoiceResult:
     action_menu = action_menu or ACTION_MENU_DOC
+    scenario_id = scenario_id or str(action_menu.get("scenario_id", "S04"))
+    scenario_name = scenario_name or str(action_menu.get("scenario_name", "unspecified"))
     schema = load_action_schema()
     expected_fields = {
         "action_id": action_id,
@@ -102,6 +106,8 @@ def generate_free_choice_buyer_action(
         allowed_source_refs=allowed_source_refs,
         schema=schema,
         action_menu=action_menu,
+        scenario_id=scenario_id,
+        scenario_name=scenario_name,
     )
 
     proposal_attempts: list[dict[str, Any]] = []
@@ -170,9 +176,13 @@ def render_free_choice_prompt(
     allowed_source_refs: list[str],
     schema: dict[str, Any],
     action_menu: dict[str, Any],
+    scenario_id: str,
+    scenario_name: str,
 ) -> str:
     text = PROMPT_TEMPLATE.read_text(encoding="utf-8")
     replacements = {
+        "{{scenario_id}}": scenario_id,
+        "{{scenario_name}}": scenario_name,
         "{{action_id}}": action_id,
         "{{run_id}}": run_id,
         "{{turn}}": str(turn),

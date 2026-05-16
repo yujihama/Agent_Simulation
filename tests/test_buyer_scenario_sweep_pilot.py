@@ -123,6 +123,15 @@ class BuyerScenarioSweepPilotTest(unittest.TestCase):
             for representative in aggregate["representative_evidence_packs"]:
                 self.assertTrue((curated_output / representative["evidence_pack"] / "manifest.json").exists())
                 self.assertTrue((curated_output / representative["validation_output"]).exists())
+                prompt = (
+                    curated_output
+                    / representative["evidence_pack"]
+                    / "llm_prompts"
+                    / "buyer_A001_free_choice.md"
+                ).read_text(encoding="utf-8")
+                scenario_summary = summaries[representative["scenario_id"]]
+                self.assertIn(f"Scenario id: `{representative['scenario_id']}`", prompt)
+                self.assertIn(f"Scenario name: `{scenario_summary['scenario_name']}`", prompt)
 
             summary = (curated_output / "summary.md").read_text(encoding="utf-8")
             self.assertIn("Across this small buyer-only scenario sweep pilot", summary)

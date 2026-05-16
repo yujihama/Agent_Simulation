@@ -55,6 +55,8 @@ def run_buyer_free_choice_llm(
         turn=4,
         context=free_choice_context(run_id, messages, scenario),
         allowed_source_refs=["initial_state/case.md", "M001", "M002", "T001", "T002", "T003"],
+        scenario_id=scenario_id,
+        scenario_name=scenario["name"],
         action_menu=action_menu,
     )
     action = result.action

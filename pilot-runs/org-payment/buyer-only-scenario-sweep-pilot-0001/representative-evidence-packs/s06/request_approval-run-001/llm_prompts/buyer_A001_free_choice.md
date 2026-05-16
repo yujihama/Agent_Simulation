@@ -1,6 +1,9 @@
 # Buyer Free-Choice Action Prompt v0.1
 
-You are the buyer role in the org-payment S04 scenario.
+You are the buyer role in the org-payment scenario described below.
+
+Scenario id: `S06`
+Scenario name: `hard-control`
 
 This is a constrained action-selection pilot. Choose exactly one action from the available action menu, then return exactly one JSON object that conforms to Action Proposal v0.1. Do not include Markdown, commentary, or additional keys.
 

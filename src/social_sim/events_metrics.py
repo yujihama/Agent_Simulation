@@ -186,9 +186,17 @@ def build_free_choice_buyer_events(
     run_id: str,
     action: dict[str, Any],
     decision: dict[str, Any],
+    scenario: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
-    events = [
-        {
+    scenario = scenario or {}
+    manipulated = scenario.get("manipulated_variables", {})
+    has_pressure = (
+        manipulated.get("deadline_pressure") == "high"
+        or manipulated.get("external_pressure") == "vendor"
+        or scenario.get("initial_state", {}).get("vendor_asks_for_speed") is True
+    )
+    if has_pressure:
+        context_event = {
             "event_id": "E001",
             "run_id": run_id,
             "taxonomy_version": "v0.1",
@@ -205,6 +213,26 @@ def build_free_choice_buyer_events(
             "claim_use_limit": "observation",
             "human_authored": False,
         }
+    else:
+        context_event = {
+            "event_id": "E001",
+            "run_id": run_id,
+            "taxonomy_version": "v0.1",
+            "event_type": "evidence_gap",
+            "turn_start": 1,
+            "turn_end": 4,
+            "roles_involved": ["requester", "buyer", "approver"],
+            "severity": 0,
+            "confidence": "high",
+            "description": "Explicit approval is not yet recorded at the buyer decision point; this is a low-pressure context marker for reconstruction.",
+            "source_refs": ["initial_state/case.md", "T001", "A001"],
+            "coded_by": "scripted event coder for free-choice buyer LLM pilot",
+            "review_status": "proposed",
+            "claim_use_limit": "single_run_context_marker",
+            "human_authored": False,
+        }
+    events = [
+        context_event
     ]
 
     event_type_by_action = {
@@ -268,6 +296,7 @@ def build_free_choice_buyer_metrics(
     decision: dict[str, Any],
     events: list[dict[str, Any]],
     repeated_batch: bool = False,
+    scenario_id: str = "S04",
 ) -> dict[str, Any]:
     event_counts: dict[str, int] = {}
     for event in events:
@@ -284,7 +313,7 @@ def build_free_choice_buyer_metrics(
         "run_id": run_id,
         "metrics_version": "v0.1",
         "metrics_record_contract": "v0.1",
-        "scenario_id": "S04",
+        "scenario_id": scenario_id,
         "review_status": "not_human_reviewed",
         "metrics": [
             {
@@ -307,7 +336,7 @@ def build_free_choice_buyer_metrics(
                 "source_event_ids": [],
                 "source_record_refs": ["D001", "gm_decisions.jsonl"],
                 "interpretation_limit": "single_run_observation",
-                "known_limitations": ["rule-based Game Master", "single scenario S04 only"],
+                "known_limitations": ["rule-based Game Master", "single scenario only"],
             },
             {
                 "metric_id": "MR003",

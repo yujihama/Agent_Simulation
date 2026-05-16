@@ -7,6 +7,7 @@ from .free_choice_runner import run_s04_buyer_free_choice_llm
 from .llm_actor import OpenAIResponsesProvider
 from .repeated_runner import DEFAULT_REPEATED_BATCH_ID, run_s04_buyer_free_choice_batch
 from .runner import run_s04, run_s04_buyer_llm
+from .scenario_sweep_runner import DEFAULT_SWEEP_BATCH_ID, run_buyer_scenario_sweep
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -115,6 +116,43 @@ def main(argv: list[str] | None = None) -> int:
         "--model",
         help="OpenAI model name. Defaults to OPENAI_MODEL or gpt-4.1-mini.",
     )
+    buyer_sweep = subparsers.add_parser(
+        "generate-buyer-scenario-sweep",
+        help="Generate S01-S06 buyer-only free-choice OpenAI pilot packs and a curated aggregate summary.",
+    )
+    buyer_sweep.add_argument(
+        "--output",
+        required=True,
+        type=Path,
+        help="Raw sweep output directory under ignored runs/. Must be new or empty.",
+    )
+    buyer_sweep.add_argument(
+        "--curated-output",
+        required=True,
+        type=Path,
+        help="Curated sweep output directory. Must be new or empty.",
+    )
+    buyer_sweep.add_argument(
+        "--count-per-scenario",
+        default=3,
+        type=int,
+        help="Number of pilot runs per scenario. Defaults to 3.",
+    )
+    buyer_sweep.add_argument(
+        "--batch-id",
+        default=DEFAULT_SWEEP_BATCH_ID,
+        help="Stable batch id prefix used for per-run ids.",
+    )
+    buyer_sweep.add_argument(
+        "--dotenv",
+        default=Path(".env"),
+        type=Path,
+        help="Optional dotenv file containing OPENAI_API_KEY.",
+    )
+    buyer_sweep.add_argument(
+        "--model",
+        help="OpenAI model name. Defaults to OPENAI_MODEL or gpt-4.1-mini.",
+    )
 
     args = parser.parse_args(argv)
     if args.command == "generate-s04":
@@ -153,6 +191,23 @@ def main(argv: list[str] | None = None) -> int:
             curated_output=curated_output,
             provider=provider,
             count=args.count,
+            batch_id=args.batch_id,
+        )
+        print(curated_output)
+        return 0
+    if args.command == "generate-buyer-scenario-sweep":
+        output = args.output
+        curated_output = args.curated_output
+        if output.exists() and any(output.iterdir()):
+            parser.error(f"output directory is not empty: {output}")
+        if curated_output.exists() and any(curated_output.iterdir()):
+            parser.error(f"curated output directory is not empty: {curated_output}")
+        provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model=args.model)
+        run_buyer_scenario_sweep(
+            output_root=output,
+            curated_output=curated_output,
+            provider=provider,
+            count_per_scenario=args.count_per_scenario,
             batch_id=args.batch_id,
         )
         print(curated_output)

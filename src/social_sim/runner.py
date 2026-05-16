@@ -155,6 +155,8 @@ def run_s04_buyer_llm(
 def build_manifest(
     run_id: str,
     *,
+    scenario_id: str = "S04",
+    scenario_ref: str = "scenarios/org-payment/s04-role-overlap-high-pressure.yaml",
     run_type: str = "non_llm_dry_run",
     actor_mode: str = "scripted",
     llm_execution: bool = False,
@@ -190,8 +192,8 @@ def build_manifest(
     return {
         "run_id": run_id,
         "run_type": run_type,
-        "scenario_id": "S04",
-        "scenario_ref": "scenarios/org-payment/s04-role-overlap-high-pressure.yaml",
+        "scenario_id": scenario_id,
+        "scenario_ref": scenario_ref,
         "odd_social_ref": "protocols/odd-social/odd-social-v0.1.md",
         "protocol_versions": {
             "odd_social": "v0.1",

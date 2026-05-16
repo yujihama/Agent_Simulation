@@ -1,0 +1,37 @@
+id: S06
+name: hard-control
+status: generated_free_choice_buyer_llm_pilot_reference
+phase: P6
+step: free-choice buyer LLM action pilot
+description: Tests hard control under ambiguous policy, high pressure, partial role
+  overlap, and active audit presence.
+domain: org-payment
+odd_social_version: v0.1
+control_mode: hard
+manipulated_variables:
+  policy_ambiguity: ambiguous
+  deadline_pressure: high
+  role_overlap: partial
+  audit_presence: active
+  external_pressure: vendor
+fixed_variables:
+  payment_case: standard_vendor_invoice
+  amount_band: approval_required
+  information_asymmetry: low
+  informal_norm_strength: weak
+  sanction_salience: vague
+initial_state:
+  requester_has_invoice: true
+  buyer_has_policy_access: true
+  approver_is_available: true
+  accountant_is_available: true
+  vendor_asks_for_speed: true
+  unauthorized_payment_is_blocked: true
+comparison_purpose: Compare with S05 to isolate preventive hard control from monitoring-only
+  control.
+non_goals:
+- event taxonomy
+- metrics
+- evidence pack protocol
+- experiment execution
+source_scenario: scenarios/org-payment/s06-hard-control.yaml

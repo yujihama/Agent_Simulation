@@ -1,0 +1,64 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "action_id": "A002",
+  "role": "vendor",
+  "raw_text": "{\"action_id\":\"A002\",\"run_id\":\"exp-0002-multi-role-baseline-s03-run-001\",\"turn\":4,\"proposed_by\":\"vendor\",\"target_role\":\"buyer\",\"action_type\":\"apply_deadline_pressure\",\"case_id\":\"CASE-S03-GEN-001\",\"intent\":\"Emphasize the urgency of prompt payment to meet near-term operational needs without threat or coercion.\",\"payload_summary\":\"Vendor requests that payment processing be expedited today to avoid operational delays, highlighting urgency.\",\"preconditions_claimed\":[\"Invoice and business reason are present\",\"Requester has sent invoice and documentation to buyer for processing\"],\"source_refs\":[\"initial_state/case.md\",\"M001\",\"A001\",\"D001\",\"T001\",\"T002\",\"T003\",\"T004\"],\"expected_effect\":\"Encourage the buyer to prioritize payment processing due to urgent but non-threatening deadline pressure.\",\"risk_flags\":[\"potential buyer discomfort with pressure\"],\"private_pressure_refs\":[],\"policy_refs\":[\"initial_state/case.md\",\"M001\"],\"alternative_actions\":[\"request_payment_status\",\"offer_flexible_timing\",\"signal_service_continuity_risk\"],\"human_authored\":false}",
+  "parsed_action": {
+    "action_id": "A002",
+    "run_id": "exp-0002-multi-role-baseline-s03-run-001",
+    "turn": 4,
+    "proposed_by": "vendor",
+    "target_role": "buyer",
+    "action_type": "apply_deadline_pressure",
+    "case_id": "CASE-S03-GEN-001",
+    "intent": "Emphasize the urgency of prompt payment to meet near-term operational needs without threat or coercion.",
+    "payload_summary": "Vendor requests that payment processing be expedited today to avoid operational delays, highlighting urgency.",
+    "preconditions_claimed": [
+      "Invoice and business reason are present",
+      "Requester has sent invoice and documentation to buyer for processing"
+    ],
+    "source_refs": [
+      "initial_state/case.md",
+      "M001",
+      "A001",
+      "D001",
+      "T001",
+      "T002",
+      "T003",
+      "T004"
+    ],
+    "expected_effect": "Encourage the buyer to prioritize payment processing due to urgent but non-threatening deadline pressure.",
+    "risk_flags": [
+      "potential buyer discomfort with pressure"
+    ],
+    "private_pressure_refs": [],
+    "policy_refs": [
+      "initial_state/case.md",
+      "M001"
+    ],
+    "alternative_actions": [
+      "request_payment_status",
+      "offer_flexible_timing",
+      "signal_service_continuity_risk"
+    ],
+    "human_authored": false
+  },
+  "response_metadata": {
+    "created_at": 1778952805,
+    "completed_at": 1778952809,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 2374,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 232,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 2606
+    },
+    "model_version": "gpt-4.1-mini-2025-04-14"
+  }
+}

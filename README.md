@@ -62,6 +62,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Multi-role scenario sweep pilot result: [pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/summary.md](pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/summary.md)
 - Multi-role scenario sweep pilot review: [pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/review.md](pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/review.md)
 - Multi-role baseline protocol v0.1: [protocols/baseline/multi-role-baseline-v0.1.md](protocols/baseline/multi-role-baseline-v0.1.md)
+- EXP-0002 multi-role baseline result: [results/org-payment/exp-0002-multi-role-baseline/summary.md](results/org-payment/exp-0002-multi-role-baseline/summary.md)
 
 ## Initial PR Sequence
 
@@ -463,3 +464,29 @@ The review records that MSP-0001 established mechanically valid requester+vendor
 The checkpoint decision is to advance to EXP-0002 multi-role baseline protocol freeze. The baseline protocol is frozen in [protocols/baseline/multi-role-baseline-v0.1.md](protocols/baseline/multi-role-baseline-v0.1.md). EXP-0002 covers S01-S06, 5 attempted runs per scenario, 30 total planned attempts, requester + vendor + buyer + approver + accountant LLM-controlled, deterministic menu-aware Game Master, OpenAI `gpt-4.1-mini`, generated/proposed event labels only, and claim boundary `multi_role_baseline_observation_only`.
 
 This protocol-freeze step does not execute EXP-0002 and does not add baseline results. It does not make scenario-causation, requester-framing causation, pressure-causation, pressure-propagation, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, model comparison, general LLM behavior, or stronger baseline interpretation claims.
+
+## EXP-0002 Multi-Role Baseline Result
+
+Run the frozen EXP-0002 baseline locally with raw and generated curated output under ignored `runs/` paths:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-multi-role-baseline `
+  --output runs/org-payment/exp-0002-multi-role-baseline-local/raw `
+  --results-output runs/org-payment/exp-0002-multi-role-baseline-local/results `
+  --count-per-scenario 5 `
+  --dotenv .env
+```
+
+Reference baseline result:
+
+- [summary.md](results/org-payment/exp-0002-multi-role-baseline/summary.md)
+- [aggregate.json](results/org-payment/exp-0002-multi-role-baseline/aggregate.json)
+- [execution-manifest.json](results/org-payment/exp-0002-multi-role-baseline/execution-manifest.json)
+- [scenario-summary.csv](results/org-payment/exp-0002-multi-role-baseline/scenario-summary.csv)
+- Representative evidence packs: [representative-evidence-packs](results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs)
+- Representative validation outputs: [representative-validation-outputs](results/org-payment/exp-0002-multi-role-baseline/representative-validation-outputs)
+
+Under the frozen EXP-0002 artificial organization protocol, multi-role LLM runs produced recorded full org-payment action paths, parser outcomes, Game Master decisions, validation outcomes, proposed event observations, requester-framing observations, pressure-citation observations, approval-evidence propagation observations, and coordination-gap observations across S01-S06.
+
+EXP-0002 attempted 30 runs, accepted 30 runs, and recorded 0 exclusions. It remains bounded to `multi_role_baseline_observation_only`. It does not support scenario-causation, requester-framing causation, pressure-causation, pressure-propagation proof, responsibility-diffusion, approval-bypass, statistical significance, human behavior, real-world organization, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.

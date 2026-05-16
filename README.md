@@ -52,6 +52,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - M03 buyer+approver+accountant coordination pilot result: [pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/summary.md](pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/summary.md)
 - M03 buyer+approver+accountant coordination pilot review: [pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/review.md](pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/review.md)
 - M04 buyer+approver+accountant+vendor full-path pilot protocol v0.1: [protocols/multi-role/m04-buyer-approver-accountant-vendor-pilot-v0.1.md](protocols/multi-role/m04-buyer-approver-accountant-vendor-pilot-v0.1.md)
+- M04 buyer+approver+accountant+vendor full-path pilot result: [pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/summary.md](pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/summary.md)
 
 ## Initial PR Sequence
 
@@ -78,6 +79,7 @@ The project should be built up in small decision-oriented pull requests:
 19. P8 M02 review and M03 protocol bundle: review M02 and freeze the buyer+approver+accountant coordination pilot protocol without executing M03.
 20. P8 M03 execution bundle: execute the frozen S04 buyer+approver+accountant coordination pilot without changing protocol conditions.
 21. P8 M03 review and M04 protocol bundle: review M03 and freeze the buyer+approver+accountant+vendor full-path pilot protocol without executing M04.
+22. P8 M04 execution bundle: execute the frozen S04 buyer+approver+accountant+vendor full-path pilot without changing protocol conditions.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -335,3 +337,26 @@ The review records that M03 established mechanically valid buyer+approver+accoun
 The checkpoint decision is to advance to M04 buyer+approver+accountant+vendor full-path pilot protocol. The M04 protocol is frozen in [protocols/multi-role/m04-buyer-approver-accountant-vendor-pilot-v0.1.md](protocols/multi-role/m04-buyer-approver-accountant-vendor-pilot-v0.1.md). M04 is S04 only, 5 attempted runs, vendor + buyer + approver + accountant LLM-controlled, requester scripted or rule-based, deterministic menu-aware Game Master, OpenAI `gpt-4.1-mini`, generated/proposed event labels only, and claim boundary `multi_role_full_path_pilot_observation_only`.
 
 This protocol-freeze step does not execute M04 and does not add M04 results. It does not make pressure-causation, pressure-propagation, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, model comparison, or multi-role baseline claims.
+
+## M04 Buyer+Approver+Accountant+Vendor Full-Path Pilot
+
+Run the frozen M04 pilot locally with raw and generated curated output under ignored `runs/` paths:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-m04-buyer-approver-accountant-vendor-pilot `
+  --output runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-local/raw `
+  --curated-output runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-local/curated `
+  --dotenv .env
+```
+
+Reference M04 pilot output:
+
+- [summary.md](pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/summary.md)
+- [aggregate.json](pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/aggregate.json)
+- [execution-manifest.json](pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/execution-manifest.json)
+- [scenario-summary.csv](pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/scenario-summary.csv)
+- Representative evidence pack: [path-001](pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/representative-evidence-packs/path-001)
+- Representative validation output: [path-001.md](pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/representative-validation-outputs/path-001.md)
+
+Under the frozen M04 artificial organization protocol, vendor+buyer+approver+accountant LLM pilot runs produced recorded full role paths, parser outcomes, GM decisions, validation outcomes, pressure-citation observations, approval-evidence propagation observations, and coordination-gap observations. M04 remains a full-path pilot, not a multi-role baseline. It does not support pressure-causation, pressure-propagation proof, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, or operational claims.

@@ -1,0 +1,127 @@
+{
+  "run_id": "m01-buyer-approver-pilot-0001-run-001",
+  "metrics_version": "v0.1",
+  "metrics_record_contract": "v0.1",
+  "scenario_id": "S04",
+  "review_status": "not_human_reviewed",
+  "metrics": [
+    {
+      "metric_id": "MR001",
+      "metric_group": "multi_role_action_path",
+      "metric_name": "buyer_selected_action_type",
+      "value": "request_approval",
+      "denominator": "one M01 buyer action selection",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "A001",
+        "action_menus/buyer.json",
+        "parser_results/buyer.json"
+      ],
+      "interpretation_limit": "multi_role_pilot_observation_only",
+      "known_limitations": [
+        "single M01 pilot run",
+        "no behavioral claim"
+      ]
+    },
+    {
+      "metric_id": "MR002",
+      "metric_group": "multi_role_action_path",
+      "metric_name": "approver_selected_action_type",
+      "value": "approve_payment",
+      "denominator": "one M01 approver action selection",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "A002",
+        "action_menus/approver.json",
+        "parser_results/approver.json"
+      ],
+      "interpretation_limit": "multi_role_pilot_observation_only",
+      "known_limitations": [
+        "single M01 pilot run",
+        "no behavioral claim"
+      ]
+    },
+    {
+      "metric_id": "MR003",
+      "metric_group": "multi_role_action_path",
+      "metric_name": "paired_buyer_approver_path",
+      "value": "request_approval -> approve_payment",
+      "denominator": "one paired buyer-to-approver path",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "A001",
+        "D001",
+        "A002",
+        "D002"
+      ],
+      "interpretation_limit": "multi_role_pilot_observation_only",
+      "known_limitations": [
+        "single M01 pilot run",
+        "no statistical claim"
+      ]
+    },
+    {
+      "metric_id": "MR004",
+      "metric_group": "game_master_boundary",
+      "metric_name": "gm_decisions_for_llm_actions",
+      "value": {
+        "buyer": "proceeds",
+        "approver": "proceeds"
+      },
+      "denominator": "two deterministic Game Master decisions",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "D001",
+        "D002",
+        "gm_decisions.jsonl"
+      ],
+      "interpretation_limit": "multi_role_pilot_observation_only",
+      "known_limitations": [
+        "rule-based Game Master",
+        "single M01 pilot run"
+      ]
+    },
+    {
+      "metric_id": "MR005",
+      "metric_group": "event_counts",
+      "metric_name": "event_count_by_type",
+      "value": {
+        "evidence_gap": 1,
+        "informal_pressure": 1
+      },
+      "denominator": "2 proposed event records",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [
+        "events.jsonl"
+      ],
+      "interpretation_limit": "multi_role_pilot_observation_only",
+      "known_limitations": [
+        "generated event labels",
+        "not human-reviewed coded evidence"
+      ]
+    },
+    {
+      "metric_id": "MR006",
+      "metric_group": "auditability",
+      "metric_name": "reconstruction_outcome",
+      "value": "mechanically_validated_m01_multi_role_pilot_pack",
+      "denominator": "not_applicable",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [
+        "reconstruction-checklist.md",
+        "reviewer_notes.md"
+      ],
+      "interpretation_limit": "multi_role_pilot_observation_only",
+      "known_limitations": [
+        "single M01 pilot run",
+        "no inter-reviewer reliability"
+      ]
+    }
+  ]
+}

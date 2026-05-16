@@ -40,6 +40,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Buyer-only baseline protocol v0.1: [protocols/baseline/buyer-only-baseline-v0.1.md](protocols/baseline/buyer-only-baseline-v0.1.md)
 - EXP-0001 buyer-only baseline review: [results/org-payment/exp-0001-buyer-only-baseline/review.md](results/org-payment/exp-0001-buyer-only-baseline/review.md)
 - Multi-role pilot protocol v0.1: [protocols/multi-role/multi-role-pilot-v0.1.md](protocols/multi-role/multi-role-pilot-v0.1.md)
+- M01 buyer+approver pilot result: [pilot-runs/org-payment/m01-buyer-approver-pilot-0001/summary.md](pilot-runs/org-payment/m01-buyer-approver-pilot-0001/summary.md)
 
 ## Initial PR Sequence
 
@@ -213,4 +214,24 @@ The review records that EXP-0001 established a mechanically valid buyer-only bas
 
 The next protocol is frozen in [protocols/multi-role/multi-role-pilot-v0.1.md](protocols/multi-role/multi-role-pilot-v0.1.md). M01 is the only next executable multi-role pilot: S04 only, 5 runs, buyer + approver LLM-controlled, requester/accountant/vendor scripted or rule-based, deterministic menu-aware Game Master, OpenAI `gpt-4.1-mini`, generated/proposed event labels only, and claim boundary `multi_role_pilot_observation_only`.
 
-This protocol PR does not execute M01 or add multi-role results. The next execution PR should run M01 under the frozen protocol without changing prompts, action menus, Game Master rules, evidence requirements, or claim boundaries.
+## M01 Buyer+Approver Multi-Role Pilot
+
+Run the frozen M01 pilot locally with raw and generated curated output under ignored `runs/` paths:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-m01-buyer-approver-pilot `
+  --output runs/org-payment/m01-buyer-approver-pilot-local/raw `
+  --curated-output runs/org-payment/m01-buyer-approver-pilot-local/curated `
+  --dotenv .env
+```
+
+Reference M01 pilot output:
+
+- [pilot-runs/org-payment/m01-buyer-approver-pilot-0001/summary.md](pilot-runs/org-payment/m01-buyer-approver-pilot-0001/summary.md)
+- [pilot-runs/org-payment/m01-buyer-approver-pilot-0001/aggregate.json](pilot-runs/org-payment/m01-buyer-approver-pilot-0001/aggregate.json)
+- [pilot-runs/org-payment/m01-buyer-approver-pilot-0001/execution-manifest.json](pilot-runs/org-payment/m01-buyer-approver-pilot-0001/execution-manifest.json)
+- [pilot-runs/org-payment/m01-buyer-approver-pilot-0001/representative-evidence-packs](pilot-runs/org-payment/m01-buyer-approver-pilot-0001/representative-evidence-packs)
+- [pilot-runs/org-payment/m01-buyer-approver-pilot-0001/representative-validation-outputs](pilot-runs/org-payment/m01-buyer-approver-pilot-0001/representative-validation-outputs)
+
+Under the frozen M01 artificial organization protocol, buyer+approver LLM pilot runs produced the recorded buyer action, approver action, paired path, parser, GM decision, and validation outcomes. M01 remains a pilot, not a multi-role baseline. It does not support statistical, human behavior, real-world organization, compliance, legal, audit, or operational claims.

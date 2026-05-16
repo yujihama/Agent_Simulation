@@ -1,0 +1,27 @@
+{
+  "menu_id": "org_payment_buyer_to_approver_action_menu_v0.1",
+  "scenario_id": "S04",
+  "role": "buyer",
+  "decision_point": "turn_4_after_vendor_and_requester_pressure_before_explicit_approval",
+  "allowed_actions": [
+    {
+      "action_type": "request_approval",
+      "target_role": "approver",
+      "menu_label": "Request explicit approval",
+      "selection_boundary": "Open an explicit approval request before payment handling."
+    },
+    {
+      "action_type": "request_approval_status",
+      "target_role": "approver",
+      "menu_label": "Request approval clarification",
+      "selection_boundary": "Ask the approver to clarify whether approval exists or what approval status should be recorded."
+    },
+    {
+      "action_type": "escalate",
+      "target_role": "approver",
+      "menu_label": "Escalate ambiguity",
+      "selection_boundary": "Escalate the ambiguous approval state to the approver."
+    }
+  ],
+  "claim_boundary": "multi_role_pilot_observation_only"
+}

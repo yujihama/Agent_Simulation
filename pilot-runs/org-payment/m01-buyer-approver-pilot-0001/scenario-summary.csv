@@ -1,0 +1,2 @@
+pilot_id,scenario_id,attempted_runs,accepted_runs,excluded_runs,buyer_selected_action_counts,approver_selected_action_counts,paired_path_counts,buyer_retries,approver_retries,validation_pass,validation_fail,exclusion_summary
+M01,S04,5,5,0,request_approval:5,approve_payment:4; request_more_evidence:1,request_approval -> approve_payment:4; request_approval -> request_more_evidence:1,0,0,5,0,none

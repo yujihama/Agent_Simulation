@@ -78,6 +78,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Second-domain ADR: [docs/adr/ADR-0004-second-domain-expense-reimbursement.md](docs/adr/ADR-0004-second-domain-expense-reimbursement.md)
 - Expense reimbursement scenario ER01: [scenarios/expense-reimbursement/er01-ambiguous-receipt-approval.yaml](scenarios/expense-reimbursement/er01-ambiguous-receipt-approval.yaml)
 - EXP-0005 expense reimbursement second-domain pilot protocol v0.1: [protocols/domain-expansion/expense-reimbursement-pilot-v0.1.md](protocols/domain-expansion/expense-reimbursement-pilot-v0.1.md)
+- EXP-0005 expense reimbursement second-domain pilot result: [results/expense-reimbursement/exp-0005-second-domain-pilot-0001/summary.md](results/expense-reimbursement/exp-0005-second-domain-pilot-0001/summary.md)
 
 ## Initial PR Sequence
 
@@ -122,6 +123,7 @@ The project should be built up in small decision-oriented pull requests:
 37. P9 provider-randomness sensitivity protocol bundle: freeze EXP-0004 as a small repeat-run sensitivity check with model, prompts, menus, scenarios, parser, and Game Master held fixed.
 38. P9 provider-randomness sensitivity execution bundle: execute EXP-0004 and compare fresh repeat-run paths descriptively with EXP-0002.
 39. P10 second-domain protocol bundle: review EXP-0004, select expense reimbursement as the second domain, and freeze EXP-0005 without executing second-domain runs.
+40. P10 second-domain execution bundle: execute EXP-0005 on ER01 and add curated aggregate result without cross-domain generalization claims.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -654,3 +656,15 @@ This protocol follows the EXP-0004 review decision recorded in [results/org-paym
 EXP-0005 freezes 5 attempted `ER01` runs before exclusions, OpenAI `gpt-4.1-mini`, LLM-controlled `employee`, `manager`, and `finance_reviewer` roles, deterministic menu-aware Game Master handling, existing action-proposal vocabulary, Event Taxonomy v0.1, Metrics v0.1, and claim boundary `second_domain_pilot_observation_only`.
 
 This protocol-freeze step does not execute EXP-0005 and does not claim cross-domain generalization. It does not support statistical, causal, human behavior, real-world organization, compliance, legal, audit, operational sufficiency, or general LLM behavior claims.
+
+## EXP-0005 Second-Domain Expense Reimbursement Result
+
+The EXP-0005 second-domain pilot result is recorded in [results/expense-reimbursement/exp-0005-second-domain-pilot-0001/summary.md](results/expense-reimbursement/exp-0005-second-domain-pilot-0001/summary.md).
+
+EXP-0005 attempted 5 `ER01` runs, accepted 5, and excluded 0. It used OpenAI `gpt-4.1-mini` with LLM-controlled `employee`, `manager`, and `finance_reviewer` roles under the frozen second-domain protocol.
+
+Observed descriptive path:
+
+- `request_approval -> request_more_evidence -> hold_payment`: 5
+
+The result shows that the action-proposal, Game Master, evidence-pack, validator, and aggregate-reporting structure can produce a mechanically valid second-domain pilot artifact for `expense-reimbursement`. It does not show cross-domain generalization, statistical significance, causation, human behavior, real-world organization behavior, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior.

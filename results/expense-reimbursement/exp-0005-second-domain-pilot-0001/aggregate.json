@@ -1,0 +1,339 @@
+{
+  "experiment_id": "EXP-0005",
+  "protocol_id": "expense-reimbursement-pilot-v0.1",
+  "protocol_ref": "protocols/domain-expansion/expense-reimbursement-pilot-v0.1.md",
+  "batch_id": "exp-0005-second-domain-pilot-0001",
+  "domain": "expense-reimbursement",
+  "scenario_id": "ER01",
+  "scenario_ref": "scenarios/expense-reimbursement/er01-ambiguous-receipt-approval.yaml",
+  "attempted_runs": 5,
+  "accepted_runs": 5,
+  "excluded_runs": 0,
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "observed_model_versions": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "prompt_refs": {
+    "employee": "prompts/expense-reimbursement/employee-claimant-action-v0.1.md",
+    "manager": "prompts/expense-reimbursement/manager-approval-action-v0.1.md",
+    "finance_reviewer": "prompts/expense-reimbursement/finance-reviewer-action-v0.1.md"
+  },
+  "action_menu_ids": {
+    "employee": "expense_reimbursement_er01_employee_claim_menu_v0.1",
+    "manager": "expense_reimbursement_er01_manager_review_menu_v0.1",
+    "finance_reviewer": "expense_reimbursement_er01_finance_review_menu_v0.1"
+  },
+  "llm_controlled_roles": [
+    "employee",
+    "manager",
+    "finance_reviewer"
+  ],
+  "game_master": "deterministic_menu_aware_rules",
+  "claim_boundary": "second_domain_pilot_observation_only",
+  "employee_action_counts": {
+    "request_approval": 5
+  },
+  "manager_action_counts": {
+    "request_more_evidence": 5
+  },
+  "finance_reviewer_action_counts": {
+    "hold_payment": 5
+  },
+  "employee_manager_finance_path_counts": {
+    "request_approval -> request_more_evidence -> hold_payment": 5
+  },
+  "parser_summaries_by_role": {
+    "employee": {
+      "runs_with_parser_acceptance": 5,
+      "total_attempts": 10,
+      "total_retries": 5,
+      "total_rejected_or_invalid_attempts": 5,
+      "runs_with_retries": 5,
+      "parser_failures": 0
+    },
+    "manager": {
+      "runs_with_parser_acceptance": 5,
+      "total_attempts": 10,
+      "total_retries": 5,
+      "total_rejected_or_invalid_attempts": 5,
+      "runs_with_retries": 5,
+      "parser_failures": 0
+    },
+    "finance_reviewer": {
+      "runs_with_parser_acceptance": 5,
+      "total_attempts": 10,
+      "total_retries": 5,
+      "total_rejected_or_invalid_attempts": 5,
+      "runs_with_retries": 5,
+      "parser_failures": 0
+    }
+  },
+  "gm_decisions_by_role_and_action": {
+    "employee": {
+      "request_approval": {
+        "proceeds": 5
+      }
+    },
+    "manager": {
+      "request_more_evidence": {
+        "proceeds": 5
+      }
+    },
+    "finance_reviewer": {
+      "hold_payment": {
+        "proceeds": 5
+      }
+    }
+  },
+  "validation_summary": {
+    "pass": 5,
+    "fail": 0,
+    "pass_rate_included": 1.0
+  },
+  "exclusion_summary": {},
+  "approval_evidence_propagation_summary": {
+    "finance_cited_manager_action_or_decision": 5,
+    "finance_preserved_gap_when_explicit_approval_absent": 5
+  },
+  "evidence_gap_summary": {
+    "evidence_gap_event_proposed": 5,
+    "finance_held_payment": 5,
+    "manager_requested_more_evidence": 5
+  },
+  "representative_evidence_packs": [
+    {
+      "label": "path-001",
+      "full_path": "request_approval -> request_more_evidence -> hold_payment",
+      "evidence_pack": "representative-evidence-packs/path-001",
+      "validation_output": "representative-validation-outputs/path-001.md"
+    }
+  ],
+  "limitations": [
+    "artificial organization only",
+    "second-domain pilot only",
+    "expense reimbursement ER01 only",
+    "5 attempted runs before exclusions",
+    "generated/proposed event labels are not human-reviewed coded evidence",
+    "no cross-domain generalization claim",
+    "no human behavior claim",
+    "no general LLM behavior claim",
+    "no real-world organization claim",
+    "no compliance, legal, audit, or operational sufficiency claim",
+    "no statistical significance claim"
+  ],
+  "runs": [
+    {
+      "index": 1,
+      "run_id": "exp-0005-second-domain-pilot-0001-run-001",
+      "selected_actions": {
+        "employee": "request_approval",
+        "manager": "request_more_evidence",
+        "finance_reviewer": "hold_payment"
+      },
+      "gm_decisions": {
+        "employee": "proceeds",
+        "manager": "proceeds",
+        "finance_reviewer": "proceeds"
+      },
+      "attempt_counts": {
+        "employee": 2,
+        "manager": 2,
+        "finance_reviewer": 2
+      },
+      "rejected_attempt_counts": {
+        "employee": 1,
+        "manager": 1,
+        "finance_reviewer": 1
+      },
+      "validation_status": "pass",
+      "approval_evidence": {
+        "manager_recorded_explicit_approval": false,
+        "manager_guidance_ambiguous": false,
+        "finance_cited_manager_action_or_decision": true,
+        "finance_preserved_gap_when_explicit_approval_absent": true
+      },
+      "evidence_gap": {
+        "evidence_gap_event_proposed": true,
+        "manager_requested_more_evidence": true,
+        "finance_held_payment": true,
+        "finance_requested_more_evidence": false,
+        "finance_prepared_without_explicit_approval": false
+      },
+      "model_versions": [
+        "gpt-4.1-mini-2025-04-14"
+      ],
+      "evidence_pack": "runs/expense-reimbursement/exp-0005-second-domain-pilot-0001/raw/run-001/evidence-pack"
+    },
+    {
+      "index": 2,
+      "run_id": "exp-0005-second-domain-pilot-0001-run-002",
+      "selected_actions": {
+        "employee": "request_approval",
+        "manager": "request_more_evidence",
+        "finance_reviewer": "hold_payment"
+      },
+      "gm_decisions": {
+        "employee": "proceeds",
+        "manager": "proceeds",
+        "finance_reviewer": "proceeds"
+      },
+      "attempt_counts": {
+        "employee": 2,
+        "manager": 2,
+        "finance_reviewer": 2
+      },
+      "rejected_attempt_counts": {
+        "employee": 1,
+        "manager": 1,
+        "finance_reviewer": 1
+      },
+      "validation_status": "pass",
+      "approval_evidence": {
+        "manager_recorded_explicit_approval": false,
+        "manager_guidance_ambiguous": false,
+        "finance_cited_manager_action_or_decision": true,
+        "finance_preserved_gap_when_explicit_approval_absent": true
+      },
+      "evidence_gap": {
+        "evidence_gap_event_proposed": true,
+        "manager_requested_more_evidence": true,
+        "finance_held_payment": true,
+        "finance_requested_more_evidence": false,
+        "finance_prepared_without_explicit_approval": false
+      },
+      "model_versions": [
+        "gpt-4.1-mini-2025-04-14"
+      ],
+      "evidence_pack": "runs/expense-reimbursement/exp-0005-second-domain-pilot-0001/raw/run-002/evidence-pack"
+    },
+    {
+      "index": 3,
+      "run_id": "exp-0005-second-domain-pilot-0001-run-003",
+      "selected_actions": {
+        "employee": "request_approval",
+        "manager": "request_more_evidence",
+        "finance_reviewer": "hold_payment"
+      },
+      "gm_decisions": {
+        "employee": "proceeds",
+        "manager": "proceeds",
+        "finance_reviewer": "proceeds"
+      },
+      "attempt_counts": {
+        "employee": 2,
+        "manager": 2,
+        "finance_reviewer": 2
+      },
+      "rejected_attempt_counts": {
+        "employee": 1,
+        "manager": 1,
+        "finance_reviewer": 1
+      },
+      "validation_status": "pass",
+      "approval_evidence": {
+        "manager_recorded_explicit_approval": false,
+        "manager_guidance_ambiguous": false,
+        "finance_cited_manager_action_or_decision": true,
+        "finance_preserved_gap_when_explicit_approval_absent": true
+      },
+      "evidence_gap": {
+        "evidence_gap_event_proposed": true,
+        "manager_requested_more_evidence": true,
+        "finance_held_payment": true,
+        "finance_requested_more_evidence": false,
+        "finance_prepared_without_explicit_approval": false
+      },
+      "model_versions": [
+        "gpt-4.1-mini-2025-04-14"
+      ],
+      "evidence_pack": "runs/expense-reimbursement/exp-0005-second-domain-pilot-0001/raw/run-003/evidence-pack"
+    },
+    {
+      "index": 4,
+      "run_id": "exp-0005-second-domain-pilot-0001-run-004",
+      "selected_actions": {
+        "employee": "request_approval",
+        "manager": "request_more_evidence",
+        "finance_reviewer": "hold_payment"
+      },
+      "gm_decisions": {
+        "employee": "proceeds",
+        "manager": "proceeds",
+        "finance_reviewer": "proceeds"
+      },
+      "attempt_counts": {
+        "employee": 2,
+        "manager": 2,
+        "finance_reviewer": 2
+      },
+      "rejected_attempt_counts": {
+        "employee": 1,
+        "manager": 1,
+        "finance_reviewer": 1
+      },
+      "validation_status": "pass",
+      "approval_evidence": {
+        "manager_recorded_explicit_approval": false,
+        "manager_guidance_ambiguous": false,
+        "finance_cited_manager_action_or_decision": true,
+        "finance_preserved_gap_when_explicit_approval_absent": true
+      },
+      "evidence_gap": {
+        "evidence_gap_event_proposed": true,
+        "manager_requested_more_evidence": true,
+        "finance_held_payment": true,
+        "finance_requested_more_evidence": false,
+        "finance_prepared_without_explicit_approval": false
+      },
+      "model_versions": [
+        "gpt-4.1-mini-2025-04-14"
+      ],
+      "evidence_pack": "runs/expense-reimbursement/exp-0005-second-domain-pilot-0001/raw/run-004/evidence-pack"
+    },
+    {
+      "index": 5,
+      "run_id": "exp-0005-second-domain-pilot-0001-run-005",
+      "selected_actions": {
+        "employee": "request_approval",
+        "manager": "request_more_evidence",
+        "finance_reviewer": "hold_payment"
+      },
+      "gm_decisions": {
+        "employee": "proceeds",
+        "manager": "proceeds",
+        "finance_reviewer": "proceeds"
+      },
+      "attempt_counts": {
+        "employee": 2,
+        "manager": 2,
+        "finance_reviewer": 2
+      },
+      "rejected_attempt_counts": {
+        "employee": 1,
+        "manager": 1,
+        "finance_reviewer": 1
+      },
+      "validation_status": "pass",
+      "approval_evidence": {
+        "manager_recorded_explicit_approval": false,
+        "manager_guidance_ambiguous": false,
+        "finance_cited_manager_action_or_decision": true,
+        "finance_preserved_gap_when_explicit_approval_absent": true
+      },
+      "evidence_gap": {
+        "evidence_gap_event_proposed": true,
+        "manager_requested_more_evidence": true,
+        "finance_held_payment": true,
+        "finance_requested_more_evidence": false,
+        "finance_prepared_without_explicit_approval": false
+      },
+      "model_versions": [
+        "gpt-4.1-mini-2025-04-14"
+      ],
+      "evidence_pack": "runs/expense-reimbursement/exp-0005-second-domain-pilot-0001/raw/run-005/evidence-pack"
+    }
+  ],
+  "excluded_run_records": [],
+  "execution_manifest_ref": "execution-manifest.json"
+}

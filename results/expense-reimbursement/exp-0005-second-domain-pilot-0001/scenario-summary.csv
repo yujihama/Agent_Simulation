@@ -1,0 +1,2 @@
+domain,scenario_id,attempted_runs,accepted_runs,excluded_runs,employee_action_counts,manager_action_counts,finance_reviewer_action_counts,path_counts,claim_boundary
+expense-reimbursement,ER01,5,5,0,request_approval:5,request_more_evidence:5,hold_payment:5,request_approval -> request_more_evidence -> hold_payment:5,second_domain_pilot_observation_only

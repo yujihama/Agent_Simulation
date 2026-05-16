@@ -4,6 +4,8 @@ import argparse
 from pathlib import Path
 
 from .baseline_runner import run_buyer_only_baseline
+from .expense_reimbursement_runner import DEFAULT_BATCH_ID as DEFAULT_EXPENSE_REIMBURSEMENT_BATCH_ID
+from .expense_reimbursement_runner import run_expense_reimbursement_pilot
 from .free_choice_runner import run_s04_buyer_free_choice_llm
 from .llm_actor import OpenAIResponsesProvider
 from .m02_pressure_runner import run_m02_buyer_vendor_pressure_pilot
@@ -397,6 +399,33 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="Optional dotenv file containing OPENAI_API_KEY.",
     )
+    expense_reimbursement_pilot = subparsers.add_parser(
+        "execute-expense-reimbursement-pilot",
+        help="Execute frozen EXP-0005 expense reimbursement second-domain pilot and write curated results.",
+    )
+    expense_reimbursement_pilot.add_argument(
+        "--output",
+        required=True,
+        type=Path,
+        help="Raw EXP-0005 output directory under ignored runs/. Must be new or empty.",
+    )
+    expense_reimbursement_pilot.add_argument(
+        "--results-output",
+        required=True,
+        type=Path,
+        help="Curated EXP-0005 result directory. Must be new or empty.",
+    )
+    expense_reimbursement_pilot.add_argument(
+        "--batch-id",
+        default=DEFAULT_EXPENSE_REIMBURSEMENT_BATCH_ID,
+        help="Stable batch id prefix used for per-run ids.",
+    )
+    expense_reimbursement_pilot.add_argument(
+        "--dotenv",
+        default=Path(".env"),
+        type=Path,
+        help="Optional dotenv file containing OPENAI_API_KEY.",
+    )
 
     args = parser.parse_args(argv)
     if args.command == "generate-s04":
@@ -593,6 +622,22 @@ def main(argv: list[str] | None = None) -> int:
             results_output=results_output,
             provider=provider,
             count_per_scenario=args.count_per_scenario,
+            batch_id=args.batch_id,
+        )
+        print(results_output)
+        return 0
+    if args.command == "execute-expense-reimbursement-pilot":
+        output = args.output
+        results_output = args.results_output
+        if output.exists() and any(output.iterdir()):
+            parser.error(f"output directory is not empty: {output}")
+        if results_output.exists() and any(results_output.iterdir()):
+            parser.error(f"results output directory is not empty: {results_output}")
+        provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model="gpt-4.1-mini")
+        run_expense_reimbursement_pilot(
+            output_root=output,
+            results_output=results_output,
+            provider=provider,
             batch_id=args.batch_id,
         )
         print(results_output)

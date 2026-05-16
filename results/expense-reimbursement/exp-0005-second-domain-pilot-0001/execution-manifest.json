@@ -1,0 +1,23 @@
+{
+  "experiment_id": "EXP-0005",
+  "protocol_id": "expense-reimbursement-pilot-v0.1",
+  "protocol_ref": "protocols/domain-expansion/expense-reimbursement-pilot-v0.1.md",
+  "batch_id": "exp-0005-second-domain-pilot-0001",
+  "scenario_id": "ER01",
+  "scenario_ref": "scenarios/expense-reimbursement/er01-ambiguous-receipt-approval.yaml",
+  "attempted_runs": 5,
+  "accepted_runs": 5,
+  "excluded_runs": 0,
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "observed_model_versions": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "started_at": "2026-05-16T23:15:56Z",
+  "completed_at": "2026-05-16T23:18:14Z",
+  "raw_output_policy": "raw run outputs are written under ignored runs/",
+  "curated_output": "results/expense-reimbursement/exp-0005-second-domain-pilot-0001",
+  "replacement_policy": "excluded runs are not replaced in EXP-0005",
+  "claim_boundary": "second_domain_pilot_observation_only",
+  "exclusions": []
+}

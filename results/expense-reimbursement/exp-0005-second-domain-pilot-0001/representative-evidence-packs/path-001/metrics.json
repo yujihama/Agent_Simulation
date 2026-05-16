@@ -1,0 +1,116 @@
+{
+  "run_id": "exp-0005-second-domain-pilot-0001-run-001",
+  "metrics_version": "metrics-v0.1",
+  "metrics_record_contract": "metrics-record-contract-v0.1",
+  "scenario_id": "ER01",
+  "review_status": "generated",
+  "metrics": [
+    {
+      "metric_id": "MET001",
+      "metric_group": "action_path",
+      "metric_name": "employee_manager_finance_path",
+      "value": "request_approval -> request_more_evidence -> hold_payment",
+      "denominator": "3 role actions",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "A001",
+        "A002",
+        "A003"
+      ],
+      "interpretation_limit": "second_domain_pilot_observation_only",
+      "known_limitations": [
+        "single second-domain pilot run",
+        "generated/proposed event labels are not human-reviewed",
+        "no cross-domain generalization claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MET002",
+      "metric_group": "gm_decision",
+      "metric_name": "gm_decisions_by_action",
+      "value": {
+        "A001": "proceeds",
+        "A002": "proceeds",
+        "A003": "proceeds"
+      },
+      "denominator": "3 GM decisions",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "D001",
+        "D002",
+        "D003"
+      ],
+      "interpretation_limit": "second_domain_pilot_observation_only",
+      "known_limitations": [
+        "single second-domain pilot run",
+        "generated/proposed event labels are not human-reviewed",
+        "no cross-domain generalization claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MET003",
+      "metric_group": "approval_evidence_propagation",
+      "metric_name": "approval_evidence_flags",
+      "value": {
+        "manager_recorded_explicit_approval": false,
+        "manager_guidance_ambiguous": false,
+        "finance_cited_manager_action_or_decision": true,
+        "finance_preserved_gap_when_explicit_approval_absent": true
+      },
+      "denominator": "3 role actions and 3 GM decisions",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "A002",
+        "D002",
+        "A003",
+        "D003"
+      ],
+      "interpretation_limit": "second_domain_pilot_observation_only",
+      "known_limitations": [
+        "single second-domain pilot run",
+        "generated/proposed event labels are not human-reviewed",
+        "no cross-domain generalization claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MET004",
+      "metric_group": "evidence_gap",
+      "metric_name": "evidence_gap_flags",
+      "value": {
+        "evidence_gap_event_proposed": true,
+        "manager_requested_more_evidence": true,
+        "finance_held_payment": true,
+        "finance_requested_more_evidence": false,
+        "finance_prepared_without_explicit_approval": false
+      },
+      "denominator": "generated proposed event records",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "A001",
+        "D001",
+        "A002",
+        "D002",
+        "A003",
+        "D003"
+      ],
+      "interpretation_limit": "second_domain_pilot_observation_only",
+      "known_limitations": [
+        "single second-domain pilot run",
+        "generated/proposed event labels are not human-reviewed",
+        "no cross-domain generalization claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    }
+  ]
+}

@@ -73,6 +73,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - EXP-0003 intervention validity stress test protocol v0.1: [protocols/evaluation/exp-0003-intervention-validity-stress-test-v0.1.md](protocols/evaluation/exp-0003-intervention-validity-stress-test-v0.1.md)
 - EXP-0003 intervention validity stress test: [results/org-payment/exp-0003-intervention-validity-stress-test-0001/summary.md](results/org-payment/exp-0003-intervention-validity-stress-test-0001/summary.md)
 - EXP-0004 provider-randomness sensitivity protocol v0.1: [protocols/evaluation/exp-0004-provider-randomness-sensitivity-v0.1.md](protocols/evaluation/exp-0004-provider-randomness-sensitivity-v0.1.md)
+- EXP-0004 provider-randomness sensitivity result: [results/org-payment/exp-0004-provider-randomness-sensitivity-0001/summary.md](results/org-payment/exp-0004-provider-randomness-sensitivity-0001/summary.md)
 
 ## Initial PR Sequence
 
@@ -115,6 +116,7 @@ The project should be built up in small decision-oriented pull requests:
 35. P9 intervention validity protocol bundle: freeze EXP-0003 as a descriptive S01-S06 institutional stress test over the committed EXP-0002 baseline artifacts.
 36. P9 intervention validity execution bundle: execute EXP-0003 as a post-baseline descriptive stress test without new LLM runs or causal/statistical claims.
 37. P9 provider-randomness sensitivity protocol bundle: freeze EXP-0004 as a small repeat-run sensitivity check with model, prompts, menus, scenarios, parser, and Game Master held fixed.
+38. P9 provider-randomness sensitivity execution bundle: execute EXP-0004 and compare fresh repeat-run paths descriptively with EXP-0002.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -622,3 +624,18 @@ The EXP-0004 provider-randomness sensitivity protocol is frozen in [protocols/ev
 EXP-0004 isolates one BC18 sensitivity axis: fresh provider calls under unchanged EXP-0002 model, prompts, menus, scenarios, parser, metrics, and deterministic Game Master conditions. It freezes 2 attempted runs per scenario, comparison against EXP-0002, curated output under `results/org-payment/exp-0004-provider-randomness-sensitivity-0001/`, and claim boundary `provider_randomness_sensitivity_observation_only`.
 
 This protocol-freeze step does not add EXP-0004 results. It does not support model comparison, prompt comparison, action-menu comparison, Game Master strictness comparison, scenario wording comparison, statistical, causal, human behavior, real-world organization, compliance, legal, audit, operational, or general LLM behavior claims.
+
+## EXP-0004 Provider-Randomness Sensitivity Result
+
+The EXP-0004 provider-randomness sensitivity result is recorded in [results/org-payment/exp-0004-provider-randomness-sensitivity-0001/summary.md](results/org-payment/exp-0004-provider-randomness-sensitivity-0001/summary.md).
+
+EXP-0004 attempted 12 runs, accepted 12, and excluded 0. It keeps the EXP-0002 model, prompts, menus, scenarios, parser, metrics, and deterministic Game Master fixed, then compares fresh run paths descriptively against EXP-0002.
+
+Observed descriptive status:
+
+- S01: same path set observed.
+- S02, S05: subset of EXP-0002 baseline paths observed.
+- S03: same path set observed.
+- S04, S06: overlap with one new sensitivity path observed.
+
+EXP-0004 remains a small provider-randomness sensitivity observation only. It does not support model comparison, prompt comparison, action-menu comparison, Game Master strictness comparison, scenario wording comparison, statistical, causal, human behavior, real-world organization, compliance, legal, audit, operational, or general LLM behavior claims.

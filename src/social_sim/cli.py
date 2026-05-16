@@ -18,6 +18,9 @@ from .multirole_runner import run_m01_buyer_approver_pilot
 from .repeated_runner import DEFAULT_REPEATED_BATCH_ID, run_s04_buyer_free_choice_batch
 from .runner import run_s04, run_s04_buyer_llm
 from .scenario_sweep_runner import DEFAULT_SWEEP_BATCH_ID, run_buyer_scenario_sweep
+from .sensitivity_runner import DEFAULT_BATCH_ID as DEFAULT_PROVIDER_RANDOMNESS_SENSITIVITY_BATCH_ID
+from .sensitivity_runner import DEFAULT_COUNT_PER_SCENARIO as DEFAULT_PROVIDER_RANDOMNESS_SENSITIVITY_COUNT
+from .sensitivity_runner import run_provider_randomness_sensitivity
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -361,6 +364,39 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="Optional dotenv file containing OPENAI_API_KEY.",
     )
+    provider_randomness_sensitivity = subparsers.add_parser(
+        "execute-provider-randomness-sensitivity",
+        help="Execute frozen EXP-0004 provider-randomness sensitivity run and write curated results.",
+    )
+    provider_randomness_sensitivity.add_argument(
+        "--output",
+        required=True,
+        type=Path,
+        help="Raw sensitivity output directory under ignored runs/. Must be new or empty.",
+    )
+    provider_randomness_sensitivity.add_argument(
+        "--results-output",
+        required=True,
+        type=Path,
+        help="Curated EXP-0004 result directory. Must be new or empty.",
+    )
+    provider_randomness_sensitivity.add_argument(
+        "--count-per-scenario",
+        default=DEFAULT_PROVIDER_RANDOMNESS_SENSITIVITY_COUNT,
+        type=int,
+        help="Number of attempted runs per scenario before exclusions. Defaults to 2.",
+    )
+    provider_randomness_sensitivity.add_argument(
+        "--batch-id",
+        default=DEFAULT_PROVIDER_RANDOMNESS_SENSITIVITY_BATCH_ID,
+        help="Stable batch id prefix used for per-run ids.",
+    )
+    provider_randomness_sensitivity.add_argument(
+        "--dotenv",
+        default=Path(".env"),
+        type=Path,
+        help="Optional dotenv file containing OPENAI_API_KEY.",
+    )
 
     args = parser.parse_args(argv)
     if args.command == "generate-s04":
@@ -536,6 +572,23 @@ def main(argv: list[str] | None = None) -> int:
             parser.error(f"results output directory is not empty: {results_output}")
         provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model="gpt-4.1-mini")
         run_multi_role_baseline(
+            output_root=output,
+            results_output=results_output,
+            provider=provider,
+            count_per_scenario=args.count_per_scenario,
+            batch_id=args.batch_id,
+        )
+        print(results_output)
+        return 0
+    if args.command == "execute-provider-randomness-sensitivity":
+        output = args.output
+        results_output = args.results_output
+        if output.exists() and any(output.iterdir()):
+            parser.error(f"output directory is not empty: {output}")
+        if results_output.exists() and any(results_output.iterdir()):
+            parser.error(f"results output directory is not empty: {results_output}")
+        provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model="gpt-4.1-mini")
+        run_provider_randomness_sensitivity(
             output_root=output,
             results_output=results_output,
             provider=provider,

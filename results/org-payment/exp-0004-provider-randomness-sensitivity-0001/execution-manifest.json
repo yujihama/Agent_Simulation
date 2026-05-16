@@ -1,0 +1,29 @@
+{
+  "experiment_id": "EXP-0004",
+  "protocol_id": "exp-0004-provider-randomness-sensitivity-v0.1",
+  "batch_id": "exp-0004-provider-randomness-sensitivity-0001",
+  "protocol_ref": "protocols/evaluation/exp-0004-provider-randomness-sensitivity-v0.1.md",
+  "scenario_set": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06"
+  ],
+  "runs_per_scenario": 2,
+  "total_planned_attempted_runs": 12,
+  "started_at": "2026-05-16T22:52:10Z",
+  "completed_at": "2026-05-16T22:56:27Z",
+  "attempted_runs": 12,
+  "accepted_runs": 12,
+  "excluded_runs": 0,
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "observed_model_versions": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "replacement_policy": "excluded runs are not replaced in EXP-0004",
+  "exclusions": [],
+  "claim_boundary": "provider_randomness_sensitivity_observation_only"
+}

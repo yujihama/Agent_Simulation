@@ -10,6 +10,8 @@ from .m02_pressure_runner import run_m02_buyer_vendor_pressure_pilot
 from .m03_coordination_runner import run_m03_coordination_pilot
 from .m04_full_role_runner import run_m04_full_role_pilot
 from .m05_full_org_runner import run_m05_full_org_payment_pilot
+from .multi_role_sweep_runner import DEFAULT_SWEEP_BATCH_ID as DEFAULT_MULTI_ROLE_SWEEP_BATCH_ID
+from .multi_role_sweep_runner import run_multi_role_scenario_sweep_pilot
 from .multirole_runner import run_m01_buyer_approver_pilot
 from .repeated_runner import DEFAULT_REPEATED_BATCH_ID, run_s04_buyer_free_choice_batch
 from .runner import run_s04, run_s04_buyer_llm
@@ -291,6 +293,39 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="Optional dotenv file containing OPENAI_API_KEY.",
     )
+    multi_role_sweep = subparsers.add_parser(
+        "execute-multi-role-scenario-sweep-pilot",
+        help="Execute frozen requester+vendor+buyer+approver+accountant S01-S06 scenario sweep pilot and write curated results.",
+    )
+    multi_role_sweep.add_argument(
+        "--output",
+        required=True,
+        type=Path,
+        help="Raw sweep output directory under ignored runs/. Must be new or empty.",
+    )
+    multi_role_sweep.add_argument(
+        "--curated-output",
+        required=True,
+        type=Path,
+        help="Curated scenario sweep pilot output directory. Must be new or empty.",
+    )
+    multi_role_sweep.add_argument(
+        "--count-per-scenario",
+        default=3,
+        type=int,
+        help="Number of attempted runs per scenario before exclusions. Defaults to 3.",
+    )
+    multi_role_sweep.add_argument(
+        "--batch-id",
+        default=DEFAULT_MULTI_ROLE_SWEEP_BATCH_ID,
+        help="Stable batch id prefix used for per-run ids.",
+    )
+    multi_role_sweep.add_argument(
+        "--dotenv",
+        default=Path(".env"),
+        type=Path,
+        help="Optional dotenv file containing OPENAI_API_KEY.",
+    )
 
     args = parser.parse_args(argv)
     if args.command == "generate-s04":
@@ -437,6 +472,23 @@ def main(argv: list[str] | None = None) -> int:
             output_root=output,
             curated_output=curated_output,
             provider=provider,
+        )
+        print(curated_output)
+        return 0
+    if args.command == "execute-multi-role-scenario-sweep-pilot":
+        output = args.output
+        curated_output = args.curated_output
+        if output.exists() and any(output.iterdir()):
+            parser.error(f"output directory is not empty: {output}")
+        if curated_output.exists() and any(curated_output.iterdir()):
+            parser.error(f"curated output directory is not empty: {curated_output}")
+        provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model="gpt-4.1-mini")
+        run_multi_role_scenario_sweep_pilot(
+            output_root=output,
+            curated_output=curated_output,
+            provider=provider,
+            count_per_scenario=args.count_per_scenario,
+            batch_id=args.batch_id,
         )
         print(curated_output)
         return 0

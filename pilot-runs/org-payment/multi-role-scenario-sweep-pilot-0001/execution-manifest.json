@@ -1,0 +1,28 @@
+{
+  "sweep_id": "MSP-0001",
+  "batch_id": "multi-role-scenario-sweep-pilot-0001",
+  "protocol_ref": "protocols/multi-role/multi-role-scenario-sweep-pilot-v0.1.md",
+  "scenario_set": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06"
+  ],
+  "runs_per_scenario": 3,
+  "total_planned_attempted_runs": 18,
+  "started_at": "2026-05-16T16:52:19Z",
+  "completed_at": "2026-05-16T17:00:17Z",
+  "attempted_runs": 18,
+  "accepted_runs": 18,
+  "excluded_runs": 0,
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "observed_model_versions": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "replacement_policy": "excluded runs are not replaced in the multi-role scenario sweep",
+  "exclusions": [],
+  "claim_boundary": "multi_role_scenario_sweep_pilot_observation_only"
+}

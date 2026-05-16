@@ -17,7 +17,6 @@ from .free_choice_runner import scenario_case_id
 from .llm_actor import LLMProvider, LLMProviderError
 from .m02_pressure_runner import (
     BUYER_PROMPT_REF,
-    PRESSURE_KEYWORDS,
     VENDOR_ACTION_MENU,
     VENDOR_ALLOWED_SOURCE_REFS,
     VENDOR_PROMPT_REF,
@@ -25,6 +24,7 @@ from .m02_pressure_runner import (
     contains_pressure_language,
     pressure_citation_flags,
     vendor_available_evidence,
+    vendor_action_has_pressure_context,
     vendor_case_state,
 )
 from .m03_coordination_runner import (
@@ -1095,7 +1095,10 @@ def build_m04_trace(*, run_id: str, case_id: str, actions: list[dict[str, Any]],
 
 
 def m04_pressure_citation_flags(actions: list[dict[str, Any]]) -> dict[str, bool]:
-    buyer_approval = pressure_citation_flags(actions[1])
+    buyer_approval = pressure_citation_flags(
+        actions[1],
+        pressure_context_present=vendor_action_has_pressure_context(actions[0]),
+    )
     handoff_text = action_text(actions[3])
     accountant_text = action_text(actions[4])
     return {

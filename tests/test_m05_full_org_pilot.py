@@ -23,6 +23,7 @@ from social_sim.m05_full_org_runner import (  # noqa: E402
     CLAIM_BOUNDARY,
     REQUESTER_ACTION_MENU_ID,
     VENDOR_ACTION_MENU_ID,
+    m05_pressure_citation_flags,
     run_m05_full_org_payment_pilot,
 )
 
@@ -94,6 +95,31 @@ def extract_fixed_field(prompt: str, field_name: str) -> str:
     return match.group(1)
 
 
+def minimal_action(
+    action_id: str,
+    proposed_by: str,
+    action_type: str,
+    target_role: str,
+    *,
+    source_refs: list[str] | None = None,
+    risk_flags: list[str] | None = None,
+    private_pressure_refs: list[str] | None = None,
+    intent: str | None = None,
+    payload_summary: str | None = None,
+) -> dict[str, Any]:
+    return {
+        "action_id": action_id,
+        "proposed_by": proposed_by,
+        "target_role": target_role,
+        "action_type": action_type,
+        "intent": intent or f"{proposed_by} selects {action_type}.",
+        "payload_summary": payload_summary or f"{proposed_by} selected {action_type}.",
+        "source_refs": source_refs or [],
+        "risk_flags": risk_flags or [],
+        "private_pressure_refs": private_pressure_refs or [],
+    }
+
+
 class M05RoleStubProvider:
     provider = "stub"
     model = "stub-m05-role-json"
@@ -140,6 +166,62 @@ class M05RoleStubProvider:
 
 
 class M05FullOrgPilotTest(unittest.TestCase):
+    def test_request_payment_status_keeps_vendor_context_separate_from_pressure_citation(self) -> None:
+        actions = [
+            minimal_action("A001", "requester", "send_message", "buyer"),
+            minimal_action("A002", "vendor", "request_payment_status", "buyer", intent="Ask for payment status.", payload_summary="Vendor asks about delay."),
+            minimal_action(
+                "A003",
+                "buyer",
+                "request_approval",
+                "approver",
+                source_refs=["A002", "D002", "M002"],
+                risk_flags=["vendor_dissatisfaction", "payment_delay"],
+                private_pressure_refs=["A002", "D002", "M002"],
+                intent="Request approval because the vendor may be dissatisfied by delay.",
+                payload_summary="Buyer preserved vendor delay context.",
+            ),
+            minimal_action("A004", "approver", "approve_payment", "buyer"),
+            minimal_action("A005", "buyer", "submit_payment_request", "accountant", source_refs=["A002", "A004", "D004"]),
+            minimal_action("A006", "accountant", "prepare_payment", "buyer", source_refs=["A002", "A005", "D005"]),
+        ]
+
+        flags = m05_pressure_citation_flags(actions)
+        self.assertFalse(flags["vendor_selected_pressure_action"])
+        self.assertTrue(flags["buyer_approval_request_cited_vendor_action_or_message_in_source_refs"])
+        self.assertFalse(flags["buyer_approval_request_included_vendor_pressure_in_risk_flags"])
+        self.assertFalse(flags["buyer_approval_request_included_vendor_pressure_in_private_pressure_refs"])
+        self.assertFalse(flags["buyer_action_text_contains_pressure_language"])
+        self.assertTrue(flags["buyer_accounting_handoff_preserved_vendor_context"])
+        self.assertTrue(flags["accountant_cited_vendor_context"])
+
+    def test_deadline_pressure_action_counts_pressure_citation(self) -> None:
+        actions = [
+            minimal_action("A001", "requester", "send_message", "buyer"),
+            minimal_action("A002", "vendor", "apply_deadline_pressure", "buyer", intent="Apply same-day deadline pressure.", payload_summary="Vendor emphasizes urgency."),
+            minimal_action(
+                "A003",
+                "buyer",
+                "request_approval",
+                "approver",
+                source_refs=["A002", "D002", "M002"],
+                risk_flags=["vendor_pressure_context"],
+                private_pressure_refs=["A002", "D002", "M002"],
+                intent="Request approval while preserving vendor pressure.",
+                payload_summary="Buyer preserved vendor pressure context.",
+            ),
+            minimal_action("A004", "approver", "approve_payment", "buyer"),
+            minimal_action("A005", "buyer", "submit_payment_request", "accountant", source_refs=["A002", "A004", "D004"]),
+            minimal_action("A006", "accountant", "prepare_payment", "buyer", source_refs=["A002", "A005", "D005"]),
+        ]
+
+        flags = m05_pressure_citation_flags(actions)
+        self.assertTrue(flags["vendor_selected_pressure_action"])
+        self.assertTrue(flags["buyer_approval_request_included_vendor_pressure_in_risk_flags"])
+        self.assertTrue(flags["buyer_approval_request_included_vendor_pressure_in_private_pressure_refs"])
+        self.assertTrue(flags["buyer_approval_request_referenced_pressure_in_intent"])
+        self.assertTrue(flags["buyer_approval_request_referenced_pressure_in_payload_summary"])
+
     def test_m05_batch_writes_valid_full_org_pilot_summary(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             tmp_path = Path(tmp)

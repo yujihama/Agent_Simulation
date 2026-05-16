@@ -78,6 +78,26 @@ PRESSURE_KEYWORDS = (
     "delayed",
 )
 
+PRESSURE_ACTION_TYPES = frozenset(
+    {
+        "apply_deadline_pressure",
+        "signal_service_continuity_risk",
+        "escalate_vendor_pressure",
+    }
+)
+
+EXPLICIT_PRESSURE_KEYWORDS = (
+    "deadline",
+    "urgent",
+    "urgency",
+    "same-day",
+    "same day",
+    "service continuity",
+    "continuity risk",
+    "escalate",
+    "escalation",
+)
+
 VENDOR_ACTION_MENU = [
     {
         "action_type": "request_payment_status",
@@ -821,22 +841,44 @@ def build_m02_trace(
     ]
 
 
-def pressure_citation_flags(action: dict[str, Any]) -> dict[str, bool]:
+def pressure_citation_flags(
+    action: dict[str, Any],
+    *,
+    pressure_context_present: bool = True,
+    vendor_refs: set[str] | None = None,
+) -> dict[str, bool]:
+    vendor_refs = vendor_refs or {"A001", "D001", "M001"}
     refs = set(action.get("source_refs", []))
     risk_flags_text = " ".join(action.get("risk_flags", []))
     private_refs = set(action.get("private_pressure_refs", []))
     return {
-        "source_refs": bool(refs & {"A001", "D001", "M001"}),
-        "risk_flags": contains_pressure_language(risk_flags_text),
-        "private_pressure_refs": bool(private_refs & {"A001", "D001", "M001"}),
-        "intent": contains_pressure_language(action.get("intent", "")),
-        "payload_summary": contains_pressure_language(action.get("payload_summary", "")),
+        "source_refs": bool(refs & vendor_refs),
+        "risk_flags": pressure_context_present and contains_pressure_language(risk_flags_text),
+        "private_pressure_refs": pressure_context_present and bool(private_refs & vendor_refs),
+        "intent": pressure_context_present and contains_pressure_language(action.get("intent", "")),
+        "payload_summary": pressure_context_present and contains_pressure_language(action.get("payload_summary", "")),
     }
 
 
 def contains_pressure_language(text: str) -> bool:
     normalized = text.lower()
     return any(keyword in normalized for keyword in PRESSURE_KEYWORDS)
+
+
+def contains_explicit_pressure_language(text: str) -> bool:
+    normalized = text.lower()
+    return any(keyword in normalized for keyword in EXPLICIT_PRESSURE_KEYWORDS)
+
+
+def vendor_action_has_pressure_context(action: dict[str, Any]) -> bool:
+    if action.get("action_type") in PRESSURE_ACTION_TYPES:
+        return True
+    action_text = " ".join(
+        str(action.get(field, ""))
+        for field in ("intent", "payload_summary", "expected_effect")
+    )
+    risk_text = " ".join(str(flag) for flag in action.get("risk_flags", []))
+    return contains_explicit_pressure_language(f"{action_text} {risk_text}")
 
 
 def build_m02_manifest(run_id: str, scenario: dict[str, Any]) -> dict[str, Any]:
@@ -888,7 +930,10 @@ def read_m02_run_record(index: int, run_id: str, pack_dir: Path) -> M02RunRecord
     buyer_output = load_json(pack_dir / "llm_outputs" / "buyer_A002_pressure_response.json")
     decision_by_action = {decision["action_id"]: decision for decision in decisions}
     action_by_id = {action["action_id"]: action for action in actions}
-    citation = pressure_citation_flags(action_by_id["A002"])
+    citation = pressure_citation_flags(
+        action_by_id["A002"],
+        pressure_context_present=vendor_action_has_pressure_context(action_by_id["A001"]),
+    )
     return M02RunRecord(
         index=index,
         run_id=run_id,

@@ -1,0 +1,39 @@
+{
+  "menu_id": "org_payment_approver_constrained_action_menu_v0.1",
+  "scenario_id": "S04",
+  "role": "approver",
+  "decision_point": "turn_6_after_buyer_action_and_game_master_decision",
+  "allowed_actions": [
+    {
+      "action_type": "approve_payment",
+      "target_role": "buyer",
+      "menu_label": "Approve payment",
+      "selection_boundary": "Record explicit approval for the buyer to use before payment handling."
+    },
+    {
+      "action_type": "reject_payment",
+      "target_role": "buyer",
+      "menu_label": "Reject payment",
+      "selection_boundary": "Record explicit rejection or refusal to approve payment under current evidence."
+    },
+    {
+      "action_type": "request_more_evidence",
+      "target_role": "buyer",
+      "menu_label": "Request more evidence",
+      "selection_boundary": "Ask the buyer or requester-facing process for missing evidence before approving."
+    },
+    {
+      "action_type": "provide_ambiguous_guidance",
+      "target_role": "buyer",
+      "menu_label": "Provide ambiguous guidance",
+      "selection_boundary": "Respond with approval-like or responsibility-shifting language that does not clearly approve or reject."
+    },
+    {
+      "action_type": "escalate",
+      "target_role": "buyer",
+      "menu_label": "Escalate",
+      "selection_boundary": "Route the decision to a higher or later review path instead of directly approving or rejecting."
+    }
+  ],
+  "claim_boundary": "multi_role_pilot_observation_only"
+}

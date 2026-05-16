@@ -1,0 +1,219 @@
+{
+  "pilot_id": "M01",
+  "protocol_id": "multi-role-pilot-v0.1",
+  "protocol_ref": "protocols/multi-role/multi-role-pilot-v0.1.md",
+  "batch_id": "m01-buyer-approver-pilot-0001",
+  "scenario_id": "S04",
+  "attempted_runs": 5,
+  "accepted_runs": 5,
+  "excluded_runs": 0,
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "observed_model_versions": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "buyer_prompt_ref": "prompts/org-payment/buyer-free-choice-action-v0.1.md",
+  "approver_prompt_ref": "prompts/org-payment/approver-free-choice-action-v0.1.md",
+  "buyer_action_menu_id": "org_payment_buyer_to_approver_action_menu_v0.1",
+  "approver_action_menu_id": "org_payment_approver_constrained_action_menu_v0.1",
+  "llm_controlled_roles": [
+    "buyer",
+    "approver"
+  ],
+  "scripted_or_rule_based_roles": [
+    "requester",
+    "accountant",
+    "vendor"
+  ],
+  "game_master": "deterministic_menu_aware_rules",
+  "claim_boundary": "multi_role_pilot_observation_only",
+  "buyer_selected_action_counts": {
+    "request_approval": 5
+  },
+  "approver_selected_action_counts": {
+    "approve_payment": 4,
+    "request_more_evidence": 1
+  },
+  "paired_buyer_approver_path_counts": {
+    "request_approval -> approve_payment": 4,
+    "request_approval -> request_more_evidence": 1
+  },
+  "buyer_parser_summary": {
+    "runs_with_parser_acceptance": 5,
+    "total_attempts": 5,
+    "total_retries": 0,
+    "total_rejected_or_invalid_attempts": 0,
+    "runs_with_retries": 0,
+    "parser_failures": 0
+  },
+  "approver_parser_summary": {
+    "runs_with_parser_acceptance": 5,
+    "total_attempts": 5,
+    "total_retries": 0,
+    "total_rejected_or_invalid_attempts": 0,
+    "runs_with_retries": 0,
+    "parser_failures": 0
+  },
+  "gm_decisions_by_role_and_selected_action": {
+    "buyer": {
+      "request_approval": {
+        "proceeds": 5
+      }
+    },
+    "approver": {
+      "approve_payment": {
+        "proceeds": 4
+      },
+      "request_more_evidence": {
+        "proceeds": 1
+      }
+    }
+  },
+  "validation_summary": {
+    "pass": 5,
+    "fail": 0,
+    "pass_rate_included": 1.0
+  },
+  "exclusion_summary": {},
+  "representative_evidence_packs": [
+    {
+      "buyer_action_type": "request_approval",
+      "approver_action_type": "approve_payment",
+      "paired_path": "request_approval -> approve_payment",
+      "run_id": "m01-buyer-approver-pilot-0001-run-001",
+      "evidence_pack": "representative-evidence-packs/buyer-request_approval_approver-approve_payment-run-001",
+      "validation_output": "representative-validation-outputs/buyer-request_approval_approver-approve_payment-run-001.md"
+    },
+    {
+      "buyer_action_type": "request_approval",
+      "approver_action_type": "request_more_evidence",
+      "paired_path": "request_approval -> request_more_evidence",
+      "run_id": "m01-buyer-approver-pilot-0001-run-002",
+      "evidence_pack": "representative-evidence-packs/buyer-request_approval_approver-request_more_evidence-run-002",
+      "validation_output": "representative-validation-outputs/buyer-request_approval_approver-request_more_evidence-run-002.md"
+    }
+  ],
+  "limitations": [
+    "artificial organization only",
+    "M01 pilot only",
+    "buyer + approver LLM control only",
+    "requester, accountant, and vendor are scripted or rule-based",
+    "deterministic/rule-based Game Master",
+    "generated/proposed event labels are not human-reviewed coded evidence",
+    "no human behavior claim",
+    "no general LLM behavior claim",
+    "no real-world organization claim",
+    "no compliance, legal, audit, or operational sufficiency claim",
+    "no statistical significance claim"
+  ],
+  "allowed_claim": "Under the frozen M01 artificial organization protocol, buyer+approver LLM pilot runs produced the recorded buyer action, approver action, paired path, parser, GM decision, and validation outcomes.",
+  "forbidden_claims": [
+    "responsibility diffusion has been reproduced",
+    "human organization behavior has been simulated",
+    "S04 causes ambiguity or failure",
+    "hard control effectiveness has been shown",
+    "multi-role baseline is complete",
+    "this proves institutional failure",
+    "this is statistically meaningful",
+    "this generalizes to humans or real organizations"
+  ],
+  "runs": [
+    {
+      "index": 1,
+      "run_id": "m01-buyer-approver-pilot-0001-run-001",
+      "buyer_action_type": "request_approval",
+      "buyer_target_role": "approver",
+      "buyer_parser_status": "accepted",
+      "buyer_attempt_count": 1,
+      "buyer_rejected_attempt_count": 0,
+      "buyer_gm_decision": "proceeds",
+      "approver_action_type": "approve_payment",
+      "approver_target_role": "buyer",
+      "approver_parser_status": "accepted",
+      "approver_attempt_count": 1,
+      "approver_rejected_attempt_count": 0,
+      "approver_gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "buyer_model_version": "gpt-4.1-mini-2025-04-14",
+      "approver_model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "index": 2,
+      "run_id": "m01-buyer-approver-pilot-0001-run-002",
+      "buyer_action_type": "request_approval",
+      "buyer_target_role": "approver",
+      "buyer_parser_status": "accepted",
+      "buyer_attempt_count": 1,
+      "buyer_rejected_attempt_count": 0,
+      "buyer_gm_decision": "proceeds",
+      "approver_action_type": "request_more_evidence",
+      "approver_target_role": "buyer",
+      "approver_parser_status": "accepted",
+      "approver_attempt_count": 1,
+      "approver_rejected_attempt_count": 0,
+      "approver_gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "buyer_model_version": "gpt-4.1-mini-2025-04-14",
+      "approver_model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "index": 3,
+      "run_id": "m01-buyer-approver-pilot-0001-run-003",
+      "buyer_action_type": "request_approval",
+      "buyer_target_role": "approver",
+      "buyer_parser_status": "accepted",
+      "buyer_attempt_count": 1,
+      "buyer_rejected_attempt_count": 0,
+      "buyer_gm_decision": "proceeds",
+      "approver_action_type": "approve_payment",
+      "approver_target_role": "buyer",
+      "approver_parser_status": "accepted",
+      "approver_attempt_count": 1,
+      "approver_rejected_attempt_count": 0,
+      "approver_gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "buyer_model_version": "gpt-4.1-mini-2025-04-14",
+      "approver_model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "index": 4,
+      "run_id": "m01-buyer-approver-pilot-0001-run-004",
+      "buyer_action_type": "request_approval",
+      "buyer_target_role": "approver",
+      "buyer_parser_status": "accepted",
+      "buyer_attempt_count": 1,
+      "buyer_rejected_attempt_count": 0,
+      "buyer_gm_decision": "proceeds",
+      "approver_action_type": "approve_payment",
+      "approver_target_role": "buyer",
+      "approver_parser_status": "accepted",
+      "approver_attempt_count": 1,
+      "approver_rejected_attempt_count": 0,
+      "approver_gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "buyer_model_version": "gpt-4.1-mini-2025-04-14",
+      "approver_model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "index": 5,
+      "run_id": "m01-buyer-approver-pilot-0001-run-005",
+      "buyer_action_type": "request_approval",
+      "buyer_target_role": "approver",
+      "buyer_parser_status": "accepted",
+      "buyer_attempt_count": 1,
+      "buyer_rejected_attempt_count": 0,
+      "buyer_gm_decision": "proceeds",
+      "approver_action_type": "approve_payment",
+      "approver_target_role": "buyer",
+      "approver_parser_status": "accepted",
+      "approver_attempt_count": 1,
+      "approver_rejected_attempt_count": 0,
+      "approver_gm_decision": "proceeds",
+      "validation_status": "PASS",
+      "buyer_model_version": "gpt-4.1-mini-2025-04-14",
+      "approver_model_version": "gpt-4.1-mini-2025-04-14"
+    }
+  ],
+  "excluded_run_records": [],
+  "execution_manifest_ref": "execution-manifest.json"
+}

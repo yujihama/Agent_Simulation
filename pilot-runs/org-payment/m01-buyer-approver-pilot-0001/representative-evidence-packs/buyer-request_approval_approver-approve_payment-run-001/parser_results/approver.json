@@ -1,0 +1,17 @@
+{
+  "parser_status": "accepted",
+  "role": "approver",
+  "selected_action_type": "approve_payment",
+  "selected_target_role": "buyer",
+  "selected_action_id": "A002",
+  "allowed_action_types": [
+    "approve_payment",
+    "reject_payment",
+    "request_more_evidence",
+    "provide_ambiguous_guidance",
+    "escalate"
+  ],
+  "attempt_count": 1,
+  "invalid_or_rejected_proposals": [],
+  "claim_boundary": "multi_role_pilot_observation_only"
+}

@@ -352,6 +352,8 @@ def validate_pack(pack_dir: Path) -> ValidationReport:
 
     if (pack_dir / "action_menu.json").exists():
         validate_free_choice_artifacts(pack_dir, actions, decisions, report)
+    if (pack_dir / "action_menus").exists() or (pack_dir / "parser_results").exists():
+        validate_multirole_artifacts(pack_dir, actions, decisions, report)
 
     for event in events:
         if event["turn_end"] < event["turn_start"]:
@@ -446,6 +448,106 @@ def validate_free_choice_artifacts(
     if not matching_decisions:
         raise ValidationError(f"selected buyer action {selected_action['action_id']} has no Game Master decision")
     report.add("selected buyer action has a Game Master decision")
+
+
+def validate_multirole_artifacts(
+    pack_dir: Path,
+    actions: list[dict[str, Any]],
+    decisions: list[dict[str, Any]],
+    report: ValidationReport,
+) -> None:
+    for role in ["buyer", "approver"]:
+        validate_role_multirole_artifacts(pack_dir, actions, decisions, role, report)
+    report.add("multi-role buyer and approver artifacts validate")
+
+
+def validate_role_multirole_artifacts(
+    pack_dir: Path,
+    actions: list[dict[str, Any]],
+    decisions: list[dict[str, Any]],
+    role: str,
+    report: ValidationReport,
+) -> None:
+    action_menu_path = pack_dir / "action_menus" / f"{role}.json"
+    parser_result_path = pack_dir / "parser_results" / f"{role}.json"
+    proposal_attempts_path = pack_dir / "proposal_attempts" / f"{role}.jsonl"
+
+    if not action_menu_path.exists():
+        raise ValidationError(f"missing multi-role action menu for {role}: {action_menu_path.relative_to(pack_dir)}")
+    if not parser_result_path.exists():
+        raise ValidationError(f"missing multi-role parser result for {role}: {parser_result_path.relative_to(pack_dir)}")
+    if not proposal_attempts_path.exists():
+        raise ValidationError(f"missing multi-role proposal attempts for {role}: {proposal_attempts_path.relative_to(pack_dir)}")
+
+    action_menu = load_json(action_menu_path)
+    if not isinstance(action_menu, dict):
+        raise ValidationError(f"action_menus/{role}.json must be an object")
+    allowed_actions = action_menu.get("allowed_actions")
+    if not isinstance(allowed_actions, list) or not allowed_actions:
+        raise ValidationError(f"action_menus/{role}.json allowed_actions must be a non-empty array")
+    menu_pairs: set[tuple[str, Any]] = set()
+    for index, item in enumerate(allowed_actions):
+        if not isinstance(item, dict):
+            raise ValidationError(f"action_menus/{role}.json allowed_actions[{index}] must be an object")
+        action_type = item.get("action_type")
+        target_role = item.get("target_role")
+        if not isinstance(action_type, str) or not action_type:
+            raise ValidationError(f"action_menus/{role}.json allowed_actions[{index}] missing action_type")
+        if not (isinstance(target_role, str) and target_role):
+            raise ValidationError(f"action_menus/{role}.json allowed_actions[{index}] missing target_role")
+        menu_pairs.add((action_type, target_role))
+    report.add(f"multi-role {role} action menu is present and non-empty")
+
+    role_actions = [action for action in actions if action.get("proposed_by") == role]
+    if len(role_actions) != 1:
+        raise ValidationError(f"multi-role packs require exactly one {role} action, found {len(role_actions)}")
+    selected_action = role_actions[0]
+    selected_pair = (selected_action.get("action_type"), selected_action.get("target_role"))
+    if selected_pair not in menu_pairs:
+        raise ValidationError(
+            f"selected {role} action is not in action_menus/{role}.json: "
+            f"action_type={selected_pair[0]!r}, target_role={selected_pair[1]!r}"
+        )
+    report.add(f"selected {role} action matches action menu")
+
+    parser_result = load_json(parser_result_path)
+    if not isinstance(parser_result, dict):
+        raise ValidationError(f"parser_results/{role}.json must be an object")
+    if parser_result.get("role") not in (None, role):
+        raise ValidationError(f"parser_results/{role}.json role must be {role!r}")
+    expected_parser_fields = {
+        "selected_action_type": selected_action["action_type"],
+        "selected_target_role": selected_action["target_role"],
+        "selected_action_id": selected_action["action_id"],
+    }
+    for field, expected in expected_parser_fields.items():
+        if parser_result.get(field) != expected:
+            raise ValidationError(
+                f"parser_results/{role}.json {field} must be {expected!r}, got {parser_result.get(field)!r}"
+            )
+    report.add(f"parser result matches selected {role} action")
+
+    attempts = load_jsonl(proposal_attempts_path)
+    accepted_attempts = [attempt for attempt in attempts if attempt.get("status") == "accepted_by_parser"]
+    if not accepted_attempts:
+        raise ValidationError(f"proposal_attempts/{role}.jsonl must include at least one accepted_by_parser attempt")
+    if len(accepted_attempts) != 1:
+        raise ValidationError(f"proposal_attempts/{role}.jsonl must include exactly one accepted_by_parser attempt")
+    accepted = accepted_attempts[0]
+    if accepted.get("role") not in (None, role):
+        raise ValidationError(f"accepted proposal attempt role must be {role!r}")
+    if accepted.get("selected_action_type") != parser_result["selected_action_type"]:
+        raise ValidationError(f"accepted {role} proposal selected_action_type does not match parser_result")
+    if accepted.get("selected_target_role") != parser_result["selected_target_role"]:
+        raise ValidationError(f"accepted {role} proposal selected_target_role does not match parser_result")
+    if accepted.get("selected_action_id") not in (None, parser_result["selected_action_id"]):
+        raise ValidationError(f"accepted {role} proposal selected_action_id does not match parser_result")
+    report.add(f"proposal attempts record accepted {role} selection")
+
+    matching_decisions = [decision for decision in decisions if decision.get("action_id") == selected_action["action_id"]]
+    if not matching_decisions:
+        raise ValidationError(f"selected {role} action {selected_action['action_id']} has no Game Master decision")
+    report.add(f"selected {role} action has a Game Master decision")
 
 
 def main() -> int:

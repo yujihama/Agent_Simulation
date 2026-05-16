@@ -49,6 +49,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - M02 buyer+vendor pressure pilot review: [pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/review.md](pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/review.md)
 - M03 buyer+approver+accountant coordination pilot protocol v0.1: [protocols/multi-role/m03-buyer-approver-accountant-coordination-pilot-v0.1.md](protocols/multi-role/m03-buyer-approver-accountant-coordination-pilot-v0.1.md)
 - Accountant free-choice action prompt template v0.1: [prompts/org-payment/accountant-free-choice-action-v0.1.md](prompts/org-payment/accountant-free-choice-action-v0.1.md)
+- M03 buyer+approver+accountant coordination pilot result: [pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/summary.md](pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/summary.md)
 
 ## Initial PR Sequence
 
@@ -73,6 +74,7 @@ The project should be built up in small decision-oriented pull requests:
 17. P8 M01 review and M02 protocol bundle: review M01 and freeze the buyer+vendor pressure pilot protocol without executing M02.
 18. P8 M02 execution bundle: execute the frozen S04 buyer+vendor pressure pilot without changing protocol conditions.
 19. P8 M02 review and M03 protocol bundle: review M02 and freeze the buyer+approver+accountant coordination pilot protocol without executing M03.
+20. P8 M03 execution bundle: execute the frozen S04 buyer+approver+accountant coordination pilot without changing protocol conditions.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -297,3 +299,26 @@ The M03 approver prompt template is [prompts/org-payment/approver-multirole-acti
 The accountant prompt template is [prompts/org-payment/accountant-free-choice-action-v0.1.md](prompts/org-payment/accountant-free-choice-action-v0.1.md). It instructs the accountant not to simulate other roles, bypass the Game Master, treat pressure as approval evidence, or treat ambiguous guidance as explicit approval unless explicit approval is recorded in the provided evidence.
 
 This protocol-freeze step does not execute M03 and does not add M03 results. It does not make responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, model comparison, or multi-role baseline claims.
+
+## M03 Buyer+Approver+Accountant Coordination Pilot
+
+Run the frozen M03 pilot locally with raw and generated curated output under ignored `runs/` paths:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-m03-buyer-approver-accountant-coordination-pilot `
+  --output runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-local/raw `
+  --curated-output runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-local/curated `
+  --dotenv .env
+```
+
+Reference M03 pilot output:
+
+- [summary.md](pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/summary.md)
+- [aggregate.json](pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/aggregate.json)
+- [execution-manifest.json](pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/execution-manifest.json)
+- [scenario-summary.csv](pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/scenario-summary.csv)
+- Representative evidence pack: [path-001](pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/representative-evidence-packs/path-001)
+- Representative validation output: [path-001.md](pilot-runs/org-payment/m03-buyer-approver-accountant-coordination-pilot-0001/representative-validation-outputs/path-001.md)
+
+Under the frozen M03 artificial organization protocol, buyer+approver+accountant LLM pilot runs produced recorded coordination paths, parser outcomes, GM decisions, validation outcomes, approval-evidence propagation observations, and coordination-gap observations. M03 remains a coordination pilot, not a multi-role baseline. It does not support responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, or operational claims.

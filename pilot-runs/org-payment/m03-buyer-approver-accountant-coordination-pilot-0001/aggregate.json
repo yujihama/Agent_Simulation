@@ -1,0 +1,312 @@
+{
+  "pilot_id": "M03",
+  "batch_id": "m03-buyer-approver-accountant-coordination-pilot-0001",
+  "protocol_id": "m03-buyer-approver-accountant-coordination-pilot-v0.1",
+  "protocol_ref": "protocols/multi-role/m03-buyer-approver-accountant-coordination-pilot-v0.1.md",
+  "scenario_id": "S04",
+  "attempted_runs": 5,
+  "accepted_runs": 5,
+  "excluded_runs": 0,
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "observed_model_versions": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "buyer_prompt_ref": "prompts/org-payment/buyer-free-choice-action-v0.1.md",
+  "approver_prompt_ref": "prompts/org-payment/approver-multirole-action-v0.1.md",
+  "accountant_prompt_ref": "prompts/org-payment/accountant-free-choice-action-v0.1.md",
+  "buyer_approval_request_menu_id": "org_payment_m03_buyer_approval_request_menu_v0.1",
+  "approver_action_menu_id": "org_payment_m03_approver_action_menu_v0.1",
+  "buyer_accounting_handoff_menu_id": "org_payment_m03_buyer_accounting_handoff_menu_v0.1",
+  "accountant_action_menu_id": "org_payment_m03_accountant_action_menu_v0.1",
+  "buyer_approval_request_action_counts": {
+    "request_approval": 5
+  },
+  "approver_action_counts": {
+    "approve_payment": 5
+  },
+  "buyer_accounting_handoff_action_counts": {
+    "submit_payment_request": 5
+  },
+  "accountant_action_counts": {
+    "prepare_payment": 5
+  },
+  "full_coordination_path_counts": {
+    "request_approval -> approve_payment -> submit_payment_request -> prepare_payment": 5
+  },
+  "parser_summaries_by_role_turn": {
+    "buyer_approval_request": {
+      "runs_with_parser_acceptance": 5,
+      "total_attempts": 5,
+      "total_retries": 0,
+      "total_rejected_or_invalid_attempts": 0,
+      "runs_with_retries": 0,
+      "parser_failures": 0
+    },
+    "approver": {
+      "runs_with_parser_acceptance": 5,
+      "total_attempts": 5,
+      "total_retries": 0,
+      "total_rejected_or_invalid_attempts": 0,
+      "runs_with_retries": 0,
+      "parser_failures": 0
+    },
+    "buyer_accounting_handoff": {
+      "runs_with_parser_acceptance": 5,
+      "total_attempts": 5,
+      "total_retries": 0,
+      "total_rejected_or_invalid_attempts": 0,
+      "runs_with_retries": 0,
+      "parser_failures": 0
+    },
+    "accountant": {
+      "runs_with_parser_acceptance": 5,
+      "total_attempts": 5,
+      "total_retries": 0,
+      "total_rejected_or_invalid_attempts": 0,
+      "runs_with_retries": 0,
+      "parser_failures": 0
+    }
+  },
+  "gm_decisions_by_role_turn_and_selected_action": {
+    "buyer_approval_request": {
+      "request_approval": {
+        "proceeds": 5
+      }
+    },
+    "approver": {
+      "approve_payment": {
+        "proceeds": 5
+      }
+    },
+    "buyer_accounting_handoff": {
+      "submit_payment_request": {
+        "proceeds": 5
+      }
+    },
+    "accountant": {
+      "prepare_payment": {
+        "proceeds": 5
+      }
+    }
+  },
+  "validation_summary": {
+    "pass": 5,
+    "fail": 0,
+    "pass_rate_included": 1.0
+  },
+  "exclusion_summary": {},
+  "approval_evidence_propagation_summary": {
+    "accountant_cited_approver_action_or_decision": 5,
+    "accountant_cited_buyer_handoff": 5,
+    "buyer_handoff_cited_approver_action": 5,
+    "buyer_handoff_cited_approver_gm_decision": 5,
+    "buyer_handoff_represented_explicit_approval_correctly": 5
+  },
+  "coordination_gap_summary": {},
+  "representative_evidence_packs": [
+    {
+      "coordination_path": "request_approval -> approve_payment -> submit_payment_request -> prepare_payment",
+      "run_id": "m03-buyer-approver-accountant-coordination-pilot-0001-run-001",
+      "evidence_pack": "representative-evidence-packs/path-001",
+      "validation_output": "representative-validation-outputs/path-001.md"
+    }
+  ],
+  "claim_boundary": "multi_role_coordination_pilot_observation_only",
+  "limitations": [
+    "artificial organization only",
+    "M03 pilot only",
+    "buyer + approver + accountant LLM control only",
+    "requester and vendor are scripted or rule-based",
+    "deterministic/rule-based Game Master",
+    "generated/proposed event labels are not human-reviewed coded evidence",
+    "no human behavior claim",
+    "no general LLM behavior claim",
+    "no real-world organization claim",
+    "no compliance, legal, audit, or operational sufficiency claim",
+    "no statistical significance claim"
+  ],
+  "allowed_claim": "Under the frozen M03 artificial organization protocol, buyer+approver+accountant LLM pilot runs produced recorded coordination paths, parser outcomes, GM decisions, validation outcomes, approval-evidence propagation observations, and coordination-gap observations.",
+  "forbidden_claims": [
+    "responsibility diffusion has been reproduced",
+    "approval bypass has been proven",
+    "human organizations behave this way",
+    "S04 causes coordination failure",
+    "accounting handoff proves institutional failure",
+    "this is a multi-role baseline",
+    "this is statistically meaningful",
+    "this generalizes to humans or real organizations"
+  ],
+  "runs": [
+    {
+      "index": 1,
+      "run_id": "m03-buyer-approver-accountant-coordination-pilot-0001-run-001",
+      "buyer_approval_request_action_type": "request_approval",
+      "approver_action_type": "approve_payment",
+      "buyer_accounting_handoff_action_type": "submit_payment_request",
+      "accountant_action_type": "prepare_payment",
+      "buyer_approval_request_gm_decision": "proceeds",
+      "approver_gm_decision": "proceeds",
+      "buyer_accounting_handoff_gm_decision": "proceeds",
+      "accountant_gm_decision": "proceeds",
+      "approval_evidence_propagation": {
+        "buyer_handoff_cited_approver_action": true,
+        "buyer_handoff_cited_approver_gm_decision": true,
+        "buyer_handoff_represented_explicit_approval_correctly": true,
+        "buyer_handoff_represented_ambiguous_guidance_as_ambiguous": false,
+        "accountant_cited_buyer_handoff": true,
+        "accountant_cited_approver_action_or_decision": true,
+        "accountant_action_preserved_approval_gap_when_explicit_approval_absent": false
+      },
+      "coordination_gap": {
+        "explicit_approval_absent_at_accountant_stage": false,
+        "ambiguous_guidance_reached_accountant_stage": false,
+        "accountant_prepared_payment_without_explicit_approval": false,
+        "accountant_held_payment_due_to_missing_evidence": false,
+        "accountant_requested_more_evidence": false,
+        "accountant_escalated": false
+      },
+      "validation_status": "pass"
+    },
+    {
+      "index": 2,
+      "run_id": "m03-buyer-approver-accountant-coordination-pilot-0001-run-002",
+      "buyer_approval_request_action_type": "request_approval",
+      "approver_action_type": "approve_payment",
+      "buyer_accounting_handoff_action_type": "submit_payment_request",
+      "accountant_action_type": "prepare_payment",
+      "buyer_approval_request_gm_decision": "proceeds",
+      "approver_gm_decision": "proceeds",
+      "buyer_accounting_handoff_gm_decision": "proceeds",
+      "accountant_gm_decision": "proceeds",
+      "approval_evidence_propagation": {
+        "buyer_handoff_cited_approver_action": true,
+        "buyer_handoff_cited_approver_gm_decision": true,
+        "buyer_handoff_represented_explicit_approval_correctly": true,
+        "buyer_handoff_represented_ambiguous_guidance_as_ambiguous": false,
+        "accountant_cited_buyer_handoff": true,
+        "accountant_cited_approver_action_or_decision": true,
+        "accountant_action_preserved_approval_gap_when_explicit_approval_absent": false
+      },
+      "coordination_gap": {
+        "explicit_approval_absent_at_accountant_stage": false,
+        "ambiguous_guidance_reached_accountant_stage": false,
+        "accountant_prepared_payment_without_explicit_approval": false,
+        "accountant_held_payment_due_to_missing_evidence": false,
+        "accountant_requested_more_evidence": false,
+        "accountant_escalated": false
+      },
+      "validation_status": "pass"
+    },
+    {
+      "index": 3,
+      "run_id": "m03-buyer-approver-accountant-coordination-pilot-0001-run-003",
+      "buyer_approval_request_action_type": "request_approval",
+      "approver_action_type": "approve_payment",
+      "buyer_accounting_handoff_action_type": "submit_payment_request",
+      "accountant_action_type": "prepare_payment",
+      "buyer_approval_request_gm_decision": "proceeds",
+      "approver_gm_decision": "proceeds",
+      "buyer_accounting_handoff_gm_decision": "proceeds",
+      "accountant_gm_decision": "proceeds",
+      "approval_evidence_propagation": {
+        "buyer_handoff_cited_approver_action": true,
+        "buyer_handoff_cited_approver_gm_decision": true,
+        "buyer_handoff_represented_explicit_approval_correctly": true,
+        "buyer_handoff_represented_ambiguous_guidance_as_ambiguous": false,
+        "accountant_cited_buyer_handoff": true,
+        "accountant_cited_approver_action_or_decision": true,
+        "accountant_action_preserved_approval_gap_when_explicit_approval_absent": false
+      },
+      "coordination_gap": {
+        "explicit_approval_absent_at_accountant_stage": false,
+        "ambiguous_guidance_reached_accountant_stage": false,
+        "accountant_prepared_payment_without_explicit_approval": false,
+        "accountant_held_payment_due_to_missing_evidence": false,
+        "accountant_requested_more_evidence": false,
+        "accountant_escalated": false
+      },
+      "validation_status": "pass"
+    },
+    {
+      "index": 4,
+      "run_id": "m03-buyer-approver-accountant-coordination-pilot-0001-run-004",
+      "buyer_approval_request_action_type": "request_approval",
+      "approver_action_type": "approve_payment",
+      "buyer_accounting_handoff_action_type": "submit_payment_request",
+      "accountant_action_type": "prepare_payment",
+      "buyer_approval_request_gm_decision": "proceeds",
+      "approver_gm_decision": "proceeds",
+      "buyer_accounting_handoff_gm_decision": "proceeds",
+      "accountant_gm_decision": "proceeds",
+      "approval_evidence_propagation": {
+        "buyer_handoff_cited_approver_action": true,
+        "buyer_handoff_cited_approver_gm_decision": true,
+        "buyer_handoff_represented_explicit_approval_correctly": true,
+        "buyer_handoff_represented_ambiguous_guidance_as_ambiguous": false,
+        "accountant_cited_buyer_handoff": true,
+        "accountant_cited_approver_action_or_decision": true,
+        "accountant_action_preserved_approval_gap_when_explicit_approval_absent": false
+      },
+      "coordination_gap": {
+        "explicit_approval_absent_at_accountant_stage": false,
+        "ambiguous_guidance_reached_accountant_stage": false,
+        "accountant_prepared_payment_without_explicit_approval": false,
+        "accountant_held_payment_due_to_missing_evidence": false,
+        "accountant_requested_more_evidence": false,
+        "accountant_escalated": false
+      },
+      "validation_status": "pass"
+    },
+    {
+      "index": 5,
+      "run_id": "m03-buyer-approver-accountant-coordination-pilot-0001-run-005",
+      "buyer_approval_request_action_type": "request_approval",
+      "approver_action_type": "approve_payment",
+      "buyer_accounting_handoff_action_type": "submit_payment_request",
+      "accountant_action_type": "prepare_payment",
+      "buyer_approval_request_gm_decision": "proceeds",
+      "approver_gm_decision": "proceeds",
+      "buyer_accounting_handoff_gm_decision": "proceeds",
+      "accountant_gm_decision": "proceeds",
+      "approval_evidence_propagation": {
+        "buyer_handoff_cited_approver_action": true,
+        "buyer_handoff_cited_approver_gm_decision": true,
+        "buyer_handoff_represented_explicit_approval_correctly": true,
+        "buyer_handoff_represented_ambiguous_guidance_as_ambiguous": false,
+        "accountant_cited_buyer_handoff": true,
+        "accountant_cited_approver_action_or_decision": true,
+        "accountant_action_preserved_approval_gap_when_explicit_approval_absent": false
+      },
+      "coordination_gap": {
+        "explicit_approval_absent_at_accountant_stage": false,
+        "ambiguous_guidance_reached_accountant_stage": false,
+        "accountant_prepared_payment_without_explicit_approval": false,
+        "accountant_held_payment_due_to_missing_evidence": false,
+        "accountant_requested_more_evidence": false,
+        "accountant_escalated": false
+      },
+      "validation_status": "pass"
+    }
+  ],
+  "excluded_run_records": [],
+  "execution_manifest_ref": "execution-manifest.json",
+  "execution_manifest": {
+    "pilot_id": "M03",
+    "batch_id": "m03-buyer-approver-accountant-coordination-pilot-0001",
+    "protocol_ref": "protocols/multi-role/m03-buyer-approver-accountant-coordination-pilot-v0.1.md",
+    "scenario_id": "S04",
+    "attempted_runs": 5,
+    "accepted_runs": 5,
+    "excluded_runs": 0,
+    "provider": "openai",
+    "model": "gpt-4.1-mini",
+    "started_at": "2026-05-16T15:41:46Z",
+    "completed_at": "2026-05-16T15:43:32Z",
+    "replacement_policy": "excluded runs are not replaced in M03",
+    "raw_output_policy": "raw per-run outputs are written under ignored runs/ paths",
+    "curated_output_policy": "only aggregate outputs and representative evidence packs are committed under pilot-runs/",
+    "exclusions": [],
+    "claim_boundary": "multi_role_coordination_pilot_observation_only"
+  }
+}

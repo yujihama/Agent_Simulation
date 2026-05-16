@@ -516,10 +516,24 @@ def validate_role_multirole_artifacts(
         menu_pairs.add((action_type, target_role))
     report.add(f"multi-role {role} action menu is present and non-empty")
 
-    role_actions = [action for action in actions if action.get("proposed_by") == role]
-    if len(role_actions) != 1:
-        raise ValidationError(f"multi-role packs require exactly one {role} action, found {len(role_actions)}")
-    selected_action = role_actions[0]
+    parser_result = load_json(parser_result_path)
+    if not isinstance(parser_result, dict):
+        raise ValidationError(f"parser_results/{role}.json must be an object")
+    parser_role = parser_result.get("role")
+    if parser_role is not None and not isinstance(parser_role, str):
+        raise ValidationError(f"parser_results/{role}.json role must be a string when present")
+    selected_action_id = parser_result.get("selected_action_id")
+    if not isinstance(selected_action_id, str) or not selected_action_id:
+        raise ValidationError(f"parser_results/{role}.json selected_action_id must be a non-empty string")
+    matching_actions = [action for action in actions if action.get("action_id") == selected_action_id]
+    if not matching_actions:
+        raise ValidationError(f"parser_results/{role}.json selected_action_id {selected_action_id!r} does not match an action")
+    selected_action = matching_actions[0]
+    if parser_role is not None and selected_action.get("proposed_by") != parser_role:
+        raise ValidationError(
+            f"parser_results/{role}.json role {parser_role!r} does not match selected action proposer "
+            f"{selected_action.get('proposed_by')!r}"
+        )
     selected_pair = (selected_action.get("action_type"), selected_action.get("target_role"))
     if selected_pair not in menu_pairs:
         raise ValidationError(
@@ -527,12 +541,6 @@ def validate_role_multirole_artifacts(
             f"action_type={selected_pair[0]!r}, target_role={selected_pair[1]!r}"
         )
     report.add(f"selected {role} action matches action menu")
-
-    parser_result = load_json(parser_result_path)
-    if not isinstance(parser_result, dict):
-        raise ValidationError(f"parser_results/{role}.json must be an object")
-    if parser_result.get("role") not in (None, role):
-        raise ValidationError(f"parser_results/{role}.json role must be {role!r}")
     expected_parser_fields = {
         "selected_action_type": selected_action["action_type"],
         "selected_target_role": selected_action["target_role"],
@@ -552,8 +560,8 @@ def validate_role_multirole_artifacts(
     if len(accepted_attempts) != 1:
         raise ValidationError(f"proposal_attempts/{role}.jsonl must include exactly one accepted_by_parser attempt")
     accepted = accepted_attempts[0]
-    if accepted.get("role") not in (None, role):
-        raise ValidationError(f"accepted proposal attempt role must be {role!r}")
+    if accepted.get("role") not in (None, role, parser_role):
+        raise ValidationError(f"accepted proposal attempt role must be {role!r} or {parser_role!r}")
     if accepted.get("selected_action_type") != parser_result["selected_action_type"]:
         raise ValidationError(f"accepted {role} proposal selected_action_type does not match parser_result")
     if accepted.get("selected_target_role") != parser_result["selected_target_role"]:

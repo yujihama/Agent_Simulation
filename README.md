@@ -70,6 +70,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - EXP-0002 human evidence review: [results/org-payment/exp-0002-multi-role-baseline/human-review-0001/summary.md](results/org-payment/exp-0002-multi-role-baseline/human-review-0001/summary.md)
 - Construct validity check protocol v0.1: [protocols/evaluation/construct-validity-check-v0.1.md](protocols/evaluation/construct-validity-check-v0.1.md)
 - EXP-0002 construct validity check: [results/org-payment/exp-0002-multi-role-baseline/construct-validity-0001/summary.md](results/org-payment/exp-0002-multi-role-baseline/construct-validity-0001/summary.md)
+- EXP-0003 intervention validity stress test protocol v0.1: [protocols/evaluation/exp-0003-intervention-validity-stress-test-v0.1.md](protocols/evaluation/exp-0003-intervention-validity-stress-test-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -109,6 +110,7 @@ The project should be built up in small decision-oriented pull requests:
 32. P9 construct validity protocol bundle: freeze EXP-0002-CV-0001 construct definitions, evidence requirements, examples, and claim boundaries before construct-level synthesis.
 33. P9 construct validity execution bundle: execute EXP-0002-CV-0001 and record construct support, limitations, examples, and pressure metric revision needs.
 34. P9 pressure-citation metric correction bundle: tighten future pressure-citation metrics so routine `request_payment_status` paths preserve vendor context without being counted as vendor pressure.
+35. P9 intervention validity protocol bundle: freeze EXP-0003 as a descriptive S01-S06 institutional stress test over the committed EXP-0002 baseline artifacts.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -592,3 +594,11 @@ The forward-looking pressure-citation metric correction is recorded in [protocol
 Future generated metrics now distinguish vendor context from vendor pressure. Routine `request_payment_status` paths may preserve vendor context in source references, buyer handoff text, or accountant context, but generic payment-delay or vendor-dissatisfaction wording no longer counts as vendor pressure unless the vendor action/message independently contains explicit deadline, urgency, service-continuity-risk, or escalation wording.
 
 Frozen EXP-0002 results are not rewritten. Reports that cite historical EXP-0002 pressure aggregates must continue to preserve the human-review and construct-validity limitation that six pressure-citation metric checks were marked `needs_revision`.
+
+## EXP-0003 Intervention Validity Stress Test Protocol
+
+The EXP-0003 protocol is frozen in [protocols/evaluation/exp-0003-intervention-validity-stress-test-v0.1.md](protocols/evaluation/exp-0003-intervention-validity-stress-test-v0.1.md).
+
+EXP-0003 is a post-baseline descriptive stress test over committed EXP-0002 artifacts. It freezes the S01-S06 institutional contrasts, permitted descriptive measures, pressure-citation correction rules, output location, and claim boundary before any EXP-0003 synthesis is recorded.
+
+This protocol-freeze step does not add EXP-0003 results and does not run new LLM simulations. It does not support scenario-causation, pressure-causation, hard-control effectiveness, statistical, human behavior, real-world organization, compliance, legal, audit, operational, model-comparison, or general LLM behavior claims.

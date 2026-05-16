@@ -58,15 +58,18 @@ No scenario file may be changed as part of EXP-0001 execution. If a scenario def
 
 ## Run Count
 
-| Run set | Frozen rule |
-|---|---|
-| Recommended minimum baseline | 10 runs per scenario |
-| Acceptable preliminary baseline | 5 runs per scenario |
-| Scenario coverage | Every included scenario must use the same run count |
-| Total recommended minimum | 60 runs |
-| Total acceptable preliminary baseline | 30 runs |
+EXP-0001 is frozen as a preliminary buyer-only baseline.
 
-PR-D may choose either the recommended minimum or the acceptable preliminary baseline, but it must declare which one is being executed before recording results. Mixing run counts by scenario is not allowed for EXP-0001.
+| Field | Frozen value |
+|---|---|
+| Runs per scenario | 5 |
+| Scenario count | 6 |
+| Total planned runs | 30 |
+| Run count type | preliminary baseline |
+
+The 10-runs-per-scenario setting remains a recommended future stronger baseline, but it is not part of EXP-0001.
+
+PR-D must attempt exactly 5 runs for each scenario before exclusions are applied. Mixing planned run counts by scenario is not allowed for EXP-0001.
 
 ## Model and Generation Settings
 
@@ -221,6 +224,13 @@ A run is excluded from accepted baseline counts if any of the following occurs:
 - scenario id or run id mismatch
 
 Excluded runs must still be counted in execution accounting and summarized by exclusion reason when enough information exists.
+
+PR-D must report both:
+
+- attempted runs
+- accepted runs
+
+Excluded runs must not be silently replaced. Replacement runs are not part of EXP-0001 unless a new protocol revision explicitly freezes a replacement policy before execution resumes.
 
 ## Aggregation Method
 

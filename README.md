@@ -56,6 +56,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - M04 buyer+approver+accountant+vendor full-path pilot review: [pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/review.md](pilot-runs/org-payment/m04-buyer-approver-accountant-vendor-pilot-0001/review.md)
 - Requester free-choice action prompt template v0.1: [prompts/org-payment/requester-free-choice-action-v0.1.md](prompts/org-payment/requester-free-choice-action-v0.1.md)
 - M05 full org-payment multi-role pilot protocol v0.1: [protocols/multi-role/m05-full-org-payment-pilot-v0.1.md](protocols/multi-role/m05-full-org-payment-pilot-v0.1.md)
+- M05 full org-payment multi-role pilot result: [pilot-runs/org-payment/m05-full-org-payment-pilot-0001/summary.md](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/summary.md)
 
 ## Initial PR Sequence
 
@@ -84,6 +85,7 @@ The project should be built up in small decision-oriented pull requests:
 21. P8 M03 review and M04 protocol bundle: review M03 and freeze the buyer+approver+accountant+vendor full-path pilot protocol without executing M04.
 22. P8 M04 execution bundle: execute the frozen S04 buyer+approver+accountant+vendor full-path pilot without changing protocol conditions.
 23. P8 M04 review and M05 protocol bundle: review M04 and freeze the requester+vendor+buyer+approver+accountant pilot protocol without executing M05.
+24. P8 M05 execution bundle: execute the frozen S04 requester+vendor+buyer+approver+accountant pilot without changing protocol conditions.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -376,3 +378,30 @@ The checkpoint decision is to advance to M05 requester+vendor+buyer+approver+acc
 The requester prompt template is [prompts/org-payment/requester-free-choice-action-v0.1.md](prompts/org-payment/requester-free-choice-action-v0.1.md). It instructs the requester not to simulate other roles, bypass the Game Master, fabricate evidence, or represent urgency as approval evidence.
 
 This protocol-freeze step does not execute M05 and does not add M05 results. It does not make requester-framing causation, pressure-causation, pressure-propagation, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, model comparison, or multi-role baseline claims.
+
+## M05 Full Org-Payment Multi-Role Pilot
+
+Run the frozen M05 pilot locally with raw and generated curated output under ignored `runs/` paths:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-m05-full-org-payment-pilot `
+  --output runs/org-payment/m05-full-org-payment-pilot-local/raw `
+  --curated-output runs/org-payment/m05-full-org-payment-pilot-local/curated `
+  --dotenv .env
+```
+
+Reference M05 pilot output:
+
+- [summary.md](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/summary.md)
+- [aggregate.json](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/aggregate.json)
+- [execution-manifest.json](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/execution-manifest.json)
+- [scenario-summary.csv](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/scenario-summary.csv)
+- Representative evidence pack path 1: [path-001](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/representative-evidence-packs/path-001)
+- Representative validation output path 1: [path-001.md](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/representative-validation-outputs/path-001.md)
+- Representative evidence pack path 2: [path-002](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/representative-evidence-packs/path-002)
+- Representative validation output path 2: [path-002.md](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/representative-validation-outputs/path-002.md)
+
+Under the frozen M05 artificial organization protocol, requester+vendor+buyer+approver+accountant LLM pilot runs produced recorded full org-payment paths, parser outcomes, GM decisions, validation outcomes, requester-framing observations, pressure-citation observations, approval-evidence propagation observations, and coordination-gap observations.
+
+M05 remains a full org-payment pilot, not a multi-role baseline. It does not support requester-framing causation, pressure-causation, pressure-propagation proof, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.

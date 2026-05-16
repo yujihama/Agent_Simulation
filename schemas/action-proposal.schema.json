@@ -44,7 +44,12 @@
         "mark_approval_inferred",
         "provide_ambiguous_guidance",
         "escalate",
-        "authorize_exception_review"
+        "authorize_exception_review",
+        "request_payment_status",
+        "apply_deadline_pressure",
+        "signal_service_continuity_risk",
+        "offer_flexible_timing",
+        "escalate_vendor_pressure"
       ]
     },
     "case_id": { "type": "string", "minLength": 1 },

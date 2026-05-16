@@ -41,6 +41,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - EXP-0001 buyer-only baseline review: [results/org-payment/exp-0001-buyer-only-baseline/review.md](results/org-payment/exp-0001-buyer-only-baseline/review.md)
 - Multi-role pilot protocol v0.1: [protocols/multi-role/multi-role-pilot-v0.1.md](protocols/multi-role/multi-role-pilot-v0.1.md)
 - M01 buyer+approver pilot result: [pilot-runs/org-payment/m01-buyer-approver-pilot-0001/summary.md](pilot-runs/org-payment/m01-buyer-approver-pilot-0001/summary.md)
+- M01 buyer+approver pilot review: [pilot-runs/org-payment/m01-buyer-approver-pilot-0001/review.md](pilot-runs/org-payment/m01-buyer-approver-pilot-0001/review.md)
+- M02 buyer+vendor pressure pilot protocol v0.1: [protocols/multi-role/m02-buyer-vendor-pressure-pilot-v0.1.md](protocols/multi-role/m02-buyer-vendor-pressure-pilot-v0.1.md)
+- Vendor pressure action prompt template v0.1: [prompts/org-payment/vendor-pressure-action-v0.1.md](prompts/org-payment/vendor-pressure-action-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -62,6 +65,7 @@ The project should be built up in small decision-oriented pull requests:
 14. P7 baseline execution bundle: execute EXP-0001 and add curated aggregate baseline result.
 15. P8 baseline review and multi-role protocol bundle: review EXP-0001 and freeze M01 buyer+approver pilot conditions.
 16. P8 M01 execution bundle: execute the frozen S04 buyer+approver multi-role pilot without changing protocol conditions.
+17. P8 M01 review and M02 protocol bundle: review M01 and freeze the buyer+vendor pressure pilot protocol without executing M02.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -235,3 +239,15 @@ Reference M01 pilot output:
 - [pilot-runs/org-payment/m01-buyer-approver-pilot-0001/representative-validation-outputs](pilot-runs/org-payment/m01-buyer-approver-pilot-0001/representative-validation-outputs)
 
 Under the frozen M01 artificial organization protocol, buyer+approver LLM pilot runs produced the recorded buyer action, approver action, paired path, parser, GM decision, and validation outcomes. M01 remains a pilot, not a multi-role baseline. It does not support statistical, human behavior, real-world organization, compliance, legal, audit, or operational claims.
+
+## M01 Review and M02 Pressure Protocol
+
+The M01 review is recorded in [pilot-runs/org-payment/m01-buyer-approver-pilot-0001/review.md](pilot-runs/org-payment/m01-buyer-approver-pilot-0001/review.md).
+
+The review records that M01 established mechanically valid buyer+approver multi-role evidence generation, with 5 attempted runs, 5 accepted runs, 0 exclusions, no parser failures, no validation failures, and no rejected or invalid proposals. Buyer selected `request_approval` in all 5 runs. Approver selected `approve_payment` in 4 runs and `request_more_evidence` in 1 run. No `provide_ambiguous_guidance` path was observed in the curated 5-run pilot.
+
+The checkpoint decision is to advance to M02 buyer+vendor pressure pilot protocol. The M02 protocol is frozen in [protocols/multi-role/m02-buyer-vendor-pressure-pilot-v0.1.md](protocols/multi-role/m02-buyer-vendor-pressure-pilot-v0.1.md). M02 is S04 only, 5 attempted runs, vendor + buyer LLM-controlled, requester/approver/accountant scripted or rule-based, deterministic menu-aware Game Master, OpenAI `gpt-4.1-mini`, generated/proposed event labels only, and claim boundary `multi_role_pressure_pilot_observation_only`.
+
+The vendor prompt template is [prompts/org-payment/vendor-pressure-action-v0.1.md](prompts/org-payment/vendor-pressure-action-v0.1.md). It is bounded to organizational pressure simulation and prohibits legal threats, abusive claims, unsafe coercive pressure, deception, and simulation of non-vendor roles.
+
+This protocol-freeze step does not execute M02 and does not add M02 results. It does not make statistical, human behavior, real-world organization, compliance, legal, audit, model comparison, pressure-causation, or multi-role baseline claims.

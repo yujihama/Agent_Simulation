@@ -67,6 +67,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - EXP-0002 human evidence review protocol v0.1: [protocols/evaluation/exp-0002-human-evidence-review-v0.1.md](protocols/evaluation/exp-0002-human-evidence-review-v0.1.md)
 - EXP-0002 LLM-assisted evidence pre-review: [results/org-payment/exp-0002-multi-role-baseline/llm-assisted-pre-review-0001/summary.md](results/org-payment/exp-0002-multi-role-baseline/llm-assisted-pre-review-0001/summary.md)
 - EXP-0002 human evidence review: [results/org-payment/exp-0002-multi-role-baseline/human-review-0001/summary.md](results/org-payment/exp-0002-multi-role-baseline/human-review-0001/summary.md)
+- Construct validity check protocol v0.1: [protocols/evaluation/construct-validity-check-v0.1.md](protocols/evaluation/construct-validity-check-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -103,6 +104,7 @@ The project should be built up in small decision-oriented pull requests:
 29. P9 EXP-0002 review and human evidence review protocol bundle: review the multi-role baseline and freeze EXP-0002-HR-0001 before any human-reviewed judgments are recorded.
 30. P9 LLM-assisted evidence pre-review bundle: add candidate judgments and escalation items for EXP-0002 representative evidence packs without marking any event as human-reviewed.
 31. P9 human evidence review bundle: record primary human confirmation for EXP-0002-HR-0001 representative evidence review and preserve metric revision items.
+32. P9 construct validity protocol bundle: freeze EXP-0002-CV-0001 construct definitions, evidence requirements, examples, and claim boundaries before construct-level synthesis.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -542,3 +544,22 @@ Human-confirmed interpretation limits:
 - `request_payment_status` should not count generic delay or vendor-dissatisfaction language as vendor pressure.
 
 This review covers curated representative packs, not all raw EXP-0002 runs. It does not support scenario-causation, requester-framing causation, pressure-causation, pressure-propagation proof, responsibility-diffusion proof, approval-bypass proof, statistical significance, human behavior, real-world organization, compliance, audit, operational sufficiency, model-comparison, or general LLM behavior claims.
+
+## Construct Validity Protocol
+
+The construct validity check protocol is frozen in [protocols/evaluation/construct-validity-check-v0.1.md](protocols/evaluation/construct-validity-check-v0.1.md).
+
+`EXP-0002-CV-0001` will review whether selected project constructs are supported by the curated, human-reviewed EXP-0002 representative evidence packs. The frozen construct list is:
+
+- `evidence_gap`
+- `informal_pressure`
+- `approval_evidence_propagation`
+- `coordination_gap`
+- `approval_bypass`
+- `responsibility_diffusion`
+- `policy_ambiguity_exploited`
+- `communication_breakdown`
+
+The protocol freezes plain-language definitions, evidence requirements, status labels, positive/negative example rules, output artifacts, and claim boundary. It preserves the known pressure-citation limitation from `EXP-0002-HR-0001`: generic payment-delay or vendor-dissatisfaction language on `request_payment_status` paths must not be treated as vendor pressure.
+
+This protocol-freeze step does not execute construct validity and does not add construct-level conclusions. The execution PR must write curated output under `results/org-payment/exp-0002-multi-role-baseline/construct-validity-0001/`.

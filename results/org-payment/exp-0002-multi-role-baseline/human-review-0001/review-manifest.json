@@ -1,0 +1,40 @@
+{
+  "review_id": "EXP-0002-HR-0001",
+  "review_protocol_ref": "protocols/evaluation/exp-0002-human-evidence-review-v0.1.md",
+  "reviewed_experiment_id": "EXP-0002",
+  "reviewed_result_ref": "results/org-payment/exp-0002-multi-role-baseline/summary.md",
+  "reviewed_pack_count": 14,
+  "reviewed_pack_refs": [
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s01/s01-path-001",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s02/s02-path-001",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s02/s02-path-002",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s02/s02-path-003",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s03/s03-path-001",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s03/s03-path-002",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s04/s04-path-001",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s04/s04-path-002",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s05/s05-path-001",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s05/s05-path-002",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s05/s05-path-003",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s06/s06-path-001",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s06/s06-path-002",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s06/s06-path-003"
+  ],
+  "primary_reviewer_role": "project owner primary human reviewer",
+  "primary_review_date": "2026-05-17",
+  "secondary_reviewer_role": null,
+  "secondary_review_date": null,
+  "adjudication_performed": false,
+  "llm_assistance_used": true,
+  "llm_assisted_pre_review_ref": "results/org-payment/exp-0002-multi-role-baseline/llm-assisted-pre-review-0001/summary.md",
+  "primary_human_confirmation_source": "thread confirmation of the three escalated recommended judgments on 2026-05-17",
+  "claim_boundary": "human_evidence_review_observation_only",
+  "review_status": "completed_for_curated_representative_packs",
+  "reviewed_scope_limit": "curated EXP-0002 representative evidence packs only, not all raw runs",
+  "limitations": [
+    "Review covers 14 curated representative packs, not all raw runs.",
+    "LLM-assisted candidate tables were used to prepare review artifacts; primary human reviewer confirmed the three escalated judgment policies.",
+    "Six pressure-citation metric checks remain needs_revision.",
+    "Human review judgments do not establish human behavior, real-world organization behavior, compliance sufficiency, audit sufficiency, operational sufficiency, statistical significance, scenario causation, pressure causation, pressure-propagation proof, responsibility-diffusion proof, approval-bypass proof, model comparison, or general LLM behavior claims."
+  ]
+}

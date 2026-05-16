@@ -57,6 +57,7 @@ Early org-payment action types may include:
 - `request_approval_status`
 - `request_more_evidence`
 - `mark_approval_inferred`
+- `provide_ambiguous_guidance`
 - `escalate`
 - `authorize_exception_review`
 

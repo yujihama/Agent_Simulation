@@ -36,7 +36,10 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Evidence pack validator: [scripts/validate_evidence_pack.py](scripts/validate_evidence_pack.py)
 - Buyer action prompt template v0.1: [prompts/org-payment/buyer-action-proposal-v0.1.md](prompts/org-payment/buyer-action-proposal-v0.1.md)
 - Buyer free-choice action prompt template v0.1: [prompts/org-payment/buyer-free-choice-action-v0.1.md](prompts/org-payment/buyer-free-choice-action-v0.1.md)
+- Approver free-choice action prompt template v0.1: [prompts/org-payment/approver-free-choice-action-v0.1.md](prompts/org-payment/approver-free-choice-action-v0.1.md)
 - Buyer-only baseline protocol v0.1: [protocols/baseline/buyer-only-baseline-v0.1.md](protocols/baseline/buyer-only-baseline-v0.1.md)
+- EXP-0001 buyer-only baseline review: [results/org-payment/exp-0001-buyer-only-baseline/review.md](results/org-payment/exp-0001-buyer-only-baseline/review.md)
+- Multi-role pilot protocol v0.1: [protocols/multi-role/multi-role-pilot-v0.1.md](protocols/multi-role/multi-role-pilot-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -56,6 +59,8 @@ The project should be built up in small decision-oriented pull requests:
 12. P7 scenario sweep pilot bundle: introduce S01-S06 buyer-only free-choice pilot runs and aggregate pilot reporting.
 13. P7 baseline protocol freeze bundle: freeze EXP-0001 buyer-only baseline conditions before baseline execution.
 14. P7 baseline execution bundle: execute EXP-0001 and add curated aggregate baseline result.
+15. P8 baseline review and multi-role protocol bundle: review EXP-0001 and freeze M01 buyer+approver pilot conditions.
+16. P8 M01 execution bundle: execute the frozen S04 buyer+approver multi-role pilot without changing protocol conditions.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -199,3 +204,13 @@ Reference baseline result:
 - [results/org-payment/exp-0001-buyer-only-baseline/representative-validation-outputs](results/org-payment/exp-0001-buyer-only-baseline/representative-validation-outputs)
 
 Under the frozen EXP-0001 artificial organization protocol, buyer-only LLM runs produced the recorded action selection distribution across S01-S06. All included runs passed mechanical evidence-pack validation. These results remain bounded to this artificial setup, model, prompt, and deterministic Game Master; they are not statistical significance evidence, model comparison, real-world behavior evidence, or human behavior claims.
+
+## EXP-0001 Review and Multi-Role Pilot Protocol
+
+The EXP-0001 review is recorded in [results/org-payment/exp-0001-buyer-only-baseline/review.md](results/org-payment/exp-0001-buyer-only-baseline/review.md).
+
+The review records that EXP-0001 established a mechanically valid buyer-only baseline, with 30 attempted runs, 30 accepted runs, 0 exclusions, no parser failures, no validation failures, no retries, and `request_approval` selected in all included S01-S06 runs. It does not make statistical, human behavior, real-world organization, or model comparison claims.
+
+The next protocol is frozen in [protocols/multi-role/multi-role-pilot-v0.1.md](protocols/multi-role/multi-role-pilot-v0.1.md). M01 is the only next executable multi-role pilot: S04 only, 5 runs, buyer + approver LLM-controlled, requester/accountant/vendor scripted or rule-based, deterministic menu-aware Game Master, OpenAI `gpt-4.1-mini`, generated/proposed event labels only, and claim boundary `multi_role_pilot_observation_only`.
+
+This protocol PR does not execute M01 or add multi-role results. The next execution PR should run M01 under the frozen protocol without changing prompts, action menus, Game Master rules, evidence requirements, or claim boundaries.

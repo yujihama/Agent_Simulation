@@ -1,0 +1,35 @@
+{
+  "review_id": "EXP-0002-LLM-PRE-REVIEW-0001",
+  "review_type": "llm_assisted_candidate_review",
+  "review_status": "not_human_reviewed",
+  "reviewed_experiment_id": "EXP-0002",
+  "human_review_protocol_ref": "protocols/evaluation/exp-0002-human-evidence-review-v0.1.md",
+  "reviewed_result_ref": "results/org-payment/exp-0002-multi-role-baseline/summary.md",
+  "reviewed_pack_count": 14,
+  "reviewed_pack_refs": [
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s01/s01-path-001",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s02/s02-path-001",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s02/s02-path-002",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s02/s02-path-003",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s03/s03-path-001",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s03/s03-path-002",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s04/s04-path-001",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s04/s04-path-002",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s05/s05-path-001",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s05/s05-path-002",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s05/s05-path-003",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s06/s06-path-001",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s06/s06-path-002",
+    "results/org-payment/exp-0002-multi-role-baseline/representative-evidence-packs/s06/s06-path-003"
+  ],
+  "reviewer_role": "LLM-assisted reviewer candidate only",
+  "primary_human_reviewer": null,
+  "llm_assistance_used": true,
+  "claim_boundary": "llm_assisted_candidate_review_not_human_reviewed",
+  "limitations": [
+    "This is not a primary human review.",
+    "Candidate statuses must not be treated as human-reviewed judgments.",
+    "Event labels remain generated/proposed until a human reviewer accepts or revises them.",
+    "No statistical, causal, human behavior, real-world organization, compliance, audit, operational, model comparison, or general LLM behavior claim is supported."
+  ]
+}

@@ -28,7 +28,7 @@ M03 does not test vendor pressure directly. It does not make causal, statistical
 | Provider | OpenAI |
 | Model | `gpt-4.1-mini` |
 | Buyer approval-request prompt | `prompts/org-payment/buyer-free-choice-action-v0.1.md` |
-| Approver prompt | `prompts/org-payment/approver-free-choice-action-v0.1.md` |
+| Approver prompt | `prompts/org-payment/approver-multirole-action-v0.1.md` |
 | Buyer accounting-handoff prompt | `prompts/org-payment/buyer-free-choice-action-v0.1.md` |
 | Accountant prompt | `prompts/org-payment/accountant-free-choice-action-v0.1.md` |
 | Buyer approval-request menu id | `org_payment_m03_buyer_approval_request_menu_v0.1` |
@@ -135,11 +135,11 @@ For `prepare_payment`, the Game Master decision is `proceeds` only if explicit a
 | Role turn | Prompt template | Frozen status |
 |---|---|---|
 | buyer approval request | `prompts/org-payment/buyer-free-choice-action-v0.1.md` | existing prompt reused with M03 approval-request context |
-| approver response | `prompts/org-payment/approver-free-choice-action-v0.1.md` | existing prompt reused with M03 approver context |
+| approver response | `prompts/org-payment/approver-multirole-action-v0.1.md` | new M03 approver prompt |
 | buyer accounting handoff | `prompts/org-payment/buyer-free-choice-action-v0.1.md` | existing prompt reused with M03 accounting-handoff context |
 | accountant response | `prompts/org-payment/accountant-free-choice-action-v0.1.md` | new M03 accountant prompt |
 
-The buyer prompt must render distinct M03 context blocks for the approval-request turn and accounting-handoff turn. No dedicated buyer accounting-handoff prompt is introduced in this protocol. Changing the frozen prompt set requires a later protocol revision before execution resumes.
+The buyer prompt must render distinct M03 context blocks for the approval-request turn and accounting-handoff turn. No dedicated buyer accounting-handoff prompt is introduced in this protocol. The M01 approver prompt `prompts/org-payment/approver-free-choice-action-v0.1.md` remains unchanged as the frozen M01 prompt; M03 uses `prompts/org-payment/approver-multirole-action-v0.1.md`. Changing the frozen M03 prompt set requires a later protocol revision before execution resumes.
 
 The accountant prompt must render:
 

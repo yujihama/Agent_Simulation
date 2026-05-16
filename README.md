@@ -37,6 +37,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Buyer action prompt template v0.1: [prompts/org-payment/buyer-action-proposal-v0.1.md](prompts/org-payment/buyer-action-proposal-v0.1.md)
 - Buyer free-choice action prompt template v0.1: [prompts/org-payment/buyer-free-choice-action-v0.1.md](prompts/org-payment/buyer-free-choice-action-v0.1.md)
 - Approver free-choice action prompt template v0.1: [prompts/org-payment/approver-free-choice-action-v0.1.md](prompts/org-payment/approver-free-choice-action-v0.1.md)
+- Approver multi-role action prompt template v0.1: [prompts/org-payment/approver-multirole-action-v0.1.md](prompts/org-payment/approver-multirole-action-v0.1.md)
 - Buyer-only baseline protocol v0.1: [protocols/baseline/buyer-only-baseline-v0.1.md](protocols/baseline/buyer-only-baseline-v0.1.md)
 - EXP-0001 buyer-only baseline review: [results/org-payment/exp-0001-buyer-only-baseline/review.md](results/org-payment/exp-0001-buyer-only-baseline/review.md)
 - Multi-role pilot protocol v0.1: [protocols/multi-role/multi-role-pilot-v0.1.md](protocols/multi-role/multi-role-pilot-v0.1.md)
@@ -290,6 +291,8 @@ The review records that M02 established mechanically valid buyer+vendor pressure
 The review also records that M02 did not show buyer action-selection variation and does not prove that vendor pressure caused buyer behavior. The checkpoint decision is to advance to M03 buyer+approver+accountant coordination pilot protocol.
 
 The M03 protocol is frozen in [protocols/multi-role/m03-buyer-approver-accountant-coordination-pilot-v0.1.md](protocols/multi-role/m03-buyer-approver-accountant-coordination-pilot-v0.1.md). M03 is S04 only, 5 attempted runs, buyer + approver + accountant LLM-controlled, requester/vendor scripted or rule-based, deterministic menu-aware Game Master, OpenAI `gpt-4.1-mini`, generated/proposed event labels only, and claim boundary `multi_role_coordination_pilot_observation_only`.
+
+The M03 approver prompt template is [prompts/org-payment/approver-multirole-action-v0.1.md](prompts/org-payment/approver-multirole-action-v0.1.md). The M01 prompt [prompts/org-payment/approver-free-choice-action-v0.1.md](prompts/org-payment/approver-free-choice-action-v0.1.md) remains the frozen M01 prompt and is not revised retroactively.
 
 The accountant prompt template is [prompts/org-payment/accountant-free-choice-action-v0.1.md](prompts/org-payment/accountant-free-choice-action-v0.1.md). It instructs the accountant not to simulate other roles, bypass the Game Master, treat pressure as approval evidence, or treat ambiguous guidance as explicit approval unless explicit approval is recorded in the provided evidence.
 

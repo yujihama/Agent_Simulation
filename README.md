@@ -51,6 +51,7 @@ The project should be built up in small decision-oriented pull requests:
 8. P4 skeleton bundle: introduce a deterministic non-LLM S04 runner that generates a valid evidence pack.
 9. P6 fixed-action LLM pilot bundle: introduce the first fixed-action buyer LLM action-proposal path for S04.
 10. P6 free-choice LLM pilot bundle: introduce constrained buyer action selection for S04.
+11. P6/P7 repeated free-choice LLM pilot bundle: introduce small repeated S04 buyer free-choice runs and aggregate pilot reporting.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -119,3 +120,25 @@ Reference pilot output:
 - [pilot-runs/org-payment/s04-buyer-free-choice-openai-pilot-0001/evidence-pack](pilot-runs/org-payment/s04-buyer-free-choice-openai-pilot-0001/evidence-pack)
 
 This pilot tests whether a buyer LLM can choose one action from a constrained menu, produce a schema-valid action proposal, pass through the deterministic Game Master boundary, and leave a mechanically valid evidence pack. It remains a single pilot observation only.
+
+## Repeated Free-Choice Buyer OpenAI S04 Pilot
+
+Generate a small opt-in repeated pilot set where OpenAI chooses one buyer action from the same constrained S04 action menu in each run. Local generated output should be written under ignored `runs/` paths so it does not collide with committed reference artifacts:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim generate-s04-buyer-free-choice-batch `
+  --output runs/org-payment/s04-buyer-free-choice-repeat-openai-pilot-local/raw `
+  --curated-output runs/org-payment/s04-buyer-free-choice-repeat-openai-pilot-local/curated `
+  --count 5 `
+  --dotenv .env
+```
+
+Reference aggregate output:
+
+- [pilot-runs/org-payment/s04-buyer-free-choice-repeat-openai-pilot-0001/summary.md](pilot-runs/org-payment/s04-buyer-free-choice-repeat-openai-pilot-0001/summary.md)
+- [pilot-runs/org-payment/s04-buyer-free-choice-repeat-openai-pilot-0001/aggregate.json](pilot-runs/org-payment/s04-buyer-free-choice-repeat-openai-pilot-0001/aggregate.json)
+- [pilot-runs/org-payment/s04-buyer-free-choice-repeat-openai-pilot-0001/representative-evidence-packs](pilot-runs/org-payment/s04-buyer-free-choice-repeat-openai-pilot-0001/representative-evidence-packs)
+- [pilot-runs/org-payment/s04-buyer-free-choice-repeat-openai-pilot-0001/representative-validation-outputs](pilot-runs/org-payment/s04-buyer-free-choice-repeat-openai-pilot-0001/representative-validation-outputs)
+
+Across this small repeated S04 buyer free-choice pilot set, the buyer selected actions under fixed artificial conditions. This aggregate remains a pilot observation only: it is not a model comparison, baseline result, statistical claim, real-world behavior claim, or evidence that humans would choose the same actions.

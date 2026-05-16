@@ -267,11 +267,18 @@ def build_free_choice_buyer_metrics(
     action: dict[str, Any],
     decision: dict[str, Any],
     events: list[dict[str, Any]],
+    repeated_batch: bool = False,
 ) -> dict[str, Any]:
     event_counts: dict[str, int] = {}
     for event in events:
         event_counts[event["event_type"]] = event_counts.get(event["event_type"], 0) + 1
     event_ids = [event["event_id"] for event in events]
+
+    selection_limitations = [
+        "single free-choice buyer LLM pilot run",
+        "aggregate repeated-run summary is reported separately" if repeated_batch else "no repeated runs",
+        "no behavioral claim",
+    ]
 
     return {
         "run_id": run_id,
@@ -289,7 +296,7 @@ def build_free_choice_buyer_metrics(
                 "source_event_ids": [],
                 "source_record_refs": ["A001", "action_menu.json", "parser_result.json"],
                 "interpretation_limit": "single_run_observation",
-                "known_limitations": ["single free-choice buyer LLM pilot", "no repeated runs", "no behavioral claim"],
+                "known_limitations": selection_limitations,
             },
             {
                 "metric_id": "MR002",

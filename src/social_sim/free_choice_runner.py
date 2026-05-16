@@ -17,6 +17,7 @@ def run_s04_buyer_free_choice_llm(
     output_dir: Path,
     provider: LLMProvider,
     run_id: str = "pilot-s04-buyer-free-choice-openai-0001",
+    batch_execution: bool = False,
 ) -> Path:
     scenario = load_s04()
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -34,15 +35,39 @@ def run_s04_buyer_free_choice_llm(
     action = result.action
     decision = decide_free_choice_buyer_action(run_id=run_id, action=action)
     events = build_free_choice_buyer_events(run_id=run_id, action=action, decision=decision)
-    metrics = build_free_choice_buyer_metrics(run_id=run_id, action=action, decision=decision, events=events)
+    metrics = build_free_choice_buyer_metrics(
+        run_id=run_id,
+        action=action,
+        decision=decision,
+        events=events,
+        repeated_batch=batch_execution,
+    )
     trace = build_free_choice_trace(run_id=run_id, action=action, decision=decision)
 
+    randomness_policy = (
+        "single constrained buyer-only OpenAI LLM action selection from a five-item menu as one isolated run in a small repeated pilot batch; no seed control; aggregate reporting is handled outside the evidence pack"
+        if batch_execution
+        else "single constrained buyer-only OpenAI LLM action selection from a five-item menu; no seed control; no multi-run harness"
+    )
+    known_exclusions = [
+        "no multi-role LLM simulation",
+        "requester, approver, accountant, and vendor remain scripted or rule-based",
+        "Game Master remains deterministic",
+        "single scenario S04 only",
+        "one LLM-controlled role only",
+        "no model comparison",
+        "no baseline result",
+        "no statistical claim",
+        "no real-world behavior claim",
+    ]
+    if not batch_execution:
+        known_exclusions.append("no automated multi-run experiment harness")
     manifest = build_manifest(
         run_id=run_id,
         run_type="controlled_run",
         actor_mode="mixed",
         llm_execution=True,
-        randomness_policy="single constrained buyer-only OpenAI LLM action selection from a five-item menu; no seed control; no multi-run harness",
+        randomness_policy=randomness_policy,
         authored_by="src/social_sim constrained buyer free-choice OpenAI action pilot runner",
         artifact_inventory_extra={
             "action_menu.json": "present",
@@ -51,18 +76,7 @@ def run_s04_buyer_free_choice_llm(
             "llm_prompts": "present",
             "llm_outputs": "present",
         },
-        known_exclusions=[
-            "no multi-role LLM simulation",
-            "requester, approver, accountant, and vendor remain scripted or rule-based",
-            "Game Master remains deterministic",
-            "single scenario S04 only",
-            "one LLM-controlled role only",
-            "no automated multi-run experiment harness",
-            "no model comparison",
-            "no baseline result",
-            "no statistical claim",
-            "no real-world behavior claim",
-        ],
+        known_exclusions=known_exclusions,
     )
     pilot_scenario = dict(scenario)
     pilot_scenario.update(

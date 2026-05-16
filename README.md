@@ -71,6 +71,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Construct validity check protocol v0.1: [protocols/evaluation/construct-validity-check-v0.1.md](protocols/evaluation/construct-validity-check-v0.1.md)
 - EXP-0002 construct validity check: [results/org-payment/exp-0002-multi-role-baseline/construct-validity-0001/summary.md](results/org-payment/exp-0002-multi-role-baseline/construct-validity-0001/summary.md)
 - EXP-0003 intervention validity stress test protocol v0.1: [protocols/evaluation/exp-0003-intervention-validity-stress-test-v0.1.md](protocols/evaluation/exp-0003-intervention-validity-stress-test-v0.1.md)
+- EXP-0003 intervention validity stress test: [results/org-payment/exp-0003-intervention-validity-stress-test-0001/summary.md](results/org-payment/exp-0003-intervention-validity-stress-test-0001/summary.md)
 
 ## Initial PR Sequence
 
@@ -111,6 +112,7 @@ The project should be built up in small decision-oriented pull requests:
 33. P9 construct validity execution bundle: execute EXP-0002-CV-0001 and record construct support, limitations, examples, and pressure metric revision needs.
 34. P9 pressure-citation metric correction bundle: tighten future pressure-citation metrics so routine `request_payment_status` paths preserve vendor context without being counted as vendor pressure.
 35. P9 intervention validity protocol bundle: freeze EXP-0003 as a descriptive S01-S06 institutional stress test over the committed EXP-0002 baseline artifacts.
+36. P9 intervention validity execution bundle: execute EXP-0003 as a post-baseline descriptive stress test without new LLM runs or causal/statistical claims.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -602,3 +604,11 @@ The EXP-0003 protocol is frozen in [protocols/evaluation/exp-0003-intervention-v
 EXP-0003 is a post-baseline descriptive stress test over committed EXP-0002 artifacts. It freezes the S01-S06 institutional contrasts, permitted descriptive measures, pressure-citation correction rules, output location, and claim boundary before any EXP-0003 synthesis is recorded.
 
 This protocol-freeze step does not add EXP-0003 results and does not run new LLM simulations. It does not support scenario-causation, pressure-causation, hard-control effectiveness, statistical, human behavior, real-world organization, compliance, legal, audit, operational, model-comparison, or general LLM behavior claims.
+
+## EXP-0003 Intervention Validity Stress Test
+
+The EXP-0003 descriptive stress test is recorded in [results/org-payment/exp-0003-intervention-validity-stress-test-0001/summary.md](results/org-payment/exp-0003-intervention-validity-stress-test-0001/summary.md).
+
+EXP-0003 summarizes the S01-S06 institutional contrasts from committed EXP-0002 artifacts only. It records descriptive contrast observations for policy ambiguity, pressure, role overlap, monitoring, and hard control, while applying the pressure-citation correction so routine `request_payment_status` paths remain vendor context rather than vendor pressure.
+
+EXP-0003 does not run new LLM simulations and does not support scenario-causation, pressure-causation, pressure-propagation proof, hard-control effectiveness, responsibility-diffusion proof, approval-bypass proof, statistical, human behavior, real-world organization, compliance, legal, audit, operational, model-comparison, or general LLM behavior claims.

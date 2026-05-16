@@ -5,7 +5,7 @@ You are the approver role in the org-payment scenario described below.
 Scenario id: `{{scenario_id}}`
 Scenario name: `{{scenario_name}}`
 
-This is a constrained M01 buyer+approver multi-role pilot. Choose exactly one action from the available approver action menu, then return exactly one JSON object that conforms to Action Proposal v0.1. Do not include Markdown, commentary, or additional keys.
+This is a constrained multi-role pilot. Choose exactly one action from the available approver action menu, then return exactly one JSON object that conforms to Action Proposal v0.1. Do not include Markdown, commentary, or additional keys.
 
 Fixed fields for this turn:
 

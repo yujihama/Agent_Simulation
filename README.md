@@ -45,6 +45,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - M02 buyer+vendor pressure pilot protocol v0.1: [protocols/multi-role/m02-buyer-vendor-pressure-pilot-v0.1.md](protocols/multi-role/m02-buyer-vendor-pressure-pilot-v0.1.md)
 - Vendor pressure action prompt template v0.1: [prompts/org-payment/vendor-pressure-action-v0.1.md](prompts/org-payment/vendor-pressure-action-v0.1.md)
 - M02 buyer+vendor pressure pilot result: [pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/summary.md](pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/summary.md)
+- M02 buyer+vendor pressure pilot review: [pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/review.md](pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/review.md)
+- M03 buyer+approver+accountant coordination pilot protocol v0.1: [protocols/multi-role/m03-buyer-approver-accountant-coordination-pilot-v0.1.md](protocols/multi-role/m03-buyer-approver-accountant-coordination-pilot-v0.1.md)
+- Accountant free-choice action prompt template v0.1: [prompts/org-payment/accountant-free-choice-action-v0.1.md](prompts/org-payment/accountant-free-choice-action-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -68,6 +71,7 @@ The project should be built up in small decision-oriented pull requests:
 16. P8 M01 execution bundle: execute the frozen S04 buyer+approver multi-role pilot without changing protocol conditions.
 17. P8 M01 review and M02 protocol bundle: review M01 and freeze the buyer+vendor pressure pilot protocol without executing M02.
 18. P8 M02 execution bundle: execute the frozen S04 buyer+vendor pressure pilot without changing protocol conditions.
+19. P8 M02 review and M03 protocol bundle: review M02 and freeze the buyer+approver+accountant coordination pilot protocol without executing M03.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -276,3 +280,17 @@ Reference M02 pilot output:
 - [pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/representative-validation-outputs](pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/representative-validation-outputs)
 
 Under the frozen M02 artificial organization protocol, vendor+buyer LLM pilot runs produced recorded vendor pressure actions, buyer response actions, paired paths, parser outcomes, GM decisions, validation outcomes, and pressure-citation observations. M02 remains a pressure pilot, not a multi-role baseline. It does not support pressure-causation, statistical, human behavior, real-world organization, compliance, legal, audit, or operational claims.
+
+## M02 Review and M03 Coordination Protocol
+
+The M02 review is recorded in [pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/review.md](pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/review.md).
+
+The review records that M02 established mechanically valid buyer+vendor pressure-pilot evidence generation, with 5 attempted runs, 5 accepted runs, 0 exclusions, no parser failures, no validation failures, and no rejected or invalid proposals. Vendor selected `apply_deadline_pressure` in all 5 runs. Buyer selected `request_approval` in all 5 runs. Pressure-citation fields were present in all included buyer actions.
+
+The review also records that M02 did not show buyer action-selection variation and does not prove that vendor pressure caused buyer behavior. The checkpoint decision is to advance to M03 buyer+approver+accountant coordination pilot protocol.
+
+The M03 protocol is frozen in [protocols/multi-role/m03-buyer-approver-accountant-coordination-pilot-v0.1.md](protocols/multi-role/m03-buyer-approver-accountant-coordination-pilot-v0.1.md). M03 is S04 only, 5 attempted runs, buyer + approver + accountant LLM-controlled, requester/vendor scripted or rule-based, deterministic menu-aware Game Master, OpenAI `gpt-4.1-mini`, generated/proposed event labels only, and claim boundary `multi_role_coordination_pilot_observation_only`.
+
+The accountant prompt template is [prompts/org-payment/accountant-free-choice-action-v0.1.md](prompts/org-payment/accountant-free-choice-action-v0.1.md). It instructs the accountant not to simulate other roles, bypass the Game Master, treat pressure as approval evidence, or treat ambiguous guidance as explicit approval unless explicit approval is recorded in the provided evidence.
+
+This protocol-freeze step does not execute M03 and does not add M03 results. It does not make responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, model comparison, or multi-role baseline claims.

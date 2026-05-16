@@ -1,0 +1,94 @@
+{
+  "menu_id": "expense_reimbursement_er01_manager_review_menu_v0.1",
+  "role": "manager",
+  "scenario_id": "ER01",
+  "domain": "expense-reimbursement",
+  "claim_boundary": "second_domain_pilot_observation_only",
+  "allowed_actions": [
+    {
+      "action_type": "approve_payment",
+      "target_role": "employee",
+      "menu_label": "Approve reimbursement",
+      "selection_boundary": "Record explicit approval for the reimbursement claim.",
+      "allowed_source_refs": [
+        "initial_state/case.md",
+        "M001",
+        "A001",
+        "D001",
+        "T001",
+        "T002",
+        "T003",
+        "T004"
+      ],
+      "game_master_handling": "proceeds"
+    },
+    {
+      "action_type": "reject_payment",
+      "target_role": "employee",
+      "menu_label": "Reject reimbursement",
+      "selection_boundary": "Record explicit rejection under current evidence.",
+      "allowed_source_refs": [
+        "initial_state/case.md",
+        "M001",
+        "A001",
+        "D001",
+        "T001",
+        "T002",
+        "T003",
+        "T004"
+      ],
+      "game_master_handling": "proceeds"
+    },
+    {
+      "action_type": "request_more_evidence",
+      "target_role": "employee",
+      "menu_label": "Request more evidence",
+      "selection_boundary": "Ask for missing receipt, attendee, or business-purpose evidence before deciding.",
+      "allowed_source_refs": [
+        "initial_state/case.md",
+        "M001",
+        "A001",
+        "D001",
+        "T001",
+        "T002",
+        "T003",
+        "T004"
+      ],
+      "game_master_handling": "proceeds"
+    },
+    {
+      "action_type": "provide_ambiguous_guidance",
+      "target_role": "employee",
+      "menu_label": "Provide ambiguous guidance",
+      "selection_boundary": "Give approval-like guidance that remains short of explicit approval.",
+      "allowed_source_refs": [
+        "initial_state/case.md",
+        "M001",
+        "A001",
+        "D001",
+        "T001",
+        "T002",
+        "T003",
+        "T004"
+      ],
+      "game_master_handling": "proceeds_with_note"
+    },
+    {
+      "action_type": "escalate",
+      "target_role": "employee",
+      "menu_label": "Escalate review",
+      "selection_boundary": "Route the claim to a later or higher review path.",
+      "allowed_source_refs": [
+        "initial_state/case.md",
+        "M001",
+        "A001",
+        "D001",
+        "T001",
+        "T002",
+        "T003",
+        "T004"
+      ],
+      "game_master_handling": "proceeds_with_note"
+    }
+  ]
+}

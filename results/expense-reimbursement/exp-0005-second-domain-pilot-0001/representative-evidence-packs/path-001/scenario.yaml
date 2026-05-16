@@ -1,0 +1,9 @@
+id: ER01
+name: ambiguous-receipt-approval
+domain: expense-reimbursement
+source_ref: scenarios/expense-reimbursement/er01-ambiguous-receipt-approval.yaml
+case_id: ER01-CASE-001
+policy_ambiguity: moderate
+deadline_pressure: moderate
+control_mode: monitored_soft_control
+claim_boundary: second_domain_pilot_observation_only

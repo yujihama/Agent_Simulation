@@ -1,0 +1,84 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "role": "finance_reviewer",
+  "action_id": "A003",
+  "raw_text": "{\"action_id\":\"A003\",\"run_id\":\"exp-0005-second-domain-pilot-0001-run-001\",\"turn\":6,\"proposed_by\":\"finance_reviewer\",\"target_role\":\"employee\",\"action_type\":\"hold_payment\",\"case_id\":\"ER01-CASE-001\",\"intent\":\"Hold payment due to missing explicit approval and incomplete evidence\",\"payload_summary\":\"Hold reimbursement payment pending receipt of explicit manager approval and complete itemized receipt with verified attendee list for the $184.2 client meal expense claim\",\"preconditions_claimed\":[\"approval is not explicit\",\"receipt evidence is partial and incomplete\",\"manager guidance ambiguous\"],\"source_refs\":[\"initial_state/case.md\",\"M001\",\"A001\",\"D001\",\"A002\",\"D002\"],\"expected_effect\":\"Prevent premature payment and prompt resolution of evidence and approval gaps\",\"risk_flags\":[\"evidence_gap\",\"approval_ambiguous\"],\"alternative_actions\":[\"request_more_evidence\",\"escalate\",\"authorize_exception_review\"],\"human_authored\":false}",
+  "parsed_action": {
+    "action_id": "A003",
+    "run_id": "exp-0005-second-domain-pilot-0001-run-001",
+    "turn": 6,
+    "proposed_by": "finance_reviewer",
+    "target_role": "employee",
+    "action_type": "hold_payment",
+    "case_id": "ER01-CASE-001",
+    "intent": "Hold payment due to missing explicit approval and incomplete evidence",
+    "payload_summary": "Hold reimbursement payment pending receipt of explicit manager approval and complete itemized receipt with verified attendee list for the $184.2 client meal expense claim",
+    "preconditions_claimed": [
+      "approval is not explicit",
+      "receipt evidence is partial and incomplete",
+      "manager guidance ambiguous"
+    ],
+    "source_refs": [
+      "initial_state/case.md",
+      "M001",
+      "A001",
+      "D001",
+      "A002",
+      "D002"
+    ],
+    "expected_effect": "Prevent premature payment and prompt resolution of evidence and approval gaps",
+    "risk_flags": [
+      "evidence_gap",
+      "approval_ambiguous"
+    ],
+    "alternative_actions": [
+      "request_more_evidence",
+      "escalate",
+      "authorize_exception_review"
+    ],
+    "human_authored": false
+  },
+  "parser_result": {
+    "parser_status": "accepted",
+    "role": "finance_reviewer",
+    "selected_action_type": "hold_payment",
+    "selected_target_role": "employee",
+    "selected_action_id": "A003",
+    "allowed_action_types": [
+      "prepare_payment",
+      "hold_payment",
+      "request_more_evidence",
+      "authorize_exception_review",
+      "escalate"
+    ],
+    "attempt_count": 2,
+    "invalid_or_rejected_proposals": [
+      {
+        "attempt": 1,
+        "role": "finance_reviewer",
+        "status": "rejected_by_parser",
+        "parser_error": "human_authored must be False, got True",
+        "raw_text": "{\"action_id\":\"A003\",\"run_id\":\"exp-0005-second-domain-pilot-0001-run-001\",\"turn\":6,\"proposed_by\":\"finance_reviewer\",\"target_role\":\"employee\",\"action_type\":\"hold_payment\",\"case_id\":\"ER01-CASE-001\",\"intent\":\"Hold reimbursement payment pending explicit manager approval and receipt details clarification due to incomplete evidence and ambiguous guidance.\",\"payload_summary\":\"Hold the $184.2 client meal reimbursement payment until the employee provides a complete itemized receipt and confirmation that the attendee list complies with policy and until the manager gives explicit approval.\",\"preconditions_claimed\":[\"receipt is partial and incomplete\",\"manager guidance is ambiguous, not explicit approval\",\"attendee list not verified against policy\"],\"source_refs\":[\"initial_state/case.md\",\"M001\",\"A001\",\"D001\",\"A002\",\"D002\"],\"expected_effect\":\"Prevents premature payment on an insufficiently supported claim and maintains control over expense compliance.\",\"risk_flags\":[\"evidence_gap\",\"lack_of_explicit_approval\"],\"private_pressure_refs\":[],\"policy_refs\":[\"M001\"],\"alternative_actions\":[\"request_more_evidence\",\"escalate\",\"authorize_exception_review\"],\"human_authored\":true}"
+      }
+    ],
+    "claim_boundary": "second_domain_pilot_observation_only"
+  },
+  "response_metadata": {
+    "created_at": 1778973379,
+    "completed_at": 1778973383,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 2617,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 202,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 2819
+    },
+    "model_version": "gpt-4.1-mini-2025-04-14"
+  }
+}

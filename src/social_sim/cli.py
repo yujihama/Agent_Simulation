@@ -7,6 +7,7 @@ from .baseline_runner import run_buyer_only_baseline
 from .free_choice_runner import run_s04_buyer_free_choice_llm
 from .llm_actor import OpenAIResponsesProvider
 from .m02_pressure_runner import run_m02_buyer_vendor_pressure_pilot
+from .m03_coordination_runner import run_m03_coordination_pilot
 from .multirole_runner import run_m01_buyer_approver_pilot
 from .repeated_runner import DEFAULT_REPEATED_BATCH_ID, run_s04_buyer_free_choice_batch
 from .runner import run_s04, run_s04_buyer_llm
@@ -222,6 +223,28 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="Optional dotenv file containing OPENAI_API_KEY.",
     )
+    m03_pilot = subparsers.add_parser(
+        "execute-m03-buyer-approver-accountant-coordination-pilot",
+        help="Execute frozen M03 buyer+approver+accountant coordination pilot and write curated results.",
+    )
+    m03_pilot.add_argument(
+        "--output",
+        required=True,
+        type=Path,
+        help="Raw M03 output directory under ignored runs/. Must be new or empty.",
+    )
+    m03_pilot.add_argument(
+        "--curated-output",
+        required=True,
+        type=Path,
+        help="Curated M03 pilot output directory. Must be new or empty.",
+    )
+    m03_pilot.add_argument(
+        "--dotenv",
+        default=Path(".env"),
+        type=Path,
+        help="Optional dotenv file containing OPENAI_API_KEY.",
+    )
 
     args = parser.parse_args(argv)
     if args.command == "generate-s04":
@@ -320,6 +343,21 @@ def main(argv: list[str] | None = None) -> int:
             parser.error(f"curated output directory is not empty: {curated_output}")
         provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model="gpt-4.1-mini")
         run_m02_buyer_vendor_pressure_pilot(
+            output_root=output,
+            curated_output=curated_output,
+            provider=provider,
+        )
+        print(curated_output)
+        return 0
+    if args.command == "execute-m03-buyer-approver-accountant-coordination-pilot":
+        output = args.output
+        curated_output = args.curated_output
+        if output.exists() and any(output.iterdir()):
+            parser.error(f"output directory is not empty: {output}")
+        if curated_output.exists() and any(curated_output.iterdir()):
+            parser.error(f"curated output directory is not empty: {curated_output}")
+        provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model="gpt-4.1-mini")
+        run_m03_coordination_pilot(
             output_root=output,
             curated_output=curated_output,
             provider=provider,

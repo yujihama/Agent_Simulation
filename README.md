@@ -81,6 +81,10 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - EXP-0005 expense reimbursement second-domain pilot result: [results/expense-reimbursement/exp-0005-second-domain-pilot-0001/summary.md](results/expense-reimbursement/exp-0005-second-domain-pilot-0001/summary.md)
 - EXP-0005 expense reimbursement second-domain pilot review: [results/expense-reimbursement/exp-0005-second-domain-pilot-0001/review.md](results/expense-reimbursement/exp-0005-second-domain-pilot-0001/review.md)
 - Social chaos claim synthesis protocol v0.1: [protocols/synthesis/social-chaos-claim-synthesis-v0.1.md](protocols/synthesis/social-chaos-claim-synthesis-v0.1.md)
+- Social chaos claim synthesis v0.1: [docs/synthesis/social-chaos-claim-synthesis-v0.1.md](docs/synthesis/social-chaos-claim-synthesis-v0.1.md)
+- Social chaos evidence map: [docs/synthesis/evidence-map.csv](docs/synthesis/evidence-map.csv)
+- Social chaos claim-boundary review: [docs/synthesis/claim-boundary-review.md](docs/synthesis/claim-boundary-review.md)
+- Social chaos synthesis limitations: [docs/synthesis/limitations.md](docs/synthesis/limitations.md)
 
 ## Initial PR Sequence
 
@@ -127,6 +131,7 @@ The project should be built up in small decision-oriented pull requests:
 39. P10 second-domain protocol bundle: review EXP-0004, select expense reimbursement as the second domain, and freeze EXP-0005 without executing second-domain runs.
 40. P10 second-domain execution bundle: execute EXP-0005 on ER01 and add curated aggregate result without cross-domain generalization claims.
 41. P10 synthesis protocol bundle: review EXP-0005 and freeze BC20 social-chaos claim synthesis inputs, claim levels, and forbidden claims before writing synthesis.
+42. P10 synthesis execution bundle: write the BC20 social-chaos claim synthesis, evidence map, limitations, and claim-boundary review without adding new runs or upgrading evidence strength.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -679,3 +684,9 @@ The BC20 synthesis protocol is frozen in [protocols/synthesis/social-chaos-claim
 This protocol follows the EXP-0005 review in [results/expense-reimbursement/exp-0005-second-domain-pilot-0001/review.md](results/expense-reimbursement/exp-0005-second-domain-pilot-0001/review.md). It freezes synthesis inputs, output artifacts, claim levels, required limitations, and forbidden claims before any final synthesis is written.
 
 The protocol allows only bounded artificial-system observations and hypotheses for future validation. It forbids direct human society reproduction claims, real-world organization prediction, intervention effectiveness claims, statistical significance, compliance/legal/audit/operational sufficiency, cross-domain validation, and general LLM behavior claims.
+
+## Social Chaos Claim Synthesis
+
+The BC20 synthesis is recorded in [docs/synthesis/social-chaos-claim-synthesis-v0.1.md](docs/synthesis/social-chaos-claim-synthesis-v0.1.md), with an evidence map in [docs/synthesis/evidence-map.csv](docs/synthesis/evidence-map.csv), claim-boundary review in [docs/synthesis/claim-boundary-review.md](docs/synthesis/claim-boundary-review.md), and limitations in [docs/synthesis/limitations.md](docs/synthesis/limitations.md).
+
+The synthesis states that, under staged frozen artificial-organization protocols, LLM-controlled roles can generate mechanically valid, reviewable traces of institutional friction-like patterns in a constrained org-payment setting, with one limited expense-reimbursement transfer pilot. This is an artificial-system observation and a hypothesis source for future validation. It is not direct evidence about human societies, real organizations, causality, statistical significance, compliance, legal sufficiency, audit sufficiency, operational sufficiency, cross-domain validation, or general LLM behavior.

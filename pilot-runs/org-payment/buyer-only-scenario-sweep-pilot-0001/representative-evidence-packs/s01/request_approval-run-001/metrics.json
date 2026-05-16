@@ -1,0 +1,83 @@
+{
+  "run_id": "pilot-buyer-sweep-s01-run-001",
+  "metrics_version": "v0.1",
+  "metrics_record_contract": "v0.1",
+  "scenario_id": "S01",
+  "review_status": "not_human_reviewed",
+  "metrics": [
+    {
+      "metric_id": "MR001",
+      "metric_group": "llm_actor_boundary",
+      "metric_name": "selected_action_type",
+      "value": "request_approval",
+      "denominator": "one constrained buyer action menu selection",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "A001",
+        "action_menu.json",
+        "parser_result.json"
+      ],
+      "interpretation_limit": "single_run_observation",
+      "known_limitations": [
+        "single free-choice buyer LLM pilot run",
+        "aggregate repeated-run summary is reported separately",
+        "no behavioral claim"
+      ]
+    },
+    {
+      "metric_id": "MR002",
+      "metric_group": "llm_actor_boundary",
+      "metric_name": "game_master_decision_for_selected_action",
+      "value": "proceeds",
+      "denominator": "one deterministic Game Master decision",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "D001",
+        "gm_decisions.jsonl"
+      ],
+      "interpretation_limit": "single_run_observation",
+      "known_limitations": [
+        "rule-based Game Master",
+        "single scenario only"
+      ]
+    },
+    {
+      "metric_id": "MR003",
+      "metric_group": "event_counts",
+      "metric_name": "event_count_by_type",
+      "value": {
+        "evidence_gap": 1
+      },
+      "denominator": "1 proposed event records",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "events.jsonl"
+      ],
+      "interpretation_limit": "single_run_observation",
+      "known_limitations": [
+        "scripted event coding over one LLM action choice"
+      ]
+    },
+    {
+      "metric_id": "MR004",
+      "metric_group": "auditability",
+      "metric_name": "reconstruction_outcome",
+      "value": "mechanically_validated_single_free_choice_pilot_pack",
+      "denominator": "not_applicable",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "reconstruction-checklist.md",
+        "reviewer_notes.md"
+      ],
+      "interpretation_limit": "protocol_readiness_observation",
+      "known_limitations": [
+        "single pilot observation",
+        "no inter-reviewer reliability"
+      ]
+    }
+  ]
+}

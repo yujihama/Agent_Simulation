@@ -80,8 +80,10 @@ def generate_free_choice_buyer_action(
     turn: int,
     context: str,
     allowed_source_refs: list[str],
+    action_menu: dict[str, Any] | None = None,
     attempts: int = 2,
 ) -> BuyerFreeChoiceResult:
+    action_menu = action_menu or ACTION_MENU_DOC
     schema = load_action_schema()
     expected_fields = {
         "action_id": action_id,
@@ -99,7 +101,7 @@ def generate_free_choice_buyer_action(
         context=context,
         allowed_source_refs=allowed_source_refs,
         schema=schema,
-        action_menu=ACTION_MENU_DOC,
+        action_menu=action_menu,
     )
 
     proposal_attempts: list[dict[str, Any]] = []
@@ -140,7 +142,7 @@ def generate_free_choice_buyer_action(
                 action=action,
                 prompt_text=user_prompt,
                 response=response,
-                action_menu=ACTION_MENU_DOC,
+                action_menu=action_menu,
                 parser_result=parser_result(action, proposal_attempts),
                 proposal_attempts=proposal_attempts,
             )

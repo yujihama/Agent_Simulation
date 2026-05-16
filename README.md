@@ -60,6 +60,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - M05 full org-payment multi-role pilot review: [pilot-runs/org-payment/m05-full-org-payment-pilot-0001/review.md](pilot-runs/org-payment/m05-full-org-payment-pilot-0001/review.md)
 - Multi-role scenario sweep pilot protocol v0.1: [protocols/multi-role/multi-role-scenario-sweep-pilot-v0.1.md](protocols/multi-role/multi-role-scenario-sweep-pilot-v0.1.md)
 - Multi-role scenario sweep pilot result: [pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/summary.md](pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/summary.md)
+- Multi-role scenario sweep pilot review: [pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/review.md](pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/review.md)
+- Multi-role baseline protocol v0.1: [protocols/baseline/multi-role-baseline-v0.1.md](protocols/baseline/multi-role-baseline-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -91,6 +93,8 @@ The project should be built up in small decision-oriented pull requests:
 24. P8 M05 execution bundle: execute the frozen S04 requester+vendor+buyer+approver+accountant pilot without changing protocol conditions.
 25. P8 M05 review and multi-role scenario sweep protocol bundle: review M05 and freeze the S01-S06 full org-payment scenario sweep pilot protocol without executing the sweep.
 26. P8 multi-role scenario sweep execution bundle: execute the frozen S01-S06 requester+vendor+buyer+approver+accountant scenario sweep pilot without changing protocol conditions.
+27. P8 multi-role scenario sweep review and baseline protocol bundle: review the S01-S06 full org-payment scenario sweep and freeze EXP-0002 multi-role baseline conditions before baseline execution.
+28. P8 multi-role baseline execution bundle: execute EXP-0002 under frozen conditions and add curated aggregate baseline result.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -449,3 +453,13 @@ Reference scenario sweep pilot output:
 Under the frozen multi-role scenario sweep pilot protocol, requester+vendor+buyer+approver+accountant LLM pilot runs produced recorded full org-payment paths, parser outcomes, GM decisions, validation outcomes, proposed event observations, requester-framing observations, pressure-citation observations, approval-evidence propagation observations, and coordination-gap observations across S01-S06.
 
 The sweep attempted 18 runs, accepted 18 runs, and recorded 0 exclusions. It remains a scenario sweep pilot, not a multi-role baseline. It does not support scenario-causation, requester-framing causation, pressure-causation, pressure-propagation proof, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.
+
+## Multi-Role Scenario Sweep Review and Baseline Protocol
+
+The scenario sweep review is recorded in [pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/review.md](pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/review.md).
+
+The review records that MSP-0001 established mechanically valid requester+vendor+buyer+approver+accountant scenario-sweep execution across S01-S06, with 18 attempted runs, 18 accepted runs, 0 exclusions, no parser failures, no retries, no rejected or invalid proposals, and no validation failures. It also records that the sweep produced descriptive path variation across scenarios but does not support scenario-causation, statistical, human behavior, real-world organization, responsibility-diffusion, approval-bypass, pressure-propagation, model-comparison, or general LLM behavior claims.
+
+The checkpoint decision is to advance to EXP-0002 multi-role baseline protocol freeze. The baseline protocol is frozen in [protocols/baseline/multi-role-baseline-v0.1.md](protocols/baseline/multi-role-baseline-v0.1.md). EXP-0002 covers S01-S06, 5 attempted runs per scenario, 30 total planned attempts, requester + vendor + buyer + approver + accountant LLM-controlled, deterministic menu-aware Game Master, OpenAI `gpt-4.1-mini`, generated/proposed event labels only, and claim boundary `multi_role_baseline_observation_only`.
+
+This protocol-freeze step does not execute EXP-0002 and does not add baseline results. It does not make scenario-causation, requester-framing causation, pressure-causation, pressure-propagation, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, model comparison, general LLM behavior, or stronger baseline interpretation claims.

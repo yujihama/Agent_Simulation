@@ -63,6 +63,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Multi-role scenario sweep pilot review: [pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/review.md](pilot-runs/org-payment/multi-role-scenario-sweep-pilot-0001/review.md)
 - Multi-role baseline protocol v0.1: [protocols/baseline/multi-role-baseline-v0.1.md](protocols/baseline/multi-role-baseline-v0.1.md)
 - EXP-0002 multi-role baseline result: [results/org-payment/exp-0002-multi-role-baseline/summary.md](results/org-payment/exp-0002-multi-role-baseline/summary.md)
+- EXP-0002 multi-role baseline review: [results/org-payment/exp-0002-multi-role-baseline/review.md](results/org-payment/exp-0002-multi-role-baseline/review.md)
+- EXP-0002 human evidence review protocol v0.1: [protocols/evaluation/exp-0002-human-evidence-review-v0.1.md](protocols/evaluation/exp-0002-human-evidence-review-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -96,6 +98,7 @@ The project should be built up in small decision-oriented pull requests:
 26. P8 multi-role scenario sweep execution bundle: execute the frozen S01-S06 requester+vendor+buyer+approver+accountant scenario sweep pilot without changing protocol conditions.
 27. P8 multi-role scenario sweep review and baseline protocol bundle: review the S01-S06 full org-payment scenario sweep and freeze EXP-0002 multi-role baseline conditions before baseline execution.
 28. P8 multi-role baseline execution bundle: execute EXP-0002 under frozen conditions and add curated aggregate baseline result.
+29. P9 EXP-0002 review and human evidence review protocol bundle: review the multi-role baseline and freeze EXP-0002-HR-0001 before any human-reviewed judgments are recorded.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -490,3 +493,13 @@ Reference baseline result:
 Under the frozen EXP-0002 artificial organization protocol, multi-role LLM runs produced recorded full org-payment action paths, parser outcomes, Game Master decisions, validation outcomes, proposed event observations, requester-framing observations, pressure-citation observations, approval-evidence propagation observations, and coordination-gap observations across S01-S06.
 
 EXP-0002 attempted 30 runs, accepted 30 runs, and recorded 0 exclusions. It remains bounded to `multi_role_baseline_observation_only`. It does not support scenario-causation, requester-framing causation, pressure-causation, pressure-propagation proof, responsibility-diffusion, approval-bypass, statistical significance, human behavior, real-world organization, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.
+
+## EXP-0002 Review and Human Evidence Review Protocol
+
+The EXP-0002 review is recorded in [results/org-payment/exp-0002-multi-role-baseline/review.md](results/org-payment/exp-0002-multi-role-baseline/review.md).
+
+The review records that EXP-0002 executed under frozen baseline conditions with 30 attempted runs, 30 accepted runs, 0 exclusions, no parser failures, no retries, no rejected or invalid proposals, and no validation failures. It also records descriptive path variation across S01-S06 while preserving the boundary that proposed event labels are not human-reviewed and the result does not support scenario-causation, requester-framing causation, pressure-causation, pressure-propagation proof, responsibility-diffusion, approval-bypass, statistical, human behavior, real-world organization, compliance, legal, audit, operational sufficiency, model-comparison, or general LLM behavior claims.
+
+The checkpoint decision is to advance to human evidence review. The frozen review protocol is [protocols/evaluation/exp-0002-human-evidence-review-v0.1.md](protocols/evaluation/exp-0002-human-evidence-review-v0.1.md). EXP-0002-HR-0001 covers all 14 curated representative EXP-0002 evidence packs and freezes review questions for trace reconstruction, proposed event labels, source references, Game Master boundaries, approval-evidence propagation, coordination gaps, metrics support, and claim-boundary compliance.
+
+This protocol-freeze step does not execute human review, does not mark any event label as human-reviewed, and does not change EXP-0002 results. The next execution PR must use `results/org-payment/exp-0002-multi-role-baseline/human-review-0001/` for curated review outputs and must keep raw run output out of git.

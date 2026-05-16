@@ -1,0 +1,85 @@
+{
+  "batch_id": "pilot-s04-buyer-free-choice-repeat-0001",
+  "scenario_id": "S04",
+  "run_count": 5,
+  "claim_boundary": "pilot_observation_only",
+  "selected_action_type_counts": {
+    "request_approval": 5
+  },
+  "parser_summary": {
+    "runs_with_parser_acceptance": 5,
+    "total_attempts": 5,
+    "total_rejected_or_invalid_attempts": 0,
+    "runs_with_retries": 0
+  },
+  "gm_decisions_by_selected_action": {
+    "request_approval": {
+      "proceeds": 5
+    }
+  },
+  "representative_evidence_packs_by_selected_action": [
+    {
+      "selected_action_type": "request_approval",
+      "run_id": "pilot-s04-buyer-free-choice-repeat-0001-run-001",
+      "evidence_pack": "representative-evidence-packs/request_approval-run-001",
+      "validation_output": "representative-validation-outputs/request_approval-run-001.md"
+    }
+  ],
+  "runs": [
+    {
+      "index": 1,
+      "run_id": "pilot-s04-buyer-free-choice-repeat-0001-run-001",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS"
+    },
+    {
+      "index": 2,
+      "run_id": "pilot-s04-buyer-free-choice-repeat-0001-run-002",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS"
+    },
+    {
+      "index": 3,
+      "run_id": "pilot-s04-buyer-free-choice-repeat-0001-run-003",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS"
+    },
+    {
+      "index": 4,
+      "run_id": "pilot-s04-buyer-free-choice-repeat-0001-run-004",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS"
+    },
+    {
+      "index": 5,
+      "run_id": "pilot-s04-buyer-free-choice-repeat-0001-run-005",
+      "selected_action_type": "request_approval",
+      "selected_target_role": "approver",
+      "parser_status": "accepted",
+      "attempt_count": 1,
+      "rejected_attempt_count": 0,
+      "gm_decision": "proceeds",
+      "validation_status": "PASS"
+    }
+  ]
+}

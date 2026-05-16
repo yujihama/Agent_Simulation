@@ -123,11 +123,15 @@ This pilot tests whether a buyer LLM can choose one action from a constrained me
 
 ## Repeated Free-Choice Buyer OpenAI S04 Pilot
 
-Generate a small opt-in repeated pilot set where OpenAI chooses one buyer action from the same constrained S04 action menu in each run. Raw per-run evidence packs should be written under ignored `runs/` paths:
+Generate a small opt-in repeated pilot set where OpenAI chooses one buyer action from the same constrained S04 action menu in each run. Local generated output should be written under ignored `runs/` paths so it does not collide with committed reference artifacts:
 
 ```powershell
 $env:PYTHONPATH = "src"
-python -m social_sim generate-s04-buyer-free-choice-batch --output runs/org-payment/s04-buyer-free-choice-repeat-openai-pilot-local --curated-output pilot-runs/org-payment/s04-buyer-free-choice-repeat-openai-pilot-0001 --count 5 --dotenv .env
+python -m social_sim generate-s04-buyer-free-choice-batch `
+  --output runs/org-payment/s04-buyer-free-choice-repeat-openai-pilot-local/raw `
+  --curated-output runs/org-payment/s04-buyer-free-choice-repeat-openai-pilot-local/curated `
+  --count 5 `
+  --dotenv .env
 ```
 
 Reference aggregate output:

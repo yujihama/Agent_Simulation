@@ -94,6 +94,18 @@ class S04BuyerRepeatedFreeChoiceLLMPilotTest(unittest.TestCase):
 
             aggregate = load_json(curated_output / "aggregate.json")
             self.assertEqual(aggregate["run_count"], 3)
+            self.assertEqual(aggregate["provider"], "stub")
+            self.assertEqual(aggregate["model"], "stub-repeated-free-choice-buyer-json")
+            self.assertEqual(aggregate["scenario_id"], "S04")
+            self.assertEqual(aggregate["actor_setup"], "buyer_only_llm")
+            self.assertEqual(aggregate["other_roles"], "scripted_or_rule_based")
+            self.assertEqual(aggregate["game_master"], "deterministic_menu_aware_rules")
+            self.assertEqual(aggregate["action_menu_id"], "s04_buyer_constrained_action_menu_v0.1")
+            self.assertEqual(
+                aggregate["prompt_template_ref"],
+                "prompts/org-payment/buyer-free-choice-action-v0.1.md",
+            )
+            self.assertEqual(aggregate["claim_boundary"], "pilot_observation_only")
             self.assertEqual(
                 aggregate["selected_action_type_counts"],
                 {
@@ -131,6 +143,10 @@ class S04BuyerRepeatedFreeChoiceLLMPilotTest(unittest.TestCase):
             self.assertIn("small repeated pilot batch", representative_manifest["randomness_policy"])
 
             summary = (curated_output / "summary.md").read_text(encoding="utf-8")
+            self.assertIn("Provider: `stub`", summary)
+            self.assertIn("Model: `stub-repeated-free-choice-buyer-json`", summary)
+            self.assertIn("Actor setup: `buyer_only_llm`", summary)
+            self.assertIn("Action menu id: `s04_buyer_constrained_action_menu_v0.1`", summary)
             self.assertIn("Across this small repeated S04 buyer free-choice pilot set", summary)
             self.assertIn("does not claim that buyers generally behave this way", summary)
             self.assertIn("## Representative Evidence", summary)

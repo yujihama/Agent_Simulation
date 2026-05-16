@@ -10,11 +10,13 @@ from typing import Any
 from scripts.validate_evidence_pack import validate_pack
 
 from .evidence_pack_writer import write_json, write_text
+from .free_choice_buyer import ACTION_MENU_DOC
 from .free_choice_runner import run_s04_buyer_free_choice_llm
 from .llm_actor import LLMProvider
 
 
 DEFAULT_REPEATED_BATCH_ID = "pilot-s04-buyer-free-choice-repeat-0001"
+PROMPT_TEMPLATE_REF = "prompts/org-payment/buyer-free-choice-action-v0.1.md"
 
 
 @dataclass(frozen=True)
@@ -65,7 +67,13 @@ def run_s04_buyer_free_choice_batch(
 
     representatives = copy_representative_packs(records=records, curated_output=curated_output)
 
-    aggregate = build_aggregate(batch_id=batch_id, count=count, records=records, representatives=representatives)
+    aggregate = build_aggregate(
+        batch_id=batch_id,
+        count=count,
+        provider=provider,
+        records=records,
+        representatives=representatives,
+    )
     write_json(curated_output / "aggregate.json", aggregate)
     write_text(curated_output / "summary.md", render_summary(aggregate))
     return curated_output
@@ -127,6 +135,7 @@ def copy_representative_packs(
 def build_aggregate(
     batch_id: str,
     count: int,
+    provider: LLMProvider,
     records: list[RepeatedRunRecord],
     representatives: list[dict[str, str]],
 ) -> dict[str, Any]:
@@ -137,7 +146,14 @@ def build_aggregate(
 
     return {
         "batch_id": batch_id,
+        "provider": provider.provider,
+        "model": provider.model,
         "scenario_id": "S04",
+        "actor_setup": "buyer_only_llm",
+        "other_roles": "scripted_or_rule_based",
+        "game_master": "deterministic_menu_aware_rules",
+        "action_menu_id": ACTION_MENU_DOC["menu_id"],
+        "prompt_template_ref": PROMPT_TEMPLATE_REF,
         "run_count": count,
         "claim_boundary": "pilot_observation_only",
         "selected_action_type_counts": dict(sorted(selected_counts.items())),
@@ -173,7 +189,14 @@ def render_summary(aggregate: dict[str, Any]) -> str:
         "# S04 Buyer Free-Choice Repeated Pilot Summary",
         "",
         f"Batch id: `{aggregate['batch_id']}`",
+        f"Provider: `{aggregate['provider']}`",
+        f"Model: `{aggregate['model']}`",
         "Scenario id: `S04`",
+        f"Actor setup: `{aggregate['actor_setup']}`",
+        f"Other roles: `{aggregate['other_roles']}`",
+        f"Game Master: `{aggregate['game_master']}`",
+        f"Action menu id: `{aggregate['action_menu_id']}`",
+        f"Prompt template: [{aggregate['prompt_template_ref']}](../../../{aggregate['prompt_template_ref']})",
         f"Run count: {aggregate['run_count']}",
         "Claim boundary: pilot observation only",
         "",

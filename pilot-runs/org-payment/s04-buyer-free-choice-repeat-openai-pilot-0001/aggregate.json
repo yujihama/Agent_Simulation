@@ -1,6 +1,13 @@
 {
   "batch_id": "pilot-s04-buyer-free-choice-repeat-0001",
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
   "scenario_id": "S04",
+  "actor_setup": "buyer_only_llm",
+  "other_roles": "scripted_or_rule_based",
+  "game_master": "deterministic_menu_aware_rules",
+  "action_menu_id": "s04_buyer_constrained_action_menu_v0.1",
+  "prompt_template_ref": "prompts/org-payment/buyer-free-choice-action-v0.1.md",
   "run_count": 5,
   "claim_boundary": "pilot_observation_only",
   "selected_action_type_counts": {

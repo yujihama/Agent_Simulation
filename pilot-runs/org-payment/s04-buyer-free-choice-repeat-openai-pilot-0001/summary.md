@@ -1,7 +1,14 @@
 # S04 Buyer Free-Choice Repeated Pilot Summary
 
 Batch id: `pilot-s04-buyer-free-choice-repeat-0001`
+Provider: `openai`
+Model: `gpt-4.1-mini`
 Scenario id: `S04`
+Actor setup: `buyer_only_llm`
+Other roles: `scripted_or_rule_based`
+Game Master: `deterministic_menu_aware_rules`
+Action menu id: `s04_buyer_constrained_action_menu_v0.1`
+Prompt template: [prompts/org-payment/buyer-free-choice-action-v0.1.md](../../../prompts/org-payment/buyer-free-choice-action-v0.1.md)
 Run count: 5
 Claim boundary: pilot observation only
 

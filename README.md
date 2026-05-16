@@ -44,6 +44,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - M01 buyer+approver pilot review: [pilot-runs/org-payment/m01-buyer-approver-pilot-0001/review.md](pilot-runs/org-payment/m01-buyer-approver-pilot-0001/review.md)
 - M02 buyer+vendor pressure pilot protocol v0.1: [protocols/multi-role/m02-buyer-vendor-pressure-pilot-v0.1.md](protocols/multi-role/m02-buyer-vendor-pressure-pilot-v0.1.md)
 - Vendor pressure action prompt template v0.1: [prompts/org-payment/vendor-pressure-action-v0.1.md](prompts/org-payment/vendor-pressure-action-v0.1.md)
+- M02 buyer+vendor pressure pilot result: [pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/summary.md](pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/summary.md)
 
 ## Initial PR Sequence
 
@@ -66,6 +67,7 @@ The project should be built up in small decision-oriented pull requests:
 15. P8 baseline review and multi-role protocol bundle: review EXP-0001 and freeze M01 buyer+approver pilot conditions.
 16. P8 M01 execution bundle: execute the frozen S04 buyer+approver multi-role pilot without changing protocol conditions.
 17. P8 M01 review and M02 protocol bundle: review M01 and freeze the buyer+vendor pressure pilot protocol without executing M02.
+18. P8 M02 execution bundle: execute the frozen S04 buyer+vendor pressure pilot without changing protocol conditions.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -251,3 +253,26 @@ The checkpoint decision is to advance to M02 buyer+vendor pressure pilot protoco
 The vendor prompt template is [prompts/org-payment/vendor-pressure-action-v0.1.md](prompts/org-payment/vendor-pressure-action-v0.1.md). It is bounded to organizational pressure simulation and prohibits legal threats, abusive claims, unsafe coercive pressure, deception, and simulation of non-vendor roles.
 
 This protocol-freeze step does not execute M02 and does not add M02 results. It does not make statistical, human behavior, real-world organization, compliance, legal, audit, model comparison, pressure-causation, or multi-role baseline claims.
+
+## M02 Buyer+Vendor Pressure Pilot
+
+Run the frozen M02 pilot locally with raw and generated curated output under ignored `runs/` paths:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-m02-buyer-vendor-pressure-pilot `
+  --output runs/org-payment/m02-buyer-vendor-pressure-pilot-local/raw `
+  --curated-output runs/org-payment/m02-buyer-vendor-pressure-pilot-local/curated `
+  --dotenv .env
+```
+
+Reference M02 pilot output:
+
+- [pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/summary.md](pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/summary.md)
+- [pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/aggregate.json](pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/aggregate.json)
+- [pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/execution-manifest.json](pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/execution-manifest.json)
+- [pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/scenario-summary.csv](pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/scenario-summary.csv)
+- [pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/representative-evidence-packs](pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/representative-evidence-packs)
+- [pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/representative-validation-outputs](pilot-runs/org-payment/m02-buyer-vendor-pressure-pilot-0001/representative-validation-outputs)
+
+Under the frozen M02 artificial organization protocol, vendor+buyer LLM pilot runs produced recorded vendor pressure actions, buyer response actions, paired paths, parser outcomes, GM decisions, validation outcomes, and pressure-citation observations. M02 remains a pressure pilot, not a multi-role baseline. It does not support pressure-causation, statistical, human behavior, real-world organization, compliance, legal, audit, or operational claims.

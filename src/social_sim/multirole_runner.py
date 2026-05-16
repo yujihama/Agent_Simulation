@@ -325,6 +325,7 @@ def generate_role_action(
     allowed_source_refs: list[str],
     prompt_replacements: dict[str, str],
     attempts: int = 2,
+    claim_boundary: str = CLAIM_BOUNDARY,
 ) -> RoleActionResult:
     schema = load_action_schema()
     expected_fields = {
@@ -387,7 +388,7 @@ def generate_role_action(
                 prompt_text=user_prompt,
                 response=response,
                 action_menu=action_menu,
-                parser_result=role_parser_result(role, action, action_menu, proposal_attempts),
+                parser_result=role_parser_result(role, action, action_menu, proposal_attempts, claim_boundary),
                 proposal_attempts=proposal_attempts,
             )
         except ActionParseError as exc:
@@ -462,6 +463,7 @@ def role_parser_result(
     action: dict[str, Any],
     action_menu: dict[str, Any],
     attempts: list[dict[str, Any]],
+    claim_boundary: str = CLAIM_BOUNDARY,
 ) -> dict[str, Any]:
     rejected = [attempt for attempt in attempts if attempt["status"] == "rejected_by_parser"]
     return {
@@ -473,7 +475,7 @@ def role_parser_result(
         "allowed_action_types": [item["action_type"] for item in action_menu["allowed_actions"]],
         "attempt_count": len(attempts),
         "invalid_or_rejected_proposals": rejected,
-        "claim_boundary": CLAIM_BOUNDARY,
+        "claim_boundary": claim_boundary,
     }
 
 

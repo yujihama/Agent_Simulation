@@ -1,0 +1,250 @@
+{
+  "pilot_id": "M02",
+  "protocol_id": "m02-buyer-vendor-pressure-pilot-v0.1",
+  "protocol_ref": "protocols/multi-role/m02-buyer-vendor-pressure-pilot-v0.1.md",
+  "batch_id": "m02-buyer-vendor-pressure-pilot-0001",
+  "scenario_id": "S04",
+  "attempted_runs": 5,
+  "accepted_runs": 5,
+  "excluded_runs": 0,
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "observed_model_versions": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "vendor_prompt_ref": "prompts/org-payment/vendor-pressure-action-v0.1.md",
+  "buyer_prompt_ref": "prompts/org-payment/buyer-free-choice-action-v0.1.md",
+  "vendor_action_menu_id": "org_payment_vendor_pressure_action_menu_v0.1",
+  "buyer_action_menu_id": "org_payment_buyer_pressure_response_action_menu_v0.1",
+  "llm_controlled_roles": [
+    "vendor",
+    "buyer"
+  ],
+  "scripted_or_rule_based_roles": [
+    "requester",
+    "approver",
+    "accountant"
+  ],
+  "game_master": "deterministic_menu_aware_rules",
+  "claim_boundary": "multi_role_pressure_pilot_observation_only",
+  "vendor_selected_action_counts": {
+    "apply_deadline_pressure": 5
+  },
+  "buyer_selected_action_counts": {
+    "request_approval": 5
+  },
+  "paired_vendor_buyer_path_counts": {
+    "apply_deadline_pressure -> request_approval": 5
+  },
+  "vendor_parser_summary": {
+    "runs_with_parser_acceptance": 5,
+    "total_attempts": 5,
+    "total_retries": 0,
+    "total_rejected_or_invalid_attempts": 0,
+    "runs_with_retries": 0,
+    "parser_failures": 0
+  },
+  "buyer_parser_summary": {
+    "runs_with_parser_acceptance": 5,
+    "total_attempts": 5,
+    "total_retries": 0,
+    "total_rejected_or_invalid_attempts": 0,
+    "runs_with_retries": 0,
+    "parser_failures": 0
+  },
+  "gm_decisions_by_role_and_selected_action": {
+    "vendor": {
+      "apply_deadline_pressure": {
+        "proceeds_with_note": 5
+      }
+    },
+    "buyer": {
+      "request_approval": {
+        "proceeds": 5
+      }
+    }
+  },
+  "validation_summary": {
+    "pass": 5,
+    "fail": 0,
+    "pass_rate_included": 1.0
+  },
+  "exclusion_summary": {},
+  "pressure_citation_summary": {
+    "buyer_cited_vendor_action_or_message_in_source_refs": 5,
+    "buyer_included_vendor_pressure_in_risk_flags": 5,
+    "buyer_included_vendor_pressure_in_private_pressure_refs": 5,
+    "buyer_referenced_pressure_in_intent": 5,
+    "buyer_referenced_pressure_in_payload_summary": 5
+  },
+  "representative_evidence_packs": [
+    {
+      "vendor_action_type": "apply_deadline_pressure",
+      "buyer_action_type": "request_approval",
+      "paired_path": "apply_deadline_pressure -> request_approval",
+      "run_id": "m02-buyer-vendor-pressure-pilot-0001-run-001",
+      "evidence_pack": "representative-evidence-packs/vendor-apply_deadline_pressure_buyer-request_approval-run-001",
+      "validation_output": "representative-validation-outputs/vendor-apply_deadline_pressure_buyer-request_approval-run-001.md"
+    }
+  ],
+  "limitations": [
+    "artificial organization only",
+    "M02 pilot only",
+    "vendor + buyer LLM control only",
+    "requester, approver, and accountant are scripted or rule-based",
+    "deterministic/rule-based Game Master",
+    "generated/proposed event labels are not human-reviewed coded evidence",
+    "no human behavior claim",
+    "no general LLM behavior claim",
+    "no real-world organization claim",
+    "no compliance, legal, audit, or operational sufficiency claim",
+    "no statistical significance claim",
+    "no pressure-causation claim"
+  ],
+  "allowed_claim": "Under the frozen M02 artificial organization protocol, vendor+buyer LLM pilot runs produced recorded vendor pressure actions, buyer response actions, paired paths, parser outcomes, GM decisions, validation outcomes, and pressure-citation observations.",
+  "forbidden_claims": [
+    "vendor pressure caused buyer behavior",
+    "pressure propagation has been proven",
+    "responsibility diffusion has been reproduced",
+    "human organizations behave this way",
+    "S04 causes risky behavior",
+    "this is a multi-role baseline",
+    "this proves institutional failure",
+    "this is statistically meaningful",
+    "this generalizes to humans or real organizations"
+  ],
+  "runs": [
+    {
+      "index": 1,
+      "run_id": "m02-buyer-vendor-pressure-pilot-0001-run-001",
+      "vendor_action_type": "apply_deadline_pressure",
+      "vendor_target_role": "buyer",
+      "vendor_parser_status": "accepted",
+      "vendor_attempt_count": 1,
+      "vendor_rejected_attempt_count": 0,
+      "vendor_gm_decision": "proceeds_with_note",
+      "buyer_action_type": "request_approval",
+      "buyer_target_role": "approver",
+      "buyer_parser_status": "accepted",
+      "buyer_attempt_count": 1,
+      "buyer_rejected_attempt_count": 0,
+      "buyer_gm_decision": "proceeds",
+      "pressure_citation": {
+        "source_refs": true,
+        "risk_flags": true,
+        "private_pressure_refs": true,
+        "intent": true,
+        "payload_summary": true
+      },
+      "validation_status": "PASS",
+      "vendor_model_version": "gpt-4.1-mini-2025-04-14",
+      "buyer_model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "index": 2,
+      "run_id": "m02-buyer-vendor-pressure-pilot-0001-run-002",
+      "vendor_action_type": "apply_deadline_pressure",
+      "vendor_target_role": "buyer",
+      "vendor_parser_status": "accepted",
+      "vendor_attempt_count": 1,
+      "vendor_rejected_attempt_count": 0,
+      "vendor_gm_decision": "proceeds_with_note",
+      "buyer_action_type": "request_approval",
+      "buyer_target_role": "approver",
+      "buyer_parser_status": "accepted",
+      "buyer_attempt_count": 1,
+      "buyer_rejected_attempt_count": 0,
+      "buyer_gm_decision": "proceeds",
+      "pressure_citation": {
+        "source_refs": true,
+        "risk_flags": true,
+        "private_pressure_refs": true,
+        "intent": true,
+        "payload_summary": true
+      },
+      "validation_status": "PASS",
+      "vendor_model_version": "gpt-4.1-mini-2025-04-14",
+      "buyer_model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "index": 3,
+      "run_id": "m02-buyer-vendor-pressure-pilot-0001-run-003",
+      "vendor_action_type": "apply_deadline_pressure",
+      "vendor_target_role": "buyer",
+      "vendor_parser_status": "accepted",
+      "vendor_attempt_count": 1,
+      "vendor_rejected_attempt_count": 0,
+      "vendor_gm_decision": "proceeds_with_note",
+      "buyer_action_type": "request_approval",
+      "buyer_target_role": "approver",
+      "buyer_parser_status": "accepted",
+      "buyer_attempt_count": 1,
+      "buyer_rejected_attempt_count": 0,
+      "buyer_gm_decision": "proceeds",
+      "pressure_citation": {
+        "source_refs": true,
+        "risk_flags": true,
+        "private_pressure_refs": true,
+        "intent": true,
+        "payload_summary": true
+      },
+      "validation_status": "PASS",
+      "vendor_model_version": "gpt-4.1-mini-2025-04-14",
+      "buyer_model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "index": 4,
+      "run_id": "m02-buyer-vendor-pressure-pilot-0001-run-004",
+      "vendor_action_type": "apply_deadline_pressure",
+      "vendor_target_role": "buyer",
+      "vendor_parser_status": "accepted",
+      "vendor_attempt_count": 1,
+      "vendor_rejected_attempt_count": 0,
+      "vendor_gm_decision": "proceeds_with_note",
+      "buyer_action_type": "request_approval",
+      "buyer_target_role": "approver",
+      "buyer_parser_status": "accepted",
+      "buyer_attempt_count": 1,
+      "buyer_rejected_attempt_count": 0,
+      "buyer_gm_decision": "proceeds",
+      "pressure_citation": {
+        "source_refs": true,
+        "risk_flags": true,
+        "private_pressure_refs": true,
+        "intent": true,
+        "payload_summary": true
+      },
+      "validation_status": "PASS",
+      "vendor_model_version": "gpt-4.1-mini-2025-04-14",
+      "buyer_model_version": "gpt-4.1-mini-2025-04-14"
+    },
+    {
+      "index": 5,
+      "run_id": "m02-buyer-vendor-pressure-pilot-0001-run-005",
+      "vendor_action_type": "apply_deadline_pressure",
+      "vendor_target_role": "buyer",
+      "vendor_parser_status": "accepted",
+      "vendor_attempt_count": 1,
+      "vendor_rejected_attempt_count": 0,
+      "vendor_gm_decision": "proceeds_with_note",
+      "buyer_action_type": "request_approval",
+      "buyer_target_role": "approver",
+      "buyer_parser_status": "accepted",
+      "buyer_attempt_count": 1,
+      "buyer_rejected_attempt_count": 0,
+      "buyer_gm_decision": "proceeds",
+      "pressure_citation": {
+        "source_refs": true,
+        "risk_flags": true,
+        "private_pressure_refs": true,
+        "intent": true,
+        "payload_summary": true
+      },
+      "validation_status": "PASS",
+      "vendor_model_version": "gpt-4.1-mini-2025-04-14",
+      "buyer_model_version": "gpt-4.1-mini-2025-04-14"
+    }
+  ],
+  "excluded_run_records": [],
+  "execution_manifest_ref": "execution-manifest.json"
+}

@@ -456,9 +456,27 @@ def validate_multirole_artifacts(
     decisions: list[dict[str, Any]],
     report: ValidationReport,
 ) -> None:
-    for role in ["buyer", "approver"]:
+    roles = discover_multirole_roles(pack_dir)
+    for role in roles:
         validate_role_multirole_artifacts(pack_dir, actions, decisions, role, report)
-    report.add("multi-role buyer and approver artifacts validate")
+    report.add(f"multi-role role artifacts validate: {', '.join(roles)}")
+
+
+def discover_multirole_roles(pack_dir: Path) -> list[str]:
+    roles: set[str] = set()
+    for directory, suffix in [
+        (pack_dir / "action_menus", ".json"),
+        (pack_dir / "parser_results", ".json"),
+        (pack_dir / "proposal_attempts", ".jsonl"),
+    ]:
+        if not directory.exists():
+            continue
+        for path in directory.iterdir():
+            if path.is_file() and path.name.endswith(suffix):
+                roles.add(path.stem)
+    if not roles:
+        raise ValidationError("multi-role artifacts directory exists but no role artifacts were found")
+    return sorted(roles)
 
 
 def validate_role_multirole_artifacts(

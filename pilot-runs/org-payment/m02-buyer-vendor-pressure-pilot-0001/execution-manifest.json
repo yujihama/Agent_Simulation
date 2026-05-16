@@ -1,0 +1,35 @@
+{
+  "pilot_id": "M02",
+  "protocol_id": "m02-buyer-vendor-pressure-pilot-v0.1",
+  "protocol_ref": "protocols/multi-role/m02-buyer-vendor-pressure-pilot-v0.1.md",
+  "batch_id": "m02-buyer-vendor-pressure-pilot-0001",
+  "scenario_id": "S04",
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "observed_model_versions": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "started_at_utc": "2026-05-16T14:39:14Z",
+  "completed_at_utc": "2026-05-16T14:40:05Z",
+  "attempted_runs": 5,
+  "accepted_runs": 5,
+  "excluded_runs": 0,
+  "failed_runs": 0,
+  "replacement_policy": "excluded runs are not replaced in M02",
+  "llm_controlled_roles": [
+    "vendor",
+    "buyer"
+  ],
+  "scripted_or_rule_based_roles": [
+    "requester",
+    "approver",
+    "accountant"
+  ],
+  "game_master": "deterministic_menu_aware_rules",
+  "vendor_prompt_ref": "prompts/org-payment/vendor-pressure-action-v0.1.md",
+  "buyer_prompt_ref": "prompts/org-payment/buyer-free-choice-action-v0.1.md",
+  "vendor_action_menu_id": "org_payment_vendor_pressure_action_menu_v0.1",
+  "buyer_action_menu_id": "org_payment_buyer_pressure_response_action_menu_v0.1",
+  "claim_boundary": "multi_role_pressure_pilot_observation_only",
+  "exclusions": []
+}

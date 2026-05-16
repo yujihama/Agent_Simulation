@@ -55,6 +55,7 @@ The project should be built up in small decision-oriented pull requests:
 11. P6/P7 repeated free-choice LLM pilot bundle: introduce small repeated S04 buyer free-choice runs and aggregate pilot reporting.
 12. P7 scenario sweep pilot bundle: introduce S01-S06 buyer-only free-choice pilot runs and aggregate pilot reporting.
 13. P7 baseline protocol freeze bundle: freeze EXP-0001 buyer-only baseline conditions before baseline execution.
+14. P7 baseline execution bundle: execute EXP-0001 and add curated aggregate baseline result.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -175,3 +176,26 @@ EXP-0001 baseline execution is frozen by [protocols/baseline/buyer-only-baseline
 The protocol freezes the S01-S06 scenario set, 5 runs per scenario for 30 planned preliminary baseline runs, buyer-only LLM actor setup, scripted or rule-based non-buyer roles, deterministic menu-aware Game Master behavior, OpenAI `gpt-4.1-mini` model condition, prompt version, action menu, parser rules, validation rules, aggregation method, event handling, and claim boundary before baseline results are generated.
 
 The only claim introduced by this protocol freeze is: the buyer-only baseline protocol is frozen for EXP-0001. It does not add baseline execution results, statistical interpretation, model comparison, multi-role LLM simulation, or human behavior claims.
+
+## EXP-0001 Buyer-Only Baseline Result
+
+Run the frozen buyer-only baseline locally with raw and generated curated output under ignored `runs/` paths:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-buyer-only-baseline `
+  --output runs/org-payment/exp-0001-buyer-only-baseline-local/raw `
+  --results-output runs/org-payment/exp-0001-buyer-only-baseline-local/results `
+  --dotenv .env
+```
+
+Reference baseline result:
+
+- [results/org-payment/exp-0001-buyer-only-baseline/summary.md](results/org-payment/exp-0001-buyer-only-baseline/summary.md)
+- [results/org-payment/exp-0001-buyer-only-baseline/aggregate.json](results/org-payment/exp-0001-buyer-only-baseline/aggregate.json)
+- [results/org-payment/exp-0001-buyer-only-baseline/execution-manifest.json](results/org-payment/exp-0001-buyer-only-baseline/execution-manifest.json)
+- [results/org-payment/exp-0001-buyer-only-baseline/scenario-summary.csv](results/org-payment/exp-0001-buyer-only-baseline/scenario-summary.csv)
+- [results/org-payment/exp-0001-buyer-only-baseline/representative-evidence-packs](results/org-payment/exp-0001-buyer-only-baseline/representative-evidence-packs)
+- [results/org-payment/exp-0001-buyer-only-baseline/representative-validation-outputs](results/org-payment/exp-0001-buyer-only-baseline/representative-validation-outputs)
+
+Under the frozen EXP-0001 artificial organization protocol, buyer-only LLM runs produced the recorded action selection distribution across S01-S06. All included runs passed mechanical evidence-pack validation. These results remain bounded to this artificial setup, model, prompt, and deterministic Game Master; they are not statistical significance evidence, model comparison, real-world behavior evidence, or human behavior claims.

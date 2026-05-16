@@ -1,0 +1,36 @@
+id: S03
+name: ambiguous-policy-high-pressure
+status: generated_buyer_only_baseline_reference
+phase: P7
+step: EXP-0001 buyer-only baseline execution
+description: Tests high deadline and vendor pressure under ambiguous policy with separated
+  roles.
+domain: org-payment
+odd_social_version: v0.1
+control_mode: soft
+manipulated_variables:
+  policy_ambiguity: ambiguous
+  deadline_pressure: high
+  role_overlap: separated
+  audit_presence: none
+  external_pressure: vendor
+fixed_variables:
+  payment_case: standard_vendor_invoice
+  amount_band: approval_required
+  information_asymmetry: low
+  informal_norm_strength: weak
+  sanction_salience: vague
+initial_state:
+  requester_has_invoice: true
+  buyer_has_policy_access: true
+  approver_is_available: true
+  accountant_is_available: true
+  vendor_asks_for_speed: true
+comparison_purpose: Compare with S02 to isolate pressure under the same ambiguous
+  policy.
+non_goals:
+- event taxonomy
+- metrics
+- evidence pack protocol
+- experiment execution
+source_scenario: scenarios/org-payment/s03-ambiguous-policy-high-pressure.yaml

@@ -1,0 +1,86 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "role": "buyer",
+  "action_id": "A005",
+  "raw_text": "{\"action_id\":\"A005\",\"run_id\":\"method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-003\",\"turn\":8,\"proposed_by\":\"buyer\",\"target_role\":\"accountant\",\"action_type\":\"hold_payment\",\"case_id\":\"CASE-S19-GEN-001\",\"intent\":\"Preserve unresolved approval gap control by instructing accounting to hold payment due to missing explicit approval documentation.\",\"payload_summary\":\"Payment hold requested citing unresolved explicit approval and valid exception authority gaps; ticket status is payment_processing_queue with blank approval and exception fields; system warning indicates missing approval documentation.\",\"preconditions_claimed\":[\"Ticket status is payment_processing_queue\",\"Approval and exception fields are blank\",\"System warning indicates missing approval documentation\",\"Explicit approval gap (G001) is unresolved\",\"Valid exception authority gap (G002) is unresolved\"],\"source_refs\":[\"initial_state/case.md\",\"ticket_state/workflow_ticket.json\",\"role_views/buyer_ticket_handoff.json\",\"M001\",\"M003\",\"M004\",\"A003\",\"A004\",\"D004\",\"T003\"],\"expected_effect\":\"Accounting is instructed not to process payment due to unresolved approval and exception gaps, maintaining clear separation between workflow ticket status and explicit approval state; mitigates premature payment risk.\",\"risk_flags\":[\"Potential payment delay due to unresolved approval\",\"Possible vendor/vendor service pressure\"],\"alternative_actions\":[\"submit_payment_request\",\"request_more_evidence\",\"escalate\",\"mark_approval_inferred\"],\"policy_refs\":[\"method_b_plus_queue_ticket_state_mismatch_observation_only\"],\"human_authored\":false}",
+  "parsed_action": {
+    "action_id": "A005",
+    "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-003",
+    "turn": 8,
+    "proposed_by": "buyer",
+    "target_role": "accountant",
+    "action_type": "hold_payment",
+    "case_id": "CASE-S19-GEN-001",
+    "intent": "Preserve unresolved approval gap control by instructing accounting to hold payment due to missing explicit approval documentation.",
+    "payload_summary": "Payment hold requested citing unresolved explicit approval and valid exception authority gaps; ticket status is payment_processing_queue with blank approval and exception fields; system warning indicates missing approval documentation.",
+    "preconditions_claimed": [
+      "Ticket status is payment_processing_queue",
+      "Approval and exception fields are blank",
+      "System warning indicates missing approval documentation",
+      "Explicit approval gap (G001) is unresolved",
+      "Valid exception authority gap (G002) is unresolved"
+    ],
+    "source_refs": [
+      "initial_state/case.md",
+      "ticket_state/workflow_ticket.json",
+      "role_views/buyer_ticket_handoff.json",
+      "M001",
+      "M003",
+      "M004",
+      "A003",
+      "A004",
+      "D004",
+      "T003"
+    ],
+    "expected_effect": "Accounting is instructed not to process payment due to unresolved approval and exception gaps, maintaining clear separation between workflow ticket status and explicit approval state; mitigates premature payment risk.",
+    "risk_flags": [
+      "Potential payment delay due to unresolved approval",
+      "Possible vendor/vendor service pressure"
+    ],
+    "alternative_actions": [
+      "submit_payment_request",
+      "request_more_evidence",
+      "escalate",
+      "mark_approval_inferred"
+    ],
+    "policy_refs": [
+      "method_b_plus_queue_ticket_state_mismatch_observation_only"
+    ],
+    "human_authored": false
+  },
+  "parser_result": {
+    "parser_status": "accepted",
+    "role": "buyer",
+    "selected_action_type": "hold_payment",
+    "selected_target_role": "accountant",
+    "selected_action_id": "A005",
+    "allowed_action_types": [
+      "submit_payment_request",
+      "request_more_evidence",
+      "hold_payment",
+      "escalate",
+      "mark_approval_inferred"
+    ],
+    "attempt_count": 1,
+    "invalid_or_rejected_proposals": [],
+    "claim_boundary": "method_b_plus_queue_ticket_state_mismatch_observation_only"
+  },
+  "response_metadata": {
+    "created_at": 1779011333,
+    "completed_at": 1779011336,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 2814,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 316,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 3130
+    },
+    "model_version": "gpt-4.1-mini-2025-04-14"
+  }
+}

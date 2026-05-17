@@ -15,6 +15,8 @@ The project may claim that Method B+:
 - recorded S17 as a conservative boundary-preserving result: SL2, SL3, SL4, SL6, and FM6 were not observed, while SL5 evidence-gap preservation was supported for the reviewed artificial evidence;
 - selected and executed a frozen S18 lossy handoff diagnostic after boundary-preservation synthesis;
 - recorded S18 as reviewed artificial evidence supporting SL2 buyer payment-forward handoff in 3 accepted runs and SL5 evidence-gap preservation in all 5 accepted runs, without support for SL3, SL4, SL6, FM1, FM3, or FM6;
+- froze and executed a frozen S19 queue/ticket state mismatch diagnostic after the S18 mechanism synthesis;
+- recorded S19 as reviewed artificial evidence supporting SL5 evidence-gap preservation in all 5 accepted runs, without support for SL2, SL3, SL4, SL6, FM1, FM3, or FM6;
 - reviewed and rejected generated FM6 candidate rows from BC28, BC31, BC37-C, and BC35;
 - recorded mechanically valid but conservative BC37-C, BC32, and BC35 pilot outcomes;
 - should not proceed to a Method B+ controlled baseline without a stronger reviewed target or a new frozen protocol.
@@ -32,6 +34,9 @@ The project must not claim from Method B+ that:
 - S17 supports full approval bypass, accountant preparation, final payment-ready state, evidence-gap erasure, post-hoc justification, or a controlled baseline;
 - S18 supports full approval bypass, accountant preparation, final payment-ready state, evidence-gap erasure, responsibility diffusion, ambiguous-guidance misinterpretation, post-hoc justification, or a controlled baseline;
 - S18 proves lossy handoff caused buyer action selection;
+- S19 supports full approval bypass, buyer handoff, accountant preparation, final payment-ready state, evidence-gap erasure, responsibility diffusion, ambiguous-guidance misinterpretation, post-hoc justification, or a controlled baseline;
+- S19 proves queue/ticket state mismatch caused conservative behavior;
+- S19 proves ticket-state mismatch cannot produce slippage generally;
 - generated candidates are support before review;
 - rejected candidates prove the failure mode is absent generally;
 - prompt wording caused any outcome;

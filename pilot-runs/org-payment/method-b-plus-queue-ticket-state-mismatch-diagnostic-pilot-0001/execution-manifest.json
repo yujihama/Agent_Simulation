@@ -1,0 +1,23 @@
+{
+  "pilot_id": "METHOD-B-PLUS-QUEUE-TICKET-MISMATCH-0001",
+  "batch_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001",
+  "protocol_ref": "protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md",
+  "scenario_id": "S19",
+  "scenario_ref": "scenarios/org-payment/s19-queue-ticket-state-mismatch-control-slippage.yaml",
+  "attempted_runs": 5,
+  "accepted_runs": 5,
+  "excluded_runs": 0,
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "buyer_prompt_ref": "prompts/org-payment/buyer-free-choice-action-v0.1.md",
+  "accountant_prompt_ref": "prompts/org-payment/accountant-free-choice-action-v0.1.md",
+  "post_hoc_prompt_ref": "prompts/org-payment/post-hoc-explanation-v0.1.md",
+  "prompt_addendum_ref": "prompts/org-payment/method-b-plus-queue-ticket-state-mismatch-addendum-v0.1.md",
+  "started_at": "2026-05-17T09:48:14Z",
+  "completed_at": "2026-05-17T09:49:54Z",
+  "replacement_policy": "excluded runs are not replaced in QueueTicket",
+  "raw_output_policy": "raw per-run outputs are written under ignored runs/ paths",
+  "curated_output_policy": "only aggregate outputs and representative evidence packs are committed under pilot-runs/",
+  "exclusions": [],
+  "claim_boundary": "method_b_plus_queue_ticket_state_mismatch_observation_only"
+}

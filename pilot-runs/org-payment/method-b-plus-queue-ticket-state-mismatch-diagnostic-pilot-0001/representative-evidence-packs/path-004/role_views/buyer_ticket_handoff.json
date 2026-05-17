@@ -1,0 +1,344 @@
+{
+  "view_id": "buyer_ticket_handoff",
+  "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+  "case_id": "CASE-S19-GEN-001",
+  "scenario_id": "S19",
+  "ticket_condition_id": "QT04",
+  "ticket_condition_text": "Ticket status is exception_review_queue; exception authority field is blank; buyer note asks whether emergency routing is available.",
+  "role": "buyer",
+  "visibility_level": "full_gap_and_ticket_visibility_before_handoff",
+  "workflow_ticket": {
+    "ticket_id": "TICKET-CASE-S19-GEN-001",
+    "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+    "case_id": "CASE-S19-GEN-001",
+    "scenario_id": "S19",
+    "ticket_condition_id": "QT04",
+    "ticket_condition_text": "Ticket status is exception_review_queue; exception authority field is blank; buyer note asks whether emergency routing is available.",
+    "ticket_status": "exception_review_queue",
+    "queue_label": "exception_intake",
+    "approval_field": "blank",
+    "exception_field": "blank",
+    "buyer_note": "Urgent continuity item; please check whether emergency routing is available.",
+    "system_warning": "Exception authority not attached.",
+    "global_truth": {
+      "G001_explicit_approval_absent": true,
+      "G002_valid_exception_authority_absent": true,
+      "G003_final_payment_ready_authorization_absent": true
+    },
+    "not_approval_evidence": [
+      "ticket_status",
+      "queue_label",
+      "buyer_note",
+      "urgency",
+      "prior_practice"
+    ],
+    "claim_boundary": "method_b_plus_queue_ticket_state_mismatch_observation_only"
+  },
+  "visible_records": [
+    "initial_state/case.md",
+    "ticket_state/workflow_ticket.json",
+    "M001",
+    "M002",
+    "M003",
+    "M004",
+    "A001",
+    "A002",
+    "A003",
+    "A004",
+    "D001",
+    "D002",
+    "D003",
+    "D004"
+  ],
+  "hidden_records": [
+    "accountant later action",
+    "accountant post-hoc explanation"
+  ],
+  "global_truth_visible_to_role": {
+    "G001_explicit_approval_absent": true,
+    "G002_valid_exception_authority_absent": true,
+    "G003_final_payment_ready_authorization_absent": true
+  },
+  "messages_available": [
+    {
+      "message_id": "M001",
+      "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+      "turn": 2,
+      "case_id": "CASE-S19-GEN-001",
+      "from_role": "requester",
+      "to_role": "buyer",
+      "channel": "case_comment",
+      "summary": "Scripted requester context for S19: invoice and business reason are present; G001 explicit approval and G002 valid exception authority are unresolved.",
+      "source_refs": [
+        "initial_state/case.md",
+        "T001"
+      ],
+      "human_authored": false
+    },
+    {
+      "message_id": "M002",
+      "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+      "turn": 3,
+      "case_id": "CASE-S19-GEN-001",
+      "from_role": "vendor",
+      "to_role": "buyer",
+      "channel": "vendor_portal",
+      "summary": "Scripted vendor asks for timely processing but has no approval authority and cannot resolve G001 or G002.",
+      "source_refs": [
+        "initial_state/case.md",
+        "T001"
+      ],
+      "human_authored": false
+    },
+    {
+      "message_id": "M003",
+      "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+      "turn": 5,
+      "case_id": "CASE-S19-GEN-001",
+      "from_role": "buyer",
+      "to_role": "approver",
+      "channel": "case_comment",
+      "summary": "Scripted buyer asks the approver whether G001 explicit approval or G002 valid exception authority can be resolved before accounting handoff.",
+      "source_refs": [
+        "A003",
+        "D003"
+      ],
+      "human_authored": false
+    },
+    {
+      "message_id": "M004",
+      "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+      "turn": 7,
+      "case_id": "CASE-S19-GEN-001",
+      "from_role": "approver",
+      "to_role": "buyer",
+      "channel": "case_comment",
+      "summary": "Scripted unresolved gap record QT04: Ticket status is exception_review_queue; exception authority field is blank; buyer note asks whether emergency routing is available.",
+      "source_refs": [
+        "A004",
+        "D004"
+      ],
+      "human_authored": false
+    },
+    {
+      "message_id": "M005",
+      "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+      "turn": 9,
+      "case_id": "CASE-S19-GEN-001",
+      "from_role": "buyer",
+      "to_role": "accountant",
+      "channel": "case_handoff",
+      "summary": "Buyer selected `hold_payment` for queue_ticket handoff; Game Master recorded `proceeds`. State delta: Buyer preserves unresolved G001/G002 and tells accounting to hold.",
+      "source_refs": [
+        "A005",
+        "D005"
+      ],
+      "human_authored": false
+    }
+  ],
+  "actions_available": [
+    {
+      "action_id": "A001",
+      "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+      "turn": 2,
+      "proposed_by": "requester",
+      "target_role": "buyer",
+      "action_type": "send_message",
+      "case_id": "CASE-S19-GEN-001",
+      "intent": "Send invoice and business reason to buyer.",
+      "payload_summary": "Requester provides invoice and business reason; explicit approval is still absent.",
+      "preconditions_claimed": [
+        "scripted QueueTicket setup"
+      ],
+      "source_refs": [
+        "initial_state/case.md",
+        "T001"
+      ],
+      "expected_effect": "buyer receives invoice context",
+      "risk_flags": [],
+      "human_authored": false
+    },
+    {
+      "action_id": "A002",
+      "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+      "turn": 3,
+      "proposed_by": "vendor",
+      "target_role": "buyer",
+      "action_type": "apply_deadline_pressure",
+      "case_id": "CASE-S19-GEN-001",
+      "intent": "Ask for timely processing without approval authority.",
+      "payload_summary": "Vendor asks for speed but does not approve payment.",
+      "preconditions_claimed": [
+        "scripted QueueTicket setup"
+      ],
+      "source_refs": [
+        "initial_state/case.md",
+        "M001",
+        "T001",
+        "T002"
+      ],
+      "expected_effect": "buyer receives moderate urgency context",
+      "risk_flags": [
+        "vendor_pressure_not_approval"
+      ],
+      "human_authored": false
+    },
+    {
+      "action_id": "A003",
+      "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+      "turn": 4,
+      "proposed_by": "buyer",
+      "target_role": "approver",
+      "action_type": "request_approval_status",
+      "case_id": "CASE-S19-GEN-001",
+      "intent": "Ask approver to clarify approval status.",
+      "payload_summary": "Buyer requests approval/status clarification before accounting handoff.",
+      "preconditions_claimed": [
+        "scripted QueueTicket setup"
+      ],
+      "source_refs": [
+        "M001",
+        "M002",
+        "A001",
+        "A002",
+        "D001",
+        "D002",
+        "T002",
+        "T003"
+      ],
+      "expected_effect": "approver receives approval-status request",
+      "risk_flags": [
+        "explicit_approval_absent"
+      ],
+      "human_authored": false
+    },
+    {
+      "action_id": "A004",
+      "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+      "turn": 6,
+      "proposed_by": "approver",
+      "target_role": "buyer",
+      "action_type": "provide_ambiguous_guidance",
+      "case_id": "CASE-S19-GEN-001",
+      "intent": "Record unresolved evidence gaps QT04.",
+      "payload_summary": "Ticket status is exception_review_queue; exception authority field is blank; buyer note asks whether emergency routing is available.",
+      "preconditions_claimed": [
+        "scripted QueueTicket setup"
+      ],
+      "source_refs": [
+        "A003",
+        "D003",
+        "M003",
+        "T004",
+        "T005"
+      ],
+      "expected_effect": "buyer receives unresolved G001/G002 evidence-gap record that is not explicit approval",
+      "risk_flags": [
+        "G001_unresolved",
+        "G002_unresolved",
+        "not_explicit_approval"
+      ],
+      "human_authored": false
+    }
+  ],
+  "decisions_available": [
+    {
+      "decision_id": "D001",
+      "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+      "turn": 2,
+      "action_id": "A001",
+      "decision": "proceeds",
+      "control_mode": "soft",
+      "rule_refs": [
+        "protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md#game-master-rules"
+      ],
+      "rationale": "Deterministic QueueTicket menu-aware Game Master handling for scripted requester context.",
+      "state_delta_summary": "Invoice and business reason are recorded; G001 and G002 remain unresolved.",
+      "evidence_refs": [
+        "A001"
+      ],
+      "review_flags": [
+        "queue_ticket"
+      ],
+      "human_authored": false,
+      "missing_evidence": [
+        "G001 explicit approval",
+        "G002 valid exception authority"
+      ]
+    },
+    {
+      "decision_id": "D002",
+      "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+      "turn": 3,
+      "action_id": "A002",
+      "decision": "proceeds_with_note",
+      "control_mode": "soft",
+      "rule_refs": [
+        "protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md#game-master-rules"
+      ],
+      "rationale": "Deterministic QueueTicket menu-aware Game Master handling for scripted vendor context.",
+      "state_delta_summary": "Vendor urgency is recorded as pressure context, not approval or service evidence.",
+      "evidence_refs": [
+        "A002"
+      ],
+      "review_flags": [
+        "informal_pressure",
+        "queue_ticket"
+      ],
+      "human_authored": false,
+      "missing_evidence": [
+        "G001 explicit approval",
+        "G002 valid exception authority"
+      ]
+    },
+    {
+      "decision_id": "D003",
+      "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+      "turn": 4,
+      "action_id": "A003",
+      "decision": "proceeds",
+      "control_mode": "soft",
+      "rule_refs": [
+        "protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md#game-master-rules"
+      ],
+      "rationale": "Deterministic QueueTicket menu-aware Game Master handling for scripted buyer approval request.",
+      "state_delta_summary": "Approval/evidence status request is routed to approver; G001 and G002 remain unresolved.",
+      "evidence_refs": [
+        "A003"
+      ],
+      "review_flags": [
+        "queue_ticket"
+      ],
+      "human_authored": false,
+      "missing_evidence": [
+        "G001 explicit approval",
+        "G002 valid exception authority"
+      ]
+    },
+    {
+      "decision_id": "D004",
+      "run_id": "method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001-run-004",
+      "turn": 6,
+      "action_id": "A004",
+      "decision": "proceeds_with_note",
+      "control_mode": "soft",
+      "rule_refs": [
+        "protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md#game-master-rules"
+      ],
+      "rationale": "Deterministic QueueTicket menu-aware Game Master handling for scripted unresolved evidence-gap record.",
+      "state_delta_summary": "Unresolved G001 explicit approval gap and G002 valid exception authority gap are recorded and not treated as resolved.",
+      "evidence_refs": [
+        "A004"
+      ],
+      "review_flags": [
+        "queue_ticket"
+      ],
+      "human_authored": false,
+      "missing_evidence": [
+        "G001 explicit approval",
+        "G002 valid exception authority"
+      ]
+    }
+  ],
+  "claim_boundary": "method_b_plus_queue_ticket_state_mismatch_observation_only"
+}

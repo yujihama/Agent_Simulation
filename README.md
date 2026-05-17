@@ -98,6 +98,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ BC31 ambiguity interpretation pilot result: [pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md)
 - Method B+ BC31 ambiguity candidate review: [pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/ambiguity-candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/ambiguity-candidate-review-0001/summary.md)
 - Method B+ BC31 FM2 independent review: [pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/bc31-fm2-independent-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/bc31-fm2-independent-review-0001/summary.md)
+- Method B+ BC36 reflection after BC31 FM2 independent review: [docs/reflections/method-b-plus-bc36-after-bc31-fm2-independent-review.md](docs/reflections/method-b-plus-bc36-after-bc31-fm2-independent-review.md)
+- Method B+ non-intentional control slippage taxonomy v0.1: [protocols/failure-modes/non-intentional-control-slippage-taxonomy-v0.1.md](protocols/failure-modes/non-intentional-control-slippage-taxonomy-v0.1.md)
+- Method B+ non-intentional control slippage map: [docs/synthesis/non-intentional-control-slippage-map.csv](docs/synthesis/non-intentional-control-slippage-map.csv)
 - Method B+ BC36 reflection after BC31 review: [docs/reflections/method-b-plus-bc36-after-bc31-review.md](docs/reflections/method-b-plus-bc36-after-bc31-review.md)
 - Method B+ BC37-C approval bypass stress protocol v0.1: [protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md](protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md)
 - Method B+ S14 approval bypass stress scenario: [scenarios/org-payment/s14-approval-bypass-stress.yaml](scenarios/org-payment/s14-approval-bypass-stress.yaml)
@@ -197,6 +200,7 @@ The project should be built up in small decision-oriented pull requests:
 65. Method B+ BC35 FM6 candidate review bundle: review the three generated FM6 candidate rows without adding runs or changing failure-mode definitions.
 66. Method B+ BC36 reflection after BC35 review bundle: synthesize the BC35 review outcome and select a Method B+ iterative targeting synthesis as the next checkpoint.
 67. Method B+ iterative targeting synthesis bundle: summarize BC34/BC28, BC31, BC37-C, BC32, and BC35 status without adding runs or upgrading claims.
+68. Method B+ control-slippage reframing bundle: reflect after the BC31 FM2 independent review and add a non-intentional control slippage taxonomy plus mapping without adding runs or upgrading BC31 to full approval-bypass support.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -939,6 +943,14 @@ The review confirms the prior `partially_supported_needs_revision` status only f
 
 This is a Codex independent second-pass proxy review under project-owner authorization. It is not independent multi-reviewer human validation and does not claim full approval bypass, human behavior, real-world organization behavior, prompt causation, model-general behavior, or statistical significance.
 
+## Method B+ Control Slippage Reframing
+
+The post-review reflection is recorded in [docs/reflections/method-b-plus-bc36-after-bc31-fm2-independent-review.md](docs/reflections/method-b-plus-bc36-after-bc31-fm2-independent-review.md). The new taxonomy is [protocols/failure-modes/non-intentional-control-slippage-taxonomy-v0.1.md](protocols/failure-modes/non-intentional-control-slippage-taxonomy-v0.1.md), with current evidence mapped in [docs/synthesis/non-intentional-control-slippage-map.csv](docs/synthesis/non-intentional-control-slippage-map.csv).
+
+This reframes the BC31 FM2 partial finding as non-intentional control slippage rather than full approval bypass. The current evidence supports only a narrow SL2 buyer payment-forward handoff without explicit approval, alongside SL5 evidence-gap preservation. It does not support SL3 payment preparation without explicit approval or SL4 final payment-ready state without explicit approval.
+
+The selected next path is to freeze an `SL2 -> SL3 -> SL4` progression diagnostic before any new execution. This reframing does not add runs, change prior artifacts, claim fraud or intentional misconduct, or make human, real-world, statistical, compliance, legal, audit, operational, model-general, or prompt-causation claims.
+
 ## Method B+ BC36 Reflection After BC31 Review
 
 The BC36 reflection after the BC31 candidate review is recorded in [docs/reflections/method-b-plus-bc36-after-bc31-review.md](docs/reflections/method-b-plus-bc36-after-bc31-review.md).
@@ -1078,4 +1090,4 @@ The reflection classifies BC35 as `candidateあり、reviewでrejected` plus `no
 
 The Method B+ synthesis is recorded in [docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md](docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md), with the compact status table in [docs/synthesis/method-b-plus-failure-mode-status.csv](docs/synthesis/method-b-plus-failure-mode-status.csv) and claim-boundary review in [docs/synthesis/method-b-plus-claim-boundary-review.md](docs/synthesis/method-b-plus-claim-boundary-review.md).
 
-The synthesis records that Method B+ produced one narrow BC31 partially supported FM2 buyer-handoff boundary observation, reviewed and rejected generated FM6 candidates across BC28/BC31/BC37-C/BC35, and did not produce a fully supported failure-mode finding. It recommends not freezing a Method B+ controlled baseline from the current evidence.
+The synthesis records that Method B+ produced one narrow BC31 partially supported FM2 buyer-handoff boundary observation, reviewed and rejected generated FM6 candidates across BC28/BC31/BC37-C/BC35, and did not produce a fully supported failure-mode finding. After the BC31 FM2 independent review, that partial observation is better described as non-intentional control slippage: SL2 buyer handoff without explicit approval plus SL5 evidence-gap preservation, with no support for SL3 accounting preparation or SL4 final payment-ready state. The synthesis still recommends not freezing a Method B+ controlled baseline from the current evidence.

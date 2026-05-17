@@ -118,6 +118,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S20 exception route ambiguity candidate review: [pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/candidate-review-0001/summary.md)
 - Phase 4 BC36 reflection after exception route review: [docs/reflections/phase4-bc36-after-exception-route-review.md](docs/reflections/phase4-bc36-after-exception-route-review.md)
 - Phase 4 mechanism exploration synthesis v0.1: [docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md](docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md)
+- Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
+- Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1355,3 +1357,13 @@ python -m social_sim execute-phase4-exception-route-ambiguity-diagnostic `
 BC4-4 is recorded in [docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md](docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md).
 
 The synthesis concludes that Phase 4 did not add stronger slippage support beyond the existing narrow SL2 observations from BC31/S18. S20 reinforced the repeated SL5 boundary-preservation pattern in accepted runs and did not support SL1, SL2, SL3, SL4, SL6, FM1, FM3, or FM6. The project should not proceed to a controlled failure-mode baseline from this evidence state, and autonomous run-producing diagnostics should pause unless a later mechanism-selection PR identifies a substantially different mechanism.
+
+### Phase 1-4 Project Synthesis
+
+The Phase 1-4 project synthesis is recorded in [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md), with a report outline in [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md).
+
+It consolidates the roadmap pass as a methodology contribution: the project has built a reviewable artificial-organization research method with frozen protocols, deterministic Game Master decisions, reconstructable evidence packs, mechanical validation, candidate review, conservative-result reporting, and explicit claim boundaries.
+
+The current report-ready evidence position is bounded. Reviewed artificial evidence supports repeated downstream approval/evidence-gap preservation and narrow buyer-side SL2 handoff in specific artificial contexts. It does not support full approval bypass, SL3 accountant payment preparation without explicit approval, SL4 final payment-ready status without explicit approval, SL6 evidence-gap erasure, responsibility diffusion, ambiguous-guidance misinterpretation, post-hoc justification, human behavior, real-world organization behavior, statistical significance, model-general reliability/safety, or compliance/legal/audit/operational sufficiency.
+
+Checkpoint decision: Phase 1-4 is complete for this roadmap pass. Do not run additional autonomous diagnostics unless a later mechanism-selection PR identifies a substantially different organizational mechanism and freezes a protocol before execution.

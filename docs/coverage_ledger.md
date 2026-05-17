@@ -1172,3 +1172,35 @@ Remaining gaps:
 
 - The project has not yet consolidated Phase 1-4 into a final report-style synthesis or publication outline.
 - Any future execution requires a new mechanism-selection checkpoint before protocol freeze.
+
+## Phase 1-4 Project Synthesis Update
+
+Latest PR label: `PR-Phase1-4-project-synthesis`
+
+This update applies to C01, C02, C16, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/phase1-4-project-synthesis-v0.1.md`
+- `docs/reports/phase1-4-report-outline.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: Phase 1-4 is consolidated as a reviewable artificial-organization research method, not a human society reproduction or proof of social chaos.
+- C02 Research Questions: the current project-level answer is bounded to artifact-method readiness, repeated artificial boundary preservation, narrow SL2 handoff in specific contexts, and unsupported stronger slippage levels.
+- C16 Validity Protocol: the synthesis preserves freeze-before-execution, generated-candidate versus reviewed-support separation, and SL2/SL3/SL4/SL5/SL6 distinctions.
+- C18 Reporting / Claims: report-ready claims are restricted to methodology and bounded reviewed artificial evidence; full approval bypass, statistical significance, human behavior, real-world organization behavior, prompt causation, and model-general claims remain forbidden.
+- C20 Ethics / Misuse Boundaries: the report outline explicitly excludes compliance, legal, audit, operational, governance, and safety sufficiency claims.
+
+Phase 1-4 decision:
+
+- Phase 1-4 roadmap pass is complete.
+- Autonomous run-producing diagnostics should pause.
+- Next work should be report drafting, external/project-owner review, or a separately justified mechanism-selection PR.
+
+Remaining gaps:
+
+- No public-facing report has been drafted from the outline.
+- Any future execution requires a new mechanism-selection checkpoint before protocol freeze.

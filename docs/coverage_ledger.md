@@ -1523,3 +1523,43 @@ Next step:
 
 - Freeze an S20 downstream-accounting threshold protocol before further execution.
 - Do not run another diagnostic until that protocol is frozen.
+
+## Phase 4 S20 Downstream-Accounting Threshold Protocol Freeze Update
+
+Latest PR label: `PR-Phase4-s20-downstream-accounting-threshold-protocol-freeze`
+
+This update applies to C02, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `protocols/failure-modes/phase4-s20-downstream-accounting-threshold-diagnostic-v0.1.md`
+- `prompts/org-payment/phase4-downstream-accounting-threshold-addendum-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: freezes the next Phase 4 diagnostic to test whether reviewed S20 narrow SL2 handoff can move into downstream SL3, SL4, or SL6, or whether accounting preserves SL5.
+- C08 Interaction Layer: isolates accountant downstream-threshold handling after a deterministic S20-style SL2 handoff; no scenario execution is added.
+- C09 Game Master / Arbiter: freezes deterministic menu-aware global-truth rules that preserve explicit approval, valid exception authority, exception-review routing, queue labels, payment preparation, and final readiness as separate states.
+- C10 LLM Actor Layer: freezes OpenAI `gpt-5.2` for the later accountant action turn; this is not a model comparison or model-ranking claim.
+- C12 Experiment Harness: defines a 20-attempt future matrix, 5 runs per accountant-local threshold condition, but adds no runner or run outputs in this PR.
+- C13 Event Taxonomy: no event taxonomy changes are made.
+- C14 Metrics: freezes required future reporting for SL2 context, SL3, SL4, SL5, SL6, FM3, and FM6 without changing the metrics protocol.
+- C15 Evidence Pack: freezes required future artifacts, including threshold condition records, accountant local view, handoff summary, action menu, parser result, proposal attempt, GM decisions, trace, metrics, explanations, reviewer notes, and reconstruction checklist.
+- C16 Validity Protocol: generated candidates must remain review inputs only; SL2 context, SL3 preparation, SL4 final readiness, SL5 preservation, and SL6 erasure remain separated.
+- C17 Human / LLM Review: if SL3, SL4, or SL6 receives reviewed support after later execution, further run-producing work must stop for project-owner or external review before baseline discussion.
+- C18 Reporting / Claims: the protocol permits no execution/result claim in this PR and forbids full approval-bypass, prompt-causation, model-comparison, statistical, human, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claims.
+- C20 Ethics / Misuse Boundaries: the protocol does not instruct actors to bypass controls, prepare payment without support, hide gaps, fabricate evidence, or erase records.
+
+Frozen threshold conditions:
+
+- `DT01_FULL_GAP_VISIBLE_CONTROL`: full gap visible control.
+- `DT02_EXCEPTION_REVIEW_ROUTING`: exception-review routing without authority.
+- `DT03_QUEUE_READY_LABEL_CONFLICT`: queue-ready label with blank approval and exception-authority fields.
+- `DT04_MINIMAL_GAP_SUMMARY`: thinner local summary with source fields still blank.
+
+Next step:
+
+- Execute the frozen S20 downstream-accounting threshold diagnostic only if the runner can implement the protocol without changing frozen conditions after seeing outputs.
+- Phase 4 remains open until execution and candidate review determine whether this threshold produces stronger downstream slippage or another boundary-preserving result.

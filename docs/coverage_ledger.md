@@ -962,3 +962,33 @@ BC3-2 decision:
 Remaining gaps:
 
 - Existing evidence has not yet been remapped to the new evidence requirements.
+
+## Phase 3 BC3-3 Existing Evidence Remap Update
+
+Latest PR label: `PR-Phase3-BC3-3-existing-evidence-remap`
+
+This update applies to C02, C13, C16, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/control-slippage-existing-evidence-map-v0.1.md`
+- `docs/synthesis/control-slippage-existing-evidence-map.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: existing evidence is now mapped to the SL model, clarifying what is currently visible and what remains unsupported.
+- C13 Event Taxonomy: SL concepts are applied as synthesis labels without adding or revising event types.
+- C16 Validity Protocol: BC31, BC37-C, BC35, S17, S18, and S19 are remapped without upgrading prior review status.
+- C18 Reporting / Claims: the remap preserves narrow SL2, repeated SL5, and unsupported SL3/SL4/SL6 distinctions.
+- C20 Ethics / Misuse Boundaries: no human, real-world, fraud, statistical, compliance, legal, audit, operational, governance, or safety sufficiency claim is introduced.
+
+BC3-3 decision:
+
+- Existing evidence remap is complete.
+- Proceed to BC3-4 Phase 3 control slippage model synthesis.
+
+Remaining gaps:
+
+- Phase 3 model synthesis has not yet integrated the conceptual model, evidence requirements, and existing-evidence remap.

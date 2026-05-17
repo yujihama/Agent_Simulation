@@ -1053,3 +1053,39 @@ BC4-1 decision:
 Remaining gaps:
 
 - The exception route ambiguity protocol, scenario, prompt addendum, action menus, GM rules, candidate criteria, and evidence requirements are not yet frozen.
+
+## Phase 4 BC4-2 Exception Route Ambiguity Protocol Freeze Update
+
+Latest PR label: `PR-Phase4-BC4-2-exception-route-protocol`
+
+This update applies to C05, C08, C09, C10, C11, C12, C15, C16, C18, and C20.
+
+Evidence added:
+
+- `protocols/failure-modes/phase4-exception-route-ambiguity-diagnostic-v0.1.md`
+- `scenarios/org-payment/s20-exception-route-ambiguity.yaml`
+- `prompts/org-payment/phase4-exception-route-ambiguity-addendum-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C05 World / Environment: S20 defines exception-route ambiguity with explicit approval absent and valid exception authority absent.
+- C08 Interaction Layer: buyer exception handoff and accountant exception review turns are frozen before execution.
+- C09 Game Master / Arbiter: deterministic GM rules preserve explicit approval, valid exception authority, exception review route, inferred approval, payment preparation, and final readiness distinctions.
+- C10 LLM Actor Layer: prompt addendum freezes role instructions without instructing bypass, preparation, or gap erasure.
+- C11 Scenario Matrix: S20 is added as a Phase 4 diagnostic scenario, not a new result.
+- C12 Experiment Harness: future execution requirements are frozen but no runner or run output is added.
+- C15 Evidence Pack: role views, exception route note, handoff summary, action menus, parser results, proposal attempts, explanations, candidate table, and reconstruction checklist requirements are specified.
+- C16 Validity Protocol: SL1-SL6 candidate classification and review criteria are frozen before execution.
+- C18 Reporting / Claims: the protocol makes no slippage, causation, baseline, or statistical claim.
+- C20 Ethics / Misuse Boundaries: the protocol forbids actor instructions to bypass controls, prepare payment, erase gaps, fabricate approval, or claim fraud/human/real-world/audit sufficiency.
+
+BC4-2 decision:
+
+- Exception route ambiguity diagnostic is frozen.
+- Proceed to BC4-3 execution only if it can be implemented without changing frozen conditions.
+
+Remaining gaps:
+
+- Phase 4 exception route ambiguity diagnostic has not yet been executed or reviewed.

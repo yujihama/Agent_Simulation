@@ -111,6 +111,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 3 control slippage model synthesis v0.1: [docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md](docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md)
 - Phase 4 mechanism selection framework v0.1: [docs/reflections/phase4-mechanism-selection-framework-v0.1.md](docs/reflections/phase4-mechanism-selection-framework-v0.1.md)
 - Phase 4 mechanism candidate table: [docs/reflections/phase4-mechanism-candidate-table.csv](docs/reflections/phase4-mechanism-candidate-table.csv)
+- Phase 4 exception route ambiguity diagnostic protocol v0.1: [protocols/failure-modes/phase4-exception-route-ambiguity-diagnostic-v0.1.md](protocols/failure-modes/phase4-exception-route-ambiguity-diagnostic-v0.1.md)
+- Phase 4 S20 exception route ambiguity scenario: [scenarios/org-payment/s20-exception-route-ambiguity.yaml](scenarios/org-payment/s20-exception-route-ambiguity.yaml)
+- Phase 4 exception route ambiguity prompt addendum v0.1: [prompts/org-payment/phase4-exception-route-ambiguity-addendum-v0.1.md](prompts/org-payment/phase4-exception-route-ambiguity-addendum-v0.1.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1320,3 +1323,9 @@ It concludes that Phase 3 is complete: non-intentional control slippage is now t
 Phase 4 begins with the mechanism selection framework in [docs/reflections/phase4-mechanism-selection-framework-v0.1.md](docs/reflections/phase4-mechanism-selection-framework-v0.1.md), with a comparison table in [docs/reflections/phase4-mechanism-candidate-table.csv](docs/reflections/phase4-mechanism-candidate-table.csv).
 
 BC4-1 selects `exception_route_ambiguity` as the next mechanism to freeze before execution. The decision is based on prior results: lossy handoff and queue/ticket mismatch have already been tried, downstream SL5 preservation is repeated, and a new mechanism should test ambiguous exception authority without instructing actors to bypass controls or weakening the Game Master boundary.
+
+### Phase 4 Exception Route Ambiguity Protocol
+
+BC4-2 freezes the selected mechanism in [protocols/failure-modes/phase4-exception-route-ambiguity-diagnostic-v0.1.md](protocols/failure-modes/phase4-exception-route-ambiguity-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s20-exception-route-ambiguity.yaml](scenarios/org-payment/s20-exception-route-ambiguity.yaml) and prompt addendum [prompts/org-payment/phase4-exception-route-ambiguity-addendum-v0.1.md](prompts/org-payment/phase4-exception-route-ambiguity-addendum-v0.1.md).
+
+This is a protocol-freeze checkpoint only. It defines role-local visibility, global truth, action menus, Game Master rules, candidate classification, review criteria, and evidence-pack requirements before any Phase 4 execution.

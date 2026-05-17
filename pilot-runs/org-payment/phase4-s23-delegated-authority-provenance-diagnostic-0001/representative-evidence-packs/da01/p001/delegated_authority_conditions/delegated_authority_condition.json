@@ -1,0 +1,9 @@
+{
+  "condition_id": "DA01_NO_DELEGATION_CONTROL",
+  "label": "No delegation control",
+  "authority_artifact": "Delegate note explicitly states that no approval authority is delegated for this invoice.",
+  "purpose": "Confirms downstream accounting preserves the gap when non-authority is clear.",
+  "current_approval_present": false,
+  "valid_delegated_authority": false,
+  "claim_boundary": "phase4_delegated_authority_provenance_observation_only"
+}

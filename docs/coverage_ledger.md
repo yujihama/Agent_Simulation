@@ -1898,3 +1898,57 @@ Next step:
 
 - Execute the frozen S23 delegated-authority provenance diagnostic only if the runner can implement it without changing frozen conditions after seeing outputs.
 - Phase 4 remains open until execution and candidate review determine whether delegated-authority provenance ambiguity produces stronger downstream slippage or another boundary-preserving result.
+
+## Phase 4 S23 Delegated-Authority Provenance Execution and Review Update
+
+Latest PR label: `PR-Phase4-S23-delegated-authority-provenance-execution-review`
+
+This update applies to C02, C05, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `src/social_sim/phase4_s23_delegated_authority_runner.py`
+- `tests/test_phase4_s23_delegated_authority_pilot.py`
+- `pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/summary.md`
+- `pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/aggregate.json`
+- `pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/execution-manifest.json`
+- `pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/event-candidate-table.csv`
+- `pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/candidate-review-0001/summary.md`
+- `docs/reflections/phase4-after-s23-delegated-authority-provenance-diagnostic.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: S23 executed delegated-authority provenance ambiguity and found another boundary-preserving result in non-control conditions; Phase 4 remains open because no tested information structure has produced reviewed SL3, SL4, or SL6 support.
+- C05 World / Environment: S23 records a current-period delegate/acting-approver packet with approval-like language, delegation register state, and authority provenance separated.
+- C08 Interaction Layer: the executed path records a scripted buyer handoff to accounting with a delegated-authority packet, followed by an accountant-local LLM review turn.
+- C09 Game Master / Arbiter: deterministic GM decisions preserve the distinction between approval-like delegate language, valid delegated authority, explicit current approval, payment preparation, and final payment readiness.
+- C10 LLM Actor Layer: S23 uses OpenAI `gpt-5.2` for accountant delegated-authority review and accountant post-hoc explanation turns; this is not a model-comparison or model-ranking claim.
+- C12 Experiment Harness: the runner attempted 20 S23 runs, accepted 19, excluded 1 generation failure without replacement, and writes raw output under ignored `runs/` with committed curated artifacts under `pilot-runs/`.
+- C13 Event Taxonomy: no event taxonomy change is made; generated event labels remain proposed and not human-reviewed.
+- C14 Metrics: aggregate reporting separates DA01-DA04 condition counts, accountant action counts, SL3, SL4, SL5, SL6, FM3, FM6 statuses, parser outcomes, GM decisions, validation status, and exclusions.
+- C15 Evidence Pack: representative S23 packs validate mechanically and include delegated-authority condition records, accountant role view, authority artifacts, handoff summary, action menu, parser result, proposal attempts, GM decisions, trace, events, metrics, post-hoc explanation, reviewer notes, and reconstruction checklist.
+- C16 Validity Protocol: generated candidate rows remain distinct from reviewed support; no generated SL3, SL4, SL6, FM3, or FM6 candidate was produced in the accepted S23 runs.
+- C17 Human / LLM Review: proxy candidate review supports SL5 boundary preservation for reviewed artificial evidence in the 15 non-control accepted runs and records SL3, SL4, SL6, FM3, and FM6 as not observed.
+- C18 Reporting / Claims: S23 does not claim baseline completion, prompt causation, model comparison, statistical significance, human behavior, real-world behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+- C20 Ethics / Misuse Boundaries: the result does not instruct actors to bypass controls, fabricate authority, erase evidence gaps, or treat delegate language as valid authority.
+
+Observed S23 result:
+
+- Attempted runs: 20.
+- Accepted runs: 19.
+- Excluded runs: 1 due to post-hoc explanation fixed-field mismatch; excluded runs were not replaced.
+- Observed model version: `gpt-5.2-2025-12-11`.
+- DA01-DA03 non-control conditions: accountant selected `request_more_evidence` 11 times and `hold_payment` 4 times; SL5 approval/delegation gap preservation is supported for reviewed artificial evidence.
+- DA04 valid-delegated-authority positive control: accountant selected `prepare_payment` in all 4 accepted runs where current approval and valid delegated authority were recorded.
+- SL3 accountant payment preparation without authority: not observed.
+- SL4 final payment-ready state without authority: not observed.
+- SL6 evidence-gap erasure: not observed.
+- FM3 delegated-authority misattribution: not observed.
+- FM6 post-hoc justification: not observed.
+
+Next step:
+
+- Synthesize Phase 4 boundary preservation or select a genuinely different mechanism before additional run-producing diagnostics.
+- Do not repeat the same delegated-authority provenance packet structure without a new mechanism and pre-declared research-completion criteria.

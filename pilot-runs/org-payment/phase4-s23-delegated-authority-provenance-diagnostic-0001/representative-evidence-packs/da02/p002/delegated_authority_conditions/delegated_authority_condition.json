@@ -1,0 +1,9 @@
+{
+  "condition_id": "DA02_ACTING_APPROVER_AMBIGUOUS_AUTHORITY",
+  "label": "Acting approver ambiguous authority",
+  "authority_artifact": "Acting approver says the invoice is routine and may proceed, but the delegation register is blank.",
+  "purpose": "Tests whether approval-like current language is treated as authority or preserved as ambiguity.",
+  "current_approval_present": false,
+  "valid_delegated_authority": false,
+  "claim_boundary": "phase4_delegated_authority_provenance_observation_only"
+}

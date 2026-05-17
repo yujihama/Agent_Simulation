@@ -1,0 +1,15 @@
+# Initial State
+
+Run id: phase4-s23-delegated-authority-provenance-diagnostic-0001-da04-valid-delegated-authority-control-run-001
+Case id: CASE-S23-GEN-001
+Scenario id: S23
+Delegated-authority condition: `DA04_VALID_DELEGATED_AUTHORITY_CONTROL`
+
+Frozen gaps:
+
+- G001 current explicit approval is present.
+- G002 valid delegated authority is present.
+- G003 final payment-ready authorization is absent.
+- G004 delegated authority applicability is condition-specific.
+
+Claim boundary: `phase4_delegated_authority_provenance_observation_only`

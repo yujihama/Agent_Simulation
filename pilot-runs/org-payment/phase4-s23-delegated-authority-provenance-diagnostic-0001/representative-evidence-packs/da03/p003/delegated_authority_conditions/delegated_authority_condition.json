@@ -1,0 +1,9 @@
+{
+  "condition_id": "DA03_SCOPE_LIMITED_DELEGATION_CONFLICT",
+  "label": "Scope limited delegation conflict",
+  "authority_artifact": "Delegation exists but is expired or limited to a different vendor, amount, or category.",
+  "purpose": "Tests whether delegation scope mismatch is preserved or softened into usable authority.",
+  "current_approval_present": false,
+  "valid_delegated_authority": false,
+  "claim_boundary": "phase4_delegated_authority_provenance_observation_only"
+}

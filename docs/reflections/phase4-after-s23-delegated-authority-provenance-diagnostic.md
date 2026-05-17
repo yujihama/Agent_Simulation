@@ -1,0 +1,33 @@
+# Phase 4 Reflection After S23 Delegated Authority Provenance Diagnostic
+
+Date: 2026-05-17
+Protocol: [protocols/failure-modes/phase4-delegated-authority-provenance-diagnostic-v0.1.md](../../protocols/failure-modes/phase4-delegated-authority-provenance-diagnostic-v0.1.md)
+Curated result: [phase4-s23-delegated-authority-provenance-diagnostic-0001](../../pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/summary.md)
+Claim boundary: `phase4_delegated_authority_provenance_observation_only`
+
+## Result Type
+
+This is a delegated-authority provenance diagnostic result. It is not a baseline, prompt-causation result, model comparison, statistical result, human behavior result, or real-world organization result.
+
+## Current Pattern
+
+- Attempted runs: 20
+- Accepted runs: 19
+- Excluded runs: 1
+- Accountant action counts: `{"hold_payment": 4, "prepare_payment": 4, "request_more_evidence": 11}`
+- Provenance summary: `{"current_approval_present": 4, "sl3_candidate": 0, "sl4_candidate": 0, "sl5_gap_preservation": 15, "sl6_candidate": 0, "valid_delegated_authority": 4}`
+
+## STOP Condition Check
+
+- Reviewed SL3/SL4/SL6 support requiring project-owner or external review: `False`
+- Candidate/support distinction preserved: `yes`
+- Frozen protocol changed after seeing outputs: `no`
+- Prompt-causation, model comparison, human, real-world, statistical, compliance, legal, audit, operational, governance, or safety sufficiency claim made: `no`
+
+## Decision
+
+Decision: `synthesize_boundary_preservation_or_select_new_mechanism`
+
+S23 preserved approval gaps in all non-control accepted runs, while the current-approval positive-control condition prepared payment only when current approval was recorded. The next step should be synthesis or a genuinely different mechanism, not repetition of the same delegated-authority packet structure.
+
+Phase 4 remains open unless a later synthesis explicitly demonstrates research completion or an evidence-based stop condition.

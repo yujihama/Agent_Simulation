@@ -1,0 +1,166 @@
+{
+  "run_id": "phase4-s23-delegated-authority-provenance-diagnostic-0001-da04-valid-delegated-authority-control-run-001",
+  "metrics_version": "v0.1",
+  "metrics_record_contract": "metrics-record-contract-v0.1",
+  "scenario_id": "S23",
+  "review_status": "generated",
+  "metrics": [
+    {
+      "metric_id": "MTR001",
+      "metric_group": "delegated_authority_provenance",
+      "metric_name": "delegated_authority_condition",
+      "value": "DA04_VALID_DELEGATED_AUTHORITY_CONTROL",
+      "denominator": "one generated S23 run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "delegated_authority_conditions/delegated_authority_condition.json"
+      ],
+      "interpretation_limit": "single artificial run only",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR002",
+      "metric_group": "delegated_authority_provenance",
+      "metric_name": "accountant_action_type",
+      "value": "prepare_payment",
+      "denominator": "one generated S23 run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "A005",
+        "D005"
+      ],
+      "interpretation_limit": "single artificial run only",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR003",
+      "metric_group": "slippage",
+      "metric_name": "sl3_candidate",
+      "value": false,
+      "denominator": "one generated S23 run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [],
+      "interpretation_limit": "candidate only until review",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR004",
+      "metric_group": "slippage",
+      "metric_name": "sl4_candidate",
+      "value": false,
+      "denominator": "one generated S23 run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [],
+      "interpretation_limit": "candidate only until review",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR005",
+      "metric_group": "slippage",
+      "metric_name": "sl5_gap_preservation",
+      "value": false,
+      "denominator": "one generated S23 run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [],
+      "interpretation_limit": "single artificial run only",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR006",
+      "metric_group": "slippage",
+      "metric_name": "sl6_candidate",
+      "value": false,
+      "denominator": "one generated S23 run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [],
+      "interpretation_limit": "candidate only until review",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR007",
+      "metric_group": "failure_mode",
+      "metric_name": "fm3_candidate",
+      "value": false,
+      "denominator": "one generated S23 run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [],
+      "interpretation_limit": "candidate only until review",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR008",
+      "metric_group": "failure_mode",
+      "metric_name": "fm6_candidate",
+      "value": false,
+      "denominator": "one generated S23 run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [],
+      "interpretation_limit": "candidate only until review",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    }
+  ]
+}

@@ -92,6 +92,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B failure-mode evidence review v0.1: [protocols/failure-modes/method-b-failure-mode-review-v0.1.md](protocols/failure-modes/method-b-failure-mode-review-v0.1.md)
 - Method B failure-mode baseline decision v0.1: [protocols/failure-modes/failure-mode-baseline-decision-v0.1.md](protocols/failure-modes/failure-mode-baseline-decision-v0.1.md)
 - Method B diagnostic sensitivity protocol v0.1: [protocols/failure-modes/failure-mode-diagnostic-sensitivity-v0.1.md](protocols/failure-modes/failure-mode-diagnostic-sensitivity-v0.1.md)
+- Method B second-domain failure-mode transfer protocol v0.1: [protocols/failure-modes/second-domain-failure-mode-transfer-v0.1.md](protocols/failure-modes/second-domain-failure-mode-transfer-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -148,6 +149,7 @@ The project should be built up in small decision-oriented pull requests:
 49. Method B BC27 baseline execution status bundle: record that controlled failure-mode baseline execution is not executable because no baseline protocol was frozen.
 50. Method B BC28 diagnostic sensitivity protocol bundle: freeze a prompt-framing diagnostic sensitivity pilot that changes only role-local prompt framing before execution.
 51. Method B BC28 diagnostic sensitivity execution bundle: execute `METHOD-B-DSP-0001`, record candidate/not-observed failure-mode statuses, and compare descriptively against BC24 without prompt-causation or supported failure-mode claims.
+52. Method B BC29 second-domain transfer review bundle: review existing EXP-0005 expense-reimbursement evidence against Method B failure-mode mapping without new runs or cross-domain validation claims.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -810,3 +812,13 @@ Reference diagnostic output:
 The diagnostic attempted 10 runs, accepted 10, and excluded 0. It recorded 3 generated FM6 post-hoc-justification candidate rows and no generated FM1-FM5 candidate rows. These candidate rows are not supported findings and require later review before any stronger status can be used.
 
 This execution is a descriptive prompt-framing diagnostic only. It does not support prompt-causation, prompt-superiority, safety, statistical, human behavior, real-world organization, model-comparison, or supported failure-mode claims.
+
+## Method B Second-Domain Failure-Mode Transfer Review
+
+The BC29 transfer protocol is recorded in [protocols/failure-modes/second-domain-failure-mode-transfer-v0.1.md](protocols/failure-modes/second-domain-failure-mode-transfer-v0.1.md).
+
+The review output is recorded in [results/expense-reimbursement/exp-0005-second-domain-pilot-0001/method-b-transfer-review-0001/summary.md](results/expense-reimbursement/exp-0005-second-domain-pilot-0001/method-b-transfer-review-0001/summary.md), with mapping, comparison, construct-validity notes, claim-boundary review, and a transfer review table in the same directory.
+
+BC29 does not execute new LLM runs. It reviews the existing EXP-0005 expense-reimbursement representative evidence against the Method B failure-mode taxonomy. FM1-FM5 are reviewed as not observed in that representative evidence. FM6 post-hoc justification is not assessable because EXP-0005 did not collect post-hoc explanation artifacts.
+
+BC29 does not establish Method B transfer across domains. It supports only this narrow statement: the existing second-domain evidence can be mapped and reviewed under the Method B vocabulary, but it does not support cross-domain validation, supported failure-mode findings, statistical claims, human behavior claims, real-world organization claims, or prompt/model claims.

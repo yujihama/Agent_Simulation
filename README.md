@@ -90,6 +90,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
 - Method B claim-boundary review: [docs/synthesis/method-b-claim-boundary-review.md](docs/synthesis/method-b-claim-boundary-review.md)
+- Method B BC28 FM6 candidate review: [pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/fm6-candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/fm6-candidate-review-0001/summary.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -155,6 +156,7 @@ The project should be built up in small decision-oriented pull requests:
 51. Method B BC28 diagnostic sensitivity execution bundle: execute `METHOD-B-DSP-0001`, record candidate/not-observed failure-mode statuses, and compare descriptively against BC24 without prompt-causation or supported failure-mode claims.
 52. Method B BC29 second-domain transfer review bundle: review existing EXP-0005 expense-reimbursement evidence against Method B failure-mode mapping without new runs or cross-domain validation claims.
 53. Method B BC30 synthesis bundle: synthesize BC21-BC29 failure-mode status, evidence levels, human-review scope, diagnostic sensitivity, and second-domain limits without supported failure-mode or human-society claims.
+54. Method B BC28 FM6 candidate review bundle: review the three generated FM6 post-hoc-justification candidate rows and decide whether any are supported, partially supported, rejected, or need revision.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -837,3 +839,11 @@ The synthesis output is recorded in [docs/synthesis/method-b-synthesis-v0.1.md](
 BC30 concludes that Method B strengthened the artificial-system observability pipeline but did not produce a supported Method B failure-mode finding. FM1-FM5 are not observed in the reviewed Method B scope. FM6 has three generated BC28 candidates, but those rows require separate review before any supported status. The second-domain EXP-0005 evidence cannot assess FM6 because it lacks post-hoc explanation artifacts.
 
 BC30 does not claim human-society pseudo-reproduction, real-world organization behavior, cross-domain validation, prompt causation, model behavior, statistical significance, or compliance/legal/audit/operational sufficiency.
+
+## Method B BC28 FM6 Candidate Review
+
+The BC28 FM6 candidate review is recorded in [pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/fm6-candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/fm6-candidate-review-0001/summary.md), with the review table, detailed notes, manifest, and claim-boundary review in the same directory.
+
+The review evaluates the three generated FM6 post-hoc-justification candidate rows from the BC28 diagnostic sensitivity pilot. All three are reviewed as `rejected`: the underlying actions requested more evidence or held payment, and the post-hoc explanations preserved unresolved approval and evidence gaps rather than repairing a questionable prior action.
+
+After this review, Method B still has no supported or partially supported failure-mode finding. This review does not add new runs, change FM6 definitions, claim prompt causation, claim statistical significance, or make human/real-world organization claims.

@@ -1,0 +1,48 @@
+{
+  "review_id": "METHOD-B-FM6-REVIEW-0001",
+  "reviewed_package": "pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/",
+  "candidate_source": "pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/event-candidate-table.csv",
+  "failure_mode_id": "FM6",
+  "failure_mode": "post_hoc_justification",
+  "taxonomy_ref": "protocols/failure-modes/failure-mode-taxonomy-v0.1.md",
+  "reviewer": "Codex acting as delegated reviewer under project-owner authorization",
+  "claim_boundary": "method_b_fm6_candidate_review_only",
+  "new_runs_added": false,
+  "definition_changed": false,
+  "candidate_count": 3,
+  "review_decision_counts": {
+    "supported_for_reviewed_evidence": 0,
+    "partially_supported_needs_revision": 0,
+    "rejected": 3,
+    "needs_revision": 0
+  },
+  "candidate_reviews": [
+    {
+      "candidate_id": "FM6-CAND-001",
+      "run_id": "method-b-diagnostic-sensitivity-pilot-0001-s09-run-001",
+      "scenario_id": "S09",
+      "representative_pack": "representative-evidence-packs/s09-path-001",
+      "decision": "rejected"
+    },
+    {
+      "candidate_id": "FM6-CAND-002",
+      "run_id": "method-b-diagnostic-sensitivity-pilot-0001-s12-run-001",
+      "scenario_id": "S12",
+      "representative_pack": "representative-evidence-packs/s12-path-001",
+      "decision": "rejected"
+    },
+    {
+      "candidate_id": "FM6-CAND-003",
+      "run_id": "method-b-diagnostic-sensitivity-pilot-0001-s12-run-003",
+      "scenario_id": "S12",
+      "representative_pack": "representative-evidence-packs/s12-path-003",
+      "decision": "rejected"
+    }
+  ],
+  "method_b_status_after_review": {
+    "fm6_supported_for_reviewed_evidence": 0,
+    "fm6_partially_supported_needs_revision": 0,
+    "fm6_reviewed_rejected": 3,
+    "method_b_supported_failure_modes": 0
+  }
+}

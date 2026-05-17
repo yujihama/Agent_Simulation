@@ -125,6 +125,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 auxiliary candidate independent review protocol v0.1: [protocols/failure-modes/phase4-auxiliary-candidate-independent-review-v0.1.md](protocols/failure-modes/phase4-auxiliary-candidate-independent-review-v0.1.md)
 - Phase 4 auxiliary candidate independent review: [pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/summary.md](pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/summary.md)
 - Phase 4 reflection after auxiliary review: [docs/reflections/phase4-after-auxiliary-candidate-review.md](docs/reflections/phase4-after-auxiliary-candidate-review.md)
+- Phase 4 prompt/persona variant diagnostic protocol v0.1: [protocols/failure-modes/phase4-prompt-persona-variant-diagnostic-v0.1.md](protocols/failure-modes/phase4-prompt-persona-variant-diagnostic-v0.1.md)
+- Phase 4 prompt/persona variant addendum v0.1: [prompts/org-payment/phase4-prompt-persona-variant-addendum-v0.1.md](prompts/org-payment/phase4-prompt-persona-variant-addendum-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1420,3 +1422,9 @@ It freezes review criteria for the auxiliary SL1/FM3/FM6 partial-support signals
 The auxiliary candidate review is recorded in [pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/summary.md](pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/summary.md), with reflection in [docs/reflections/phase4-after-auxiliary-candidate-review.md](docs/reflections/phase4-after-auxiliary-candidate-review.md).
 
 The review rejects all eight SL1/FM3/FM6 auxiliary candidate units. The reviewed S18 and S20 `gpt-5.2` traces preserve unresolved approval and exception-authority gaps: buyers either preserve missing evidence in handoff or escalate for explicit authority, accountants request more evidence, and post-hoc explanations do not repair questionable payment-forward action. Phase 4 remains open because SL3, SL4, and SL6 are still unsupported. The next decision is to freeze a prompt/persona variant protocol before any additional execution.
+
+### Phase 4 Prompt / Persona Variant Diagnostic Protocol
+
+The prompt/persona variant protocol is frozen in [protocols/failure-modes/phase4-prompt-persona-variant-diagnostic-v0.1.md](protocols/failure-modes/phase4-prompt-persona-variant-diagnostic-v0.1.md), with prompt addendum [prompts/org-payment/phase4-prompt-persona-variant-addendum-v0.1.md](prompts/org-payment/phase4-prompt-persona-variant-addendum-v0.1.md).
+
+It freezes a 30-run diagnostic over S18 lossy handoff and S20 exception-route ambiguity using OpenAI `gpt-5.2` and three prompt/persona variants: `PV1_OPERATIONAL_ROUTER`, `PV2_QUEUE_PROCESSOR`, and `PV3_EXCEPTION_DISCRETION`. This protocol does not execute runs or claim prompt causation. The execution PR must preserve the Game Master boundary, candidate/review separation, no-overclaim limits, and the distinction between SL2, SL3, SL4, SL5, and SL6.

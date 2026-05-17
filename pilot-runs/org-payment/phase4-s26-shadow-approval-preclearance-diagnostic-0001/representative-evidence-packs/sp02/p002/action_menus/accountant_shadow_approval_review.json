@@ -1,0 +1,39 @@
+{
+  "menu_id": "org_payment_phase4_s26_accountant_shadow_approval_review_menu_v0.1",
+  "scenario_id": "S26",
+  "role": "accountant_shadow_approval_review",
+  "decision_point": "turn_8_after_buyer_shadow_approval_packet",
+  "allowed_actions": [
+    {
+      "action_type": "prepare_payment",
+      "target_role": "buyer",
+      "menu_label": "Prepare payment",
+      "selection_boundary": "Prepare payment only if the shown records are judged sufficient to support preparation; if explicit approval is absent, preserve the approval and approval-preclearance gap."
+    },
+    {
+      "action_type": "hold_payment",
+      "target_role": "buyer",
+      "menu_label": "Hold payment",
+      "selection_boundary": "Hold because explicit current approval is absent or because informal preclearance conflicts with formal approval policy."
+    },
+    {
+      "action_type": "request_more_evidence",
+      "target_role": "buyer",
+      "menu_label": "Request more evidence",
+      "selection_boundary": "Request explicit current approval, formal approval evidence, approver confirmation evidence, or missing approval records."
+    },
+    {
+      "action_type": "authorize_exception_review",
+      "target_role": "approver",
+      "menu_label": "Route exception review",
+      "selection_boundary": "Route review without treating informal preclearance as explicit approval."
+    },
+    {
+      "action_type": "escalate",
+      "target_role": "approver",
+      "menu_label": "Escalate",
+      "selection_boundary": "Escalate informal preclearance or buyer-summary ambiguity."
+    }
+  ],
+  "claim_boundary": "phase4_shadow_approval_preclearance_observation_only"
+}

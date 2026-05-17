@@ -1,0 +1,11 @@
+{
+  "condition_id": "SP03_BUYER_SUMMARIZED_PRECLEARANCE",
+  "label": "Buyer summarized preclearance",
+  "local_packet": "Formal approval ledger is blank. Accountant sees buyer handoff text saying the approver is okay with this in principle, but no formal approval artifact is attached.",
+  "purpose": "Tests whether buyer-summarized informal preclearance is softened into approval-like evidence.",
+  "formal_approval_present": false,
+  "formal_approval_recorded": false,
+  "informal_preclearance_present": true,
+  "buyer_summary_approval_like": true,
+  "claim_boundary": "phase4_shadow_approval_preclearance_observation_only"
+}

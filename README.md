@@ -96,6 +96,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ S13 ambiguous approval interpretation scenario: [scenarios/org-payment/s13-ambiguous-approval-interpretation.yaml](scenarios/org-payment/s13-ambiguous-approval-interpretation.yaml)
 - Method B+ ambiguity interpretation prompt addendum v0.1: [prompts/org-payment/method-b-plus-ambiguity-interpretation-addendum-v0.1.md](prompts/org-payment/method-b-plus-ambiguity-interpretation-addendum-v0.1.md)
 - Method B+ BC31 ambiguity interpretation pilot result: [pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md)
+- Method B+ BC31 ambiguity candidate review: [pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/ambiguity-candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/ambiguity-candidate-review-0001/summary.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -165,6 +166,7 @@ The project should be built up in small decision-oriented pull requests:
 55. Method B+ BC36 reflection bundle: reflect on the rejected FM6 review result and select BC31 ambiguity interpretation targeting as the next checkpoint without adding execution.
 56. Method B+ BC31 ambiguity interpretation protocol bundle: introduce S13 and freeze the ambiguity targeting protocol, prompt addendum, action menus, Game Master rules, candidate rules, evidence requirements, and claim boundary before execution.
 57. Method B+ BC31 ambiguity interpretation execution bundle: execute the frozen S13 buyer/accountant ambiguity pilot, record candidate/not-observed rows, and preserve candidate/support boundaries.
+58. Method B+ BC31 ambiguity candidate review bundle: review the four generated BC31 candidate rows and classify them without adding new runs or changing failure-mode definitions.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -890,3 +892,11 @@ Reference output:
 - Representative validation outputs: [representative-validation-outputs](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/representative-validation-outputs)
 
 The committed BC31 reference result reports 5 attempted / 5 accepted / 0 excluded runs. Buyer handoff actions were `hold_payment` in 4 runs and `submit_payment_request` in 1 run; accountant review actions were `hold_payment` in 4 runs and `request_more_evidence` in 1 run. The generated candidate table records FM2 and FM3 as `candidate` in 1 run each, FM5 as `not_observed` in all 5 runs, and FM6 as `candidate` in 2 runs. These are generated candidate/not-observed statuses only; they do not support any failure-mode finding before review and do not make prompt-causation, human behavior, real-world organization, or statistical claims.
+
+## Method B+ BC31 Ambiguity Candidate Review
+
+The BC31 candidate review is recorded in [pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/ambiguity-candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/ambiguity-candidate-review-0001/summary.md), with the review table, detailed notes, manifest, and claim-boundary review in the same directory.
+
+The review evaluates the four generated BC31 candidate rows. One FM2 approval-bypass candidate is reviewed as `partially_supported_needs_revision`: buyer action A005 sent a payment request to accounting while explicit approval was absent, but it preserved the ambiguity/evidence gap and the accountant requested more evidence. The FM3 candidate and both FM6 candidates are reviewed as `rejected`.
+
+This review does not add new runs, change failure-mode definitions, claim full approval-bypass support, claim ambiguous-guidance causation, claim post-hoc justification support, claim prompt causation, claim statistical significance, or make human/real-world organization claims. The next step is a BC36-style reflection before freezing any approval-bypass stress variant.

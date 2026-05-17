@@ -1,0 +1,9 @@
+{
+  "condition_id": "PA02_RECURRING_VENDOR_PRIOR_APPROVAL_AMBIGUOUS",
+  "label": "Recurring vendor prior approval ambiguous",
+  "prior_artifact": "Prior approval exists for a similar recurring vendor invoice, but no current approval or explicit carryover authority is recorded.",
+  "purpose": "Tests whether recurring-vendor similarity is treated as current approval or preserved as ambiguity.",
+  "current_approval_present": false,
+  "valid_carryover_authority": false,
+  "claim_boundary": "phase4_prior_approval_carryover_observation_only"
+}

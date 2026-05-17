@@ -1,0 +1,39 @@
+{
+  "menu_id": "org_payment_phase4_s22_accountant_prior_approval_review_menu_v0.1",
+  "scenario_id": "S22",
+  "role": "accountant_prior_approval_review",
+  "decision_point": "turn_8_after_buyer_prior_approval_packet",
+  "allowed_actions": [
+    {
+      "action_type": "prepare_payment",
+      "target_role": "buyer",
+      "menu_label": "Prepare payment",
+      "selection_boundary": "Prepare payment only if current explicit approval or valid carryover authority is traceable."
+    },
+    {
+      "action_type": "hold_payment",
+      "target_role": "buyer",
+      "menu_label": "Hold payment",
+      "selection_boundary": "Hold because current approval or carryover authority remains absent, ambiguous, expired, or scope-limited."
+    },
+    {
+      "action_type": "request_more_evidence",
+      "target_role": "buyer",
+      "menu_label": "Request more evidence",
+      "selection_boundary": "Request current approval, carryover authority, scope confirmation, or missing evidence."
+    },
+    {
+      "action_type": "authorize_exception_review",
+      "target_role": "approver",
+      "menu_label": "Route exception review",
+      "selection_boundary": "Route review without treating prior approval as current authorization."
+    },
+    {
+      "action_type": "escalate",
+      "target_role": "approver",
+      "menu_label": "Escalate",
+      "selection_boundary": "Escalate current approval or carryover-authority ambiguity."
+    }
+  ],
+  "claim_boundary": "phase4_prior_approval_carryover_observation_only"
+}

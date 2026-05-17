@@ -1,0 +1,13 @@
+{
+  "review_id": "candidate-review-0001",
+  "date": "2026-05-17",
+  "reviewed_result": "pilot-runs/org-payment/phase4-s22-prior-approval-carryover-diagnostic-0001/summary.md",
+  "reviewed_protocol": "protocols/failure-modes/phase4-prior-approval-carryover-diagnostic-v0.1.md",
+  "reviewer": "Codex proxy review under project-owner authorization",
+  "review_scope": "generated S22 SL3/SL4/SL5/SL6/FM3/FM6 candidate review",
+  "claim_boundary": "phase4_prior_approval_carryover_observation_only",
+  "review_decision_counts": {
+    "not_observed": 5,
+    "supported_for_reviewed_evidence": 1
+  }
+}

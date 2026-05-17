@@ -107,6 +107,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ S17 control slippage progression diagnostic result: [pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/summary.md)
 - Method B+ S17 control slippage progression candidate review: [pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/candidate-review-0001/summary.md)
 - Method B+ BC36 reflection after S17 control slippage review: [docs/reflections/method-b-plus-bc36-after-slippage-progression-review.md](docs/reflections/method-b-plus-bc36-after-slippage-progression-review.md)
+- Method B+ mechanism iteration synthesis v0.1: [docs/synthesis/method-b-plus-mechanism-iteration-synthesis-v0.1.md](docs/synthesis/method-b-plus-mechanism-iteration-synthesis-v0.1.md)
 - Method B+ BC36 reflection after BC31 review: [docs/reflections/method-b-plus-bc36-after-bc31-review.md](docs/reflections/method-b-plus-bc36-after-bc31-review.md)
 - Method B+ BC37-C approval bypass stress protocol v0.1: [protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md](protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md)
 - Method B+ S14 approval bypass stress scenario: [scenarios/org-payment/s14-approval-bypass-stress.yaml](scenarios/org-payment/s14-approval-bypass-stress.yaml)
@@ -1166,3 +1167,9 @@ python -m social_sim execute-method-b-plus-lossy-handoff-diagnostic `
 ```
 
 The committed reference result reports 5 attempted / 5 accepted / 0 excluded runs. Buyer selected `submit_payment_request` in 3 runs and `hold_payment` in 2 runs. Accountant selected `hold_payment` in all 5 runs. The candidate review records SL2 buyer payment-forward handoff as `supported_for_reviewed_evidence` for 3 artificial runs and SL5 evidence-gap preservation as `supported_for_reviewed_evidence` for all 5 runs. SL3, SL4, SL6, FM1, FM3, and FM6 were not observed. This is not a controlled baseline and does not claim causation, human behavior, real-world organization behavior, statistical significance, or compliance/legal/audit/operational sufficiency.
+
+### Method B+ Mechanism Iteration Synthesis
+
+The mechanism-level synthesis after S18 is recorded in [docs/synthesis/method-b-plus-mechanism-iteration-synthesis-v0.1.md](docs/synthesis/method-b-plus-mechanism-iteration-synthesis-v0.1.md).
+
+It records that lossy handoff added useful reviewed artificial evidence at the SL2 handoff boundary, but did not produce SL3 accountant payment preparation, SL4 final payment-ready state, SL6 evidence-gap erasure, FM1 responsibility diffusion, FM3 ambiguous-guidance misinterpretation, or FM6 post-hoc justification. It recommends no baseline and no repeat of S18 as-is. The next recommended mechanism is a queue/ticket state mismatch diagnostic, to be frozen in a separate protocol PR before any execution.

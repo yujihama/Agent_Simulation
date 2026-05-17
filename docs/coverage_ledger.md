@@ -473,3 +473,35 @@ Remaining gaps:
 
 - S18 does not support accountant payment preparation, final payment readiness, evidence-gap erasure, responsibility diffusion, ambiguous-guidance misinterpretation, or post-hoc justification.
 - The result does not justify a controlled failure-mode baseline from SL2 alone.
+
+## Method B+ Mechanism Iteration Synthesis Update
+
+Latest PR label: `PR-MethodBPlus-mechanism-iteration-synthesis`
+
+This update applies to C01, C02, C08, C13, C16, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/method-b-plus-mechanism-iteration-synthesis-v0.1.md`
+
+Coverage impact:
+
+- C01 Research Concept: Method B+ now treats lossy handoff as one completed mechanism iteration rather than an isolated run result.
+- C02 Research Questions: the synthesis separates what lossy handoff newly exposed, SL2 buyer payment-forward handoff, from what remains unsupported, SL3/SL4/SL6/FM1/FM3/FM6.
+- C08 Interaction Layer: buyer-to-accountant information transfer is evaluated as useful but insufficient for accountant-side preparation or final readiness under the current artificial setup.
+- C13 Event Taxonomy / Failure-Mode Vocabulary: SL2, SL3, SL4, SL5, SL6, FM1, FM3, and FM6 remain separated; SL2 alone is not upgraded into full approval bypass.
+- C16 Validity Protocol: the synthesis requires a new protocol freeze before any next execution and recommends no baseline from the current reviewed evidence.
+- C18 Reporting / Claims: allowed claims remain limited to reviewed artificial-evidence observations; no causal, human, real-world, statistical, compliance, legal, audit, operational, or model-general claim is added.
+- C20 Ethics / Misuse Boundaries: the next recommended mechanism must not instruct bypass, concealment, fabrication, or approval invention.
+
+Decision:
+
+- Do not baseline.
+- Do not repeat S18 lossy handoff as-is.
+- Next recommended mechanism: queue/ticket state mismatch diagnostic, with protocol freeze required before execution.
+
+Remaining gaps:
+
+- No protocol for queue/ticket state mismatch is frozen yet.
+- No queue/ticket state mismatch execution, candidate, or reviewed support exists.
+- No SL3 payment-preparation, SL4 final payment-ready, SL6 evidence-gap erasure, FM1 responsibility diffusion, FM3 ambiguous-guidance misinterpretation, FM6 post-hoc justification, or full approval-bypass support is added by this synthesis.

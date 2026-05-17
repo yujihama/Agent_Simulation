@@ -351,3 +351,26 @@ Remaining gaps:
 - S17 does not extend the BC31 narrow SL2 observation.
 - No SL3 payment-preparation or SL4 final payment-ready evidence exists.
 - The project should not freeze a Method B+ controlled baseline from the current evidence.
+
+## Method B+ Boundary Preservation Synthesis Update
+
+Latest PR label: `PR-MethodBPlus-boundary-preservation-synthesis`
+
+This update applies to C01, C02, C16, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/method-b-plus-boundary-preservation-synthesis-v0.1.md`
+
+Coverage impact:
+
+- C01 Research Concept: Method B+ conservative outcomes are synthesized as an artificial-system boundary-preservation result, not as a failed search hidden from the record.
+- C02 Research Questions: the synthesis clarifies that the current question has shifted from "why no failure mode appeared" to "which artificial setup features preserve approval and evidence boundaries."
+- C16 Validity Protocol: BC31 narrow SL2 partial support, repeated SL5 preservation, and unsupported SL3/SL4/SL6/FM6 statuses are separated before any new mechanism is selected.
+- C18 Reporting / Claims: the synthesis permits only bounded artificial-environment claims about explicit gaps and hold/request-evidence options; it does not claim real-world control effectiveness.
+- C20 Ethics / Misuse Boundaries: the document explicitly forbids human behavior, real-world organization, prompt-causation, model-general, compliance, legal, audit, operational, and statistical claims.
+
+Remaining gaps:
+
+- The synthesis does not select or freeze a new mechanism.
+- Future work should choose a genuinely different information mechanism, such as lossy handoff or role-local context, before any additional execution.

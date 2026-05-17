@@ -27,6 +27,8 @@ from .method_b_plus_control_slippage_runner import DEFAULT_BATCH_ID as DEFAULT_M
 from .method_b_plus_control_slippage_runner import run_method_b_plus_control_slippage_progression_diagnostic_pilot
 from .method_b_plus_lossy_handoff_runner import DEFAULT_BATCH_ID as DEFAULT_METHOD_B_PLUS_LOSSY_HANDOFF_BATCH_ID
 from .method_b_plus_lossy_handoff_runner import run_method_b_plus_lossy_handoff_diagnostic_pilot
+from .method_b_plus_queue_ticket_runner import DEFAULT_BATCH_ID as DEFAULT_METHOD_B_PLUS_QUEUE_TICKET_BATCH_ID
+from .method_b_plus_queue_ticket_runner import run_method_b_plus_queue_ticket_diagnostic_pilot
 from .method_b_plus_responsibility_runner import DEFAULT_BC32_BATCH_ID as DEFAULT_METHOD_B_PLUS_RESPONSIBILITY_BATCH_ID
 from .method_b_plus_responsibility_runner import run_bc32_coordination_pilot
 from .multi_role_baseline_runner import DEFAULT_BASELINE_BATCH_ID as DEFAULT_MULTI_ROLE_BASELINE_BATCH_ID
@@ -671,6 +673,33 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="Optional dotenv file containing OPENAI_API_KEY.",
     )
+    method_b_plus_queue_ticket = subparsers.add_parser(
+        "execute-method-b-plus-queue-ticket-state-mismatch-diagnostic",
+        help="Execute Method B+ S19 queue/ticket state mismatch diagnostic and write curated results.",
+    )
+    method_b_plus_queue_ticket.add_argument(
+        "--output",
+        required=True,
+        type=Path,
+        help="Raw S19 queue/ticket state mismatch diagnostic output directory under ignored runs/. Must be new or empty.",
+    )
+    method_b_plus_queue_ticket.add_argument(
+        "--curated-output",
+        required=True,
+        type=Path,
+        help="Curated S19 queue/ticket state mismatch diagnostic output directory. Must be new or empty.",
+    )
+    method_b_plus_queue_ticket.add_argument(
+        "--batch-id",
+        default=DEFAULT_METHOD_B_PLUS_QUEUE_TICKET_BATCH_ID,
+        help="Stable batch id prefix used for per-run ids.",
+    )
+    method_b_plus_queue_ticket.add_argument(
+        "--dotenv",
+        default=Path(".env"),
+        type=Path,
+        help="Optional dotenv file containing OPENAI_API_KEY.",
+    )
 
     args = parser.parse_args(argv)
     if args.command == "generate-s04":
@@ -1010,6 +1039,22 @@ def main(argv: list[str] | None = None) -> int:
             parser.error(f"curated output directory is not empty: {curated_output}")
         provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model="gpt-4.1-mini")
         run_method_b_plus_lossy_handoff_diagnostic_pilot(
+            output_root=output,
+            curated_output=curated_output,
+            provider=provider,
+            batch_id=args.batch_id,
+        )
+        print(curated_output)
+        return 0
+    if args.command == "execute-method-b-plus-queue-ticket-state-mismatch-diagnostic":
+        output = args.output
+        curated_output = args.curated_output
+        if output.exists() and any(output.iterdir()):
+            parser.error(f"output directory is not empty: {output}")
+        if curated_output.exists() and any(curated_output.iterdir()):
+            parser.error(f"curated output directory is not empty: {curated_output}")
+        provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model="gpt-4.1-mini")
+        run_method_b_plus_queue_ticket_diagnostic_pilot(
             output_root=output,
             curated_output=curated_output,
             provider=provider,

@@ -111,6 +111,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ queue/ticket state mismatch diagnostic protocol v0.1: [protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md](protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md)
 - Method B+ S19 queue/ticket state mismatch scenario: [scenarios/org-payment/s19-queue-ticket-state-mismatch-control-slippage.yaml](scenarios/org-payment/s19-queue-ticket-state-mismatch-control-slippage.yaml)
 - Method B+ queue/ticket state mismatch prompt addendum v0.1: [prompts/org-payment/method-b-plus-queue-ticket-state-mismatch-addendum-v0.1.md](prompts/org-payment/method-b-plus-queue-ticket-state-mismatch-addendum-v0.1.md)
+- Method B+ S19 queue/ticket state mismatch diagnostic result: [pilot-runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001/summary.md)
+- Method B+ S19 queue/ticket state mismatch candidate review: [pilot-runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001/candidate-review-0001/summary.md)
+- Method B+ BC36 reflection after S19 queue/ticket review: [docs/reflections/method-b-plus-bc36-after-queue-ticket-state-mismatch-review.md](docs/reflections/method-b-plus-bc36-after-queue-ticket-state-mismatch-review.md)
 - Method B+ BC36 reflection after BC31 review: [docs/reflections/method-b-plus-bc36-after-bc31-review.md](docs/reflections/method-b-plus-bc36-after-bc31-review.md)
 - Method B+ BC37-C approval bypass stress protocol v0.1: [protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md](protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md)
 - Method B+ S14 approval bypass stress scenario: [scenarios/org-payment/s14-approval-bypass-stress.yaml](scenarios/org-payment/s14-approval-bypass-stress.yaml)
@@ -1182,3 +1185,19 @@ It records that lossy handoff added useful reviewed artificial evidence at the S
 The frozen queue/ticket state mismatch protocol is recorded in [protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md](protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md). It introduces [S19 queue/ticket state mismatch control slippage](scenarios/org-payment/s19-queue-ticket-state-mismatch-control-slippage.yaml) and the [queue/ticket state mismatch prompt addendum](prompts/org-payment/method-b-plus-queue-ticket-state-mismatch-addendum-v0.1.md).
 
 This protocol freezes a future diagnostic for testing whether a workflow status or queue label that implies processing readiness displaces a blank approval field or unresolved exception field. It does not execute runs or claim that ticket-state mismatch, control slippage, approval bypass, evidence-gap erasure, responsibility diffusion, or post-hoc justification has occurred.
+
+### Method B+ S19 Queue/Ticket State Mismatch Diagnostic
+
+The executed S19 queue/ticket state mismatch diagnostic result is recorded in [pilot-runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001/summary.md), with candidate review in [pilot-runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001/candidate-review-0001/summary.md) and reflection in [docs/reflections/method-b-plus-bc36-after-queue-ticket-state-mismatch-review.md](docs/reflections/method-b-plus-bc36-after-queue-ticket-state-mismatch-review.md).
+
+Local generation command:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-method-b-plus-queue-ticket-state-mismatch-diagnostic `
+  --output runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-local/raw `
+  --curated-output runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-local/curated `
+  --dotenv .env
+```
+
+The committed reference result reports 5 attempted / 5 accepted / 0 excluded runs. Buyer selected `hold_payment` in all 5 runs and accountant selected `hold_payment` in all 5 runs. The candidate review records SL5 evidence-gap preservation as `supported_for_reviewed_evidence` for all 5 artificial runs. SL2, SL3, SL4, SL6, FM1, FM3, and FM6 were not observed. This is not a controlled baseline and does not claim causation, human behavior, real-world organization behavior, statistical significance, or compliance/legal/audit/operational sufficiency.

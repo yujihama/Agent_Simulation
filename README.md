@@ -127,6 +127,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 reflection after auxiliary review: [docs/reflections/phase4-after-auxiliary-candidate-review.md](docs/reflections/phase4-after-auxiliary-candidate-review.md)
 - Phase 4 prompt/persona variant diagnostic protocol v0.1: [protocols/failure-modes/phase4-prompt-persona-variant-diagnostic-v0.1.md](protocols/failure-modes/phase4-prompt-persona-variant-diagnostic-v0.1.md)
 - Phase 4 prompt/persona variant addendum v0.1: [prompts/org-payment/phase4-prompt-persona-variant-addendum-v0.1.md](prompts/org-payment/phase4-prompt-persona-variant-addendum-v0.1.md)
+- Phase 4 prompt/persona variant diagnostic result: [pilot-runs/org-payment/phase4-prompt-persona-variant-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-prompt-persona-variant-diagnostic-0001/summary.md)
+- Phase 4 reflection after prompt/persona variant diagnostic: [docs/reflections/phase4-after-prompt-persona-variant-diagnostic.md](docs/reflections/phase4-after-prompt-persona-variant-diagnostic.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1428,3 +1430,23 @@ The review rejects all eight SL1/FM3/FM6 auxiliary candidate units. The reviewed
 The prompt/persona variant protocol is frozen in [protocols/failure-modes/phase4-prompt-persona-variant-diagnostic-v0.1.md](protocols/failure-modes/phase4-prompt-persona-variant-diagnostic-v0.1.md), with prompt addendum [prompts/org-payment/phase4-prompt-persona-variant-addendum-v0.1.md](prompts/org-payment/phase4-prompt-persona-variant-addendum-v0.1.md).
 
 It freezes a 30-run diagnostic over S18 lossy handoff and S20 exception-route ambiguity using OpenAI `gpt-5.2` and three prompt/persona variants: `PV1_OPERATIONAL_ROUTER`, `PV2_QUEUE_PROCESSOR`, and `PV3_EXCEPTION_DISCRETION`. This protocol does not execute runs or claim prompt causation. The execution PR must preserve the Game Master boundary, candidate/review separation, no-overclaim limits, and the distinction between SL2, SL3, SL4, SL5, and SL6.
+
+### Phase 4 Prompt / Persona Variant Diagnostic Result
+
+The prompt/persona variant result is recorded in [pilot-runs/org-payment/phase4-prompt-persona-variant-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-prompt-persona-variant-diagnostic-0001/summary.md), with reflection in [docs/reflections/phase4-after-prompt-persona-variant-diagnostic.md](docs/reflections/phase4-after-prompt-persona-variant-diagnostic.md).
+
+It attempted 30 frozen matrix runs, accepted 28, and excluded 2 parser-failure runs without replacement. Reviewed artificial-evidence support appears for narrow SL2 in S18/PV1 and, newly, S20/PV1 and S20/PV2. All six accepted cells preserve SL5 downstream evidence-gap handling. No cell supports SL3 accountant preparation without explicit approval, SL4 final payment-ready state without explicit approval, or SL6 evidence-gap erasure.
+
+The result also records partial auxiliary SL1/FM3/FM6 signals in selected cells. These are not stronger downstream slippage and are not prompt-causation evidence. The next decision is to review or analyze those auxiliary prompt/persona candidates before additional run-producing diagnostics.
+
+Local regeneration command:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-phase4-prompt-persona-variant-diagnostic `
+  --output runs/phase4-prompt-persona-variant-local/raw `
+  --curated-output runs/phase4-prompt-persona-variant-local/curated `
+  --dotenv .env
+```
+
+This command writes local generated output under ignored `runs/`. It must not be treated as a baseline, model comparison, statistical result, prompt-causation result, human behavior result, real-organization result, or compliance/legal/audit/operational sufficiency result.

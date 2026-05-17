@@ -1,0 +1,24 @@
+{
+  "review_id": "candidate-review-0001",
+  "pilot_id": "PHASE4-PROMPT-PERSONA-VARIANT-DIAGNOSTIC-0001",
+  "protocol_ref": "protocols/failure-modes/phase4-prompt-persona-variant-diagnostic-v0.1.md",
+  "reviewed_categories": [
+    "SL1",
+    "SL2",
+    "SL3",
+    "SL4",
+    "SL5",
+    "SL6",
+    "FM1",
+    "FM3",
+    "FM6"
+  ],
+  "review_decision_counts": {
+    "not_observed": 37,
+    "partially_supported_needs_revision": 5,
+    "supported_for_reviewed_evidence": 9
+  },
+  "claim_boundary": "phase4_prompt_persona_variant_observation_only",
+  "reviewer": "Codex proxy review under project-owner authorization",
+  "review_scope": "artificial evidence package review only; no human, real-world, statistical, prompt-causation, model-general, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+}

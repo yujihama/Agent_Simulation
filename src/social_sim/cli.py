@@ -33,6 +33,8 @@ from .phase4_exception_route_runner import DEFAULT_BATCH_ID as DEFAULT_PHASE4_EX
 from .phase4_exception_route_runner import run_phase4_exception_route_ambiguity_diagnostic_pilot
 from .phase4_info_structure_model_explorer import DEFAULT_BATCH_ID as DEFAULT_PHASE4_INFO_STRUCTURE_MODEL_BATCH_ID
 from .phase4_info_structure_model_explorer import run_phase4_information_structure_model_exploration
+from .phase4_prompt_persona_variant_runner import DEFAULT_BATCH_ID as DEFAULT_PHASE4_PROMPT_PERSONA_VARIANT_BATCH_ID
+from .phase4_prompt_persona_variant_runner import run_phase4_prompt_persona_variant_diagnostic
 from .method_b_plus_responsibility_runner import DEFAULT_BC32_BATCH_ID as DEFAULT_METHOD_B_PLUS_RESPONSIBILITY_BATCH_ID
 from .method_b_plus_responsibility_runner import run_bc32_coordination_pilot
 from .multi_role_baseline_runner import DEFAULT_BASELINE_BATCH_ID as DEFAULT_MULTI_ROLE_BASELINE_BATCH_ID
@@ -758,6 +760,33 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="Optional dotenv file containing OPENAI_API_KEY.",
     )
+    phase4_prompt_persona_variant = subparsers.add_parser(
+        "execute-phase4-prompt-persona-variant-diagnostic",
+        help="Execute the frozen Phase 4 prompt/persona variant diagnostic and write curated results.",
+    )
+    phase4_prompt_persona_variant.add_argument(
+        "--output",
+        required=True,
+        type=Path,
+        help="Raw prompt/persona variant output directory under ignored runs/. Must be new or empty.",
+    )
+    phase4_prompt_persona_variant.add_argument(
+        "--curated-output",
+        required=True,
+        type=Path,
+        help="Curated Phase 4 prompt/persona variant output directory. Must be new or empty.",
+    )
+    phase4_prompt_persona_variant.add_argument(
+        "--batch-id",
+        default=DEFAULT_PHASE4_PROMPT_PERSONA_VARIANT_BATCH_ID,
+        help="Stable batch id prefix used for per-cell run ids.",
+    )
+    phase4_prompt_persona_variant.add_argument(
+        "--dotenv",
+        default=Path(".env"),
+        type=Path,
+        help="Optional dotenv file containing OPENAI_API_KEY.",
+    )
 
     args = parser.parse_args(argv)
     if args.command == "generate-s04":
@@ -1144,6 +1173,21 @@ def main(argv: list[str] | None = None) -> int:
         if curated_output.exists() and any(curated_output.iterdir()):
             parser.error(f"curated output directory is not empty: {curated_output}")
         run_phase4_information_structure_model_exploration(
+            output_root=output,
+            curated_output=curated_output,
+            dotenv_path=args.dotenv,
+            batch_id=args.batch_id,
+        )
+        print(curated_output)
+        return 0
+    if args.command == "execute-phase4-prompt-persona-variant-diagnostic":
+        output = args.output
+        curated_output = args.curated_output
+        if output.exists() and any(output.iterdir()):
+            parser.error(f"output directory is not empty: {output}")
+        if curated_output.exists() and any(curated_output.iterdir()):
+            parser.error(f"curated output directory is not empty: {curated_output}")
+        run_phase4_prompt_persona_variant_diagnostic(
             output_root=output,
             curated_output=curated_output,
             dotenv_path=args.dotenv,

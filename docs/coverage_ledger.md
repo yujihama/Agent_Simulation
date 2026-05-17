@@ -1262,3 +1262,30 @@ Reopen decision:
 - Phase 4 delivery artifacts remain valid.
 - Phase 4 research is open / incomplete.
 - Proceed to a research-completion-aware exploration protocol freeze before any additional run-producing work.
+
+## Phase 4 Information-Structure And Model Exploration Protocol Update
+
+Latest PR label: `PR-Phase4-information-structure-model-protocol`
+
+This update applies to C02, C08, C10, C12, C16, C18, and C20.
+
+Evidence added:
+
+- `protocols/failure-modes/phase4-information-structure-model-exploration-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: the next reopened Phase 4 question is frozen as a matrix over already-tested information structures and requested model conditions.
+- C08 Interaction Layer: S18 lossy handoff, S19 queue/ticket mismatch, and S20 exception-route ambiguity are compared without changing their frozen interaction protocols.
+- C10 LLM Actor Layer: requested OpenAI model identifiers are frozen as exploratory conditions, with unavailable model cells recorded rather than silently substituted.
+- C12 Experiment Harness: a future orchestration runner may call existing frozen diagnostic runners and aggregate matrix results, but this PR adds no execution.
+- C16 Validity Protocol: delivery completion, research progress, and Phase 4 research completion criteria are defined before execution.
+- C18 Reporting / Claims: model variation is explicitly not model comparison, model ranking, prompt causation, statistical inference, or general LLM behavior evidence.
+- C20 Ethics / Misuse Boundaries: no human, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim is allowed.
+
+Protocol decision:
+
+- Phase 4 information-structure/model exploration is frozen.
+- Proceed to execution only if the matrix can be run without changing S18/S19/S20 frozen protocols or substituting unavailable models.

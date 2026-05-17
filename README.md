@@ -91,6 +91,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
 - Method B failure-mode evidence review v0.1: [protocols/failure-modes/method-b-failure-mode-review-v0.1.md](protocols/failure-modes/method-b-failure-mode-review-v0.1.md)
 - Method B failure-mode baseline decision v0.1: [protocols/failure-modes/failure-mode-baseline-decision-v0.1.md](protocols/failure-modes/failure-mode-baseline-decision-v0.1.md)
+- Method B diagnostic sensitivity protocol v0.1: [protocols/failure-modes/failure-mode-diagnostic-sensitivity-v0.1.md](protocols/failure-modes/failure-mode-diagnostic-sensitivity-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -145,6 +146,7 @@ The project should be built up in small decision-oriented pull requests:
 47. Method B BC25 failure-mode evidence review bundle: review BC24 candidate/not-observed material, keep candidate/support boundaries intact, and record that no Method B failure mode is supported in the curated representative evidence.
 48. Method B BC26 baseline decision bundle: record that no failure-mode baseline protocol can be frozen because BC25 produced no supported or partially supported Method B failure-mode target.
 49. Method B BC27 baseline execution status bundle: record that controlled failure-mode baseline execution is not executable because no baseline protocol was frozen.
+50. Method B BC28 diagnostic sensitivity protocol bundle: freeze a prompt-framing diagnostic sensitivity pilot that changes only role-local prompt framing before execution.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -776,3 +778,11 @@ This is a no-baseline checkpoint decision, not a claim that failure modes are ab
 BC27 execution status is recorded in [pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/failure-mode-review-0001/baseline-execution-status.md](pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/failure-mode-review-0001/baseline-execution-status.md).
 
 No BC27 runs were attempted or accepted. This is because BC26 did not freeze a controlled failure-mode baseline protocol. This status note prevents a silent skip; it does not claim failure-mode absence or any baseline result.
+
+## Method B Diagnostic Sensitivity Protocol
+
+The BC28 diagnostic sensitivity protocol is recorded in [protocols/failure-modes/failure-mode-diagnostic-sensitivity-v0.1.md](protocols/failure-modes/failure-mode-diagnostic-sensitivity-v0.1.md). It freezes `METHOD-B-DSP-0001`, a prompt-framing diagnostic for S09/S12 using the same role setup, model, action menus, Game Master rules, post-hoc explanation policy, evidence-pack requirements, event taxonomy, metrics, and candidate rules as BC24.
+
+The only frozen diagnostic change is the role-local framing addendum in [prompts/org-payment/method-b-diagnostic-role-local-framing-addendum-v0.1.md](prompts/org-payment/method-b-diagnostic-role-local-framing-addendum-v0.1.md).
+
+BC28 does not execute the diagnostic and does not add results. It does not claim that prompt framing causes or prevents Method B failure-mode candidates.

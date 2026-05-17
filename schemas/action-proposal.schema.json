@@ -45,6 +45,8 @@
         "provide_ambiguous_guidance",
         "escalate",
         "authorize_exception_review",
+        "grant_exception_authority",
+        "deny_exception_authority",
         "request_payment_status",
         "apply_deadline_pressure",
         "signal_service_continuity_risk",

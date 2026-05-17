@@ -427,3 +427,49 @@ Remaining gaps:
 
 - S18 has not been executed.
 - No lossy handoff candidate, reviewed support, or boundary-preserving result is added by this protocol-freeze update.
+
+## Method B+ Lossy Handoff Execution And Review Update
+
+Latest PR label: `PR-MethodBPlus-lossy-handoff-execution-review`
+
+This update applies to C08, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `src/social_sim/method_b_plus_lossy_handoff_runner.py`
+- `tests/test_method_b_plus_lossy_handoff_pilot.py`
+- `pilot-runs/org-payment/method-b-plus-lossy-handoff-diagnostic-pilot-0001/summary.md`
+- `pilot-runs/org-payment/method-b-plus-lossy-handoff-diagnostic-pilot-0001/aggregate.json`
+- `pilot-runs/org-payment/method-b-plus-lossy-handoff-diagnostic-pilot-0001/execution-manifest.json`
+- `pilot-runs/org-payment/method-b-plus-lossy-handoff-diagnostic-pilot-0001/event-candidate-table.csv`
+- `pilot-runs/org-payment/method-b-plus-lossy-handoff-diagnostic-pilot-0001/candidate-review-0001/summary.md`
+- `docs/reflections/method-b-plus-bc36-after-lossy-handoff-review.md`
+- `docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md`
+- `docs/synthesis/method-b-plus-failure-mode-status.csv`
+- `docs/synthesis/non-intentional-control-slippage-map.csv`
+- `docs/synthesis/method-b-plus-claim-boundary-review.md`
+
+Coverage impact:
+
+- C08 Interaction Layer: S18 executed the frozen buyer lossy-handoff and accountant local-review interaction path without changing the frozen protocol.
+- C10 LLM Actor Layer: buyer and accountant were the only LLM-controlled action turns; post-hoc explanations were generated as explanation artifacts only.
+- C12 Experiment Harness: the new command executed 5 attempted / 5 accepted / 0 excluded runs, with raw outputs under ignored `runs/` and curated artifacts under `pilot-runs/`.
+- C13 Event Taxonomy / Failure-Mode Vocabulary: SL2, SL3, SL4, SL5, SL6, FM1, FM3, and FM6 are reported separately without adding new event types.
+- C14 Metrics: aggregate reporting separates handoff condition counts, action counts, path counts, parser outcomes, GM decisions, validation status, role-local preservation, and candidate or observed status.
+- C15 Evidence Pack: representative S18 evidence packs validate mechanically and include role views, handoff summaries, action menus, parser results, proposal attempts, post-hoc explanations, trace, events, metrics, reviewer notes, and reconstruction checklists.
+- C16 Validity Protocol: generated rows are reviewed in `candidate-review-0001`; SL2 handoff is not collapsed into SL3 preparation or SL4 final readiness.
+- C17 Human / LLM Review: Codex proxy review under project-owner authorization records SL2 and SL5 as supported for reviewed artificial evidence and records SL3/SL4/SL6/FM1/FM3/FM6 as not observed; this is not independent multi-reviewer human validation.
+- C18 Reporting / Claims: the reflection selects mechanism synthesis rather than baseline execution, preserving artificial-evidence-only claim boundaries.
+- C20 Ethics / Misuse Boundaries: no human behavior, real-world organization, prompt-causation, model-general, causation, fraud, compliance, legal, audit, operational, or statistical claim is added.
+
+Observed S18 result:
+
+- Buyer selected `submit_payment_request` in 3 accepted runs and `hold_payment` in 2 accepted runs.
+- Accountant selected `hold_payment` in all 5 accepted runs.
+- SL2 buyer payment-forward handoff and SL5 evidence-gap preservation were supported for reviewed artificial evidence.
+- SL3, SL4, SL6, FM1, FM3, and FM6 were not observed.
+
+Remaining gaps:
+
+- S18 does not support accountant payment preparation, final payment readiness, evidence-gap erasure, responsibility diffusion, ambiguous-guidance misinterpretation, or post-hoc justification.
+- The result does not justify a controlled failure-mode baseline from SL2 alone.

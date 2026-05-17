@@ -1,0 +1,17 @@
+{
+  "parser_status": "accepted",
+  "role": "buyer",
+  "selected_action_type": "hold_payment",
+  "selected_target_role": "accountant",
+  "selected_action_id": "A005",
+  "allowed_action_types": [
+    "submit_payment_request",
+    "request_more_evidence",
+    "hold_payment",
+    "escalate",
+    "mark_approval_inferred"
+  ],
+  "attempt_count": 1,
+  "invalid_or_rejected_proposals": [],
+  "claim_boundary": "method_b_plus_lossy_handoff_observation_only"
+}

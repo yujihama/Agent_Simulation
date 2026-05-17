@@ -90,6 +90,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
 - Method B failure-mode evidence review v0.1: [protocols/failure-modes/method-b-failure-mode-review-v0.1.md](protocols/failure-modes/method-b-failure-mode-review-v0.1.md)
+- Method B failure-mode baseline decision v0.1: [protocols/failure-modes/failure-mode-baseline-decision-v0.1.md](protocols/failure-modes/failure-mode-baseline-decision-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -142,6 +143,7 @@ The project should be built up in small decision-oriented pull requests:
 45. Method B BC23 multi-turn memory and justification pilot bundle: define bounded short-term memory, post-hoc explanation artifacts, and a reviewable S09 paper trace before targeted failure-mode execution.
 46. Method B BC24 targeted failure-mode pilot bundle: execute S09/S12 targeted full-role pilots, record candidate/not-observed failure-mode statuses, and prepare human pre-review material without supported failure-mode claims.
 47. Method B BC25 failure-mode evidence review bundle: review BC24 candidate/not-observed material, keep candidate/support boundaries intact, and record that no Method B failure mode is supported in the curated representative evidence.
+48. Method B BC26 baseline decision bundle: record that no failure-mode baseline protocol can be frozen because BC25 produced no supported or partially supported Method B failure-mode target.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -759,3 +761,11 @@ The review output is recorded in [pilot-runs/org-payment/method-b-targeted-failu
 BC25 found no generated candidate rows in BC24 and did not upgrade any Method B failure mode to `supported_for_reviewed_evidence` or `partially_supported_needs_revision`. The six curated representative packs were reviewed as reconstructable, and their `not_observed` labels were accepted within that reviewed scope. Non-representative accepted runs remain aggregate `not_observed` records and were not individually trace-reviewed.
 
 BC25 does not prove that the failure modes are absent. It means the current BC24 curated representative evidence does not support stronger Method B failure-mode claims. A later step should not freeze a controlled failure-mode baseline for supported observations unless a new protocol first creates or identifies a supported failure-mode target.
+
+## Method B Failure-Mode Baseline Decision
+
+The BC26 baseline decision is recorded in [protocols/failure-modes/failure-mode-baseline-decision-v0.1.md](protocols/failure-modes/failure-mode-baseline-decision-v0.1.md), with the concrete decision note in [pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/failure-mode-review-0001/baseline-freeze-decision.md](pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/failure-mode-review-0001/baseline-freeze-decision.md).
+
+BC26 does not freeze a controlled Method B failure-mode baseline protocol because BC25 recorded zero supported and zero partially supported failure-mode rows. Therefore BC27 baseline execution is not executable from the current evidence state.
+
+This is a no-baseline checkpoint decision, not a claim that failure modes are absent. The next feasible Method B step is a diagnostic sensitivity or revised targeting protocol frozen before execution.

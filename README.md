@@ -106,6 +106,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Control slippage vs fraud: [docs/models/control-slippage-vs-fraud.md](docs/models/control-slippage-vs-fraud.md)
 - Control slippage evidence requirements v0.1: [protocols/evaluation/control-slippage-evidence-requirements-v0.1.md](protocols/evaluation/control-slippage-evidence-requirements-v0.1.md)
 - Control slippage positive and negative examples: [docs/models/control-slippage-positive-negative-examples.md](docs/models/control-slippage-positive-negative-examples.md)
+- Control slippage existing evidence map v0.1: [docs/synthesis/control-slippage-existing-evidence-map-v0.1.md](docs/synthesis/control-slippage-existing-evidence-map-v0.1.md)
+- Control slippage existing evidence map CSV: [docs/synthesis/control-slippage-existing-evidence-map.csv](docs/synthesis/control-slippage-existing-evidence-map.csv)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1297,3 +1299,9 @@ The model treats SL1-SL6 as staged artificial-process concepts. Current evidence
 BC3-2 freezes source-ref-based evidence requirements for SL1-SL6 in [protocols/evaluation/control-slippage-evidence-requirements-v0.1.md](protocols/evaluation/control-slippage-evidence-requirements-v0.1.md). Positive and negative examples are provided in [docs/models/control-slippage-positive-negative-examples.md](docs/models/control-slippage-positive-negative-examples.md).
 
 The evidence requirements keep SL2 handoff, SL3 preparation, SL4 final readiness, SL5 preservation, and SL6 erasure separate. They require visible artifacts rather than hidden reasoning, and they distinguish SL6 gap erasure from ordinary missing documentation.
+
+### Phase 3 Existing Evidence Remap
+
+BC3-3 remaps existing BC31, BC37-C, BC35, S17, S18, and S19 evidence to the Phase 3 SL model in [docs/synthesis/control-slippage-existing-evidence-map-v0.1.md](docs/synthesis/control-slippage-existing-evidence-map-v0.1.md), with a compact CSV table at [docs/synthesis/control-slippage-existing-evidence-map.csv](docs/synthesis/control-slippage-existing-evidence-map.csv).
+
+The remap preserves the current evidence boundary: narrow SL2 support appears only in BC31 and S18, repeated SL5 evidence-gap preservation is the strongest pattern, and SL3, SL4, and SL6 remain unsupported or not observed in the mapped reviewed scope.

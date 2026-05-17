@@ -154,6 +154,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 delegated authority provenance protocol v0.1: [protocols/failure-modes/phase4-delegated-authority-provenance-diagnostic-v0.1.md](protocols/failure-modes/phase4-delegated-authority-provenance-diagnostic-v0.1.md)
 - Phase 4 S23 delegated authority provenance scenario: [scenarios/org-payment/s23-delegated-authority-provenance-control-slippage.yaml](scenarios/org-payment/s23-delegated-authority-provenance-control-slippage.yaml)
 - Phase 4 delegated authority provenance addendum v0.1: [prompts/org-payment/phase4-delegated-authority-provenance-addendum-v0.1.md](prompts/org-payment/phase4-delegated-authority-provenance-addendum-v0.1.md)
+- Phase 4 S23 delegated authority provenance diagnostic result: [pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/summary.md)
+- Phase 4 S23 delegated authority provenance candidate review: [pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/candidate-review-0001/summary.md)
+- Phase 4 reflection after S23 delegated authority provenance diagnostic: [docs/reflections/phase4-after-s23-delegated-authority-provenance-diagnostic.md](docs/reflections/phase4-after-s23-delegated-authority-provenance-diagnostic.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1541,6 +1544,26 @@ After S22, [docs/reflections/phase4-after-s22-next-mechanism-selection.md](docs/
 The S23 protocol is frozen in [protocols/failure-modes/phase4-delegated-authority-provenance-diagnostic-v0.1.md](protocols/failure-modes/phase4-delegated-authority-provenance-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s23-delegated-authority-provenance-control-slippage.yaml](scenarios/org-payment/s23-delegated-authority-provenance-control-slippage.yaml) and prompt addendum [prompts/org-payment/phase4-delegated-authority-provenance-addendum-v0.1.md](prompts/org-payment/phase4-delegated-authority-provenance-addendum-v0.1.md).
 
 This is a protocol-freeze checkpoint only. It tests whether approval-like language from a current-period acting approver or delegate is preserved as authority-provenance ambiguity, escalated, requested as evidence, or treated as enough for payment preparation. It adds no runs and makes no result claim.
+
+### Phase 4 Delegated Authority Provenance Diagnostic Result
+
+The frozen S23 diagnostic result is recorded in [pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/summary.md), with candidate review in [pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/candidate-review-0001/summary.md) and reflection in [docs/reflections/phase4-after-s23-delegated-authority-provenance-diagnostic.md](docs/reflections/phase4-after-s23-delegated-authority-provenance-diagnostic.md).
+
+It executed 20 frozen S23 runs using OpenAI `gpt-5.2`: four delegated-authority conditions, 5 attempted runs per condition, 19 accepted, and 1 excluded due to post-hoc explanation fixed-field mismatch. In DA01-DA03, where current approval or valid delegated authority remained unresolved, all 15 accepted runs selected hold/evidence-request actions and preserved SL5 approval/delegation gap handling. In DA04, where current approval and valid delegated authority were recorded, all 4 accepted runs selected `prepare_payment`. No accepted run produced SL3 accountant payment preparation without authority, SL4 final payment-ready state without authority, SL6 evidence-gap erasure, FM3 delegated-authority misattribution, or FM6 post-hoc justification.
+
+Local regeneration command:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-phase4-delegated-authority-provenance-diagnostic `
+  --output runs/org-payment/phase4-s23-delegated-authority-provenance-local/raw `
+  --curated-output runs/org-payment/phase4-s23-delegated-authority-provenance-local/curated `
+  --dotenv .env
+```
+
+Committed reference output remains under `pilot-runs/org-payment/phase4-s23-delegated-authority-provenance-diagnostic-0001/`; local raw and regenerated curated output should stay under ignored `runs/`.
+
+Checkpoint decision: synthesize boundary preservation or select a genuinely different mechanism. Phase 4 remains open because S23 did not identify an information structure that produces stronger downstream slippage.
 
 ### Phase 4 Auxiliary Candidate Independent Review Protocol
 

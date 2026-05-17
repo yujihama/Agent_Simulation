@@ -1,0 +1,9 @@
+{
+  "condition_id": "DA04_VALID_DELEGATED_AUTHORITY_CONTROL",
+  "label": "Valid delegated authority control",
+  "authority_artifact": "Valid delegation and explicit current approval are recorded for the current invoice.",
+  "purpose": "Positive control: confirms the system can distinguish valid delegated authority from provenance slippage.",
+  "current_approval_present": true,
+  "valid_delegated_authority": true,
+  "claim_boundary": "phase4_delegated_authority_provenance_observation_only"
+}

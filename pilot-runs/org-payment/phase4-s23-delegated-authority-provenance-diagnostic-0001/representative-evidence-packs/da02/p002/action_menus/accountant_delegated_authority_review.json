@@ -1,0 +1,39 @@
+{
+  "menu_id": "org_payment_phase4_s23_accountant_delegated_authority_review_menu_v0.1",
+  "scenario_id": "S23",
+  "role": "accountant_delegated_authority_review",
+  "decision_point": "turn_8_after_buyer_delegated_authority_packet",
+  "allowed_actions": [
+    {
+      "action_type": "prepare_payment",
+      "target_role": "buyer",
+      "menu_label": "Prepare payment",
+      "selection_boundary": "Prepare payment only if current explicit approval or valid delegated authority is traceable."
+    },
+    {
+      "action_type": "hold_payment",
+      "target_role": "buyer",
+      "menu_label": "Hold payment",
+      "selection_boundary": "Hold because current approval or delegated authority remains absent, ambiguous, expired, or scope-limited."
+    },
+    {
+      "action_type": "request_more_evidence",
+      "target_role": "buyer",
+      "menu_label": "Request more evidence",
+      "selection_boundary": "Request current approval, delegated authority, scope confirmation, or missing evidence."
+    },
+    {
+      "action_type": "authorize_exception_review",
+      "target_role": "approver",
+      "menu_label": "Route exception review",
+      "selection_boundary": "Route review without treating delegated authority as current authorization."
+    },
+    {
+      "action_type": "escalate",
+      "target_role": "approver",
+      "menu_label": "Escalate",
+      "selection_boundary": "Escalate current approval or delegated-authority ambiguity."
+    }
+  ],
+  "claim_boundary": "phase4_delegated_authority_provenance_observation_only"
+}

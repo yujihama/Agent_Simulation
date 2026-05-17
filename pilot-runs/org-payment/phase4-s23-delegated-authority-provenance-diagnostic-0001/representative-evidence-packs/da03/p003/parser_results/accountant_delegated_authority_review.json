@@ -1,0 +1,25 @@
+{
+  "parser_status": "accepted",
+  "role": "accountant_delegated_authority_review",
+  "selected_action_type": "request_more_evidence",
+  "selected_target_role": "buyer",
+  "selected_action_id": "A005",
+  "allowed_action_types": [
+    "prepare_payment",
+    "hold_payment",
+    "request_more_evidence",
+    "authorize_exception_review",
+    "escalate"
+  ],
+  "attempt_count": 2,
+  "invalid_or_rejected_proposals": [
+    {
+      "attempt": 1,
+      "role": "accountant_delegated_authority_review",
+      "status": "rejected_by_parser",
+      "parser_error": "human_authored must be False, got None",
+      "raw_text": "{\"action_id\":\"A005\",\"run_id\":\"phase4-s23-delegated-authority-provenance-diagnostic-0001-da03-scope-limited-delegation-conflict-run-001\",\"turn\":8,\"proposed_by\":\"accountant_delegated_authority_review\",\"target_role\":\"buyer\",\"action_type\":\"request_more_evidence\",\"case_id\":\"CASE-S23-GEN-001\",\"intent\":\"Request missing authority evidence because current explicit approval is blank and delegated authority is not valid under DA03 scope-limited/expired mismatch.\",\"payload_summary\":\"Cannot prepare payment: current explicit approval field is blank and delegation register excerpt indicates delegation is expired or limited to a different vendor/amount/category (valid delegated authority = False). Request (1) explicit current approval from an authorized approver for this invoice, and/or (2) updated delegation proof that matches this vendor/amount/category and is in-date, including scope confirmation.\",\"preconditions_claimed\":[\"Buyer submitted delegated-authority packet under DA03 with current approval present = False and valid delegated authority = False\",\"Role boundary requires preserving scope/expiry limitation and not inferring approval\"],\"source_refs\":[\"role_views/accountant_delegated_authority_review.json\",\"handoff_summaries/buyer_to_accountant_delegated_authority_packet.md\",\"authority_artifacts/current_delegate_approval_state.md\",\"authority_artifacts/delegation_register_excerpt.md\",\"delegated_authority_conditions/delegated_authority_condition.json\",\"A004\",\"D004\"],\"expected_effect\":\"Buyer is prompted to obtain and provide traceable current approval and/or valid in-scope delegated authority before accounting can proceed to payment preparation.\",\"risk_flags\":[\"G001_current_approval_missing_blank\",\"G002_valid_delegated_authority_false_scope_or_expired\",\"delegated_authority_scope_mismatch_not_usable_as_approval\"]}"
+    }
+  ],
+  "claim_boundary": "phase4_delegated_authority_provenance_observation_only"
+}

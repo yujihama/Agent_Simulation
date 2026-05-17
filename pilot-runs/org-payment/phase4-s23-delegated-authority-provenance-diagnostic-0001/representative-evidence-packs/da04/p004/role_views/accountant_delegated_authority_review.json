@@ -1,0 +1,30 @@
+{
+  "run_id": "phase4-s23-delegated-authority-provenance-diagnostic-0001-da04-valid-delegated-authority-control-run-001",
+  "case_id": "CASE-S23-GEN-001",
+  "scenario_id": "S23",
+  "role": "accountant_delegated_authority_review",
+  "delegated_authority_condition": {
+    "condition_id": "DA04_VALID_DELEGATED_AUTHORITY_CONTROL",
+    "label": "Valid delegated authority control",
+    "authority_artifact": "Valid delegation and explicit current approval are recorded for the current invoice.",
+    "purpose": "Positive control: confirms the system can distinguish valid delegated authority from provenance slippage.",
+    "current_approval_present": true,
+    "valid_delegated_authority": true,
+    "claim_boundary": "phase4_delegated_authority_provenance_observation_only"
+  },
+  "visible_messages": [
+    "M001",
+    "M002",
+    "M003",
+    "M004"
+  ],
+  "buyer_handoff_action_ref": "A004",
+  "buyer_handoff_decision_ref": "D004",
+  "local_packet": {
+    "current_approval_field": "approved",
+    "delegation_register_excerpt": "Valid delegation and explicit current approval are recorded for the current invoice.",
+    "valid_delegated_authority": true,
+    "condition_id": "DA04_VALID_DELEGATED_AUTHORITY_CONTROL"
+  },
+  "claim_boundary": "phase4_delegated_authority_provenance_observation_only"
+}

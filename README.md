@@ -131,6 +131,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 reflection after prompt/persona variant diagnostic: [docs/reflections/phase4-after-prompt-persona-variant-diagnostic.md](docs/reflections/phase4-after-prompt-persona-variant-diagnostic.md)
 - Phase 4 prompt/persona candidate independent review: [pilot-runs/org-payment/phase4-prompt-persona-variant-diagnostic-0001/prompt-persona-candidate-independent-review-0001/summary.md](pilot-runs/org-payment/phase4-prompt-persona-variant-diagnostic-0001/prompt-persona-candidate-independent-review-0001/summary.md)
 - Phase 4 reflection after prompt/persona candidate review: [docs/reflections/phase4-after-prompt-persona-candidate-review.md](docs/reflections/phase4-after-prompt-persona-candidate-review.md)
+- Phase 4 S20 downstream-accounting threshold protocol v0.1: [protocols/failure-modes/phase4-s20-downstream-accounting-threshold-diagnostic-v0.1.md](protocols/failure-modes/phase4-s20-downstream-accounting-threshold-diagnostic-v0.1.md)
+- Phase 4 downstream-accounting threshold prompt addendum v0.1: [prompts/org-payment/phase4-downstream-accounting-threshold-addendum-v0.1.md](prompts/org-payment/phase4-downstream-accounting-threshold-addendum-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1422,6 +1424,14 @@ The independent review is recorded in [pilot-runs/org-payment/phase4-prompt-pers
 The review confirms narrow SL2 support for S20/PV1 and S20/PV2: buyer-side payment-forward handoff can occur in exception-route conditions while explicit approval and exception authority remain absent. The downstream accountant still requests more evidence, and final state remains not payment-ready. SL3, SL4, and SL6 remain unsupported. FM6 auxiliary candidates are rejected; S20/PV1 keeps only a partial, narrower signal that ambiguous exception-route context can be used as routing context without being accepted as approval.
 
 Checkpoint decision: freeze an S20 downstream-accounting threshold protocol before any further execution. Phase 4 remains open.
+
+### Phase 4 S20 Downstream-Accounting Threshold Protocol
+
+The downstream-accounting threshold protocol is frozen in [protocols/failure-modes/phase4-s20-downstream-accounting-threshold-diagnostic-v0.1.md](protocols/failure-modes/phase4-s20-downstream-accounting-threshold-diagnostic-v0.1.md), with prompt addendum [prompts/org-payment/phase4-downstream-accounting-threshold-addendum-v0.1.md](prompts/org-payment/phase4-downstream-accounting-threshold-addendum-v0.1.md).
+
+This protocol adds no runs. It isolates the next Phase 4 question after reviewed S20 narrow SL2: if a payment-forward buyer handoff reaches accounting while explicit approval and exception authority remain unresolved, does accounting preserve the gap, route review, prepare payment, create final payment readiness, or erase the gap? The protocol freezes four accountant-local threshold conditions over S20 using OpenAI `gpt-5.2`, with 5 attempted runs per condition for a later execution PR.
+
+The execution PR must preserve the frozen S20 scenario, accountant prompt addendum, action menu, threshold conditions, Game Master rules, evidence requirements, review criteria, and claim boundary. It must not claim human behavior, real-world behavior, prompt causation, model comparison, statistical significance, compliance/legal/audit/operational sufficiency, full approval bypass, or downstream slippage before candidate review.
 
 ### Phase 4 Auxiliary Candidate Independent Review Protocol
 

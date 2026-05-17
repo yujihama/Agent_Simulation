@@ -178,3 +178,23 @@ Remaining gaps:
 
 - BC35 has no supported FM2, FM5, or FM6 finding after review.
 - A BC36-style reflection should decide whether to revise the evidence-gap diagnostic surface, shift to another Method B+ target, or add independent human review before further targeted execution.
+
+## Method B+ BC36 Reflection After BC35 Review Update
+
+Latest PR label: `PR-MethodBPlus-BC36-after-BC35`
+
+This update applies to C16, C18, and C20.
+
+Evidence added:
+
+- `docs/reflections/method-b-plus-bc36-after-bc35-review.md`
+
+Coverage impact:
+
+- C16 Validity Protocol: BC35 is classified as `candidateあり、reviewでrejected` plus `no candidate / not observed` for the primary FM5 target, and the reflection selects synthesis rather than immediate repeated execution.
+- C18 Reporting / Claims: the reflection keeps BC35 bounded to artificial-system pilot accounting and does not upgrade any generated or rejected candidate to support.
+- C20 Ethics / Misuse Boundaries: the reflection explicitly forbids human, real-world, prompt-causation, model-general, compliance, legal, audit, operational, and statistical claims.
+
+Next step:
+
+- Add a Method B+ iterative targeting synthesis before any new targeted protocol freeze.

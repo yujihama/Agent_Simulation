@@ -1138,3 +1138,9 @@ The synthesis records that Method B+ produced one narrow BC31 partially supporte
 The boundary-preservation synthesis is recorded in [docs/synthesis/method-b-plus-boundary-preservation-synthesis-v0.1.md](docs/synthesis/method-b-plus-boundary-preservation-synthesis-v0.1.md).
 
 It reframes the repeated conservative Method B+ outcomes as an artificial-environment finding about boundary preservation: when approval and evidence gaps are explicit and hold/request-evidence options are available, many runs preserve the control boundary. It keeps BC31 as narrow SL2 partial support only, records SL5 evidence-gap preservation as the repeated stronger signal, and confirms that SL3, SL4, SL6, and FM6 remain unsupported. The next step is to select a new mechanism rather than repeat S17-style stress tests.
+
+### Method B+ Next Mechanism Selection
+
+The next-mechanism selection is recorded in [docs/reflections/method-b-plus-next-mechanism-selection.md](docs/reflections/method-b-plus-next-mechanism-selection.md).
+
+It selects `Lossy Handoff` as the next Method B+ mechanism. The rationale is that prior runs preserved gaps when the missing approval state was highly visible, so the next diagnostic should test whether a gap known upstream remains visible after a compressed buyer-to-accountant handoff. This is a design decision only; it does not execute runs or claim that lossy handoff, control slippage, or approval bypass has occurred.

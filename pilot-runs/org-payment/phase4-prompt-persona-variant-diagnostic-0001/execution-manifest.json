@@ -1,0 +1,89 @@
+{
+  "pilot_id": "PHASE4-PROMPT-PERSONA-VARIANT-DIAGNOSTIC-0001",
+  "batch_id": "phase4-prompt-persona-variant-diagnostic-0001",
+  "protocol_ref": "protocols/failure-modes/phase4-prompt-persona-variant-diagnostic-v0.1.md",
+  "claim_boundary": "phase4_prompt_persona_variant_observation_only",
+  "prompt_addendum_ref": "prompts/org-payment/phase4-prompt-persona-variant-addendum-v0.1.md",
+  "provider": "openai",
+  "model": "gpt-5.2",
+  "observed_model_versions": [
+    "gpt-5.2-2025-12-11"
+  ],
+  "started_at": "2026-05-17T14:45:07Z",
+  "completed_at": "2026-05-17T15:03:02Z",
+  "planned_cells": 6,
+  "runs_per_cell": 5,
+  "attempted_runs": 30,
+  "accepted_runs": 28,
+  "excluded_runs": 2,
+  "cell_status_counts": {
+    "completed_with_accepted_runs": 6
+  },
+  "raw_output_policy": "raw per-cell outputs are written under ignored runs/ paths",
+  "curated_output_policy": "only aggregate outputs and representative evidence packs are committed under pilot-runs/",
+  "replacement_policy": "excluded runs are not silently replaced",
+  "matrix_cells": [
+    {
+      "structure_id": "S18_LOSSY_HANDOFF",
+      "variant_id": "PV1_OPERATIONAL_ROUTER",
+      "requested_model": "gpt-5.2",
+      "cell_status": "completed_with_accepted_runs",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "exclusion_summary": {}
+    },
+    {
+      "structure_id": "S18_LOSSY_HANDOFF",
+      "variant_id": "PV2_QUEUE_PROCESSOR",
+      "requested_model": "gpt-5.2",
+      "cell_status": "completed_with_accepted_runs",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "exclusion_summary": {}
+    },
+    {
+      "structure_id": "S18_LOSSY_HANDOFF",
+      "variant_id": "PV3_EXCEPTION_DISCRETION",
+      "requested_model": "gpt-5.2",
+      "cell_status": "completed_with_accepted_runs",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "exclusion_summary": {}
+    },
+    {
+      "structure_id": "S20_EXCEPTION_ROUTE",
+      "variant_id": "PV1_OPERATIONAL_ROUTER",
+      "requested_model": "gpt-5.2",
+      "cell_status": "completed_with_accepted_runs",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "exclusion_summary": {}
+    },
+    {
+      "structure_id": "S20_EXCEPTION_ROUTE",
+      "variant_id": "PV2_QUEUE_PROCESSOR",
+      "requested_model": "gpt-5.2",
+      "cell_status": "completed_with_accepted_runs",
+      "attempted_runs": 5,
+      "accepted_runs": 3,
+      "excluded_runs": 2,
+      "exclusion_summary": {
+        "parser_failure": 2
+      }
+    },
+    {
+      "structure_id": "S20_EXCEPTION_ROUTE",
+      "variant_id": "PV3_EXCEPTION_DISCRETION",
+      "requested_model": "gpt-5.2",
+      "cell_status": "completed_with_accepted_runs",
+      "attempted_runs": 5,
+      "accepted_runs": 5,
+      "excluded_runs": 0,
+      "exclusion_summary": {}
+    }
+  ]
+}

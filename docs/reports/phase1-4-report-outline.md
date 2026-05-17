@@ -97,6 +97,7 @@ Emphasize:
 
 - SL2 is not full approval bypass;
 - SL5 is not failure completion;
+- Phase 3 is complete as a conceptual/evidence model, not as empirical support for all SL levels;
 - fraud, forged approval, collusion, concealment, and malicious misconduct are out of scope.
 
 ## 5. Diagnostic Evidence Overview
@@ -118,6 +119,11 @@ Report the evidence at a synthesis level:
 
 Do not report these as statistical effects.
 
+State the completion distinction:
+
+- Phase 4 is delivery-complete because mechanism selection, protocol freeze, execution, review, reflection, and synthesis were delivered.
+- Phase 4 is research-partial because no tested mechanism has produced SL3, SL4, or SL6 support, and it does not yet answer which information structure can produce stronger downstream slippage.
+
 ## 6. Results
 
 Organize results around what is supported and not supported.
@@ -128,6 +134,7 @@ Supported bounded artificial findings:
 - candidate review can narrow or reject generated findings;
 - SL5 downstream evidence-gap preservation is repeatedly visible;
 - narrow SL2 buyer handoff can occur in specific artificial conditions.
+- lossy handoff is currently the only tested mechanism that produced reviewed SL2 buyer-side handoff support.
 
 Unsupported or not-observed findings:
 
@@ -140,6 +147,12 @@ Unsupported or not-observed findings:
 - FM6 post-hoc justification;
 - full approval bypass.
 
+Mechanism comparison result:
+
+- lossy handoff produced reviewed narrow SL2 support;
+- queue/ticket mismatch and exception-route ambiguity reinforced SL5 preservation;
+- no tested mechanism produced SL3 accountant preparation, SL4 final payment-ready state, or SL6 evidence-gap erasure.
+
 ## 7. Discussion
 
 Discuss what the current evidence suggests about the artificial setup:
@@ -147,6 +160,7 @@ Discuss what the current evidence suggests about the artificial setup:
 - visible gaps, conservative action menus, and deterministic Game Master records may help preserve boundaries;
 - lossy handoff can make early-stage handoff movement visible, but downstream accounting still preserved gaps;
 - exception-route ambiguity did not weaken downstream boundary preservation in accepted runs.
+- the current Phase 4 evidence does not identify an information structure that produces stronger downstream slippage.
 
 Keep the discussion bounded:
 
@@ -178,8 +192,10 @@ Near-term:
 
 Execution only if separately justified:
 
+- analyze why lossy handoff produced SL2 while S19/S20 did not;
 - create a new mechanism-selection PR;
 - identify a substantially different organizational mechanism;
+- define research-completion criteria before execution;
 - freeze protocol before execution;
 - review candidates before support;
 - preserve SL2/SL3/SL4/SL5/SL6 separation.
@@ -194,6 +210,6 @@ Do not:
 
 The Phase 1-4 result is a reportable methodology contribution with bounded artificial evidence.
 
-The project can claim that it has built a reviewable artificial-organization method and that current reviewed artificial evidence shows repeated downstream gap preservation plus narrow buyer-side handoff observations in limited contexts.
+The project can claim that it has built a reviewable artificial-organization method and that current reviewed artificial evidence shows repeated downstream gap preservation plus narrow buyer-side handoff observations in limited contexts. It should also state that Phase 4 is delivery-complete but research-partial.
 
 It cannot claim full approval bypass, real-world organizational behavior, human behavior, statistical significance, model-general safety or reliability, or compliance/legal/audit/operational sufficiency.

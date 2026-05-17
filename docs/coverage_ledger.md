@@ -1204,3 +1204,33 @@ Remaining gaps:
 
 - No public-facing report has been drafted from the outline.
 - Any future execution requires a new mechanism-selection checkpoint before protocol freeze.
+
+## Phase 3-4 Research Completion Criteria Correction
+
+Latest PR label: `PR-Phase3-4-completion-criteria-correction`
+
+This update applies to C01, C02, C16, C18, and C20.
+
+Evidence updated:
+
+- `docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md`
+- `docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md`
+- `docs/synthesis/phase1-4-project-synthesis-v0.1.md`
+- `docs/reports/phase1-4-report-outline.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: completion is now split between delivery completion and research completion, preventing Phase 4 execution delivery from being overstated as a complete answer to stronger downstream slippage.
+- C02 Research Questions: Phase 4 is explicitly research-partial because no tested mechanism has produced SL3, SL4, or SL6 support.
+- C16 Validity Protocol: future run-producing work must define research-completion criteria before execution, not only protocol delivery artifacts.
+- C18 Reporting / Claims: lossy handoff is identified as the only tested mechanism with reviewed SL2 buyer-side handoff support; queue/ticket mismatch and exception-route ambiguity are limited to SL5 preservation outcomes.
+- C20 Ethics / Misuse Boundaries: the correction blocks claim upgrades from delivery completion to stronger empirical, causal, human, real-world, statistical, compliance, legal, audit, operational, governance, or safety sufficiency claims.
+
+Correction decision:
+
+- Phase 3 is delivery-complete and research-complete as a conceptual/evidence model, but not empirical support for all SL levels.
+- Phase 4 is delivery-complete but research-partial.
+- No tested mechanism has produced SL3, SL4, or SL6 support.
+- Future work must either analyze why lossy handoff produced SL2 while S19/S20 did not, select a genuinely new information mechanism with research-completion criteria defined before execution, or stop run-producing work and report methodology plus boundary-preservation findings.

@@ -17,6 +17,11 @@ This synthesis closes the Phase 4 mechanism exploration pass from the Phase 1-4 
 
 It asks whether the newly selected exception-route ambiguity mechanism changed the project position after the Method B+ endpoint and earlier mechanism diagnostics. It does not add runs, change prior artifacts, freeze a new protocol, execute a new diagnostic, or recommend a controlled baseline from weak evidence.
 
+Completion status:
+
+- Delivery completion: complete. Phase 4 selected a mechanism, froze a protocol, executed S20, reviewed candidates, reflected on the result, and synthesized the mechanism pass.
+- Research completion: partial. Phase 4 tested mechanisms, but it has not answered which information structure can produce stronger downstream slippage beyond buyer-side handoff.
+
 ## Mechanism Results
 
 | Mechanism / checkpoint | Primary artifact | Reviewed result | Current status |
@@ -39,6 +44,10 @@ The new mechanism did not reveal stronger slippage. It reinforced the boundary-p
 - no accepted S20 run produced buyer payment-forward handoff, accountant payment preparation, final payment-ready state, gap erasure, responsibility diffusion, ambiguous-guidance misinterpretation, or post-hoc justification.
 
 The one S20 parser exclusion is informative as an execution limitation: the accountant attempted to cite records outside the frozen allowed prior evidence set. The run was excluded and not replaced, preserving the frozen protocol rather than relaxing it after seeing output.
+
+Across the tested mechanisms, lossy handoff is currently the only mechanism that produced reviewed SL2 buyer-side handoff support. Queue/ticket mismatch and exception-route ambiguity did not produce stronger slippage; both instead reinforced SL5 evidence-gap preservation. No tested mechanism has produced SL3, SL4, or SL6 support.
+
+Therefore, Phase 4 should not be read as answering which information structure can produce stronger downstream slippage. It only narrows the current evidence state: lossy handoff can expose narrow buyer-side SL2 in some artificial runs, while the tested downstream accounting structures continued to preserve gaps.
 
 ## Current SL/FM Status
 
@@ -66,6 +75,8 @@ Reasons:
 - S20 has one transparent parser exclusion, so it should not be treated as a stronger baseline-ready result;
 - baseline execution would risk converting exploratory diagnostics into stronger claims than the evidence supports.
 
+An additional reason is that Phase 4 is research-partial: it has not identified an information structure that produces reviewed SL3, SL4, or SL6 support. A baseline would require clearer research-completion criteria and stronger reviewed support than the current mechanism exploration provides.
+
 ## Methodological Value
 
 The Phase 4 result is still useful.
@@ -82,15 +93,17 @@ The main artificial-system finding remains boundary preservation under the curre
 
 ## Decision
 
-Checkpoint decision: complete Phase 4 mechanism exploration synthesis and pause autonomous run-producing diagnostics.
+Checkpoint decision: mark Phase 4 as delivery-complete but research-partial, then pause autonomous run-producing diagnostics.
 
 Do not start another run-producing BC unless a later mechanism-selection PR identifies a substantially different organizational mechanism and explains why it is needed after S17, S18, S19, and S20.
 
 Recommended next work:
 
-1. Consolidate the Phase 1-4 research position into a project-level synthesis or report outline.
-2. Decide whether the next contribution should be methodological documentation rather than additional diagnostics.
-3. If future execution resumes, select a genuinely different mechanism rather than repeating lossy handoff, queue/ticket mismatch, or exception-route ambiguity with stronger wording.
+1. Analyze why lossy handoff produced reviewed SL2 buyer-side handoff support while S19 and S20 did not.
+2. Select a genuinely new information mechanism with research-completion criteria defined before execution.
+3. Stop run-producing work and report the methodology plus boundary-preservation findings.
+
+Any future run-producing work must define, before execution, what would count as delivery completion and what would count as research completion.
 
 ## Allowed Claims
 
@@ -99,6 +112,7 @@ This synthesis may claim:
 - Phase 4 selected, froze, executed, reviewed, and reflected on an exception-route ambiguity mechanism.
 - S20 accepted runs preserved approval and exception-authority gaps downstream.
 - Current reviewed artificial evidence supports repeated SL5 boundary preservation and only narrow SL2 support from earlier BC31/S18 contexts.
+- Phase 4 is delivery-complete but research-partial because no tested mechanism has produced SL3, SL4, or SL6 support.
 - The current evidence does not justify a controlled failure-mode baseline.
 
 ## Forbidden Claims

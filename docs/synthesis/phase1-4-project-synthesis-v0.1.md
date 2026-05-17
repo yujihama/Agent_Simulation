@@ -43,8 +43,8 @@ The strongest contribution is methodological. The project has built a discipline
 |---|---|
 | Phase 1 | The research objective was reframed away from reproducing human social chaos and toward a bounded artificial-organization evidence method. |
 | Phase 2 | The methodological contribution was defined: protocol freeze, Game Master boundary, evidence packs, validators, candidate review, conservative-result reporting, and claim controls. |
-| Phase 3 | Non-intentional control slippage was modeled as staged SL1-SL6 levels, preventing narrow handoff observations from being reported as full approval bypass. |
-| Phase 4 | Mechanism exploration tested exception-route ambiguity after earlier lossy handoff and queue/ticket mismatch work, but did not justify a controlled failure-mode baseline. |
+| Phase 3 | Delivery-complete and research-complete as a conceptual/evidence model. It is not empirical support for all SL levels. |
+| Phase 4 | Delivery-complete but research-partial. It tested mechanism diagnostics, but did not answer which information structure can produce stronger downstream slippage. |
 
 ## Current Evidence Position
 
@@ -55,6 +55,7 @@ Current reviewed artificial evidence supports the following bounded statements:
 - Boundary-preserving outcomes are repeatedly visible in the current protocol family.
 - SL5 evidence-gap preservation is the strongest repeated Method B+ pattern.
 - Narrow buyer-side SL2 payment-forward handoff can appear under specific artificial conditions, especially BC31 and S18 lossy handoff.
+- Lossy handoff is currently the only tested mechanism that produced reviewed SL2 buyer-side handoff support.
 
 Current reviewed artificial evidence does not support:
 
@@ -67,6 +68,8 @@ Current reviewed artificial evidence does not support:
 - FM6 post-hoc justification;
 - full approval bypass;
 - human behavior, real-world organization behavior, or statistical significance.
+
+Queue/ticket mismatch and exception-route ambiguity did not produce stronger slippage and instead reinforced SL5 preservation. No tested mechanism has produced SL3, SL4, or SL6 support.
 
 ## What Has Been Learned
 
@@ -119,6 +122,7 @@ Reasons:
 - SL2 remains narrow and mechanism-specific;
 - SL3, SL4, and SL6 remain unsupported;
 - S20 exception-route ambiguity did not add stronger slippage support;
+- Phase 4 has not yet answered which information structure can produce stronger downstream slippage;
 - additional run-producing diagnostics would risk repeating a conservative pattern unless a genuinely different mechanism is selected first.
 
 Autonomous run-producing BCs should pause at this endpoint. Future execution requires a new mechanism-selection checkpoint that explains why the mechanism is substantially different from lossy handoff, queue/ticket mismatch, and exception-route ambiguity.
@@ -151,7 +155,7 @@ Recommended next work is report-oriented, not run-producing:
 
 1. Draft a project report or paper using `docs/reports/phase1-4-report-outline.md`.
 2. Decide whether any external or project-owner human review is needed before public-facing claims.
-3. If execution resumes later, first create a new mechanism-selection PR that identifies a substantially different organizational mechanism.
+3. If execution resumes later, first analyze why lossy handoff produced SL2 while S19/S20 did not, or select a genuinely new information mechanism with research-completion criteria defined before execution.
 4. Do not freeze or execute another diagnostic merely to intensify pressure, strengthen prompts, or repeat S17/S18/S19/S20 conditions.
 
 ## OK / STOP Condition Review
@@ -164,11 +168,12 @@ Recommended next work is report-oriented, not run-producing:
 | Narrow SL2 is separated from SL3, SL4, SL5, and SL6. | OK. |
 | Unsupported failure modes remain unsupported. | OK. |
 | Controlled failure-mode baseline is not recommended. | OK. |
+| Phase 4 is not overstated as research-complete for stronger downstream slippage. | OK. |
 | Future execution requires a new mechanism-selection checkpoint. | OK. |
 | No human, real-world, statistical, model-general, compliance, legal, audit, operational, governance, or safety sufficiency claim is made. | OK. |
 
 ## Checkpoint Decision
 
-Decision: Phase 1-4 roadmap pass is complete.
+Decision: Phase 1-4 roadmap pass is delivery-complete, with Phase 4 explicitly research-partial.
 
-Pause autonomous run-producing diagnostics. The next project step should be report drafting, external/project-owner review, or a separately justified mechanism-selection PR.
+Pause autonomous run-producing diagnostics. The next project step should be report drafting, external/project-owner review, analysis of why lossy handoff uniquely produced SL2, or a separately justified mechanism-selection PR with research-completion criteria defined before execution.

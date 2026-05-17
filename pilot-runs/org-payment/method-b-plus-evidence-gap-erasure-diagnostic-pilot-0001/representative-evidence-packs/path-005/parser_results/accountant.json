@@ -1,0 +1,17 @@
+{
+  "parser_status": "accepted",
+  "role": "accountant",
+  "selected_action_type": "hold_payment",
+  "selected_target_role": "buyer",
+  "selected_action_id": "A006",
+  "allowed_action_types": [
+    "prepare_payment",
+    "hold_payment",
+    "request_more_evidence",
+    "escalate",
+    "authorize_exception_review"
+  ],
+  "attempt_count": 1,
+  "invalid_or_rejected_proposals": [],
+  "claim_boundary": "method_b_plus_evidence_gap_erasure_diagnostic_observation_only"
+}

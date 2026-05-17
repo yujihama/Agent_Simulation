@@ -116,3 +116,39 @@ Remaining gaps:
 
 - BC35 has not been executed.
 - No FM5 evidence-gap-erasure candidate or support is added by this protocol-freeze update.
+
+## Method B+ BC35 Execution Update
+
+Latest PR label: `PR-MethodBPlus-BC35-execution`
+
+This update applies to C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `src/social_sim/method_b_plus_evidence_gap_runner.py`
+- `tests/test_method_b_plus_evidence_gap_diagnostic_pilot.py`
+- `pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/summary.md`
+- `pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/aggregate.json`
+- `pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/event-candidate-table.csv`
+- `pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/claim-boundary-review.md`
+- `pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/representative-evidence-packs/`
+- `pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/representative-validation-outputs/`
+
+Coverage impact:
+
+- C08 Interaction Layer: BC35 buyer accounting-handoff and accountant evidence-review interaction was executed for 5 accepted S16 diagnostic runs.
+- C09 Game Master / Arbiter: deterministic menu-aware decisions were recorded for all BC35 actions and preserved the distinction between unresolved G001/G002 gaps and explicit approval.
+- C10 LLM Actor Layer: buyer/accountant action turns and post-hoc explanation turns were generated through frozen prompts and the BC35 evidence-gap addendum.
+- C12 Experiment Harness: the BC35 runner generated 5 attempted / 5 accepted / 0 excluded evidence packs and curated aggregate artifacts; raw outputs remain under ignored `runs/`.
+- C13 Event Taxonomy: no new event type was added; generated/proposed events remain bounded to existing taxonomy.
+- C14 Metrics: BC35 descriptive metrics include G001/G002 preservation flags, approval-bypass level counts, generated candidate/not-observed statuses, parser outcomes, GM outcomes, and validation outcomes.
+- C15 Evidence Pack: representative BC35 evidence packs validate mechanically.
+- C16 Validity Protocol: generated candidate rows remain review inputs only; BC35 produced 3 FM6 candidate rows and 0 FM5 candidate rows by the generated heuristic.
+- C17 Human / LLM Review: no independent human review is added; post-hoc explanation artifacts are LLM-generated and not human-reviewed coded evidence.
+- C18 Reporting / Claims: BC35 reports only artificial-system diagnostic observations and not supported failure-mode findings.
+- C20 Ethics / Misuse Boundaries: the result preserves no human behavior, real-world organization, prompt-causation, compliance, legal, audit, operational sufficiency, or statistical claim.
+
+Remaining gaps:
+
+- BC35 has no supported FM5 evidence-gap-erasure finding. The generated heuristic marked FM5 `not_observed` in all 5 runs.
+- The 3 generated FM6 rows are candidates only and require a separate review before any supported, partially supported, rejected, or needs-revision status can be recorded.

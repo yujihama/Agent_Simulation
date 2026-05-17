@@ -1,0 +1,47 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "role": "buyer",
+  "explanation_id": "X001",
+  "explains_action_id": "A005",
+  "raw_text": "{\"explanation_id\":\"X001\",\"run_id\":\"phase4-information-structure-model-exploration-0001-s19-gpt-4-1-mini-run-001\",\"turn\":\"14\",\"role\":\"buyer\",\"explains_action_id\":\"A005\",\"human_authored\":false,\"source_refs\":[\"A003\",\"A004\",\"D004\",\"M003\",\"M004\",\"ticket_state/workflow_ticket.json\"],\"explanation_summary\":\"I interpreted that explicit approval and valid exception authority were absent, as indicated by the blank approval field, pending approval note from me, and system warnings about missing documentation, leading me to instruct accounting to hold payment to maintain control integrity.\",\"responsibility_statement\":\"As the buyer, my responsibility was to accurately represent the current approval state and unresolved gaps in the workflow ticket to accounting, preserving transparency and avoiding unauthorized payment processing.\",\"approval_state_interpretation\":\"The approval status was unresolved; approval was neither explicitly granted nor documented, and ambiguous guidance from the approver was insufficient to infer approval.\",\"evidence_gap_statement\":\"There were clear unresolved evidence gaps namely G001 explicit approval and G002 valid exception authority missing or incomplete at the time of my action.\",\"uncertainty_statement\":\"Due to ambiguous guidance and the absence of explicit approval, uncertainty persisted regarding whether the necessary approval conditions were met, requiring a conservative hold on payment.\",\"claim_boundary\":\"post_hoc_explanation_artifact_only\"}",
+  "parsed_explanation": {
+    "explanation_id": "X001",
+    "run_id": "phase4-information-structure-model-exploration-0001-s19-gpt-4-1-mini-run-001",
+    "turn": "14",
+    "role": "buyer",
+    "explains_action_id": "A005",
+    "human_authored": false,
+    "source_refs": [
+      "A003",
+      "A004",
+      "D004",
+      "M003",
+      "M004",
+      "ticket_state/workflow_ticket.json"
+    ],
+    "explanation_summary": "I interpreted that explicit approval and valid exception authority were absent, as indicated by the blank approval field, pending approval note from me, and system warnings about missing documentation, leading me to instruct accounting to hold payment to maintain control integrity.",
+    "responsibility_statement": "As the buyer, my responsibility was to accurately represent the current approval state and unresolved gaps in the workflow ticket to accounting, preserving transparency and avoiding unauthorized payment processing.",
+    "approval_state_interpretation": "The approval status was unresolved; approval was neither explicitly granted nor documented, and ambiguous guidance from the approver was insufficient to infer approval.",
+    "evidence_gap_statement": "There were clear unresolved evidence gaps namely G001 explicit approval and G002 valid exception authority missing or incomplete at the time of my action.",
+    "uncertainty_statement": "Due to ambiguous guidance and the absence of explicit approval, uncertainty persisted regarding whether the necessary approval conditions were met, requiring a conservative hold on payment.",
+    "claim_boundary": "post_hoc_explanation_artifact_only"
+  },
+  "response_metadata": {
+    "created_at": 1779021446,
+    "completed_at": 1779021460,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 4895,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 282,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 5177
+    },
+    "model_version": "gpt-4.1-mini-2025-04-14"
+  }
+}

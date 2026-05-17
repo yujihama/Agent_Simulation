@@ -1289,3 +1289,51 @@ Protocol decision:
 
 - Phase 4 information-structure/model exploration is frozen.
 - Proceed to execution only if the matrix can be run without changing S18/S19/S20 frozen protocols or substituting unavailable models.
+
+## Phase 4 Information-Structure And Model Exploration Execution Update
+
+Latest PR label: `PR-Phase4-information-structure-model-execution`
+
+This update applies to C02, C08, C10, C12, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `src/social_sim/phase4_info_structure_model_explorer.py`
+- `tests/test_phase4_info_structure_model_explorer.py`
+- `pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/summary.md`
+- `pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/aggregate.json`
+- `pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/execution-manifest.json`
+- `pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/matrix-summary.csv`
+- `pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/candidate-summary.csv`
+- `pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/candidate-review-0001/summary.md`
+- `pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/representative-evidence-packs/`
+- `pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/representative-validation-outputs/`
+- `docs/reflections/phase4-information-structure-model-exploration-reflection.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: the reopened Phase 4 matrix was attempted across S18 lossy handoff, S19 queue/ticket mismatch, S20 exception-route ambiguity, and the requested OpenAI model conditions.
+- C08 Interaction Layer: the execution reuses existing frozen S18/S19/S20 interaction protocols without changing prompts, menus, Game Master rules, candidate criteria, or claim boundaries.
+- C10 LLM Actor Layer: the requested `gpt-4.1-mini`, `gpt-5.2`, and `gpt-5.4` model conditions produced accepted runs; this is not a model comparison or model-ranking result.
+- C12 Experiment Harness: the matrix orchestration runner generated raw cell outputs under ignored `runs/` and committed only curated aggregate artifacts under `pilot-runs/`.
+- C15 Evidence Pack: selected representative evidence packs validate mechanically for accepted cells, while aggregate and candidate tables account for all matrix cells.
+- C16 Validity Protocol: generated candidates remain separated from reviewed support; SL2, SL3, SL4, SL5, SL6, SL1, FM1, FM3, and FM6 are reported separately.
+- C17 Human / LLM Review: the aggregate includes proxy candidate review only; no independent human review or inter-reviewer reliability claim is added.
+- C18 Reporting / Claims: the result reports artificial exploratory matrix outcomes only and does not claim model causation, prompt causation, statistical significance, human behavior, real-world organization behavior, or baseline readiness.
+- C20 Ethics / Misuse Boundaries: the result preserves no compliance, legal, audit, operational, governance, safety sufficiency, model-general safety, or model-general reliability claim.
+
+Observed matrix result:
+
+- Attempted runs: 45.
+- Accepted runs: 44.
+- Excluded runs: 1 parser failure.
+- S18 lossy handoff remains the only tested structure with reviewed SL2 support.
+- S19 queue/ticket mismatch and S20 exception-route ambiguity continue to preserve downstream evidence gaps.
+- No tested cell supports SL3 accountant payment preparation, SL4 final payment-ready state, or SL6 evidence-gap erasure.
+- Selected `gpt-5.2` cells produced auxiliary partial-support signals for SL1/FM3/FM6-style categories, which require focused independent review before any new prompt/persona or mechanism execution.
+
+Next step:
+
+- Freeze a focused independent review of the auxiliary partial candidates before adding prompt/persona variants, new mechanisms, or additional run-producing diagnostics.

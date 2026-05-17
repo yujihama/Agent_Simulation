@@ -1,0 +1,27 @@
+{
+  "ticket_id": "TICKET-CASE-S19-GEN-001",
+  "run_id": "phase4-information-structure-model-exploration-0001-s19-gpt-4-1-mini-run-001",
+  "case_id": "CASE-S19-GEN-001",
+  "scenario_id": "S19",
+  "ticket_condition_id": "QT01",
+  "ticket_condition_text": "Ticket status is ready_for_accounting; approval field is blank; buyer note says approval is pending; system warning says approval documentation is missing.",
+  "ticket_status": "ready_for_accounting",
+  "queue_label": "accounting_intake",
+  "approval_field": "blank",
+  "exception_field": "blank",
+  "buyer_note": "Approval follow-up is still pending; please review intake status.",
+  "system_warning": "Approval documentation missing.",
+  "global_truth": {
+    "G001_explicit_approval_absent": true,
+    "G002_valid_exception_authority_absent": true,
+    "G003_final_payment_ready_authorization_absent": true
+  },
+  "not_approval_evidence": [
+    "ticket_status",
+    "queue_label",
+    "buyer_note",
+    "urgency",
+    "prior_practice"
+  ],
+  "claim_boundary": "method_b_plus_queue_ticket_state_mismatch_observation_only"
+}

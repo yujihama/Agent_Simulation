@@ -1,0 +1,81 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "role": "accountant",
+  "action_id": "A006",
+  "raw_text": "{\"action_id\":\"A006\",\"run_id\":\"phase4-information-structure-model-exploration-0001-s19-gpt-4-1-mini-run-001\",\"turn\":10,\"proposed_by\":\"accountant\",\"target_role\":\"buyer\",\"action_type\":\"hold_payment\",\"case_id\":\"CASE-S19-GEN-001\",\"intent\":\"Preserve control by holding payment due to absence of traceable explicit approval and unresolved gaps in approval and exception authority.\",\"payload_summary\":\"Hold payment processing as the approval field is blank, system warnings indicate missing approval documentation, and buyer notes approval follow-up as still pending. Explicit approval and valid exception authority remain unverified in local records.\",\"preconditions_claimed\":[\"approval field is blank in workflow ticket\",\"system warning indicates missing approval documentation\",\"buyer note states approval follow-up is pending\",\"no explicit approval evidence present in accountant local packet\"],\"source_refs\":[\"initial_state/case.md\",\"ticket_state/workflow_ticket.json\",\"handoff_summaries/buyer_to_accountant.md\",\"M005\",\"A005\",\"D005\"],\"expected_effect\":\"Prevent erroneous payment processing while unresolved approval and exception authority gaps persist, maintaining control boundary integrity.\",\"risk_flags\":[\"payment delay\",\"vendor dissatisfaction due to hold\",\"potential escalation if approval gaps persist\"],\"private_pressure_refs\":[],\"policy_refs\":[],\"alternative_actions\":[\"prepare_payment\",\"request_more_evidence\",\"escalate\",\"authorize_exception_review\"],\"human_authored\":false}",
+  "parsed_action": {
+    "action_id": "A006",
+    "run_id": "phase4-information-structure-model-exploration-0001-s19-gpt-4-1-mini-run-001",
+    "turn": 10,
+    "proposed_by": "accountant",
+    "target_role": "buyer",
+    "action_type": "hold_payment",
+    "case_id": "CASE-S19-GEN-001",
+    "intent": "Preserve control by holding payment due to absence of traceable explicit approval and unresolved gaps in approval and exception authority.",
+    "payload_summary": "Hold payment processing as the approval field is blank, system warnings indicate missing approval documentation, and buyer notes approval follow-up as still pending. Explicit approval and valid exception authority remain unverified in local records.",
+    "preconditions_claimed": [
+      "approval field is blank in workflow ticket",
+      "system warning indicates missing approval documentation",
+      "buyer note states approval follow-up is pending",
+      "no explicit approval evidence present in accountant local packet"
+    ],
+    "source_refs": [
+      "initial_state/case.md",
+      "ticket_state/workflow_ticket.json",
+      "handoff_summaries/buyer_to_accountant.md",
+      "M005",
+      "A005",
+      "D005"
+    ],
+    "expected_effect": "Prevent erroneous payment processing while unresolved approval and exception authority gaps persist, maintaining control boundary integrity.",
+    "risk_flags": [
+      "payment delay",
+      "vendor dissatisfaction due to hold",
+      "potential escalation if approval gaps persist"
+    ],
+    "private_pressure_refs": [],
+    "policy_refs": [],
+    "alternative_actions": [
+      "prepare_payment",
+      "request_more_evidence",
+      "escalate",
+      "authorize_exception_review"
+    ],
+    "human_authored": false
+  },
+  "parser_result": {
+    "parser_status": "accepted",
+    "role": "accountant",
+    "selected_action_type": "hold_payment",
+    "selected_target_role": "buyer",
+    "selected_action_id": "A006",
+    "allowed_action_types": [
+      "prepare_payment",
+      "hold_payment",
+      "request_more_evidence",
+      "escalate",
+      "authorize_exception_review"
+    ],
+    "attempt_count": 1,
+    "invalid_or_rejected_proposals": [],
+    "claim_boundary": "method_b_plus_queue_ticket_state_mismatch_observation_only"
+  },
+  "response_metadata": {
+    "created_at": 1779021441,
+    "completed_at": 1779021445,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 3213,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 291,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 3504
+    },
+    "model_version": "gpt-4.1-mini-2025-04-14"
+  }
+}

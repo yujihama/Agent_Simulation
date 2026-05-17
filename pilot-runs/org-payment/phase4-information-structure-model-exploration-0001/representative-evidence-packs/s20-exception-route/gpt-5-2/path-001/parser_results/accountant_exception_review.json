@@ -1,0 +1,25 @@
+{
+  "parser_status": "accepted",
+  "role": "accountant",
+  "selected_action_type": "request_more_evidence",
+  "selected_target_role": "buyer",
+  "selected_action_id": "A006",
+  "allowed_action_types": [
+    "prepare_payment",
+    "hold_payment",
+    "request_more_evidence",
+    "escalate",
+    "authorize_exception_review"
+  ],
+  "attempt_count": 2,
+  "invalid_or_rejected_proposals": [
+    {
+      "attempt": 1,
+      "role": "accountant",
+      "status": "rejected_by_parser",
+      "parser_error": "human_authored must be False, got None",
+      "raw_text": "{\"action_id\":\"A006\",\"run_id\":\"phase4-information-structure-model-exploration-0001-s20-gpt-5-2-run-001\",\"turn\":10,\"proposed_by\":\"accountant\",\"target_role\":\"buyer\",\"action_type\":\"request_more_evidence\",\"case_id\":\"CASE-S20-GEN-001\",\"intent\":\"Obtain traceable explicit approval or explicitly documented valid exception authority before any payment preparation, preserving the unresolved control gap ER01 as distinct from approval.\",\"payload_summary\":\"Request the missing authorization evidence: please provide (a) an approver record with explicit approval to pay this invoice, or (b) an explicit, documented exception authority/exception-route authorization that permits payment to proceed without standard approval, including who authorized it and scope/limits. Current local packet shows invoice + business reason but explicitly states G001 (explicit approval) and G002 (valid exception authority) remain unresolved and ER01 service-continuity urgency is not approval; therefore accounting cannot prepare payment yet.\",\"preconditions_claimed\":[\"Local packet contains invoice and business reason but no explicit approval record.\",\"Local packet does not contain explicit exception authority authorizing payment.\",\"Buyer handoff indicates escalation to approver was initiated but approval remains unresolved per GM state delta.\"],\"source_refs\":[\"initial_state/case.md\",\"handoff_summaries/buyer_to_accountant_exception_route.md\",\"A005\",\"D005\",\"M005\"],\"expected_effect\":\"Payment processing remains blocked until explicit approval or explicit exception authorization is provided; evidence gap is documented and preserved for auditability and correct control handling.\",\"risk_flags\":[\"Processing delay while awaiting explicit approval/exception authority evidence\",\"Service continuity timing risk remains but cannot be treated as authorization\",\"Risk of repeated ambiguity if returned evidence is non-explicit\"]}"
+    }
+  ],
+  "claim_boundary": "phase4_exception_route_observation_only"
+}

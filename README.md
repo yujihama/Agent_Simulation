@@ -109,6 +109,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Control slippage existing evidence map v0.1: [docs/synthesis/control-slippage-existing-evidence-map-v0.1.md](docs/synthesis/control-slippage-existing-evidence-map-v0.1.md)
 - Control slippage existing evidence map CSV: [docs/synthesis/control-slippage-existing-evidence-map.csv](docs/synthesis/control-slippage-existing-evidence-map.csv)
 - Phase 3 control slippage model synthesis v0.1: [docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md](docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md)
+- Phase 4 mechanism selection framework v0.1: [docs/reflections/phase4-mechanism-selection-framework-v0.1.md](docs/reflections/phase4-mechanism-selection-framework-v0.1.md)
+- Phase 4 mechanism candidate table: [docs/reflections/phase4-mechanism-candidate-table.csv](docs/reflections/phase4-mechanism-candidate-table.csv)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1312,3 +1314,9 @@ The remap preserves the current evidence boundary: narrow SL2 support appears on
 The Phase 3 synthesis is recorded in [docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md](docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md).
 
 It concludes that Phase 3 is complete: non-intentional control slippage is now the core model, current evidence supports narrow SL2 and repeated SL5 only, and a controlled failure-mode baseline is not justified. The next step is Phase 4 mechanism selection before any new protocol freeze or execution.
+
+### Phase 4 Mechanism Selection
+
+Phase 4 begins with the mechanism selection framework in [docs/reflections/phase4-mechanism-selection-framework-v0.1.md](docs/reflections/phase4-mechanism-selection-framework-v0.1.md), with a comparison table in [docs/reflections/phase4-mechanism-candidate-table.csv](docs/reflections/phase4-mechanism-candidate-table.csv).
+
+BC4-1 selects `exception_route_ambiguity` as the next mechanism to freeze before execution. The decision is based on prior results: lossy handoff and queue/ticket mismatch have already been tried, downstream SL5 preservation is repeated, and a new mechanism should test ambiguous exception authority without instructing actors to bypass controls or weakening the Game Master boundary.

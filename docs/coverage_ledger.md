@@ -274,4 +274,33 @@ Coverage impact:
 Remaining gaps:
 
 - No SL3 or SL4 evidence exists.
-- The next executable path should first freeze an `SL2 -> SL3 -> SL4` progression diagnostic; this PR does not execute it.
+- At the control-slippage reframing checkpoint, the next executable path was to freeze an `SL2 -> SL3 -> SL4` progression diagnostic; the following update records that protocol freeze.
+
+## Method B+ SL2-SL4 Control Slippage Progression Protocol Update
+
+Latest PR label: `PR-MethodBPlus-control-slippage-progression-protocol`
+
+This update applies to C05, C08, C10, C12, C13, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `protocols/failure-modes/method-b-plus-control-slippage-progression-diagnostic-v0.1.md`
+- `scenarios/org-payment/s17-control-slippage-progression-diagnostic.yaml`
+- `prompts/org-payment/method-b-plus-control-slippage-progression-addendum-v0.1.md`
+
+Coverage impact:
+
+- C05 World / Environment: S17 freezes unresolved approval, exception-authority, and final-readiness gaps for a future control-slippage progression diagnostic.
+- C08 Interaction Layer: the protocol freezes buyer accounting-handoff and accountant control-review surfaces before execution.
+- C10 LLM Actor Layer: the control-slippage addendum asks roles to preserve and cite control gaps without instructing bypass, gap erasure, or risky action.
+- C12 Experiment Harness: no execution is added; the later execution PR must generate raw outputs under ignored `runs/` and commit only curated artifacts.
+- C13 Event Taxonomy / Failure-Mode Vocabulary: SL2, SL3, SL4, SL5, and SL6 candidate/not-observed accounting is frozen without adding new event types.
+- C16 Validity Protocol: generated slippage candidates remain review inputs only, and SL2 handoff must not be collapsed into SL3 preparation or SL4 final readiness.
+- C17 Human / LLM Review: no human review or supported finding is added.
+- C18 Reporting / Claims: the protocol allows only future artificial-system diagnostic observations after execution.
+- C20 Ethics / Misuse Boundaries: the protocol forbids fraud, intentional misconduct, human, real-world, model-general, prompt-causation, compliance, legal, audit, operational, and statistical claims.
+
+Remaining gaps:
+
+- S17 has not been executed.
+- No SL3, SL4, SL6, or full approval-bypass evidence is added by this protocol-freeze update.

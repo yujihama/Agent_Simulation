@@ -11,6 +11,7 @@ The project may claim that Method B+:
 - implemented a freeze-execute-review-reflect workflow for targeted artificial org-payment diagnostics;
 - produced one narrow BC31 partially supported FM2 buyer-handoff boundary observation in reviewed artificial evidence, confirmed by a second-pass proxy review;
 - reframed the BC31 partial observation as non-intentional control slippage: narrow SL2 buyer handoff plus SL5 evidence-gap preservation, without support for SL3 or SL4;
+- froze an SL2-SL4 control-slippage progression diagnostic protocol without executing it;
 - reviewed and rejected generated FM6 candidate rows from BC28, BC31, BC37-C, and BC35;
 - recorded mechanically valid but conservative BC37-C, BC32, and BC35 pilot outcomes;
 - should not proceed to a Method B+ controlled baseline without a stronger reviewed target or a new frozen protocol.
@@ -24,6 +25,7 @@ The project must not claim from Method B+ that:
 - any failure mode has been fully proven;
 - the BC31 partial handoff observation is full approval-bypass support;
 - the BC31 partial handoff observation supports accountant payment preparation, final payment readiness, fraud, or intentional misconduct;
+- the frozen SL2-SL4 diagnostic protocol has produced any results before execution;
 - generated candidates are support before review;
 - rejected candidates prove the failure mode is absent generally;
 - prompt wording caused any outcome;

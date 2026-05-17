@@ -101,6 +101,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ BC36 reflection after BC31 FM2 independent review: [docs/reflections/method-b-plus-bc36-after-bc31-fm2-independent-review.md](docs/reflections/method-b-plus-bc36-after-bc31-fm2-independent-review.md)
 - Method B+ non-intentional control slippage taxonomy v0.1: [protocols/failure-modes/non-intentional-control-slippage-taxonomy-v0.1.md](protocols/failure-modes/non-intentional-control-slippage-taxonomy-v0.1.md)
 - Method B+ non-intentional control slippage map: [docs/synthesis/non-intentional-control-slippage-map.csv](docs/synthesis/non-intentional-control-slippage-map.csv)
+- Method B+ SL2-SL4 control slippage progression diagnostic protocol v0.1: [protocols/failure-modes/method-b-plus-control-slippage-progression-diagnostic-v0.1.md](protocols/failure-modes/method-b-plus-control-slippage-progression-diagnostic-v0.1.md)
+- Method B+ S17 control slippage progression scenario: [scenarios/org-payment/s17-control-slippage-progression-diagnostic.yaml](scenarios/org-payment/s17-control-slippage-progression-diagnostic.yaml)
+- Method B+ control slippage progression prompt addendum v0.1: [prompts/org-payment/method-b-plus-control-slippage-progression-addendum-v0.1.md](prompts/org-payment/method-b-plus-control-slippage-progression-addendum-v0.1.md)
 - Method B+ BC36 reflection after BC31 review: [docs/reflections/method-b-plus-bc36-after-bc31-review.md](docs/reflections/method-b-plus-bc36-after-bc31-review.md)
 - Method B+ BC37-C approval bypass stress protocol v0.1: [protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md](protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md)
 - Method B+ S14 approval bypass stress scenario: [scenarios/org-payment/s14-approval-bypass-stress.yaml](scenarios/org-payment/s14-approval-bypass-stress.yaml)
@@ -201,6 +204,7 @@ The project should be built up in small decision-oriented pull requests:
 66. Method B+ BC36 reflection after BC35 review bundle: synthesize the BC35 review outcome and select a Method B+ iterative targeting synthesis as the next checkpoint.
 67. Method B+ iterative targeting synthesis bundle: summarize BC34/BC28, BC31, BC37-C, BC32, and BC35 status without adding runs or upgrading claims.
 68. Method B+ control-slippage reframing bundle: reflect after the BC31 FM2 independent review and add a non-intentional control slippage taxonomy plus mapping without adding runs or upgrading BC31 to full approval-bypass support.
+69. Method B+ SL2-SL4 control-slippage progression protocol bundle: freeze S17, a prompt addendum, action menus, Game Master rules, and candidate/reporting requirements before execution.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -950,6 +954,14 @@ The post-review reflection is recorded in [docs/reflections/method-b-plus-bc36-a
 This reframes the BC31 FM2 partial finding as non-intentional control slippage rather than full approval bypass. The current evidence supports only a narrow SL2 buyer payment-forward handoff without explicit approval, alongside SL5 evidence-gap preservation. It does not support SL3 payment preparation without explicit approval or SL4 final payment-ready state without explicit approval.
 
 The selected next path is to freeze an `SL2 -> SL3 -> SL4` progression diagnostic before any new execution. This reframing does not add runs, change prior artifacts, claim fraud or intentional misconduct, or make human, real-world, statistical, compliance, legal, audit, operational, model-general, or prompt-causation claims.
+
+## Method B+ SL2-SL4 Control Slippage Progression Protocol
+
+The frozen protocol is recorded in [protocols/failure-modes/method-b-plus-control-slippage-progression-diagnostic-v0.1.md](protocols/failure-modes/method-b-plus-control-slippage-progression-diagnostic-v0.1.md). It introduces [S17 control slippage progression diagnostic](scenarios/org-payment/s17-control-slippage-progression-diagnostic.yaml) and the [control slippage progression prompt addendum](prompts/org-payment/method-b-plus-control-slippage-progression-addendum-v0.1.md).
+
+This protocol freezes a later diagnostic for separately tracking SL2 buyer handoff, SL3 accountant preparation, SL4 final payment-ready state, SL5 evidence-gap preservation, and SL6 evidence-gap erasure. It does not execute runs, add evidence packs, change previous result artifacts, upgrade BC31 to full approval-bypass support, or claim fraud, intentional misconduct, human behavior, real-world organization behavior, model-general behavior, prompt causation, statistical significance, compliance, legal, audit, or operational sufficiency.
+
+The next PR may execute the frozen S17 diagnostic, but it must not change the frozen protocol, scenario, prompt addendum, action menus, Game Master rules, evidence requirements, or claim boundaries after seeing outputs.
 
 ## Method B+ BC36 Reflection After BC31 Review
 

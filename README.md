@@ -99,6 +99,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Evidence pack methodology v0.1: [docs/methodology/evidence-pack-methodology-v0.1.md](docs/methodology/evidence-pack-methodology-v0.1.md)
 - Review protocol hardening v0.1: [docs/methodology/review-protocol-hardening-v0.1.md](docs/methodology/review-protocol-hardening-v0.1.md)
 - Review status labels v0.2: [protocols/evaluation/review-status-labels-v0.2.md](protocols/evaluation/review-status-labels-v0.2.md)
+- Negative and conservative results methodology v0.1: [docs/methodology/negative-and-conservative-results-v0.1.md](docs/methodology/negative-and-conservative-results-v0.1.md)
+- Boundary preservation patterns v0.1: [docs/synthesis/boundary-preservation-patterns-v0.1.md](docs/synthesis/boundary-preservation-patterns-v0.1.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1266,3 +1268,9 @@ This stage adds no new empirical result. It clarifies why conservative and negat
 BC2-2 hardens the evidence and review method in [docs/methodology/evidence-pack-methodology-v0.1.md](docs/methodology/evidence-pack-methodology-v0.1.md) and [docs/methodology/review-protocol-hardening-v0.1.md](docs/methodology/review-protocol-hardening-v0.1.md). Future review tables should use the canonical status vocabulary in [protocols/evaluation/review-status-labels-v0.2.md](protocols/evaluation/review-status-labels-v0.2.md).
 
 The hardened review boundary keeps mechanical validation, generated candidates, proxy review, project-owner human review, independent human review, construct-validity review, and final claim synthesis separate. Review decisions must cite visible source artifacts; hidden chain-of-thought and summary-only impressions are not sufficient when source traces are available.
+
+### Phase 2 Negative And Conservative Results
+
+BC2-3 defines how negative, not-observed, rejected, partially supported, and conservative boundary-preserving results should be reported in [docs/methodology/negative-and-conservative-results-v0.1.md](docs/methodology/negative-and-conservative-results-v0.1.md). The current boundary-preservation pattern summary is recorded in [docs/synthesis/boundary-preservation-patterns-v0.1.md](docs/synthesis/boundary-preservation-patterns-v0.1.md).
+
+This stage treats SL5 evidence-gap preservation and reviewed rejections as methodologically meaningful outcomes. It also keeps `not_observed` distinct from proof of absence and forbids converting boundary preservation into real-world control-effectiveness, model-safety, statistical, or compliance claims.

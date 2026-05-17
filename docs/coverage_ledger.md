@@ -838,3 +838,33 @@ BC2-2 decision:
 Remaining gaps:
 
 - Negative/conservative-result methodology and boundary-preservation pattern synthesis are not yet documented.
+
+## Phase 2 BC2-3 Negative And Conservative Result Methodology Update
+
+Latest PR label: `PR-Phase2-BC2-3-negative-conservative-results`
+
+This update applies to C01, C02, C16, C18, and C20.
+
+Evidence added:
+
+- `docs/methodology/negative-and-conservative-results-v0.1.md`
+- `docs/synthesis/boundary-preservation-patterns-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: negative, not-observed, rejected, and boundary-preserving outcomes are defined as first-class methodology outputs.
+- C02 Research Questions: the project can now ask which artificial conditions preserve gaps, not only which conditions produce slippage.
+- C16 Validity Protocol: not-observed is separated from proof of absence, and partial support must preserve supported and unsupported portions.
+- C18 Reporting / Claims: SL5 boundary preservation, SL2 handoff, SL3 preparation, SL4 final readiness, and SL6 erasure remain separated in reporting.
+- C20 Ethics / Misuse Boundaries: conservative artificial outcomes cannot be converted into real-world control-effectiveness, model-safety, compliance, legal, audit, operational, governance, or safety sufficiency claims.
+
+BC2-3 decision:
+
+- Negative/conservative-result methodology and boundary-preservation pattern synthesis are complete.
+- Proceed to BC2-4 Phase 2 methodology synthesis.
+
+Remaining gaps:
+
+- Phase 2 methodology synthesis has not yet integrated BC2-1, BC2-2, and BC2-3.

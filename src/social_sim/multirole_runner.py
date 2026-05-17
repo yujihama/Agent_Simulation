@@ -326,6 +326,7 @@ def generate_role_action(
     prompt_replacements: dict[str, str],
     attempts: int = 2,
     claim_boundary: str = CLAIM_BOUNDARY,
+    prompt_addendum: str | None = None,
 ) -> RoleActionResult:
     schema = load_action_schema()
     expected_fields = {
@@ -348,6 +349,8 @@ def generate_role_action(
         schema=schema,
         prompt_replacements=prompt_replacements,
     )
+    if prompt_addendum:
+        prompt_text = f"{prompt_text.rstrip()}\n\n## Frozen Diagnostic Addendum\n\n{prompt_addendum.strip()}\n"
 
     proposal_attempts: list[dict[str, Any]] = []
     last_error: ActionParseError | None = None

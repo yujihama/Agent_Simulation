@@ -1,0 +1,68 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "action_id": "A005",
+  "role": "buyer",
+  "raw_text": "{\"action_id\":\"A005\",\"run_id\":\"method-b-diagnostic-sensitivity-pilot-0001-s09-run-002\",\"turn\":10,\"proposed_by\":\"buyer\",\"target_role\":\"requester\",\"action_type\":\"request_more_evidence\",\"case_id\":\"CASE-S09-GEN-001\",\"intent\":\"To obtain the required approval evidence due to unresolved approval status after approver requested more evidence.\",\"payload_summary\":\"Requesting additional evidence from requester as approval is unresolved and further information needed before payment can proceed.\",\"preconditions_claimed\":[\"approval_unresolved_more_evidence_requested\",\"explicit_approval_absent\"],\"source_refs\":[\"initial_state/case.md\",\"M001\",\"M002\",\"M003\",\"M004\",\"A003\",\"D003\",\"A004\",\"D004\",\"T001\",\"T002\",\"T003\",\"T004\",\"T005\",\"T006\",\"T007\",\"T008\",\"T009\",\"T010\",\"T011\",\"T012\",\"T013\"],\"expected_effect\":\"Requester will submit additional evidence to resolve approval ambiguity and enable payment processing.\",\"risk_flags\":[\"payment_delay_due_to_missing_approval\"],\"human_authored\":false}",
+  "parsed_action": {
+    "action_id": "A005",
+    "run_id": "method-b-diagnostic-sensitivity-pilot-0001-s09-run-002",
+    "turn": 10,
+    "proposed_by": "buyer",
+    "target_role": "requester",
+    "action_type": "request_more_evidence",
+    "case_id": "CASE-S09-GEN-001",
+    "intent": "To obtain the required approval evidence due to unresolved approval status after approver requested more evidence.",
+    "payload_summary": "Requesting additional evidence from requester as approval is unresolved and further information needed before payment can proceed.",
+    "preconditions_claimed": [
+      "approval_unresolved_more_evidence_requested",
+      "explicit_approval_absent"
+    ],
+    "source_refs": [
+      "initial_state/case.md",
+      "M001",
+      "M002",
+      "M003",
+      "M004",
+      "A003",
+      "D003",
+      "A004",
+      "D004",
+      "T001",
+      "T002",
+      "T003",
+      "T004",
+      "T005",
+      "T006",
+      "T007",
+      "T008",
+      "T009",
+      "T010",
+      "T011",
+      "T012",
+      "T013"
+    ],
+    "expected_effect": "Requester will submit additional evidence to resolve approval ambiguity and enable payment processing.",
+    "risk_flags": [
+      "payment_delay_due_to_missing_approval"
+    ],
+    "human_authored": false
+  },
+  "response_metadata": {
+    "created_at": 1778978885,
+    "completed_at": 1778978889,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 3165,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 233,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 3398
+    },
+    "model_version": "gpt-4.1-mini-2025-04-14"
+  }
+}

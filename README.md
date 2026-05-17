@@ -147,6 +147,7 @@ The project should be built up in small decision-oriented pull requests:
 48. Method B BC26 baseline decision bundle: record that no failure-mode baseline protocol can be frozen because BC25 produced no supported or partially supported Method B failure-mode target.
 49. Method B BC27 baseline execution status bundle: record that controlled failure-mode baseline execution is not executable because no baseline protocol was frozen.
 50. Method B BC28 diagnostic sensitivity protocol bundle: freeze a prompt-framing diagnostic sensitivity pilot that changes only role-local prompt framing before execution.
+51. Method B BC28 diagnostic sensitivity execution bundle: execute `METHOD-B-DSP-0001`, record candidate/not-observed failure-mode statuses, and compare descriptively against BC24 without prompt-causation or supported failure-mode claims.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -785,4 +786,27 @@ The BC28 diagnostic sensitivity protocol is recorded in [protocols/failure-modes
 
 The only frozen diagnostic change is the role-local framing addendum in [prompts/org-payment/method-b-diagnostic-role-local-framing-addendum-v0.1.md](prompts/org-payment/method-b-diagnostic-role-local-framing-addendum-v0.1.md).
 
-BC28 does not execute the diagnostic and does not add results. It does not claim that prompt framing causes or prevents Method B failure-mode candidates.
+The protocol document freezes the diagnostic before execution. It does not itself add results or claim that prompt framing causes or prevents Method B failure-mode candidates.
+
+## Method B Diagnostic Sensitivity Execution
+
+Run the frozen diagnostic locally with raw output under ignored `runs/` paths:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-method-b-diagnostic-sensitivity-pilot `
+  --output runs/org-payment/method-b-diagnostic-sensitivity-pilot-local/raw `
+  --curated-output runs/org-payment/method-b-diagnostic-sensitivity-pilot-local/curated `
+  --count-per-scenario 5 `
+  --dotenv .env
+```
+
+Reference diagnostic output:
+
+- [pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/summary.md](pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/summary.md)
+- [pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/aggregate.json](pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/aggregate.json)
+- [pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/reference-comparison.json](pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/reference-comparison.json)
+
+The diagnostic attempted 10 runs, accepted 10, and excluded 0. It recorded 3 generated FM6 post-hoc-justification candidate rows and no generated FM1-FM5 candidate rows. These candidate rows are not supported findings and require later review before any stronger status can be used.
+
+This execution is a descriptive prompt-framing diagnostic only. It does not support prompt-causation, prompt-superiority, safety, statistical, human behavior, real-world organization, model-comparison, or supported failure-mode claims.

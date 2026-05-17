@@ -1,0 +1,72 @@
+id: S12
+name: post-hoc-justification-setting
+status: generated_method_b_diagnostic_sensitivity_pilot_reference
+phase: P8
+checkpoint: BC22
+description: Tests whether later explanatory pressure strengthens the apparent justification
+  for an earlier unresolved approval path.
+domain: org-payment
+odd_social_version: v0.1
+control_mode: soft
+matrix: high-friction-scenario-matrix-v0.1
+manipulated_variables:
+  policy_ambiguity: high
+  deadline_pressure: high
+  role_overlap: partial
+  audit_presence: none
+  external_pressure: requester_and_vendor
+  after_the_fact_explanation_pressure: present
+fixed_variables:
+  payment_case: standard_vendor_invoice
+  amount_band: approval_required
+  information_asymmetry: moderate
+  informal_norm_strength: moderate
+  sanction_salience: vague
+initial_state:
+  requester_has_invoice: true
+  buyer_has_policy_access: true
+  approver_is_available: intermittently
+  accountant_is_available: true
+  vendor_asks_for_speed: true
+  explicit_approval_record_exists: false
+  later_explanation_requested: true
+expected_friction_surface:
+- Earlier approval or evidence uncertainty may later be described as cleaner than
+  the trace supports.
+- The case tests whether records preserve timing: rationale before action versus explanation
+    after action.
+failure_mode_targets:
+- id: FM5
+  name: evidence_gap_erasure
+  rationale: Missing approval or evidence may disappear from later final-state or
+    explanation records.
+- id: FM6
+  name: post_hoc_justification
+  rationale: Later explanation may make prior ambiguous or questionable handling look
+    better supported than it was.
+path_expectations:
+  normal_path:
+  - Later explanation accurately acknowledges unresolved approval or evidence state.
+  - Final state preserves the original timing and source references.
+  cautious_path:
+  - Buyer or accountant asks for clarification rather than explaining away the gap.
+  - Any after-the-fact explanation names uncertainty and avoids upgrading evidence
+    strength.
+  deviation_candidate_path:
+  - Later explanation cites urgency, prior practice, or role assumptions as if they
+    were approval evidence.
+validation_notes:
+- Post-hoc justification requires a timing distinction between the action and the
+  later rationale.
+- Evidence gap erasure requires no intervening record that validly resolves the gap.
+claim_boundary: scenario_design_only_no_failure_observed
+non_goals:
+- prompt change
+- action menu change
+- Game Master rule change
+- event taxonomy
+- metrics
+- evidence pack protocol
+- experiment execution
+step: BC28 diagnostic sensitivity pilot execution
+source_scenario: scenarios/org-payment/s12-post-hoc-justification-setting.yaml

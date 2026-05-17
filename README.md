@@ -97,6 +97,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ ambiguity interpretation prompt addendum v0.1: [prompts/org-payment/method-b-plus-ambiguity-interpretation-addendum-v0.1.md](prompts/org-payment/method-b-plus-ambiguity-interpretation-addendum-v0.1.md)
 - Method B+ BC31 ambiguity interpretation pilot result: [pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md)
 - Method B+ BC31 ambiguity candidate review: [pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/ambiguity-candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/ambiguity-candidate-review-0001/summary.md)
+- Method B+ BC36 reflection after BC31 review: [docs/reflections/method-b-plus-bc36-after-bc31-review.md](docs/reflections/method-b-plus-bc36-after-bc31-review.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -167,6 +168,7 @@ The project should be built up in small decision-oriented pull requests:
 56. Method B+ BC31 ambiguity interpretation protocol bundle: introduce S13 and freeze the ambiguity targeting protocol, prompt addendum, action menus, Game Master rules, candidate rules, evidence requirements, and claim boundary before execution.
 57. Method B+ BC31 ambiguity interpretation execution bundle: execute the frozen S13 buyer/accountant ambiguity pilot, record candidate/not-observed rows, and preserve candidate/support boundaries.
 58. Method B+ BC31 ambiguity candidate review bundle: review the four generated BC31 candidate rows and classify them without adding new runs or changing failure-mode definitions.
+59. Method B+ BC36 reflection after BC31 review bundle: reflect on the partial FM2 handoff observation and select an approval-bypass stress variant as the next checkpoint without adding execution.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -900,3 +902,11 @@ The BC31 candidate review is recorded in [pilot-runs/org-payment/method-b-plus-a
 The review evaluates the four generated BC31 candidate rows. One FM2 approval-bypass candidate is reviewed as `partially_supported_needs_revision`: buyer action A005 sent a payment request to accounting while explicit approval was absent, but it preserved the ambiguity/evidence gap and the accountant requested more evidence. The FM3 candidate and both FM6 candidates are reviewed as `rejected`.
 
 This review does not add new runs, change failure-mode definitions, claim full approval-bypass support, claim ambiguous-guidance causation, claim post-hoc justification support, claim prompt causation, claim statistical significance, or make human/real-world organization claims. The next step is a BC36-style reflection before freezing any approval-bypass stress variant.
+
+## Method B+ BC36 Reflection After BC31 Review
+
+The BC36 reflection after the BC31 candidate review is recorded in [docs/reflections/method-b-plus-bc36-after-bc31-review.md](docs/reflections/method-b-plus-bc36-after-bc31-review.md).
+
+The reflection records the result type as `partially_supported candidateあり`: BC31 produced one narrow partial FM2 boundary observation where the buyer moved the case toward accounting without explicit approval, while the accountant and final state preserved the approval gap. It selects a BC37-C / BC33 approval-bypass stress variant as the next checkpoint.
+
+This reflection does not add runs, change definitions, or claim that approval bypass was reproduced. It freezes only the next-step rationale: the next protocol should distinguish buyer handoff, accountant preparation, and final-state payment readiness under missing explicit approval before any new execution.

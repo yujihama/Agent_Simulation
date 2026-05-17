@@ -90,6 +90,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Social chaos claim-boundary review: [docs/synthesis/claim-boundary-review.md](docs/synthesis/claim-boundary-review.md)
 - Social chaos synthesis limitations: [docs/synthesis/limitations.md](docs/synthesis/limitations.md)
 - Method B+ integrated endpoint findings are included in the social chaos claim synthesis, evidence map, claim-boundary review, and limitations.
+- Current evidence inventory v0.1: [docs/synthesis/current-evidence-inventory-v0.1.md](docs/synthesis/current-evidence-inventory-v0.1.md)
+- Current evidence map: [docs/synthesis/current-evidence-map.csv](docs/synthesis/current-evidence-map.csv)
+- Current claim-level table: [docs/synthesis/current-claim-level-table.csv](docs/synthesis/current-claim-level-table.csv)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1231,3 +1234,9 @@ The updated synthesis, evidence map, claim-boundary review, and limitations clar
 Phase 1 begins by reframing the project objective in [docs/research/research-objective-reframing-v0.1.md](docs/research/research-objective-reframing-v0.1.md), updating the research questions in [docs/research/research-questions-v0.2.md](docs/research/research-questions-v0.2.md), and hardening claim positioning in [docs/research/claim-positioning-v0.2.md](docs/research/claim-positioning-v0.2.md).
 
 The reframed objective is to build and evaluate a reviewable artificial-organization research method for institutional friction and non-intentional control slippage. It does not claim human society reproduction, real-organization behavior, full approval bypass, statistical significance, model-general behavior, or compliance/legal/audit/operational sufficiency.
+
+### Phase 1 Current Evidence Inventory
+
+The current evidence inventory is recorded in [docs/synthesis/current-evidence-inventory-v0.1.md](docs/synthesis/current-evidence-inventory-v0.1.md), with a compact evidence map in [docs/synthesis/current-evidence-map.csv](docs/synthesis/current-evidence-map.csv) and claim-level table in [docs/synthesis/current-claim-level-table.csv](docs/synthesis/current-claim-level-table.csv).
+
+The inventory separates artifact claims, bounded observation claims, reviewed evidence claims, construct-limited claims, boundary-limited Method B+ claims, generated candidates, not-observed results, and forbidden claims. It also distinguishes primary human review from Codex proxy review and keeps SL2 buyer handoff separate from SL3 accountant preparation, SL4 final readiness, SL5 gap preservation, and SL6 gap erasure.

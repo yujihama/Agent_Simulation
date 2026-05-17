@@ -716,3 +716,31 @@ Remaining gaps:
 
 - Current evidence still needs a structured inventory by artifact, claim level, and review level.
 - Phase 1 synthesis has not yet integrated the objective reframing and evidence inventory.
+
+## Phase 1 BC1-2 Current Evidence Inventory Update
+
+Latest PR label: `PR-Phase1-BC1-2-current-evidence-inventory`
+
+This update applies to C01, C02, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/current-evidence-inventory-v0.1.md`
+- `docs/synthesis/current-evidence-map.csv`
+- `docs/synthesis/current-claim-level-table.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: current evidence is inventoried around the reframed artificial-organization methodology rather than human-social reproduction.
+- C02 Research Questions: major artifacts are mapped to what they support and do not support.
+- C16 Validity Protocol: claim levels and review levels are separated, including generated-only, not-observed, reviewed rejection, boundary-limited, and construct-limited statuses.
+- C17 Human / LLM Review: primary human review, construct-validity review, Codex proxy review, and Codex second-pass proxy review are distinguished.
+- C18 Reporting / Claims: the evidence map prevents generated candidates, proxy review, and narrow SL2 findings from being overstated.
+- C20 Ethics / Misuse Boundaries: the inventory preserves no human, real-world, statistical, causal, model-general, compliance, legal, audit, or operational claim.
+
+Remaining gaps:
+
+- Phase 1 synthesis has not yet integrated BC1-1 and BC1-2.
+- Methodological contribution documents are not yet separated as Phase 2 artifacts.

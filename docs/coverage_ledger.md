@@ -992,3 +992,33 @@ BC3-3 decision:
 Remaining gaps:
 
 - Phase 3 model synthesis has not yet integrated the conceptual model, evidence requirements, and existing-evidence remap.
+
+## Phase 3 BC3-4 Control Slippage Model Synthesis Update
+
+Latest PR label: `PR-Phase3-BC3-4-control-slippage-synthesis`
+
+This update applies to C01, C02, C13, C16, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: non-intentional control slippage is accepted as the Phase 3 core model.
+- C02 Research Questions: future work is directed toward mechanism selection for unresolved SL levels before execution.
+- C13 Event Taxonomy: SL1-SL6 are retained as conceptual/review levels, not new event taxonomy claims.
+- C16 Validity Protocol: the synthesis rejects baseline readiness from the current narrow SL2 plus repeated SL5 evidence state.
+- C18 Reporting / Claims: Phase 3 explicitly allows bounded model/evidence-positioning claims and forbids full-bypass, fraud, human, real-world, statistical, and model-general claims.
+- C20 Ethics / Misuse Boundaries: the synthesis preserves artificial-system-only limits and excludes compliance, legal, audit, operational, governance, and safety sufficiency claims.
+
+Phase 3 decision:
+
+- Phase 3 is complete.
+- Proceed to Phase 4 mechanism selection framework before any new run-producing work.
+
+Remaining gaps:
+
+- Phase 4 mechanism selection framework has not yet compared tried and untried mechanisms or selected a next mechanism.

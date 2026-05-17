@@ -108,6 +108,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Control slippage positive and negative examples: [docs/models/control-slippage-positive-negative-examples.md](docs/models/control-slippage-positive-negative-examples.md)
 - Control slippage existing evidence map v0.1: [docs/synthesis/control-slippage-existing-evidence-map-v0.1.md](docs/synthesis/control-slippage-existing-evidence-map-v0.1.md)
 - Control slippage existing evidence map CSV: [docs/synthesis/control-slippage-existing-evidence-map.csv](docs/synthesis/control-slippage-existing-evidence-map.csv)
+- Phase 3 control slippage model synthesis v0.1: [docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md](docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1305,3 +1306,9 @@ The evidence requirements keep SL2 handoff, SL3 preparation, SL4 final readiness
 BC3-3 remaps existing BC31, BC37-C, BC35, S17, S18, and S19 evidence to the Phase 3 SL model in [docs/synthesis/control-slippage-existing-evidence-map-v0.1.md](docs/synthesis/control-slippage-existing-evidence-map-v0.1.md), with a compact CSV table at [docs/synthesis/control-slippage-existing-evidence-map.csv](docs/synthesis/control-slippage-existing-evidence-map.csv).
 
 The remap preserves the current evidence boundary: narrow SL2 support appears only in BC31 and S18, repeated SL5 evidence-gap preservation is the strongest pattern, and SL3, SL4, and SL6 remain unsupported or not observed in the mapped reviewed scope.
+
+### Phase 3 Control Slippage Model Synthesis
+
+The Phase 3 synthesis is recorded in [docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md](docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md).
+
+It concludes that Phase 3 is complete: non-intentional control slippage is now the core model, current evidence supports narrow SL2 and repeated SL5 only, and a controlled failure-mode baseline is not justified. The next step is Phase 4 mechanism selection before any new protocol freeze or execution.

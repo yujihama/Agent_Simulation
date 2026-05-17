@@ -1337,3 +1337,29 @@ Observed matrix result:
 Next step:
 
 - Freeze a focused independent review of the auxiliary partial candidates before adding prompt/persona variants, new mechanisms, or additional run-producing diagnostics.
+
+## Phase 4 Auxiliary Candidate Independent Review Protocol Update
+
+Latest PR label: `PR-Phase4-auxiliary-candidate-independent-review-protocol`
+
+This update applies to C02, C13, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `protocols/failure-modes/phase4-auxiliary-candidate-independent-review-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: the next Phase 4 question is narrowed to whether auxiliary SL1/FM3/FM6 partial signals from the information-structure/model matrix survive independent review.
+- C13 Event Taxonomy: no taxonomy change is introduced; SL1/FM3/FM6 are reviewed under existing failure-mode and control-slippage definitions.
+- C16 Validity Protocol: review criteria are frozen before review, and generated candidates remain separate from support.
+- C17 Human / LLM Review: the next PR is a focused independent review of existing candidate evidence, not new execution.
+- C18 Reporting / Claims: the protocol blocks claim upgrades from auxiliary candidates to SL3, SL4, SL6, prompt causation, model comparison, statistical significance, or baseline readiness.
+- C20 Ethics / Misuse Boundaries: the protocol preserves no human, real-world, compliance, legal, audit, operational, governance, safety sufficiency, model-general safety, or model-general reliability claim.
+
+Protocol decision:
+
+- Proceed to independent review of the auxiliary SL1/FM3/FM6 candidates from selected `gpt-5.2` cells.
+- Do not add prompt/persona variants, new mechanisms, or additional run-producing diagnostics until the auxiliary candidates are reviewed.

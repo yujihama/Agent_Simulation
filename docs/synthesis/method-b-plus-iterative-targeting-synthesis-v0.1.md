@@ -3,12 +3,12 @@
 Date: 2026-05-17
 Status: accepted
 Phase: Method B+
-Checkpoint: iterative targeting synthesis after BC35 review
+Checkpoint: iterative targeting synthesis updated after BC31 FM2 independent review
 Claim boundary: `method_b_plus_iterative_synthesis_only`
 
 ## Scope
 
-This synthesis integrates the Method B+ iterative targeting work after BC35 review. It asks what the project can currently say about targeted failure-mode observability in artificial org-payment runs after repeated protocol-freeze, execution, review, and reflection cycles.
+This synthesis integrates the Method B+ iterative targeting work through the BC31 FM2 independent review and control-slippage reframing. It asks what the project can currently say about targeted failure-mode observability in artificial org-payment runs after repeated protocol-freeze, execution, review, and reflection cycles.
 
 This synthesis does not add new LLM execution, new scenarios, prompt changes, action-menu changes, Game Master changes, event taxonomy changes, metric changes, human-review judgments, or statistical analysis.
 
@@ -17,6 +17,7 @@ This synthesis does not add new LLM execution, new scenarios, prompt changes, ac
 | Area | Primary inputs |
 |---|---|
 | Failure-mode definitions | `protocols/failure-modes/failure-mode-taxonomy-v0.1.md` |
+| Control-slippage taxonomy | `protocols/failure-modes/non-intentional-control-slippage-taxonomy-v0.1.md`; `docs/synthesis/non-intentional-control-slippage-map.csv`; `docs/reflections/method-b-plus-bc36-after-bc31-fm2-independent-review.md` |
 | Method B baseline synthesis | `docs/synthesis/method-b-synthesis-v0.1.md`; `docs/synthesis/method-b-failure-mode-status.csv` |
 | BC28 FM6 review | `pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/fm6-candidate-review-0001/summary.md` |
 | BC31 ambiguity targeting | `protocols/failure-modes/method-b-plus-ambiguity-interpretation-v0.1.md`; `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md`; `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/ambiguity-candidate-review-0001/summary.md`; `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/bc31-fm2-independent-review-0001/summary.md` |
@@ -35,7 +36,7 @@ Method B+ successfully exercised the intended iterative loop:
 
 The work improved the project's ability to make narrow, reviewable distinctions among generated candidates, rejected candidates, partial support, and not-observed outcomes. It did not produce a fully supported Method B+ failure-mode finding.
 
-The strongest reviewed signal remains one narrow BC31 FM2 boundary observation: a buyer sent a payment request toward accounting while explicit approval was absent, but the accountant requested more evidence and the final state did not become payment-ready. A second-pass proxy review independently re-read the source evidence and confirmed the same partial-support boundary. This is `partially_supported_needs_revision_confirmed`, not full approval-bypass support.
+The strongest reviewed signal remains one narrow BC31 FM2 boundary observation: a buyer sent a payment request toward accounting while explicit approval was absent, but the accountant requested more evidence and the final state did not become payment-ready. A second-pass proxy review independently re-read the source evidence and confirmed the same partial-support boundary. This is now better described as a narrow non-intentional control slippage observation: SL2 buyer payment-forward handoff without explicit approval plus SL5 downstream evidence-gap preservation. It is not full approval-bypass support.
 
 Subsequent stress and diagnostic pilots were mechanically valid but conservative:
 
@@ -52,7 +53,7 @@ The compact status table is [method-b-plus-failure-mode-status.csv](method-b-plu
 | Failure mode | Current Method B+ status | Plain-language meaning |
 |---|---|---|
 | FM1 responsibility diffusion | `not_observed_in_bc32_targeted_scope` | The BC32 responsibility-boundary run did not show roles blurring responsibility in a way that satisfied the generated candidate criteria. |
-| FM2 approval bypass | `partially_supported_boundary_observation_confirmed_by_second_pass` | BC31 partially supports a narrow buyer handoff concern, and a second-pass proxy review confirmed that limited reading. It still does not support accountant preparation or final payment readiness without approval. |
+| FM2 approval bypass | `partially_supported_control_slippage_boundary_observation` | BC31 partially supports a narrow SL2 buyer handoff concern, and a second-pass proxy review confirmed that limited reading. It also supports SL5 downstream gap preservation. It still does not support SL3 accountant preparation or SL4 final payment readiness without approval. |
 | FM3 ambiguous guidance misinterpretation | `reviewed_rejected_for_bc31_candidate` | The BC31 ambiguous-guidance candidate was reviewed and rejected; downstream records preserved ambiguity rather than treating it as explicit approval. |
 | FM4 pressure normalization | `not_directly_targeted_in_method_b_plus_iteration` | Method B+ did not run a dedicated pressure-normalization target after the earlier Method B synthesis. |
 | FM5 evidence-gap erasure | `not_observed_in_bc35_targeted_scope` | BC35 fixed G001/G002 and observed that buyer/accountant preserved those gaps in all accepted runs. |
@@ -63,7 +64,7 @@ The compact status table is [method-b-plus-failure-mode-status.csv](method-b-plu
 | Claim level | Claim | Evidence | Boundary |
 |---|---|---|---|
 | `workflow_claim` | Method B+ implemented an iterative freeze-execute-review-reflect workflow for targeted failure-mode diagnostics. | BC31, BC37-C, BC32, and BC35 artifacts. | Workflow and artifact claim only. |
-| `partial_boundary_observation` | BC31 contains one partially supported FM2 buyer-handoff boundary observation, confirmed by a second-pass proxy review. | `METHOD-B-PLUS-BC31-REVIEW-0001`; `METHOD-B-PLUS-BC31-FM2-INDEPENDENT-REVIEW-0001`. | Narrow reviewed artificial evidence only; not full approval bypass or independent multi-reviewer human validation. |
+| `partial_boundary_observation` | BC31 contains one partially supported non-intentional control slippage observation: SL2 buyer handoff without explicit approval plus SL5 evidence-gap preservation. | `METHOD-B-PLUS-BC31-REVIEW-0001`; `METHOD-B-PLUS-BC31-FM2-INDEPENDENT-REVIEW-0001`; `non-intentional-control-slippage-map.csv`. | Narrow reviewed artificial evidence only; not full approval bypass, SL3 preparation, SL4 payment readiness, or independent multi-reviewer human validation. |
 | `reviewed_rejection_claim` | Generated FM6 candidate rows in Method B+ reviewed scopes were rejected. | BC28, BC31, BC37-C, and BC35 candidate reviews. | Rejection applies only to reviewed candidate rows. |
 | `negative_diagnostic_observation` | BC37-C, BC32, and BC35 produced conservative or boundary-preserving paths under their frozen protocols. | Curated pilot summaries and reflections. | Not evidence that failure modes are absent generally. |
 | `next_step_decision` | Further targeted execution should not proceed blindly without synthesis or a new protocol freeze. | BC36 reflections, especially after BC35. | Research-planning claim only. |
@@ -76,6 +77,7 @@ Method B+ cannot claim that:
 - real organizations would behave similarly;
 - responsibility diffusion, approval bypass, ambiguous guidance misinterpretation, pressure normalization, evidence-gap erasure, or post-hoc justification has been proven;
 - the BC31 partial handoff observation is a full approval-bypass finding;
+- the BC31 partial handoff observation supports SL3 payment preparation or SL4 final payment-ready state;
 - generated candidates are support before review;
 - rejected FM6 candidates prove FM6 is absent generally;
 - prompt wording caused conservative or candidate outcomes;
@@ -91,7 +93,7 @@ The reviewed candidate/support boundary is still useful:
 
 - generated candidates are not treated as support;
 - reviewed rejected candidates remain rejected;
-- the single BC31 partial support is explicitly narrow and not upgraded into full failure-mode support, even after second-pass confirmation.
+- the single BC31 partial support is explicitly narrow and reframed as control slippage rather than upgraded into full failure-mode support, even after second-pass confirmation.
 
 ## Interpretation
 
@@ -106,12 +108,12 @@ The main research value of Method B+ is therefore methodological:
 
 ## Recommended Next Options
 
-Do not freeze a Method B+ controlled baseline from the current evidence. The only partially supported item is a narrow BC31 buyer-handoff boundary observation confirmed by second-pass proxy review, and later targeted pilots did not extend it to accounting preparation or final payment readiness.
+Do not freeze a Method B+ controlled baseline from the current evidence. The only partially supported item is a narrow BC31 control-slippage boundary observation confirmed by second-pass proxy review, and later targeted pilots did not extend it to accounting preparation or final payment readiness.
 
 Useful next options are:
 
-1. Freeze an external or project-owner human-review protocol for the BC31 partial FM2 observation and the Method B+ rejected-candidate set if stronger review status is needed.
-2. Design a new protocol only if it targets a clearly different mechanism, not just a stronger version of the same conservative setup.
+1. Freeze an `SL2 -> SL3 -> SL4` control-slippage progression diagnostic that separately tracks handoff, preparation, final readiness, gap preservation, and gap erasure.
+2. Freeze an external or project-owner human-review protocol for the BC31 partial FM2 observation and the Method B+ rejected-candidate set if stronger review status is needed.
 3. Run a second-domain post-hoc diagnostic only after freezing post-hoc explanation requirements that the earlier expense-reimbursement pilot lacked.
 4. Pause targeted execution and update the broader project synthesis to reflect the Method B+ status.
 
@@ -124,7 +126,7 @@ Rationale:
 - no fully supported Method B+ failure-mode finding exists;
 - generated FM6 candidates have repeatedly failed review;
 - the only partial support is too narrow for baseline execution, even after second-pass proxy confirmation;
-- additional execution should be preceded by a new frozen protocol with a clearly different target or by external/project-owner human review if stronger review status is required.
+- additional execution should be preceded by a new frozen slippage-progression protocol or by external/project-owner human review if stronger review status is required.
 
 ## Claim Boundary
 

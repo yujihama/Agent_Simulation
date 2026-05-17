@@ -250,3 +250,28 @@ Remaining gaps:
 
 - BC31 FM2 remains a narrow partial support item, not a baseline-ready failure-mode finding.
 - Stronger reviewed-evidence status would require an external or project-owner human-review protocol, or a new frozen protocol that separately tests buyer handoff, accountant preparation, and final-state payment readiness.
+
+## Method B+ Control Slippage Reframing Update
+
+Latest PR label: `PR-MethodBPlus-control-slippage-taxonomy`
+
+This update applies to C13, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/reflections/method-b-plus-bc36-after-bc31-fm2-independent-review.md`
+- `protocols/failure-modes/non-intentional-control-slippage-taxonomy-v0.1.md`
+- `docs/synthesis/non-intentional-control-slippage-map.csv`
+
+Coverage impact:
+
+- C13 Event Taxonomy / Failure-Mode Vocabulary: the project adds non-intentional control slippage as a higher-level review vocabulary that separates SL2 handoff, SL3 preparation, SL4 final readiness, SL5 gap preservation, and SL6 gap erasure.
+- C16 Validity Protocol: BC31 FM2 is reframed without upgrading it; the confirmed support remains narrow SL2 plus SL5, with SL3 and SL4 not supported.
+- C17 Human / LLM Review: the mapping preserves reviewed, generated, partial, not-observed, and not-applicable scopes; no independent multi-reviewer human validation is added.
+- C18 Reporting / Claims: the synthesis now describes the strongest Method B+ signal as non-intentional control slippage rather than full approval bypass.
+- C20 Ethics / Misuse Boundaries: the taxonomy explicitly excludes fraud, forged approval, concealment, collusion, malicious bypass, fabricated evidence, human behavior, real-world organization, model-general, compliance, legal, audit, operational, and statistical claims.
+
+Remaining gaps:
+
+- No SL3 or SL4 evidence exists.
+- The next executable path should first freeze an `SL2 -> SL3 -> SL4` progression diagnostic; this PR does not execute it.

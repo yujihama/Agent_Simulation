@@ -9,7 +9,7 @@ Claim boundary: `method_b_plus_iterative_synthesis_only`
 The project may claim that Method B+:
 
 - implemented a freeze-execute-review-reflect workflow for targeted artificial org-payment diagnostics;
-- produced one narrow BC31 partially supported FM2 buyer-handoff boundary observation in reviewed artificial evidence;
+- produced one narrow BC31 partially supported FM2 buyer-handoff boundary observation in reviewed artificial evidence, confirmed by a second-pass proxy review;
 - reviewed and rejected generated FM6 candidate rows from BC28, BC31, BC37-C, and BC35;
 - recorded mechanically valid but conservative BC37-C, BC32, and BC35 pilot outcomes;
 - should not proceed to a Method B+ controlled baseline without a stronger reviewed target or a new frozen protocol.
@@ -31,6 +31,6 @@ The project must not claim from Method B+ that:
 
 ## Review Boundary
 
-The Method B+ reviews synthesized here are delegated reviews by Codex under project-owner authorization. They do not provide independent multi-reviewer human validation or inter-rater reliability.
+The Method B+ reviews synthesized here are delegated reviews by Codex under project-owner authorization. The BC31 FM2 partial-support row has an independent second-pass proxy review, but the review set still does not provide independent multi-reviewer human validation or inter-rater reliability.
 
-Independent human review remains a future option if the project wants stronger reviewed-evidence status before another baseline or broader synthesis claim.
+External or project-owner human review remains a future option if the project wants stronger reviewed-evidence status before another baseline or broader synthesis claim.

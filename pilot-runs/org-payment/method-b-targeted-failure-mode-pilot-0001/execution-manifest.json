@@ -1,0 +1,26 @@
+{
+  "pilot_id": "BC24",
+  "batch_id": "method-b-targeted-failure-mode-pilot-0001",
+  "protocol_ref": "protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md",
+  "scenario_ids": [
+    "S09",
+    "S12"
+  ],
+  "runs_per_scenario": 5,
+  "total_planned_attempted_runs": 10,
+  "started_at": "2026-05-17T00:15:35Z",
+  "completed_at": "2026-05-17T00:21:58Z",
+  "attempted_runs": 10,
+  "accepted_runs": 10,
+  "excluded_runs": 0,
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "explanation_provider": "openai",
+  "explanation_model": "gpt-4.1-mini",
+  "observed_model_versions": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "replacement_policy": "excluded runs are not replaced in BC24",
+  "exclusions": [],
+  "claim_boundary": "targeted_failure_mode_pilot_observation_only"
+}

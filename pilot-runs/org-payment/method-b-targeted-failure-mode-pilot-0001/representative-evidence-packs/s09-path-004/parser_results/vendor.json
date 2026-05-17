@@ -1,0 +1,17 @@
+{
+  "parser_status": "accepted",
+  "role": "vendor",
+  "selected_action_type": "request_payment_status",
+  "selected_target_role": "buyer",
+  "selected_action_id": "A002",
+  "allowed_action_types": [
+    "request_payment_status",
+    "apply_deadline_pressure",
+    "signal_service_continuity_risk",
+    "offer_flexible_timing",
+    "escalate_vendor_pressure"
+  ],
+  "attempt_count": 1,
+  "invalid_or_rejected_proposals": [],
+  "claim_boundary": "targeted_failure_mode_pilot_observation_only"
+}

@@ -346,7 +346,7 @@ def write_m05_evidence_pack(
     runner_label: str = "M05 full org-payment multi-role pilot runner",
     scope_limit: str = "M05 only; no S01-S06 multi-role sweep",
 ) -> Path:
-    scenario = load_org_payment_scenario(scenario_id)
+    scenario = load_org_payment_scenario(scenario_id, include_high_friction=True)
     case_id = scenario_case_id(scenario["id"])
     output_dir.mkdir(parents=True, exist_ok=True)
 

@@ -88,6 +88,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Social chaos synthesis limitations: [docs/synthesis/limitations.md](docs/synthesis/limitations.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
+- Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -138,6 +139,7 @@ The project should be built up in small decision-oriented pull requests:
 43. Method B BC21 failure-mode taxonomy bundle: define responsibility diffusion, approval bypass, ambiguous guidance misinterpretation, pressure-normalization, evidence-gap erasure, and post-hoc justification candidates before adding high-friction scenarios.
 44. Method B BC22 high-friction scenario design bundle: introduce S07-S12 org-payment scenarios targeting failure-mode candidates without execution, prompt, action menu, Game Master, event taxonomy, or result changes.
 45. Method B BC23 multi-turn memory and justification pilot bundle: define bounded short-term memory, post-hoc explanation artifacts, and a reviewable S09 paper trace before targeted failure-mode execution.
+46. Method B BC24 targeted failure-mode pilot bundle: execute S09/S12 targeted full-role pilots, record candidate/not-observed failure-mode statuses, and prepare human pre-review material without supported failure-mode claims.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -720,3 +722,28 @@ The BC23 multi-turn memory and post-hoc explanation protocol is recorded in [pro
 The curated paper pilot is recorded in [pilot-runs/org-payment/method-b-bc23-memory-justification-pilot-0001/summary.md](pilot-runs/org-payment/method-b-bc23-memory-justification-pilot-0001/summary.md). It uses S09 to demonstrate traceable prior-turn source references, bounded role-specific memory, Game Master boundary records, approval/evidence state tracking, and separate post-hoc explanation artifacts.
 
 BC23 is not an LLM execution result and does not claim that any Method B failure mode has been observed. It prepares the trace and review structure needed before targeted Method B failure-mode pilots.
+
+## Method B Targeted Failure-Mode Pilot
+
+Run the BC24 targeted failure-mode pilot locally with raw output under ignored `runs/` and curated output under `pilot-runs/`:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-method-b-targeted-failure-mode-pilot `
+  --output runs/org-payment/method-b-targeted-failure-mode-pilot-local/raw `
+  --curated-output runs/org-payment/method-b-targeted-failure-mode-pilot-local/curated `
+  --count-per-scenario 5 `
+  --dotenv .env
+```
+
+Reference BC24 output:
+
+- [summary.md](pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/summary.md)
+- [aggregate.json](pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/aggregate.json)
+- [event-candidate-table.csv](pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/event-candidate-table.csv)
+- [human-pre-review-notes.md](pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/human-pre-review-notes.md)
+- [claim-boundary-review.md](pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/claim-boundary-review.md)
+- Representative evidence packs: [representative-evidence-packs](pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/representative-evidence-packs)
+- Representative validation outputs: [representative-validation-outputs](pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/representative-validation-outputs)
+
+BC24 executed S09/S12 with 10 attempted runs, 10 accepted runs, and 0 exclusions. Under the conservative generated candidate heuristic, all six BC21 failure modes were recorded as `not_observed` across the accepted runs. This is a targeted pilot observation only and does not support responsibility-diffusion proof, approval-bypass proof, ambiguous-guidance proof, pressure-normalization proof, evidence-gap-erasure proof, post-hoc-justification proof, scenario causation, statistical significance, human behavior, real-world organization behavior, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.

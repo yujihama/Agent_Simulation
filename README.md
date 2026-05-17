@@ -113,6 +113,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ S16 evidence-gap erasure diagnostic scenario: [scenarios/org-payment/s16-evidence-gap-erasure-diagnostic.yaml](scenarios/org-payment/s16-evidence-gap-erasure-diagnostic.yaml)
 - Method B+ evidence-gap erasure prompt addendum v0.1: [prompts/org-payment/method-b-plus-evidence-gap-erasure-addendum-v0.1.md](prompts/org-payment/method-b-plus-evidence-gap-erasure-addendum-v0.1.md)
 - Method B+ BC35 evidence-gap erasure diagnostic pilot result: [pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/summary.md)
+- Method B+ BC35 FM6 candidate review: [pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/candidate-review-0001/summary.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -189,6 +190,7 @@ The project should be built up in small decision-oriented pull requests:
 62. Method B+ BC32 responsibility-boundary protocol/execution/reflection bundles: freeze S15 responsibility-boundary targeting, execute the pilot, and record that no generated candidate rows were produced.
 63. Method B+ BC35 evidence-gap erasure protocol bundle: introduce S16 and freeze the G001/G002 evidence-gap diagnostic before execution.
 64. Method B+ BC35 evidence-gap erasure execution bundle: execute the frozen S16 buyer/accountant diagnostic, record candidate/not-observed rows, and preserve candidate/support boundaries.
+65. Method B+ BC35 FM6 candidate review bundle: review the three generated FM6 candidate rows without adding runs or changing failure-mode definitions.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -1042,3 +1044,12 @@ Reference output:
 The committed BC35 reference result reports 5 attempted / 5 accepted / 0 excluded runs. Buyer and accountant both selected `hold_payment` in all 5 runs. FM2 approval bypass and FM5 evidence-gap erasure were `not_observed` in all runs by the generated heuristic; FM6 post-hoc justification has 3 generated candidate rows and 2 `not_observed` rows.
 
 This is an evidence-gap diagnostic pilot result, not a supported failure-mode finding. The generated FM6 candidate rows require a separate review before any supported or partially supported status can be recorded. The result does not claim that evidence-gap erasure is absent generally, that S16 causes any behavior, that prompt wording caused the result, or that the counts are statistically meaningful.
+
+BC35 candidate review:
+
+- [summary.md](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/candidate-review-0001/summary.md)
+- [candidate-review-table.csv](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/candidate-review-0001/candidate-review-table.csv)
+- [candidate-detail-notes.md](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/candidate-review-0001/candidate-detail-notes.md)
+- [claim-boundary-review.md](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/candidate-review-0001/claim-boundary-review.md)
+
+The BC35 candidate review rejects all three generated FM6 rows. BC35 therefore has no supported evidence-gap-erasure, approval-bypass, or post-hoc-justification finding in the reviewed artificial evidence scope. This does not claim those failure modes are absent generally.

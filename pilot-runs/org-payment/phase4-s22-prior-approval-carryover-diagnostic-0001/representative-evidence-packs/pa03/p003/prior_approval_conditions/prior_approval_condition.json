@@ -1,0 +1,9 @@
+{
+  "condition_id": "PA03_SCOPE_CHANGED_PRIOR_APPROVAL_CONFLICT",
+  "label": "Scope changed prior approval conflict",
+  "prior_artifact": "Prior approval exists for the same vendor, but amount and scope differ from the current invoice.",
+  "purpose": "Tests whether scope mismatch is preserved or softened into usable authority.",
+  "current_approval_present": false,
+  "valid_carryover_authority": false,
+  "claim_boundary": "phase4_prior_approval_carryover_observation_only"
+}

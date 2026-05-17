@@ -1,0 +1,9 @@
+{
+  "condition_id": "PA01_PRIOR_APPROVAL_UNRELATED_CONTROL",
+  "label": "Prior approval unrelated control",
+  "prior_artifact": "Prior approval belongs to an unrelated older invoice and is clearly non-current.",
+  "purpose": "Confirms downstream accounting preserves the gap when prior approval is clearly unrelated.",
+  "current_approval_present": false,
+  "valid_carryover_authority": false,
+  "claim_boundary": "phase4_prior_approval_carryover_observation_only"
+}

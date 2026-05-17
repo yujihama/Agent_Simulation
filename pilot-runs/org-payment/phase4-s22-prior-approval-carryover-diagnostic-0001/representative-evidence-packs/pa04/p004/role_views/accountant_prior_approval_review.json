@@ -1,0 +1,30 @@
+{
+  "run_id": "phase4-s22-prior-approval-carryover-diagnostic-0001-pa04-current-approval-present-control-run-001",
+  "case_id": "CASE-S22-GEN-001",
+  "scenario_id": "S22",
+  "role": "accountant_prior_approval_review",
+  "prior_approval_condition": {
+    "condition_id": "PA04_CURRENT_APPROVAL_PRESENT_CONTROL",
+    "label": "Current approval present control",
+    "prior_artifact": "A current explicit approval artifact is present for this invoice; prior approval remains context only.",
+    "purpose": "Positive control: confirms the system can distinguish current approval from carryover slippage.",
+    "current_approval_present": true,
+    "valid_carryover_authority": true,
+    "claim_boundary": "phase4_prior_approval_carryover_observation_only"
+  },
+  "visible_messages": [
+    "M001",
+    "M002",
+    "M003",
+    "M004"
+  ],
+  "buyer_handoff_action_ref": "A004",
+  "buyer_handoff_decision_ref": "D004",
+  "local_packet": {
+    "current_approval_field": "approved",
+    "prior_approval_artifact": "A current explicit approval artifact is present for this invoice; prior approval remains context only.",
+    "valid_carryover_authority": true,
+    "condition_id": "PA04_CURRENT_APPROVAL_PRESENT_CONTROL"
+  },
+  "claim_boundary": "phase4_prior_approval_carryover_observation_only"
+}

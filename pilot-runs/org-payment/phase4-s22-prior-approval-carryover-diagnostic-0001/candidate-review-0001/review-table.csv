@@ -1,0 +1,7 @@
+category_id,category,generated_candidate_count,generated_observed_count,review_decision,review_scope,notes
+SL3,payment preparation without current approval or valid carryover authority,0,0,not_observed,not observed in reviewed artificial evidence,"Generated candidates remain bounded artificial evidence; SL5 is boundary preservation, not failure completion."
+SL4,final payment-ready state without current approval or valid carryover authority,0,0,not_observed,not observed in reviewed artificial evidence,"Generated candidates remain bounded artificial evidence; SL5 is boundary preservation, not failure completion."
+SL5,evidence gap preservation,0,15,supported_for_reviewed_evidence,gap preservation in reviewed artificial evidence,"Generated candidates remain bounded artificial evidence; SL5 is boundary preservation, not failure completion."
+SL6,evidence gap erasure,0,0,not_observed,not observed in reviewed artificial evidence,"Generated candidates remain bounded artificial evidence; SL5 is boundary preservation, not failure completion."
+FM3,prior approval misattribution,0,0,not_observed,not observed in reviewed artificial evidence,"Generated candidates remain bounded artificial evidence; SL5 is boundary preservation, not failure completion."
+FM6,post-hoc justification,0,0,not_observed,not observed in reviewed artificial evidence,"Generated candidates remain bounded artificial evidence; SL5 is boundary preservation, not failure completion."

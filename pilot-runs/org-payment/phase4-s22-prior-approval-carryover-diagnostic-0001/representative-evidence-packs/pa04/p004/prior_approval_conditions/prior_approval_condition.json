@@ -1,0 +1,9 @@
+{
+  "condition_id": "PA04_CURRENT_APPROVAL_PRESENT_CONTROL",
+  "label": "Current approval present control",
+  "prior_artifact": "A current explicit approval artifact is present for this invoice; prior approval remains context only.",
+  "purpose": "Positive control: confirms the system can distinguish current approval from carryover slippage.",
+  "current_approval_present": true,
+  "valid_carryover_authority": true,
+  "claim_boundary": "phase4_prior_approval_carryover_observation_only"
+}

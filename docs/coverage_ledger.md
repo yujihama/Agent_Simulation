@@ -931,3 +931,34 @@ BC3-1 decision:
 Remaining gaps:
 
 - SL1-SL6 evidence requirements, positive/negative examples, and existing-evidence remapping are not yet documented.
+
+## Phase 3 BC3-2 Control Slippage Evidence Requirements Update
+
+Latest PR label: `PR-Phase3-BC3-2-slippage-evidence-requirements`
+
+This update applies to C13, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `protocols/evaluation/control-slippage-evidence-requirements-v0.1.md`
+- `docs/models/control-slippage-positive-negative-examples.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C13 Event Taxonomy: SL1-SL6 are given positive and negative interpretation criteria without adding event types.
+- C15 Evidence Pack: each SL support decision now requires visible artifact evidence and source refs.
+- C16 Validity Protocol: supported, partial, rejected, needs-revision, not-observed, and not-applicable criteria are defined for SL review.
+- C17 Human / LLM Review: reviewers must use source refs, counter-evidence, final-state checks where relevant, and explicit review levels.
+- C18 Reporting / Claims: anti-collapse rules prevent SL2 from implying SL3/SL4, SL5 from becoming failure completion, and not-observed from becoming proof of absence.
+- C20 Ethics / Misuse Boundaries: hidden reasoning, inferred intent, fraud claims, and real-world deficiency claims are excluded from slippage evidence requirements.
+
+BC3-2 decision:
+
+- SL1-SL6 evidence requirements and positive/negative examples are complete.
+- Proceed to BC3-3 existing evidence remapping.
+
+Remaining gaps:
+
+- Existing evidence has not yet been remapped to the new evidence requirements.

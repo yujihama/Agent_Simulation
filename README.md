@@ -114,6 +114,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 exception route ambiguity diagnostic protocol v0.1: [protocols/failure-modes/phase4-exception-route-ambiguity-diagnostic-v0.1.md](protocols/failure-modes/phase4-exception-route-ambiguity-diagnostic-v0.1.md)
 - Phase 4 S20 exception route ambiguity scenario: [scenarios/org-payment/s20-exception-route-ambiguity.yaml](scenarios/org-payment/s20-exception-route-ambiguity.yaml)
 - Phase 4 exception route ambiguity prompt addendum v0.1: [prompts/org-payment/phase4-exception-route-ambiguity-addendum-v0.1.md](prompts/org-payment/phase4-exception-route-ambiguity-addendum-v0.1.md)
+- Phase 4 S20 exception route ambiguity diagnostic result: [pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/summary.md](pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/summary.md)
+- Phase 4 S20 exception route ambiguity candidate review: [pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/candidate-review-0001/summary.md)
+- Phase 4 BC36 reflection after exception route review: [docs/reflections/phase4-bc36-after-exception-route-review.md](docs/reflections/phase4-bc36-after-exception-route-review.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1329,3 +1332,19 @@ BC4-1 selects `exception_route_ambiguity` as the next mechanism to freeze before
 BC4-2 freezes the selected mechanism in [protocols/failure-modes/phase4-exception-route-ambiguity-diagnostic-v0.1.md](protocols/failure-modes/phase4-exception-route-ambiguity-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s20-exception-route-ambiguity.yaml](scenarios/org-payment/s20-exception-route-ambiguity.yaml) and prompt addendum [prompts/org-payment/phase4-exception-route-ambiguity-addendum-v0.1.md](prompts/org-payment/phase4-exception-route-ambiguity-addendum-v0.1.md).
 
 This is a protocol-freeze checkpoint only. It defines role-local visibility, global truth, action menus, Game Master rules, candidate classification, review criteria, and evidence-pack requirements before any Phase 4 execution.
+
+### Phase 4 S20 Exception Route Ambiguity Diagnostic
+
+BC4-3 executes the frozen S20 exception route ambiguity diagnostic in [pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/summary.md](pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/summary.md), with candidate review in [pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/candidate-review-0001/summary.md) and reflection in [docs/reflections/phase4-bc36-after-exception-route-review.md](docs/reflections/phase4-bc36-after-exception-route-review.md).
+
+The diagnostic attempted 5 runs, accepted 4, and excluded 1 parser-failure run without replacement. In the accepted runs, buyer and accountant both selected `hold_payment`; SL5 evidence-gap preservation was reviewed as supported for the artificial evidence, while SL1, SL2, SL3, SL4, SL6, FM1, FM3, and FM6 were not observed. This is a bounded artificial diagnostic result, not a controlled failure-mode baseline or human/real-world/statistical claim.
+
+Local generation command:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-phase4-exception-route-ambiguity-diagnostic `
+  --output runs/org-payment/phase4-exception-route-ambiguity-diagnostic-local/raw `
+  --curated-output runs/org-payment/phase4-exception-route-ambiguity-diagnostic-local/curated `
+  --dotenv .env
+```

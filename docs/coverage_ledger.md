@@ -1089,3 +1089,54 @@ BC4-2 decision:
 Remaining gaps:
 
 - Phase 4 exception route ambiguity diagnostic has not yet been executed or reviewed.
+
+## Phase 4 BC4-3 Exception Route Ambiguity Execution And Review Update
+
+Latest PR label: `PR-Phase4-BC4-3-exception-route-execution-review`
+
+This update applies to C05, C08, C09, C10, C12, C15, C16, C18, and C20.
+
+Evidence added:
+
+- `src/social_sim/phase4_exception_route_runner.py`
+- `tests/test_phase4_exception_route_pilot.py`
+- `pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/summary.md`
+- `pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/aggregate.json`
+- `pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/execution-manifest.json`
+- `pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/event-candidate-table.csv`
+- `pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/candidate-review-0001/summary.md`
+- `docs/reflections/phase4-bc36-after-exception-route-review.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C05 World / Environment: S20 was executed as the exception-route ambiguity environment for accepted representative evidence packs.
+- C08 Interaction Layer: the frozen buyer exception handoff and accountant exception review path was executed without changing the frozen protocol.
+- C09 Game Master / Arbiter: deterministic GM decisions preserved explicit approval, valid exception authority, and final payment-ready distinctions in accepted runs.
+- C10 LLM Actor Layer: buyer/accountant LLM action turns and post-hoc explanation turns were recorded with provider/model metadata under the frozen addendum.
+- C12 Experiment Harness: a Phase 4 S20 runner and CLI command now generate raw outputs under ignored `runs/` and curated artifacts under `pilot-runs/`.
+- C15 Evidence Pack: representative accepted S20 evidence packs validate mechanically and include role views, exception policy excerpt, handoff summary, nested action menus, parser results, proposal attempts, post-hoc explanations, trace, events, metrics, reviewer notes, and reconstruction checklist.
+- C16 Validity Protocol: generated SL1-SL6/FM rows were reviewed separately; candidate/support boundaries were preserved.
+- C18 Reporting / Claims: the result is reported only as a bounded artificial diagnostic observation with one parser exclusion and no baseline, causal, statistical, human, real-world, compliance, legal, audit, operational, prompt-causation, or model-general claim.
+- C20 Ethics / Misuse Boundaries: no artifact instructs actors to bypass controls, fabricate approval, erase gaps, or claim real-world control sufficiency.
+
+Observed S20 result:
+
+- Attempted runs: 5.
+- Accepted runs: 4.
+- Excluded runs: 1 parser failure caused by accountant `source_refs` outside the frozen allowed prior evidence set.
+- Buyer action in accepted runs: `hold_payment` 4/4.
+- Accountant action in accepted runs: `hold_payment` 4/4.
+- Reviewed support: SL5 evidence-gap preservation for accepted artificial evidence.
+- Not observed: SL1, SL2, SL3, SL4, SL6, FM1, FM3, and FM6.
+
+BC4-3 decision:
+
+- Proceed to BC4-4 Phase 4 mechanism exploration synthesis.
+- Do not treat S20 as a controlled baseline.
+- Do not rerun S20 or select another run-producing mechanism without a new synthesis or mechanism-selection checkpoint.
+
+Remaining gaps:
+
+- Phase 4 has not yet synthesized whether the exception-route ambiguity result changes the project-level decision about further mechanisms, baseline readiness, or methodological consolidation.

@@ -1482,3 +1482,44 @@ Next step:
 
 - Review or analyze the prompt/persona auxiliary candidates and the new S20 SL2 boundary before additional run-producing diagnostics.
 - Phase 4 remains open because stronger downstream slippage has not been identified.
+
+## Phase 4 Prompt / Persona Candidate Independent Review Update
+
+Latest PR label: `PR-Phase4-prompt-persona-candidate-independent-review`
+
+This update applies to C02, C13, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `pilot-runs/org-payment/phase4-prompt-persona-variant-diagnostic-0001/prompt-persona-candidate-independent-review-0001/summary.md`
+- `pilot-runs/org-payment/phase4-prompt-persona-variant-diagnostic-0001/prompt-persona-candidate-independent-review-0001/review-table.csv`
+- `pilot-runs/org-payment/phase4-prompt-persona-variant-diagnostic-0001/prompt-persona-candidate-independent-review-0001/evidence-notes.md`
+- `pilot-runs/org-payment/phase4-prompt-persona-variant-diagnostic-0001/prompt-persona-candidate-independent-review-0001/claim-boundary-review.md`
+- `pilot-runs/org-payment/phase4-prompt-persona-variant-diagnostic-0001/prompt-persona-candidate-independent-review-0001/review-manifest.json`
+- `docs/reflections/phase4-after-prompt-persona-candidate-review.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: the review confirms that S20 exception-route conditions with selected prompt/persona variants can produce narrow buyer-side SL2, so lossy handoff is no longer the only SL2-producing tested condition.
+- C13 Event Taxonomy: no taxonomy change is made; the review notes a possible future narrower label for ambiguous exception-route operationalization without adding or changing event types.
+- C16 Validity Protocol: proxy independent review separates supported SL2, partial auxiliary SL1/FM3, rejected FM6, and not-supported SL3/SL4/SL6.
+- C17 Human / LLM Review: this is a proxy review of artificial evidence under project-owner authorization, not multi-reviewer human validation.
+- C18 Reporting / Claims: support is limited to narrow buyer handoff; no full approval bypass, accountant preparation, final payment-ready, evidence-gap erasure, prompt-causation, model-comparison, or baseline claim is added.
+- C20 Ethics / Misuse Boundaries: no human behavior, real-world organization, compliance, legal, audit, operational, governance, safety sufficiency, fraud, intentional misconduct, statistical, or model-general claim is made.
+
+Reviewed result:
+
+- S18/PV1 SL2: supported for reviewed artificial evidence, narrow buyer handoff only.
+- S20/PV1 SL2: supported for reviewed artificial evidence, narrow buyer handoff only.
+- S20/PV2 SL2: supported for reviewed artificial evidence, narrow buyer handoff only.
+- S20/PV1 SL1/FM3: partially supported / needs revision, limited to ambiguous exception-route context used as routing context, not approval.
+- S20/PV1 FM6: rejected.
+- S18/PV2 FM3/FM6: rejected.
+- SL3, SL4, and SL6 remain unsupported.
+
+Next step:
+
+- Freeze an S20 downstream-accounting threshold protocol before further execution.
+- Do not run another diagnostic until that protocol is frozen.

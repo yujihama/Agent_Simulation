@@ -1,0 +1,19 @@
+{
+  "review_id": "METHOD-B-BC29-TRANSFER-0001",
+  "protocol_ref": "protocols/failure-modes/second-domain-failure-mode-transfer-v0.1.md",
+  "source_method_b_package": "pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/",
+  "source_method_b_status": "generated_candidates_only_no_supported_failure_mode",
+  "second_domain": "expense-reimbursement",
+  "second_domain_evidence_source": "results/expense-reimbursement/exp-0005-second-domain-pilot-0001/",
+  "scenario_id": "ER01",
+  "scenario_ref": "scenarios/expense-reimbursement/er01-ambiguous-receipt-approval.yaml",
+  "reviewed_representative_pack": "results/expense-reimbursement/exp-0005-second-domain-pilot-0001/representative-evidence-packs/path-001",
+  "reviewer": "Codex acting as delegated reviewer under project-owner authorization",
+  "claim_boundary": "method_b_second_domain_transfer_review_only",
+  "review_result": {
+    "supported_transfer": false,
+    "fm1_to_fm5_status": "reviewed_not_observed_in_representative_exp_0005_evidence",
+    "fm6_status": "not_assessable_missing_post_hoc_explanation_artifacts",
+    "cross_domain_validation_claim": false
+  }
+}

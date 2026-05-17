@@ -86,6 +86,10 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Social chaos evidence map: [docs/synthesis/evidence-map.csv](docs/synthesis/evidence-map.csv)
 - Social chaos claim-boundary review: [docs/synthesis/claim-boundary-review.md](docs/synthesis/claim-boundary-review.md)
 - Social chaos synthesis limitations: [docs/synthesis/limitations.md](docs/synthesis/limitations.md)
+- Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
+- Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
+- Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
+- Method B claim-boundary review: [docs/synthesis/method-b-claim-boundary-review.md](docs/synthesis/method-b-claim-boundary-review.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -150,6 +154,7 @@ The project should be built up in small decision-oriented pull requests:
 50. Method B BC28 diagnostic sensitivity protocol bundle: freeze a prompt-framing diagnostic sensitivity pilot that changes only role-local prompt framing before execution.
 51. Method B BC28 diagnostic sensitivity execution bundle: execute `METHOD-B-DSP-0001`, record candidate/not-observed failure-mode statuses, and compare descriptively against BC24 without prompt-causation or supported failure-mode claims.
 52. Method B BC29 second-domain transfer review bundle: review existing EXP-0005 expense-reimbursement evidence against Method B failure-mode mapping without new runs or cross-domain validation claims.
+53. Method B BC30 synthesis bundle: synthesize BC21-BC29 failure-mode status, evidence levels, human-review scope, diagnostic sensitivity, and second-domain limits without supported failure-mode or human-society claims.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -822,3 +827,13 @@ The review output is recorded in [results/expense-reimbursement/exp-0005-second-
 BC29 does not execute new LLM runs. It reviews the existing EXP-0005 expense-reimbursement representative evidence against the Method B failure-mode taxonomy. FM1-FM5 are reviewed as not observed in that representative evidence. FM6 post-hoc justification is not assessable because EXP-0005 did not collect post-hoc explanation artifacts.
 
 BC29 does not establish Method B transfer across domains. It supports only this narrow statement: the existing second-domain evidence can be mapped and reviewed under the Method B vocabulary, but it does not support cross-domain validation, supported failure-mode findings, statistical claims, human behavior claims, real-world organization claims, or prompt/model claims.
+
+## Method B Synthesis
+
+The BC30 synthesis protocol is recorded in [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md).
+
+The synthesis output is recorded in [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md), with the failure-mode status table in [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv) and claim-boundary review in [docs/synthesis/method-b-claim-boundary-review.md](docs/synthesis/method-b-claim-boundary-review.md).
+
+BC30 concludes that Method B strengthened the artificial-system observability pipeline but did not produce a supported Method B failure-mode finding. FM1-FM5 are not observed in the reviewed Method B scope. FM6 has three generated BC28 candidates, but those rows require separate review before any supported status. The second-domain EXP-0005 evidence cannot assess FM6 because it lacks post-hoc explanation artifacts.
+
+BC30 does not claim human-society pseudo-reproduction, real-world organization behavior, cross-domain validation, prompt causation, model behavior, statistical significance, or compliance/legal/audit/operational sufficiency.

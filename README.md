@@ -119,6 +119,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 BC36 reflection after exception route review: [docs/reflections/phase4-bc36-after-exception-route-review.md](docs/reflections/phase4-bc36-after-exception-route-review.md)
 - Phase 4 mechanism exploration synthesis v0.1: [docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md](docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md)
 - Phase 4 research objective reopen: [docs/reflections/phase4-reopen-research-objective.md](docs/reflections/phase4-reopen-research-objective.md)
+- Phase 4 information-structure/model exploration protocol v0.1: [protocols/failure-modes/phase4-information-structure-model-exploration-v0.1.md](protocols/failure-modes/phase4-information-structure-model-exploration-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1378,3 +1379,9 @@ Phase 4 research is reopened in [docs/reflections/phase4-reopen-research-objecti
 The active Phase 4 objective is to identify which artificial organization information structures can produce reviewable non-intentional control-slippage candidates, especially whether any structure can move beyond narrow buyer-side SL2 handoff toward SL3 accountant preparation, SL4 final payment-ready state, or SL6 evidence-gap erasure.
 
 Future Phase 4 work may vary run counts, information structures, OpenAI model choices, and frozen prompt/persona conditions, but must preserve protocol freeze before execution, candidate/review separation, SL2/SL3/SL4/SL5/SL6 separation, and the existing no-human/no-real-world/no-statistical/no-compliance claim boundary.
+
+### Phase 4 Information-Structure And Model Exploration Protocol
+
+The reopened Phase 4 exploration protocol is frozen in [protocols/failure-modes/phase4-information-structure-model-exploration-v0.1.md](protocols/failure-modes/phase4-information-structure-model-exploration-v0.1.md).
+
+It freezes a matrix over S18 lossy handoff, S19 queue/ticket mismatch, and S20 exception-route ambiguity, with requested model conditions `gpt-4.1-mini`, `gpt-5.2`, and `gpt-5.4`. Unavailable model cells must be recorded, not substituted. The protocol does not execute runs, change prior protocols, add prompt/persona variants, make model-comparison claims, or upgrade any slippage finding.

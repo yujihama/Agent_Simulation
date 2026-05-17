@@ -95,6 +95,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ BC31 ambiguity interpretation protocol v0.1: [protocols/failure-modes/method-b-plus-ambiguity-interpretation-v0.1.md](protocols/failure-modes/method-b-plus-ambiguity-interpretation-v0.1.md)
 - Method B+ S13 ambiguous approval interpretation scenario: [scenarios/org-payment/s13-ambiguous-approval-interpretation.yaml](scenarios/org-payment/s13-ambiguous-approval-interpretation.yaml)
 - Method B+ ambiguity interpretation prompt addendum v0.1: [prompts/org-payment/method-b-plus-ambiguity-interpretation-addendum-v0.1.md](prompts/org-payment/method-b-plus-ambiguity-interpretation-addendum-v0.1.md)
+- Method B+ BC31 ambiguity interpretation pilot result: [pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -163,6 +164,7 @@ The project should be built up in small decision-oriented pull requests:
 54. Method B BC28 FM6 candidate review bundle: review the three generated FM6 post-hoc-justification candidate rows and decide whether any are supported, partially supported, rejected, or need revision.
 55. Method B+ BC36 reflection bundle: reflect on the rejected FM6 review result and select BC31 ambiguity interpretation targeting as the next checkpoint without adding execution.
 56. Method B+ BC31 ambiguity interpretation protocol bundle: introduce S13 and freeze the ambiguity targeting protocol, prompt addendum, action menus, Game Master rules, candidate rules, evidence requirements, and claim boundary before execution.
+57. Method B+ BC31 ambiguity interpretation execution bundle: execute the frozen S13 buyer/accountant ambiguity pilot, record candidate/not-observed rows, and preserve candidate/support boundaries.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -867,3 +869,24 @@ This reflection does not add runs or claim that ambiguity will produce failure m
 The BC31 ambiguity interpretation protocol is recorded in [protocols/failure-modes/method-b-plus-ambiguity-interpretation-v0.1.md](protocols/failure-modes/method-b-plus-ambiguity-interpretation-v0.1.md). It introduces [S13 ambiguous approval interpretation](scenarios/org-payment/s13-ambiguous-approval-interpretation.yaml) and the [BC31 ambiguity interpretation prompt addendum](prompts/org-payment/method-b-plus-ambiguity-interpretation-addendum-v0.1.md).
 
 BC31 freezes a protocol for observing whether buyer/accountant LLM turns preserve or distort ambiguous approval-related guidance when explicit approval is absent. It does not execute runs, add result artifacts, claim that ambiguity produces failure modes, or upgrade any Method B failure-mode status.
+
+Execute the frozen BC31 ambiguity interpretation pilot locally with raw output under ignored `runs/` and curated output under `pilot-runs/`:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-method-b-plus-ambiguity-pilot `
+  --output runs/org-payment/method-b-plus-ambiguity-targeting-pilot-local/raw `
+  --curated-output runs/org-payment/method-b-plus-ambiguity-targeting-pilot-local/curated `
+  --dotenv .env
+```
+
+Reference output:
+
+- [summary.md](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md)
+- [aggregate.json](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/aggregate.json)
+- [event-candidate-table.csv](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/event-candidate-table.csv)
+- [claim-boundary-review.md](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/claim-boundary-review.md)
+- Representative evidence packs: [representative-evidence-packs](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/representative-evidence-packs)
+- Representative validation outputs: [representative-validation-outputs](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/representative-validation-outputs)
+
+The committed BC31 reference result reports 5 attempted / 5 accepted / 0 excluded runs. Buyer handoff actions were `hold_payment` in 4 runs and `submit_payment_request` in 1 run; accountant review actions were `hold_payment` in 4 runs and `request_more_evidence` in 1 run. The generated candidate table records FM2 and FM3 as `candidate` in 1 run each, FM5 as `not_observed` in all 5 runs, and FM6 as `candidate` in 2 runs. These are generated candidate/not-observed statuses only; they do not support any failure-mode finding before review and do not make prompt-causation, human behavior, real-world organization, or statistical claims.

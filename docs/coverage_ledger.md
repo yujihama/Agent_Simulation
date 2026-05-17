@@ -152,3 +152,29 @@ Remaining gaps:
 
 - BC35 has no supported FM5 evidence-gap-erasure finding. The generated heuristic marked FM5 `not_observed` in all 5 runs.
 - The 3 generated FM6 rows are candidates only and require a separate review before any supported, partially supported, rejected, or needs-revision status can be recorded.
+
+## Method B+ BC35 Candidate Review Update
+
+Latest PR label: `PR-MethodBPlus-BC35-FM6-review`
+
+This update applies to C16, C17, C18, and C20.
+
+Evidence added:
+
+- `pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/candidate-review-0001/summary.md`
+- `pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/candidate-review-0001/candidate-review-table.csv`
+- `pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/candidate-review-0001/candidate-detail-notes.md`
+- `pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/candidate-review-0001/claim-boundary-review.md`
+- `pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/candidate-review-0001/review-manifest.json`
+
+Coverage impact:
+
+- C16 Validity Protocol: the three generated BC35 FM6 candidate rows were reviewed against the frozen FM6 definition without adding runs or changing definitions.
+- C17 Human / LLM Review: delegated review rejects all three generated FM6 rows for the reviewed artificial evidence scope; this remains a delegated review, not independent human review.
+- C18 Reporting / Claims: BC35 candidate review records `reviewed_rejected: 3` and no supported or partially supported FM6 finding.
+- C20 Ethics / Misuse Boundaries: the review preserves no human behavior, real-world organization, prompt-causation, compliance, legal, audit, operational sufficiency, or statistical claim.
+
+Remaining gaps:
+
+- BC35 has no supported FM2, FM5, or FM6 finding after review.
+- A BC36-style reflection should decide whether to revise the evidence-gap diagnostic surface, shift to another Method B+ target, or add independent human review before further targeted execution.

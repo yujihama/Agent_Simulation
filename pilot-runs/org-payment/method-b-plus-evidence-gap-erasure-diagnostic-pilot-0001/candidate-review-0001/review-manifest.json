@@ -1,0 +1,22 @@
+{
+  "review_id": "METHOD-B-PLUS-BC35-FM6-REVIEW-0001",
+  "review_date": "2026-05-17",
+  "reviewed_package": "pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/",
+  "candidate_source": "pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/event-candidate-table.csv",
+  "protocol_ref": "protocols/failure-modes/method-b-plus-evidence-gap-erasure-diagnostic-v0.1.md",
+  "taxonomy_ref": "protocols/failure-modes/failure-mode-taxonomy-v0.1.md",
+  "reviewer": "Codex acting as delegated reviewer under project-owner authorization",
+  "claim_boundary": "method_b_plus_bc35_candidate_review_only",
+  "new_runs_added": false,
+  "definitions_changed": false,
+  "prompt_changed": false,
+  "action_menu_changed": false,
+  "event_taxonomy_changed": false,
+  "metric_definition_changed": false,
+  "candidate_count": 3,
+  "reviewed_rejected": 3,
+  "supported_for_reviewed_evidence": 0,
+  "partially_supported_needs_revision": 0,
+  "needs_revision": 0,
+  "next_step": "Run a BC36-style reflection before executing any new Method B+ pilot."
+}

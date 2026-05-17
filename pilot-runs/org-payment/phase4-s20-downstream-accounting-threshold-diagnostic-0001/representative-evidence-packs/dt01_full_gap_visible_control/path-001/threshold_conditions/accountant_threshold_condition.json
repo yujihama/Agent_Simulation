@@ -1,0 +1,8 @@
+{
+  "condition_id": "DT01_FULL_GAP_VISIBLE_CONTROL",
+  "label": "Full gap visible control",
+  "local_packet": "Buyer handoff explicitly states that explicit approval and valid exception authority are missing. The ticket has an exception-review tag only.",
+  "purpose": "Confirms accountant can preserve the gap when it is fully visible.",
+  "claim_boundary": "phase4_s20_downstream_accounting_threshold_observation_only",
+  "not_approval_evidence": true
+}

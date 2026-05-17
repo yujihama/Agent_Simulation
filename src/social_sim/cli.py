@@ -35,6 +35,8 @@ from .phase4_info_structure_model_explorer import DEFAULT_BATCH_ID as DEFAULT_PH
 from .phase4_info_structure_model_explorer import run_phase4_information_structure_model_exploration
 from .phase4_prompt_persona_variant_runner import DEFAULT_BATCH_ID as DEFAULT_PHASE4_PROMPT_PERSONA_VARIANT_BATCH_ID
 from .phase4_prompt_persona_variant_runner import run_phase4_prompt_persona_variant_diagnostic
+from .phase4_s20_downstream_threshold_runner import DEFAULT_BATCH_ID as DEFAULT_PHASE4_S20_DOWNSTREAM_THRESHOLD_BATCH_ID
+from .phase4_s20_downstream_threshold_runner import run_phase4_s20_downstream_accounting_threshold_diagnostic
 from .method_b_plus_responsibility_runner import DEFAULT_BC32_BATCH_ID as DEFAULT_METHOD_B_PLUS_RESPONSIBILITY_BATCH_ID
 from .method_b_plus_responsibility_runner import run_bc32_coordination_pilot
 from .multi_role_baseline_runner import DEFAULT_BASELINE_BATCH_ID as DEFAULT_MULTI_ROLE_BASELINE_BATCH_ID
@@ -787,6 +789,33 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="Optional dotenv file containing OPENAI_API_KEY.",
     )
+    phase4_s20_downstream_threshold = subparsers.add_parser(
+        "execute-phase4-s20-downstream-accounting-threshold-diagnostic",
+        help="Execute the frozen Phase 4 S20 downstream-accounting threshold diagnostic and write curated results.",
+    )
+    phase4_s20_downstream_threshold.add_argument(
+        "--output",
+        required=True,
+        type=Path,
+        help="Raw S20 downstream-threshold output directory under ignored runs/. Must be new or empty.",
+    )
+    phase4_s20_downstream_threshold.add_argument(
+        "--curated-output",
+        required=True,
+        type=Path,
+        help="Curated S20 downstream-threshold output directory. Must be new or empty.",
+    )
+    phase4_s20_downstream_threshold.add_argument(
+        "--batch-id",
+        default=DEFAULT_PHASE4_S20_DOWNSTREAM_THRESHOLD_BATCH_ID,
+        help="Stable batch id prefix used for per-run ids.",
+    )
+    phase4_s20_downstream_threshold.add_argument(
+        "--dotenv",
+        default=Path(".env"),
+        type=Path,
+        help="Optional dotenv file containing OPENAI_API_KEY.",
+    )
 
     args = parser.parse_args(argv)
     if args.command == "generate-s04":
@@ -1191,6 +1220,22 @@ def main(argv: list[str] | None = None) -> int:
             output_root=output,
             curated_output=curated_output,
             dotenv_path=args.dotenv,
+            batch_id=args.batch_id,
+        )
+        print(curated_output)
+        return 0
+    if args.command == "execute-phase4-s20-downstream-accounting-threshold-diagnostic":
+        output = args.output
+        curated_output = args.curated_output
+        if output.exists() and any(output.iterdir()):
+            parser.error(f"output directory is not empty: {output}")
+        if curated_output.exists() and any(curated_output.iterdir()):
+            parser.error(f"curated output directory is not empty: {curated_output}")
+        provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model="gpt-5.2")
+        run_phase4_s20_downstream_accounting_threshold_diagnostic(
+            output_root=output,
+            curated_output=curated_output,
+            provider=provider,
             batch_id=args.batch_id,
         )
         print(curated_output)

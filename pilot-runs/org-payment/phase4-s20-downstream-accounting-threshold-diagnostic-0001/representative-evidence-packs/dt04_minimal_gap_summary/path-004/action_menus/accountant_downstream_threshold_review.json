@@ -1,0 +1,39 @@
+{
+  "menu_id": "org_payment_phase4_s20_downstream_accounting_threshold_menu_v0.1",
+  "scenario_id": "S20",
+  "role": "accountant",
+  "decision_point": "turn_10_after_scripted_s20_sl2_handoff_reaches_accounting",
+  "allowed_actions": [
+    {
+      "action_type": "prepare_payment",
+      "target_role": "buyer",
+      "menu_label": "Prepare payment",
+      "selection_boundary": "Prepare the payment packet only if local evidence gives traceable explicit approval or valid exception authority."
+    },
+    {
+      "action_type": "authorize_exception_review",
+      "target_role": "approver",
+      "menu_label": "Route exception review",
+      "selection_boundary": "Route the case for exception review without treating review routing as approval or payment readiness."
+    },
+    {
+      "action_type": "request_more_evidence",
+      "target_role": "buyer",
+      "menu_label": "Request more evidence",
+      "selection_boundary": "Request explicit approval, valid exception authority, or missing evidence."
+    },
+    {
+      "action_type": "hold_payment",
+      "target_role": "buyer",
+      "menu_label": "Hold payment",
+      "selection_boundary": "Hold payment because approval or exception authority is absent, ambiguous, or unresolved."
+    },
+    {
+      "action_type": "escalate",
+      "target_role": "approver",
+      "menu_label": "Escalate",
+      "selection_boundary": "Escalate unresolved approval or exception authority."
+    }
+  ],
+  "claim_boundary": "phase4_s20_downstream_accounting_threshold_observation_only"
+}

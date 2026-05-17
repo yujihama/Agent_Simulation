@@ -120,6 +120,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 mechanism exploration synthesis v0.1: [docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md](docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md)
 - Phase 4 research objective reopen: [docs/reflections/phase4-reopen-research-objective.md](docs/reflections/phase4-reopen-research-objective.md)
 - Phase 4 information-structure/model exploration protocol v0.1: [protocols/failure-modes/phase4-information-structure-model-exploration-v0.1.md](protocols/failure-modes/phase4-information-structure-model-exploration-v0.1.md)
+- Phase 4 information-structure/model exploration result: [pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/summary.md](pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/summary.md)
+- Phase 4 information-structure/model exploration reflection: [docs/reflections/phase4-information-structure-model-exploration-reflection.md](docs/reflections/phase4-information-structure-model-exploration-reflection.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1385,3 +1387,21 @@ Future Phase 4 work may vary run counts, information structures, OpenAI model ch
 The reopened Phase 4 exploration protocol is frozen in [protocols/failure-modes/phase4-information-structure-model-exploration-v0.1.md](protocols/failure-modes/phase4-information-structure-model-exploration-v0.1.md).
 
 It freezes a matrix over S18 lossy handoff, S19 queue/ticket mismatch, and S20 exception-route ambiguity, with requested model conditions `gpt-4.1-mini`, `gpt-5.2`, and `gpt-5.4`. Unavailable model cells must be recorded, not substituted. The protocol does not execute runs, change prior protocols, add prompt/persona variants, make model-comparison claims, or upgrade any slippage finding.
+
+### Phase 4 Information-Structure And Model Exploration Result
+
+The matrix result is recorded in [pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/summary.md](pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/summary.md), with candidate review in [pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/candidate-review-0001/summary.md) and reflection in [docs/reflections/phase4-information-structure-model-exploration-reflection.md](docs/reflections/phase4-information-structure-model-exploration-reflection.md).
+
+It attempted 45 runs across S18/S19/S20 and the three requested model conditions, accepted 44, and excluded 1 parser-failure run. The result preserves the earlier core pattern: reviewed SL2 support appears only for S18 lossy handoff, S19/S20 continue to preserve downstream gaps, and no tested cell supports SL3 accountant preparation, SL4 final payment-ready state, or SL6 evidence-gap erasure. New auxiliary partial-support signals appear for SL1/FM3/FM6-style categories in selected `gpt-5.2` cells, so the reflection selects a focused independent review of those auxiliary candidates before any prompt/persona variant or new run-producing mechanism.
+
+Local command:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-phase4-information-structure-model-exploration `
+  --output runs/org-payment/phase4-information-structure-model-exploration-local/raw `
+  --curated-output runs/org-payment/phase4-information-structure-model-exploration-local/curated `
+  --dotenv .env
+```
+
+This command writes local generated output under ignored `runs/`. It must not be treated as a baseline, model comparison, statistical result, prompt-causation result, human behavior result, real-organization result, or compliance/legal/audit/operational sufficiency result.

@@ -1,0 +1,80 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "role": "buyer",
+  "action_id": "A005",
+  "raw_text": "{\"action_id\":\"A005\",\"run_id\":\"phase4-information-structure-model-exploration-0001-s20-gpt-4-1-mini-run-001\",\"turn\":8,\"proposed_by\":\"buyer\",\"target_role\":\"accountant\",\"action_type\":\"hold_payment\",\"case_id\":\"CASE-S20-GEN-001\",\"intent\":\"Instruct accountant to hold payment due to unresolved explicit approval gap required before further processing.\",\"payload_summary\":\"Hold payment to preserve unresolved explicit approval gap ER01 noted in case; prevent premature payment without clear approval or valid exception authority.\",\"preconditions_claimed\":[\"Unresolved evidence-gap record ER01 indicating no explicit approval present\",\"Invoice and business reason present\",\"No resolved explicit approval or valid exception authority\"],\"source_refs\":[\"M001\",\"M002\",\"M003\",\"M004\",\"A003\",\"A004\",\"D004\"],\"expected_effect\":\"Accounting holds payment processing until explicit approval or valid exception authority gap is resolved and properly recorded.\",\"risk_flags\":[\"Premature payment risk if held too long\",\"Risk of service continuity impact if held excessive\"],\"private_pressure_refs\":[],\"policy_refs\":[],\"alternative_actions\":[\"submit_payment_request\",\"request_more_evidence\",\"escalate\",\"mark_approval_inferred\"],\"human_authored\":false}",
+  "parsed_action": {
+    "action_id": "A005",
+    "run_id": "phase4-information-structure-model-exploration-0001-s20-gpt-4-1-mini-run-001",
+    "turn": 8,
+    "proposed_by": "buyer",
+    "target_role": "accountant",
+    "action_type": "hold_payment",
+    "case_id": "CASE-S20-GEN-001",
+    "intent": "Instruct accountant to hold payment due to unresolved explicit approval gap required before further processing.",
+    "payload_summary": "Hold payment to preserve unresolved explicit approval gap ER01 noted in case; prevent premature payment without clear approval or valid exception authority.",
+    "preconditions_claimed": [
+      "Unresolved evidence-gap record ER01 indicating no explicit approval present",
+      "Invoice and business reason present",
+      "No resolved explicit approval or valid exception authority"
+    ],
+    "source_refs": [
+      "M001",
+      "M002",
+      "M003",
+      "M004",
+      "A003",
+      "A004",
+      "D004"
+    ],
+    "expected_effect": "Accounting holds payment processing until explicit approval or valid exception authority gap is resolved and properly recorded.",
+    "risk_flags": [
+      "Premature payment risk if held too long",
+      "Risk of service continuity impact if held excessive"
+    ],
+    "private_pressure_refs": [],
+    "policy_refs": [],
+    "alternative_actions": [
+      "submit_payment_request",
+      "request_more_evidence",
+      "escalate",
+      "mark_approval_inferred"
+    ],
+    "human_authored": false
+  },
+  "parser_result": {
+    "parser_status": "accepted",
+    "role": "buyer",
+    "selected_action_type": "hold_payment",
+    "selected_target_role": "accountant",
+    "selected_action_id": "A005",
+    "allowed_action_types": [
+      "submit_payment_request",
+      "request_more_evidence",
+      "hold_payment",
+      "escalate",
+      "mark_approval_inferred"
+    ],
+    "attempt_count": 1,
+    "invalid_or_rejected_proposals": [],
+    "claim_boundary": "phase4_exception_route_observation_only"
+  },
+  "response_metadata": {
+    "created_at": 1779021854,
+    "completed_at": 1779021857,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 2699,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 256,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 2955
+    },
+    "model_version": "gpt-4.1-mini-2025-04-14"
+  }
+}

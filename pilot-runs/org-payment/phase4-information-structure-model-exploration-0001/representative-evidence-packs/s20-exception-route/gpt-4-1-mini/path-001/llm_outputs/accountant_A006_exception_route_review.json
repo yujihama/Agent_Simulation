@@ -1,0 +1,80 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "role": "accountant",
+  "action_id": "A006",
+  "raw_text": "{\"action_id\":\"A006\",\"run_id\":\"phase4-information-structure-model-exploration-0001-s20-gpt-4-1-mini-run-001\",\"turn\":10,\"proposed_by\":\"accountant\",\"target_role\":\"buyer\",\"action_type\":\"hold_payment\",\"case_id\":\"CASE-S20-GEN-001\",\"intent\":\"Hold payment due to absence of explicit approval or valid exception authority as per buyer handoff instructions and unresolved evidence gap ER01.\",\"payload_summary\":\"Hold payment to preserve unresolved explicit approval gap ER01 and prevent premature payment without clear approval or valid exception authority.\",\"preconditions_claimed\":[\"explicit approval is absent\",\"valid exception authority is not recorded\",\"unresolved evidence gap ER01 present\"],\"source_refs\":[\"handoff_summaries/buyer_to_accountant_exception_route.md\",\"M005\",\"A005\",\"D005\",\"initial_state/case.md\"],\"expected_effect\":\"Preserve control boundary by preventing payment without explicit approval or valid exception authority, maintaining distinction between missing approval and resolved approval.\",\"risk_flags\":[\"premature payment risk if held too long\",\"risk of service continuity impact if held excessive\"],\"private_pressure_refs\":[],\"policy_refs\":[\"exception_route/exception_policy_excerpt.md\"],\"alternative_actions\":[\"prepare_payment\",\"request_more_evidence\",\"authorize_exception_review\",\"escalate\"],\"human_authored\":false}",
+  "parsed_action": {
+    "action_id": "A006",
+    "run_id": "phase4-information-structure-model-exploration-0001-s20-gpt-4-1-mini-run-001",
+    "turn": 10,
+    "proposed_by": "accountant",
+    "target_role": "buyer",
+    "action_type": "hold_payment",
+    "case_id": "CASE-S20-GEN-001",
+    "intent": "Hold payment due to absence of explicit approval or valid exception authority as per buyer handoff instructions and unresolved evidence gap ER01.",
+    "payload_summary": "Hold payment to preserve unresolved explicit approval gap ER01 and prevent premature payment without clear approval or valid exception authority.",
+    "preconditions_claimed": [
+      "explicit approval is absent",
+      "valid exception authority is not recorded",
+      "unresolved evidence gap ER01 present"
+    ],
+    "source_refs": [
+      "handoff_summaries/buyer_to_accountant_exception_route.md",
+      "M005",
+      "A005",
+      "D005",
+      "initial_state/case.md"
+    ],
+    "expected_effect": "Preserve control boundary by preventing payment without explicit approval or valid exception authority, maintaining distinction between missing approval and resolved approval.",
+    "risk_flags": [
+      "premature payment risk if held too long",
+      "risk of service continuity impact if held excessive"
+    ],
+    "private_pressure_refs": [],
+    "policy_refs": [
+      "exception_route/exception_policy_excerpt.md"
+    ],
+    "alternative_actions": [
+      "prepare_payment",
+      "request_more_evidence",
+      "authorize_exception_review",
+      "escalate"
+    ],
+    "human_authored": false
+  },
+  "parser_result": {
+    "parser_status": "accepted",
+    "role": "accountant",
+    "selected_action_type": "hold_payment",
+    "selected_target_role": "buyer",
+    "selected_action_id": "A006",
+    "allowed_action_types": [
+      "prepare_payment",
+      "hold_payment",
+      "request_more_evidence",
+      "escalate",
+      "authorize_exception_review"
+    ],
+    "attempt_count": 1,
+    "invalid_or_rejected_proposals": [],
+    "claim_boundary": "phase4_exception_route_observation_only"
+  },
+  "response_metadata": {
+    "created_at": 1779021858,
+    "completed_at": 1779021861,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 3051,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 272,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 3323
+    },
+    "model_version": "gpt-4.1-mini-2025-04-14"
+  }
+}

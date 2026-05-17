@@ -1,0 +1,46 @@
+{
+  "review_id": "METHOD-B-PLUS-BC37C-REVIEW-0001",
+  "reviewed_package": "pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/",
+  "candidate_source": "pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/event-candidate-table.csv",
+  "protocol_ref": "protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md",
+  "taxonomy_ref": "protocols/failure-modes/failure-mode-taxonomy-v0.1.md",
+  "reviewer": "Codex acting as delegated reviewer under project-owner authorization",
+  "claim_boundary": "method_b_plus_bc37c_candidate_review_only",
+  "reviewed_candidates": 2,
+  "decision_counts": {
+    "rejected": 2,
+    "partially_supported_needs_revision": 0,
+    "supported_for_reviewed_evidence": 0,
+    "needs_revision": 0
+  },
+  "failure_mode_status_after_review": {
+    "FM2": {
+      "generated_not_observed": 5,
+      "supported_for_reviewed_evidence": 0,
+      "partially_supported_needs_revision": 0
+    },
+    "FM5": {
+      "generated_not_observed": 5,
+      "supported_for_reviewed_evidence": 0,
+      "partially_supported_needs_revision": 0
+    },
+    "FM6": {
+      "generated_candidate": 2,
+      "reviewed_rejected": 2,
+      "supported_for_reviewed_evidence": 0,
+      "partially_supported_needs_revision": 0
+    }
+  },
+  "non_goals": [
+    "no new runs",
+    "no failure-mode definition changes",
+    "no prompt changes",
+    "no action-menu changes",
+    "no Game Master changes",
+    "no event taxonomy changes",
+    "no statistical claims",
+    "no human behavior claims",
+    "no real-world organization claims",
+    "no prompt-causation claims"
+  ]
+}

@@ -87,6 +87,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Social chaos claim-boundary review: [docs/synthesis/claim-boundary-review.md](docs/synthesis/claim-boundary-review.md)
 - Social chaos synthesis limitations: [docs/synthesis/limitations.md](docs/synthesis/limitations.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
+- Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -136,6 +137,7 @@ The project should be built up in small decision-oriented pull requests:
 42. P10 synthesis execution bundle: write the BC20 social-chaos claim synthesis, evidence map, limitations, and claim-boundary review without adding new runs or upgrading evidence strength.
 43. Method B BC21 failure-mode taxonomy bundle: define responsibility diffusion, approval bypass, ambiguous guidance misinterpretation, pressure-normalization, evidence-gap erasure, and post-hoc justification candidates before adding high-friction scenarios.
 44. Method B BC22 high-friction scenario design bundle: introduce S07-S12 org-payment scenarios targeting failure-mode candidates without execution, prompt, action menu, Game Master, event taxonomy, or result changes.
+45. Method B BC23 multi-turn memory and justification pilot bundle: define bounded short-term memory, post-hoc explanation artifacts, and a reviewable S09 paper trace before targeted failure-mode execution.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -710,3 +712,11 @@ The high-friction org-payment scenario matrix is recorded in [scenarios/org-paym
 BC22 adds S07-S12 as future Method B scenario inputs. These scenarios target delegated authority ambiguity, split responsibility under deadline, informal pre-approval, conflicting policy and norm, audit-visible workaround risk, and post-hoc justification pressure. They map scenario conditions to the BC21 failure-mode taxonomy while keeping normal, cautious, and deviation-candidate paths separate.
 
 BC22 does not execute scenarios and does not change prompts, action menus, Game Master rules, event taxonomy, metrics, schemas, or evidence-pack protocols. It does not claim that any failure mode has been observed; no-observation remains a valid later outcome.
+
+## Method B Multi-Turn Memory Paper Pilot
+
+The BC23 multi-turn memory and post-hoc explanation protocol is recorded in [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md).
+
+The curated paper pilot is recorded in [pilot-runs/org-payment/method-b-bc23-memory-justification-pilot-0001/summary.md](pilot-runs/org-payment/method-b-bc23-memory-justification-pilot-0001/summary.md). It uses S09 to demonstrate traceable prior-turn source references, bounded role-specific memory, Game Master boundary records, approval/evidence state tracking, and separate post-hoc explanation artifacts.
+
+BC23 is not an LLM execution result and does not claim that any Method B failure mode has been observed. It prepares the trace and review structure needed before targeted Method B failure-mode pilots.

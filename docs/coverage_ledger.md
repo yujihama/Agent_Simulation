@@ -374,3 +374,27 @@ Remaining gaps:
 
 - The synthesis does not select or freeze a new mechanism.
 - Future work should choose a genuinely different information mechanism, such as lossy handoff or role-local context, before any additional execution.
+
+## Method B+ Next Mechanism Selection Update
+
+Latest PR label: `PR-MethodBPlus-next-mechanism-selection`
+
+This update applies to C01, C02, C08, C16, C18, and C20.
+
+Evidence added:
+
+- `docs/reflections/method-b-plus-next-mechanism-selection.md`
+
+Coverage impact:
+
+- C01 Research Concept: Method B+ advances from repeated stress targeting toward mechanism-level information-transfer diagnostics.
+- C02 Research Questions: the next question is narrowed to whether a known approval gap remains visible after a compressed buyer-to-accountant handoff.
+- C08 Interaction Layer: lossy handoff is selected as the next interaction mechanism, but no scenario, prompt, or run is added yet.
+- C16 Validity Protocol: the reflection requires the future protocol to distinguish global truth, role-local view, handoff artifact, candidate status, and reviewed support.
+- C18 Reporting / Claims: the reflection allows only a planning claim that lossy handoff was selected; it does not claim slippage or approval bypass.
+- C20 Ethics / Misuse Boundaries: the selected mechanism forbids instructing bypass, concealment, fabrication, human behavior claims, real-world claims, prompt-causation claims, model-general claims, compliance/legal/audit/operational claims, or statistical claims.
+
+Remaining gaps:
+
+- Lossy handoff is selected but not frozen as a protocol.
+- No S18 scenario, prompt addendum, action menus, Game Master rules, candidate rules, evidence requirements, or review criteria have been frozen yet.

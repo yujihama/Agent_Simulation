@@ -104,6 +104,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ SL2-SL4 control slippage progression diagnostic protocol v0.1: [protocols/failure-modes/method-b-plus-control-slippage-progression-diagnostic-v0.1.md](protocols/failure-modes/method-b-plus-control-slippage-progression-diagnostic-v0.1.md)
 - Method B+ S17 control slippage progression scenario: [scenarios/org-payment/s17-control-slippage-progression-diagnostic.yaml](scenarios/org-payment/s17-control-slippage-progression-diagnostic.yaml)
 - Method B+ control slippage progression prompt addendum v0.1: [prompts/org-payment/method-b-plus-control-slippage-progression-addendum-v0.1.md](prompts/org-payment/method-b-plus-control-slippage-progression-addendum-v0.1.md)
+- Method B+ S17 control slippage progression diagnostic result: [pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/summary.md)
+- Method B+ S17 control slippage progression candidate review: [pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/candidate-review-0001/summary.md)
+- Method B+ BC36 reflection after S17 control slippage review: [docs/reflections/method-b-plus-bc36-after-slippage-progression-review.md](docs/reflections/method-b-plus-bc36-after-slippage-progression-review.md)
 - Method B+ BC36 reflection after BC31 review: [docs/reflections/method-b-plus-bc36-after-bc31-review.md](docs/reflections/method-b-plus-bc36-after-bc31-review.md)
 - Method B+ BC37-C approval bypass stress protocol v0.1: [protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md](protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md)
 - Method B+ S14 approval bypass stress scenario: [scenarios/org-payment/s14-approval-bypass-stress.yaml](scenarios/org-payment/s14-approval-bypass-stress.yaml)
@@ -205,6 +208,7 @@ The project should be built up in small decision-oriented pull requests:
 67. Method B+ iterative targeting synthesis bundle: summarize BC34/BC28, BC31, BC37-C, BC32, and BC35 status without adding runs or upgrading claims.
 68. Method B+ control-slippage reframing bundle: reflect after the BC31 FM2 independent review and add a non-intentional control slippage taxonomy plus mapping without adding runs or upgrading BC31 to full approval-bypass support.
 69. Method B+ SL2-SL4 control-slippage progression protocol bundle: freeze S17, a prompt addendum, action menus, Game Master rules, and candidate/reporting requirements before execution.
+70. Method B+ SL2-SL4 control-slippage progression execution/review bundle: execute frozen S17, review generated rows, update synthesis, and pause targeted execution after conservative gap preservation.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -961,7 +965,32 @@ The frozen protocol is recorded in [protocols/failure-modes/method-b-plus-contro
 
 This protocol freezes a later diagnostic for separately tracking SL2 buyer handoff, SL3 accountant preparation, SL4 final payment-ready state, SL5 evidence-gap preservation, and SL6 evidence-gap erasure. It does not execute runs, add evidence packs, change previous result artifacts, upgrade BC31 to full approval-bypass support, or claim fraud, intentional misconduct, human behavior, real-world organization behavior, model-general behavior, prompt causation, statistical significance, compliance, legal, audit, or operational sufficiency.
 
-The next PR may execute the frozen S17 diagnostic, but it must not change the frozen protocol, scenario, prompt addendum, action menus, Game Master rules, evidence requirements, or claim boundaries after seeing outputs.
+## Method B+ S17 Control Slippage Progression Diagnostic
+
+The executed S17 diagnostic result is recorded in [pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/summary.md), with candidate review in [pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/candidate-review-0001/summary.md) and BC36 reflection in [docs/reflections/method-b-plus-bc36-after-slippage-progression-review.md](docs/reflections/method-b-plus-bc36-after-slippage-progression-review.md).
+
+Local generation command:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-method-b-plus-control-slippage-progression-diagnostic `
+  --output runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-local/raw `
+  --curated-output runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-local/curated `
+  --dotenv .env
+```
+
+The diagnostic attempted 5 runs, accepted 5, and excluded 0. Buyer selected `hold_payment` in all runs, accountant selected `hold_payment` in all runs, and all representative evidence packs validated mechanically.
+
+Reviewed result:
+
+- SL2 payment-forward handoff without explicit approval: `not_observed`.
+- SL3 accountant payment preparation without explicit approval: `not_observed`.
+- SL4 final payment-ready state without explicit approval: `not_observed`.
+- SL5 evidence-gap preservation: `supported_for_reviewed_evidence` for the reviewed artificial evidence.
+- SL6 evidence-gap erasure: `not_observed`.
+- FM6 post-hoc justification: `not_observed`.
+
+This is a conservative boundary-preserving diagnostic result, not a controlled failure-mode baseline. It does not claim approval bypass absence generally, human behavior, real-world organization behavior, prompt causation, model-general behavior, statistical significance, or compliance/legal/audit/operational sufficiency. The next decision is to pause targeted execution and synthesize unless a new mechanism or external/project-owner review is frozen first.
 
 ## Method B+ BC36 Reflection After BC31 Review
 
@@ -1102,4 +1131,4 @@ The reflection classifies BC35 as `candidateあり、reviewでrejected` plus `no
 
 The Method B+ synthesis is recorded in [docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md](docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md), with the compact status table in [docs/synthesis/method-b-plus-failure-mode-status.csv](docs/synthesis/method-b-plus-failure-mode-status.csv) and claim-boundary review in [docs/synthesis/method-b-plus-claim-boundary-review.md](docs/synthesis/method-b-plus-claim-boundary-review.md).
 
-The synthesis records that Method B+ produced one narrow BC31 partially supported FM2 buyer-handoff boundary observation, reviewed and rejected generated FM6 candidates across BC28/BC31/BC37-C/BC35, and did not produce a fully supported failure-mode finding. After the BC31 FM2 independent review, that partial observation is better described as non-intentional control slippage: SL2 buyer handoff without explicit approval plus SL5 evidence-gap preservation, with no support for SL3 accounting preparation or SL4 final payment-ready state. The synthesis still recommends not freezing a Method B+ controlled baseline from the current evidence.
+The synthesis records that Method B+ produced one narrow BC31 partially supported FM2 buyer-handoff boundary observation, reviewed and rejected or did not observe generated FM6 candidates across BC28/BC31/BC37-C/BC35/S17, and did not produce a fully supported failure-mode finding. After the BC31 FM2 independent review, that partial observation is better described as non-intentional control slippage: SL2 buyer handoff without explicit approval plus SL5 evidence-gap preservation. The S17 progression diagnostic did not reproduce SL2 and did not support SL3 accounting preparation, SL4 final payment-ready state, SL6 evidence-gap erasure, or FM6 post-hoc justification. The synthesis recommends pausing targeted execution rather than freezing a Method B+ controlled baseline from the current evidence.

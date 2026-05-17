@@ -92,6 +92,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B claim-boundary review: [docs/synthesis/method-b-claim-boundary-review.md](docs/synthesis/method-b-claim-boundary-review.md)
 - Method B BC28 FM6 candidate review: [pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/fm6-candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/fm6-candidate-review-0001/summary.md)
 - Method B+ BC36 reflection after FM6 review: [docs/reflections/method-b-plus-bc36-after-fm6-review.md](docs/reflections/method-b-plus-bc36-after-fm6-review.md)
+- Method B+ BC31 ambiguity interpretation protocol v0.1: [protocols/failure-modes/method-b-plus-ambiguity-interpretation-v0.1.md](protocols/failure-modes/method-b-plus-ambiguity-interpretation-v0.1.md)
+- Method B+ S13 ambiguous approval interpretation scenario: [scenarios/org-payment/s13-ambiguous-approval-interpretation.yaml](scenarios/org-payment/s13-ambiguous-approval-interpretation.yaml)
+- Method B+ ambiguity interpretation prompt addendum v0.1: [prompts/org-payment/method-b-plus-ambiguity-interpretation-addendum-v0.1.md](prompts/org-payment/method-b-plus-ambiguity-interpretation-addendum-v0.1.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -159,6 +162,7 @@ The project should be built up in small decision-oriented pull requests:
 53. Method B BC30 synthesis bundle: synthesize BC21-BC29 failure-mode status, evidence levels, human-review scope, diagnostic sensitivity, and second-domain limits without supported failure-mode or human-society claims.
 54. Method B BC28 FM6 candidate review bundle: review the three generated FM6 post-hoc-justification candidate rows and decide whether any are supported, partially supported, rejected, or need revision.
 55. Method B+ BC36 reflection bundle: reflect on the rejected FM6 review result and select BC31 ambiguity interpretation targeting as the next checkpoint without adding execution.
+56. Method B+ BC31 ambiguity interpretation protocol bundle: introduce S13 and freeze the ambiguity targeting protocol, prompt addendum, action menus, Game Master rules, candidate rules, evidence requirements, and claim boundary before execution.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -857,3 +861,9 @@ The BC36 reflection after the FM6 candidate review is recorded in [docs/reflecti
 The reflection records the result type as `candidateあり、reviewでrejected`: BC28 generated three FM6 candidates, but all three were rejected in review. It selects BC31 ambiguity interpretation targeting as the next checkpoint because ambiguous approval-related language is an upstream surface for ambiguous guidance misinterpretation, approval bypass, evidence-gap erasure, and later post-hoc justification.
 
 This reflection does not add runs or claim that ambiguity will produce failure modes. It freezes the next-step rationale only; BC31 must still be separately frozen before execution.
+
+## Method B+ BC31 Ambiguity Interpretation Protocol
+
+The BC31 ambiguity interpretation protocol is recorded in [protocols/failure-modes/method-b-plus-ambiguity-interpretation-v0.1.md](protocols/failure-modes/method-b-plus-ambiguity-interpretation-v0.1.md). It introduces [S13 ambiguous approval interpretation](scenarios/org-payment/s13-ambiguous-approval-interpretation.yaml) and the [BC31 ambiguity interpretation prompt addendum](prompts/org-payment/method-b-plus-ambiguity-interpretation-addendum-v0.1.md).
+
+BC31 freezes a protocol for observing whether buyer/accountant LLM turns preserve or distort ambiguous approval-related guidance when explicit approval is absent. It does not execute runs, add result artifacts, claim that ambiguity produces failure modes, or upgrade any Method B failure-mode status.

@@ -17,7 +17,7 @@ This synthesis does not add new LLM execution, new scenarios, prompt changes, ac
 | Area | Primary inputs |
 |---|---|
 | Failure-mode definitions | `protocols/failure-modes/failure-mode-taxonomy-v0.1.md` |
-| Control-slippage taxonomy | `protocols/failure-modes/non-intentional-control-slippage-taxonomy-v0.1.md`; `docs/synthesis/non-intentional-control-slippage-map.csv`; `docs/reflections/method-b-plus-bc36-after-bc31-fm2-independent-review.md` |
+| Control-slippage taxonomy and protocol | `protocols/failure-modes/non-intentional-control-slippage-taxonomy-v0.1.md`; `docs/synthesis/non-intentional-control-slippage-map.csv`; `docs/reflections/method-b-plus-bc36-after-bc31-fm2-independent-review.md`; `protocols/failure-modes/method-b-plus-control-slippage-progression-diagnostic-v0.1.md`; `scenarios/org-payment/s17-control-slippage-progression-diagnostic.yaml`; `prompts/org-payment/method-b-plus-control-slippage-progression-addendum-v0.1.md` |
 | Method B baseline synthesis | `docs/synthesis/method-b-synthesis-v0.1.md`; `docs/synthesis/method-b-failure-mode-status.csv` |
 | BC28 FM6 review | `pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/fm6-candidate-review-0001/summary.md` |
 | BC31 ambiguity targeting | `protocols/failure-modes/method-b-plus-ambiguity-interpretation-v0.1.md`; `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md`; `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/ambiguity-candidate-review-0001/summary.md`; `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/bc31-fm2-independent-review-0001/summary.md` |
@@ -112,7 +112,7 @@ Do not freeze a Method B+ controlled baseline from the current evidence. The onl
 
 Useful next options are:
 
-1. Freeze an `SL2 -> SL3 -> SL4` control-slippage progression diagnostic that separately tracks handoff, preparation, final readiness, gap preservation, and gap erasure.
+1. Execute the frozen `SL2 -> SL3 -> SL4` control-slippage progression diagnostic without changing protocol, scenario, addendum, action menus, Game Master rules, evidence requirements, or claim boundaries.
 2. Freeze an external or project-owner human-review protocol for the BC31 partial FM2 observation and the Method B+ rejected-candidate set if stronger review status is needed.
 3. Run a second-domain post-hoc diagnostic only after freezing post-hoc explanation requirements that the earlier expense-reimbursement pilot lacked.
 4. Pause targeted execution and update the broader project synthesis to reflect the Method B+ status.
@@ -126,7 +126,7 @@ Rationale:
 - no fully supported Method B+ failure-mode finding exists;
 - generated FM6 candidates have repeatedly failed review;
 - the only partial support is too narrow for baseline execution, even after second-pass proxy confirmation;
-- additional execution should be preceded by a new frozen slippage-progression protocol or by external/project-owner human review if stronger review status is required.
+- additional execution must use the frozen slippage-progression protocol or be preceded by external/project-owner human review if stronger review status is required.
 
 ## Claim Boundary
 

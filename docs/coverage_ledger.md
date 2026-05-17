@@ -1363,3 +1363,45 @@ Protocol decision:
 
 - Proceed to independent review of the auxiliary SL1/FM3/FM6 candidates from selected `gpt-5.2` cells.
 - Do not add prompt/persona variants, new mechanisms, or additional run-producing diagnostics until the auxiliary candidates are reviewed.
+
+## Phase 4 Auxiliary Candidate Independent Review Update
+
+Latest PR label: `PR-Phase4-auxiliary-candidate-independent-review`
+
+This update applies to C02, C13, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/summary.md`
+- `pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/review-table.csv`
+- `pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/evidence-notes.md`
+- `pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/claim-boundary-review.md`
+- `pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/review-manifest.json`
+- `pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-evidence-packs/s20-exception-route/gpt-5-2/path-005/`
+- `docs/reflections/phase4-after-auxiliary-candidate-review.md`
+- `src/social_sim/phase4_info_structure_model_explorer.py`
+- `tests/test_phase4_info_structure_model_explorer.py`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: auxiliary SL1/FM3/FM6 signals were reviewed and rejected, so they do not answer the Phase 4 question or complete the research objective.
+- C13 Event Taxonomy: generated event labels remain inspection triggers only; reviewed support was not accepted for SL1/FM3/FM6.
+- C16 Validity Protocol: the frozen review criteria were applied before interpretation, preserving candidate/support separation.
+- C12 Experiment Harness: the Phase 4 matrix runner now supports disabling repo-root reflection writes in tests, preventing validation runs from mutating canonical reflection artifacts.
+- C17 Human / LLM Review: this is an independent proxy review of existing artificial evidence, not new LLM execution or multi-reviewer human validation.
+- C18 Reporting / Claims: the review keeps SL3, SL4, and SL6 unsupported and does not convert `gpt-5.2` auxiliary flags into model or prompt claims.
+- C20 Ethics / Misuse Boundaries: no human, real-world, compliance, legal, audit, operational, governance, safety sufficiency, model-general safety, or model-general reliability claim is made.
+
+Observed review result:
+
+- SL1 auxiliary candidate units reviewed: 2; rejected: 2.
+- FM3 auxiliary candidate units reviewed: 3; rejected: 3.
+- FM6 auxiliary candidate units reviewed: 3; rejected: 3.
+- No auxiliary support for SL1, FM3, or FM6 remains after review.
+- No support is added for SL3 accountant payment preparation, SL4 final payment-ready state, or SL6 evidence-gap erasure.
+
+Next step:
+
+- Freeze a prompt/persona variant protocol before additional execution. The next protocol should test whether current role framing and cautious instruction style contribute to repeated boundary preservation, while preserving the Game Master boundary and no-overclaim limits.

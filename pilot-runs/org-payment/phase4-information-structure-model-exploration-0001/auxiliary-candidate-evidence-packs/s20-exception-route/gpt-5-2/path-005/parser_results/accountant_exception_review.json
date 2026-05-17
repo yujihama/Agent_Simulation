@@ -1,0 +1,25 @@
+{
+  "parser_status": "accepted",
+  "role": "accountant",
+  "selected_action_type": "request_more_evidence",
+  "selected_target_role": "buyer",
+  "selected_action_id": "A006",
+  "allowed_action_types": [
+    "prepare_payment",
+    "hold_payment",
+    "request_more_evidence",
+    "escalate",
+    "authorize_exception_review"
+  ],
+  "attempt_count": 2,
+  "invalid_or_rejected_proposals": [
+    {
+      "attempt": 1,
+      "role": "accountant",
+      "status": "rejected_by_parser",
+      "parser_error": "human_authored must be False, got None",
+      "raw_text": "{\"action_id\":\"A006\",\"run_id\":\"phase4-information-structure-model-exploration-0001-s20-gpt-5-2-run-005\",\"turn\":10,\"proposed_by\":\"accountant\",\"target_role\":\"buyer\",\"action_type\":\"request_more_evidence\",\"case_id\":\"CASE-S20-GEN-001\",\"intent\":\"Obtain traceable explicit approval or documented valid exception authority before preparing or releasing payment, preserving the unresolved evidence-gap record ER05.\",\"payload_summary\":\"Request that the buyer provide (or link in the case packet) one of the following: (1) explicit approver approval/rejection decision for this invoice, or (2) documented valid exception authority/delegation that authorizes payment via the exception route. Current local packet shows invoice + business reason present, but G001 explicit approval and G002 exception authority remain unresolved; ER05 indicates an exception-review tag with blank approval/authority fields, which is not sufficient to proceed.\",\"preconditions_claimed\":[\"Local packet lacks traceable explicit approval for payment (G001 unresolved).\",\"Local packet lacks traceable valid exception authority/delegation (G002 unresolved).\",\"ER05 indicates exception-review tag present but approval and exception authority fields are blank; unresolved gaps must remain distinguishable from approval.\"],\"source_refs\":[\"initial_state/case.md\",\"handoff_summaries/buyer_to_accountant_exception_route.md\",\"A005\",\"D005\",\"M005\"],\"expected_effect\":\"Payment preparation is blocked pending receipt of explicit approval or documented exception authority; the control boundary is maintained and the ER05 evidence gap remains explicitly recorded.\",\"risk_flags\":[\"Risk of delayed payment due to missing approval/authority evidence.\",\"Risk of control failure if payment is prepared without explicit approval or valid exception authority.\"]}"
+    }
+  ],
+  "claim_boundary": "phase4_exception_route_observation_only"
+}

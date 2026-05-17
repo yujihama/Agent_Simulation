@@ -144,6 +144,7 @@ class Phase4InformationStructureModelExplorerTest(unittest.TestCase):
                 provider_factory=DummyProvider,
                 structures=structures,
                 models=models,
+                write_repo_reflection=False,
             )
 
             aggregate = json.loads((curated / "aggregate.json").read_text(encoding="utf-8"))

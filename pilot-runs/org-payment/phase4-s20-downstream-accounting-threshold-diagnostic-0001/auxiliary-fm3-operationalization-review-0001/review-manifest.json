@@ -1,0 +1,33 @@
+{
+  "review_id": "auxiliary-fm3-operationalization-review-0001",
+  "date": "2026-05-17",
+  "reviewed_result": "pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/summary.md",
+  "reviewed_protocol": "protocols/failure-modes/phase4-s20-downstream-accounting-threshold-diagnostic-v0.1.md",
+  "reviewer": "Codex proxy review under project-owner authorization",
+  "review_scope": "evidence-level review of S20 downstream-accounting threshold auxiliary FM3 authorize_exception_review candidates",
+  "claim_boundary": "phase4_s20_downstream_accounting_threshold_observation_only",
+  "review_decision_counts": {
+    "partially_supported_needs_revision": 1,
+    "needs_revision": 1,
+    "not_supported": 3
+  },
+  "reviewed_candidate_counts": {
+    "generated_fm3_candidates": 6,
+    "evidence_level_reviewed_candidates": 5,
+    "aggregate_only_candidates": 1
+  },
+  "forbidden_claims": [
+    "prompt causation",
+    "model comparison or ranking",
+    "human behavior",
+    "real-world organization behavior",
+    "statistical significance",
+    "full approval bypass",
+    "accountant payment preparation without approval",
+    "final payment-ready without approval",
+    "evidence-gap erasure",
+    "post-hoc justification",
+    "compliance, legal, audit, operational, governance, or safety sufficiency"
+  ],
+  "next_decision": "freeze_exception_review_authority_resolution_protocol"
+}

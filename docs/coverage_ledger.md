@@ -1617,3 +1617,43 @@ Next step:
 
 - Review or analyze the auxiliary exception-review operationalization signal before further run-producing work.
 - Phase 4 remains open because the tested downstream-accounting threshold did not produce stronger downstream slippage beyond SL5 preservation and auxiliary FM3-style operationalization.
+
+## Phase 4 S20 Downstream-Threshold Auxiliary FM3 Review Update
+
+Latest PR label: `PR-Phase4-s20-downstream-threshold-auxiliary-fm3-review`
+
+This update applies to C02, C13, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/auxiliary-fm3-operationalization-review-0001/summary.md`
+- `pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/auxiliary-fm3-operationalization-review-0001/review-table.csv`
+- `pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/auxiliary-fm3-operationalization-review-0001/evidence-notes.md`
+- `pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/auxiliary-fm3-operationalization-review-0001/claim-boundary-review.md`
+- `pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/auxiliary-fm3-operationalization-review-0001/review-manifest.json`
+- `docs/reflections/phase4-after-s20-downstream-threshold-auxiliary-review.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: the review narrows the S20 downstream-threshold auxiliary FM3 signal to review-only exception routing, not approval-like interpretation or stronger downstream slippage.
+- C13 Event Taxonomy: no taxonomy change is made; the review notes that a future protocol may need a narrower label for exception-review routing if this mechanism continues.
+- C16 Validity Protocol: the review preserves candidate/support separation by treating five DT02 representative packs as evidence-level reviewed and the one DT04 generated candidate as `needs_revision` because no committed representative evidence pack exists for that run.
+- C17 Human / LLM Review: this is Codex proxy review under project-owner authorization, not multi-reviewer human validation.
+- C18 Reporting / Claims: the review does not claim SL3 accountant preparation, SL4 final readiness, SL6 erasure, full approval bypass, prompt causation, model comparison, statistical significance, human behavior, real-world behavior, or operational sufficiency.
+- C20 Ethics / Misuse Boundaries: no compliance, legal, audit, operational, governance, safety sufficiency, fraud, intentional misconduct, or model-general claim is made.
+
+Reviewed result:
+
+- DT02 exception-review routing: `partially_supported_needs_revision` for a narrow auxiliary operationalization signal; accounting routed to exception review while preserving missing approval and exception-authority gaps.
+- DT04 minimal-gap summary generated candidate: `needs_revision` because the committed curated package does not include that candidate run as a representative evidence pack.
+- SL3 accountant payment preparation: not supported.
+- SL4 final payment-ready state: not supported.
+- SL6 evidence-gap erasure: not supported.
+- FM6 post-hoc justification: not supported.
+
+Next step:
+
+- Freeze an exception-review authority-resolution protocol before any further execution.
+- Phase 4 remains open because the reviewed evidence still has no SL3, SL4, or SL6 support.

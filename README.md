@@ -134,7 +134,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S20 downstream-accounting threshold protocol v0.1: [protocols/failure-modes/phase4-s20-downstream-accounting-threshold-diagnostic-v0.1.md](protocols/failure-modes/phase4-s20-downstream-accounting-threshold-diagnostic-v0.1.md)
 - Phase 4 downstream-accounting threshold prompt addendum v0.1: [prompts/org-payment/phase4-downstream-accounting-threshold-addendum-v0.1.md](prompts/org-payment/phase4-downstream-accounting-threshold-addendum-v0.1.md)
 - Phase 4 S20 downstream-accounting threshold diagnostic result: [pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/summary.md)
+- Phase 4 S20 downstream-threshold auxiliary FM3 review: [pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/auxiliary-fm3-operationalization-review-0001/summary.md](pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/auxiliary-fm3-operationalization-review-0001/summary.md)
 - Phase 4 reflection after S20 downstream-accounting threshold diagnostic: [docs/reflections/phase4-after-s20-downstream-accounting-threshold-diagnostic.md](docs/reflections/phase4-after-s20-downstream-accounting-threshold-diagnostic.md)
+- Phase 4 reflection after S20 downstream-threshold auxiliary review: [docs/reflections/phase4-after-s20-downstream-threshold-auxiliary-review.md](docs/reflections/phase4-after-s20-downstream-threshold-auxiliary-review.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1452,6 +1454,14 @@ The threshold diagnostic result is recorded in [pilot-runs/org-payment/phase4-s2
 It executed 20 frozen S20 downstream-threshold runs using OpenAI `gpt-5.2`: four accountant-local threshold conditions, 5 attempted runs per condition, 20 accepted, 0 excluded. The accountant selected `hold_payment` 14 times and `authorize_exception_review` 6 times. No run produced SL3 accountant payment preparation, SL4 final payment-ready state, or SL6 evidence-gap erasure. All accepted runs preserved SL5 downstream evidence-gap handling. The 6 `authorize_exception_review` selections are recorded only as partial FM3-style auxiliary operationalization candidates, not approval bypass or payment readiness.
 
 Checkpoint decision: review or analyze the auxiliary exception-review operationalization signal before further run-producing work. Phase 4 remains open.
+
+### Phase 4 S20 Downstream-Threshold Auxiliary Review
+
+The auxiliary review is recorded in [pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/auxiliary-fm3-operationalization-review-0001/summary.md](pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/auxiliary-fm3-operationalization-review-0001/summary.md), with reflection in [docs/reflections/phase4-after-s20-downstream-threshold-auxiliary-review.md](docs/reflections/phase4-after-s20-downstream-threshold-auxiliary-review.md).
+
+The review confirms a narrow auxiliary signal in the five committed DT02 representative packs: exception-review routing can be operationalized as `authorize_exception_review` while explicit approval and valid exception authority remain absent and preserved. This is review-only routing, not approval-like interpretation, accountant payment preparation, final payment-ready state, evidence-gap erasure, or post-hoc justification. The one DT04 generated candidate remains `needs_revision` because it lacks committed representative evidence for independent evidence-level review.
+
+Checkpoint decision: freeze an exception-review authority-resolution protocol before any further execution. Phase 4 remains open because no reviewed SL3, SL4, or SL6 support exists.
 
 ### Phase 4 Auxiliary Candidate Independent Review Protocol
 

@@ -616,3 +616,41 @@ Remaining gaps:
 - No controlled failure-mode baseline is justified.
 - No immediate further targeted execution should be run without a new mechanism-selection rationale.
 - Project-owner or external human review remains a future option if stronger reviewed-evidence status is required.
+
+## Method B+ Endpoint Claim-Hardening Review Update
+
+Latest PR label: `PR-MethodBPlus-endpoint-claim-hardening-review`
+
+This update applies to C01, C02, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/method-b-plus-endpoint-claim-hardening-review-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+- `docs/synthesis/method-b-plus-claim-boundary-review.md`
+- `docs/synthesis/method-b-plus-failure-mode-status.csv`
+- `docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md`
+
+Coverage impact:
+
+- C01 Research Concept: Method B+ is now treated as an endpoint for the current targeted execution sequence, not as an indefinitely open run-producing loop.
+- C02 Research Questions: the review identifies which Method B+ claims are supported, boundary-limited, rejected, not observed, or forbidden.
+- C16 Validity Protocol: claim hardening keeps generated candidates, reviewed support, partial support, rejected candidates, not-observed outcomes, and baseline readiness separate.
+- C17 Human / LLM Review: the review is Codex delegated review under project-owner authorization and explicitly does not claim independent multi-reviewer human validation.
+- C18 Reporting / Claims: the review permits workflow/artifact, boundary-preservation, and narrow SL2 handoff claims only, while rejecting baseline readiness from the current evidence.
+- C20 Ethics / Misuse Boundaries: the review forbids human, real-world, causal, statistical, model-general, compliance, legal, audit, operational, fraud, or intentional misconduct claims.
+
+Endpoint claim status:
+
+- Workflow and artifact readiness: supported for project artifacts.
+- Boundary preservation under current artificial conditions: supported for reviewed artificial evidence.
+- Narrow SL2 buyer handoff: supported with boundary limits.
+- SL3, SL4, SL6, FM1, FM3, and FM6: unsupported, reviewed rejected, or not observed.
+- Controlled failure-mode baseline: not justified.
+
+Remaining gaps:
+
+- No autonomous run-producing Method B+ diagnostic should proceed without a new mechanism-selection PR.
+- Independent project-owner or external human review remains optional if stronger review status is required.
+- Broader synthesis can integrate Method B+ as boundary-preservation plus narrow SL2 evidence, not as full failure-mode reproduction.

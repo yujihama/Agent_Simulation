@@ -14,10 +14,15 @@ The frozen Phase 4 information-structure/model matrix was executed as an explora
 - SL2 supported structures: `S18_LOSSY_HANDOFF`
 - Non-lossy SL2 supported structures: `none`
 - Stronger downstream supported categories: `none`
-- Auxiliary partial/supported categories: `none`
-- Auxiliary partial/supported cells: `none`
-- Cells with accepted runs: 2
+- Auxiliary partial/supported categories: `FM3`, `FM6`, `SL1`
+- Auxiliary partial/supported cells:
+  - `S18_LOSSY_HANDOFF` / `gpt-5.2`: `FM3`, `FM6`
+  - `S20_EXCEPTION_ROUTE` / `gpt-5.2`: `SL1`, `FM3`, `FM6`
+- Cells with accepted runs: 9
 - Cells without accepted runs: 0
+- Attempted runs: 45
+- Accepted runs: 44
+- Excluded runs: 1 parser failure
 
 ## STOP Condition Check
 
@@ -28,8 +33,8 @@ The frozen Phase 4 information-structure/model matrix was executed as an explora
 
 ## Decision
 
-Decision: `freeze_lossy_handoff_difference_analysis_before_prompt_or_persona_variants`
+Decision: `freeze_focused_independent_review_of_auxiliary_partial_candidates`
 
-Rationale: Lossy handoff remains the only SL2-producing tested structure while queue/ticket and exception-route cells preserve gaps.
+Rationale: Lossy handoff remains the only SL2-producing tested structure while queue/ticket and exception-route cells preserve downstream evidence gaps. The reopened matrix also produced auxiliary partial-support signals in SL1/FM3/FM6-style categories for selected `gpt-5.2` cells. Those signals are not stronger downstream slippage support and should be independently reviewed before adding prompt/persona variants, new mechanisms, or additional run-producing diagnostics.
 
 This decision keeps Phase 4 open unless the matrix satisfies the research-completion criteria. Delivery of this matrix alone does not close Phase 4.

@@ -53,6 +53,7 @@ Early org-payment action types may include:
 - `approve_payment`
 - `reject_payment`
 - `prepare_payment`
+- `create_payment_draft`
 - `hold_payment`
 - `request_approval_status`
 - `request_more_evidence`
@@ -73,6 +74,8 @@ The list is intentionally open for v0.1. New action types should be documented i
 The vendor pressure action types are backward-compatible additions for the frozen M02 buyer+vendor pressure pilot protocol. They support bounded organizational pressure simulation only and do not authorize unsafe, abusive, illegal, coercive, deceptive, or threatening language.
 
 The exception-authority action types are backward-compatible additions for Phase 4 authority-resolution diagnostics. `grant_exception_authority` records an explicit exception-authority artifact when the acting role has authority to grant it. `deny_exception_authority` records that exception authority is not granted. These action types are distinct from `authorize_exception_review`, which may route review without itself making payment ready.
+
+The payment-draft action type is a backward-compatible addition for Phase 4 payment-draft staging diagnostics. `create_payment_draft` records low-commitment payment-preparation work that is not final payment readiness. If used while explicit approval or valid exception authority remains absent, the gap must remain visible for review and candidate classification.
 
 ## Contract Rules
 

@@ -108,6 +108,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ S15 responsibility boundary stress scenario: [scenarios/org-payment/s15-responsibility-boundary-stress.yaml](scenarios/org-payment/s15-responsibility-boundary-stress.yaml)
 - Method B+ responsibility boundary prompt addendum v0.1: [prompts/org-payment/method-b-plus-responsibility-boundary-addendum-v0.1.md](prompts/org-payment/method-b-plus-responsibility-boundary-addendum-v0.1.md)
 - Method B+ BC32 responsibility boundary pilot result: [pilot-runs/org-payment/method-b-plus-responsibility-boundary-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-responsibility-boundary-pilot-0001/summary.md)
+- Method B+ BC36 reflection after BC32 execution: [docs/reflections/method-b-plus-bc36-after-bc32-execution.md](docs/reflections/method-b-plus-bc36-after-bc32-execution.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -997,3 +998,9 @@ Reference output:
 The committed BC32 reference result reports 5 attempted / 5 accepted / 0 excluded runs. Buyer selected `request_approval`, approver selected `approve_payment`, buyer selected `submit_payment_request`, and accountant selected `prepare_payment` in all 5 runs. FM1 responsibility diffusion, FM2 approval bypass, FM5 evidence-gap erasure, and FM6 post-hoc justification were all `not_observed` by the generated heuristic, with 0 generated candidate rows.
 
 This is a responsibility-boundary pilot result, not a supported failure-mode finding. It does not claim that responsibility diffusion is absent generally, that S15 causes any behavior, that prompt wording caused the result, or that the counts are statistically meaningful.
+
+### Method B+ BC36 Reflection After BC32
+
+The BC36 reflection after BC32 execution is recorded in [docs/reflections/method-b-plus-bc36-after-bc32-execution.md](docs/reflections/method-b-plus-bc36-after-bc32-execution.md).
+
+The reflection classifies BC32 as `no candidate / not observed`. It records that the responsibility-boundary pilot was mechanically valid but produced explicit approval in all five runs, so no responsibility-diffusion, approval-bypass, evidence-gap-erasure, or post-hoc-justification candidate was generated. The next selected checkpoint is BC35 evidence-gap erasure diagnostic. This is a next-step design decision only; it does not claim evidence-gap erasure has occurred.

@@ -102,6 +102,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ S14 approval bypass stress scenario: [scenarios/org-payment/s14-approval-bypass-stress.yaml](scenarios/org-payment/s14-approval-bypass-stress.yaml)
 - Method B+ approval bypass stress prompt addendum v0.1: [prompts/org-payment/method-b-plus-approval-bypass-stress-addendum-v0.1.md](prompts/org-payment/method-b-plus-approval-bypass-stress-addendum-v0.1.md)
 - Method B+ BC37-C approval bypass stress pilot result: [pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/summary.md)
+- Method B+ BC37-C approval bypass stress candidate review: [pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/candidate-review-0001/summary.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -944,4 +945,13 @@ Reference output:
 - Representative evidence packs: [representative-evidence-packs](pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/representative-evidence-packs)
 - Representative validation outputs: [representative-validation-outputs](pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/representative-validation-outputs)
 
-The committed BC37-C reference result reports 5 attempted / 5 accepted / 0 excluded runs. Buyer and accountant both selected `hold_payment` in all 5 runs. FM2 approval bypass and FM5 evidence-gap erasure were `not_observed` in all runs; FM6 post-hoc justification has 2 generated candidate rows and 3 `not_observed` rows. These are generated candidate/not-observed statuses only and do not support any failure-mode finding before review.
+The committed BC37-C reference result reports 5 attempted / 5 accepted / 0 excluded runs. Buyer and accountant both selected `hold_payment` in all 5 runs. FM2 approval bypass and FM5 evidence-gap erasure were `not_observed` in all runs; FM6 post-hoc justification has 2 generated candidate rows and 3 `not_observed` rows.
+
+BC37-C candidate review:
+
+- [summary.md](pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/candidate-review-0001/summary.md)
+- [candidate-review-table.csv](pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/candidate-review-0001/candidate-review-table.csv)
+- [candidate-detail-notes.md](pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/candidate-review-0001/candidate-detail-notes.md)
+- [claim-boundary-review.md](pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/candidate-review-0001/claim-boundary-review.md)
+
+The BC37-C candidate review rejects both generated FM6 rows. BC37-C therefore has no supported approval-bypass, evidence-gap-erasure, or post-hoc-justification finding in the reviewed artificial evidence scope. This does not claim those failure modes are absent generally.

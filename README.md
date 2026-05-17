@@ -118,6 +118,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S20 exception route ambiguity candidate review: [pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/candidate-review-0001/summary.md)
 - Phase 4 BC36 reflection after exception route review: [docs/reflections/phase4-bc36-after-exception-route-review.md](docs/reflections/phase4-bc36-after-exception-route-review.md)
 - Phase 4 mechanism exploration synthesis v0.1: [docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md](docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md)
+- Phase 4 research objective reopen: [docs/reflections/phase4-reopen-research-objective.md](docs/reflections/phase4-reopen-research-objective.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1369,3 +1370,11 @@ The current report-ready evidence position is bounded. Reviewed artificial evide
 Corrective completion note: Phase 3 is research-complete as a conceptual/evidence model, not as empirical support for all SL levels. Phase 4 is delivery-complete but research-partial: lossy handoff is currently the only tested mechanism that produced reviewed SL2 buyer-side handoff support, while queue/ticket mismatch and exception-route ambiguity reinforced SL5 preservation. No tested mechanism has produced SL3, SL4, or SL6 support, so Phase 4 does not yet answer which information structure can produce stronger downstream slippage.
 
 Checkpoint decision: Phase 1-4 is delivery-complete for this roadmap pass, with Phase 4 explicitly research-partial. Do not run additional autonomous diagnostics unless future work first analyzes why lossy handoff produced SL2 while S19/S20 did not, or a later mechanism-selection PR identifies a substantially different organizational mechanism, defines research-completion criteria before execution, and freezes a protocol before execution.
+
+### Phase 4 Research Objective Reopen
+
+Phase 4 research is reopened in [docs/reflections/phase4-reopen-research-objective.md](docs/reflections/phase4-reopen-research-objective.md).
+
+The active Phase 4 objective is to identify which artificial organization information structures can produce reviewable non-intentional control-slippage candidates, especially whether any structure can move beyond narrow buyer-side SL2 handoff toward SL3 accountant preparation, SL4 final payment-ready state, or SL6 evidence-gap erasure.
+
+Future Phase 4 work may vary run counts, information structures, OpenAI model choices, and frozen prompt/persona conditions, but must preserve protocol freeze before execution, candidate/review separation, SL2/SL3/SL4/SL5/SL6 separation, and the existing no-human/no-real-world/no-statistical/no-compliance claim boundary.

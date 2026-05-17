@@ -1234,3 +1234,31 @@ Correction decision:
 - Phase 4 is delivery-complete but research-partial.
 - No tested mechanism has produced SL3, SL4, or SL6 support.
 - Future work must either analyze why lossy handoff produced SL2 while S19/S20 did not, select a genuinely new information mechanism with research-completion criteria defined before execution, or stop run-producing work and report methodology plus boundary-preservation findings.
+
+## Phase 4 Research Objective Reopen Update
+
+Latest PR label: `PR-Phase4-reopen-research-objective`
+
+This update applies to C01, C02, C16, C18, and C20.
+
+Evidence added:
+
+- `docs/reflections/phase4-reopen-research-objective.md`
+- `docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md`
+- `docs/synthesis/phase1-4-project-synthesis-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: Phase 4 is reopened as an active research objective rather than closed after delivery completion.
+- C02 Research Questions: the active question is which artificial information structures can produce reviewable slippage candidates, especially beyond narrow SL2.
+- C16 Validity Protocol: additional Phase 4 execution still requires protocol freeze and predefined delivery/research completion criteria.
+- C18 Reporting / Claims: reopening does not upgrade prior findings; lossy handoff remains the only tested mechanism with reviewed SL2 support, and SL3/SL4/SL6 remain unsupported.
+- C20 Ethics / Misuse Boundaries: model variation, prompt/persona variation, and increased trial counts remain bounded to artificial evidence and cannot support human, real-world, statistical, compliance, legal, audit, operational, governance, safety, prompt-causation, or model-general claims.
+
+Reopen decision:
+
+- Phase 4 delivery artifacts remain valid.
+- Phase 4 research is open / incomplete.
+- Proceed to a research-completion-aware exploration protocol freeze before any additional run-producing work.

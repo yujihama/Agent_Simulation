@@ -176,4 +176,6 @@ Recommended next work is report-oriented, not run-producing:
 
 Decision: Phase 1-4 roadmap pass is delivery-complete, with Phase 4 explicitly research-partial.
 
-Pause autonomous run-producing diagnostics. The next project step should be report drafting, external/project-owner review, analysis of why lossy handoff uniquely produced SL2, or a separately justified mechanism-selection PR with research-completion criteria defined before execution.
+Corrective update: Phase 4 research work is reopened by `docs/reflections/phase4-reopen-research-objective.md`.
+
+The Phase 1-4 delivery pass remains complete, but Phase 4 research is now active until the project identifies which information structures can produce reviewable slippage candidates, or until a concrete blocker prevents further progress. The next work should freeze a research-completion-aware exploration protocol before any additional execution.

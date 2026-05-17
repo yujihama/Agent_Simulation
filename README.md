@@ -101,6 +101,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Review status labels v0.2: [protocols/evaluation/review-status-labels-v0.2.md](protocols/evaluation/review-status-labels-v0.2.md)
 - Negative and conservative results methodology v0.1: [docs/methodology/negative-and-conservative-results-v0.1.md](docs/methodology/negative-and-conservative-results-v0.1.md)
 - Boundary preservation patterns v0.1: [docs/synthesis/boundary-preservation-patterns-v0.1.md](docs/synthesis/boundary-preservation-patterns-v0.1.md)
+- Phase 2 methodology synthesis v0.1: [docs/synthesis/phase2-methodology-synthesis-v0.1.md](docs/synthesis/phase2-methodology-synthesis-v0.1.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1274,3 +1275,9 @@ The hardened review boundary keeps mechanical validation, generated candidates, 
 BC2-3 defines how negative, not-observed, rejected, partially supported, and conservative boundary-preserving results should be reported in [docs/methodology/negative-and-conservative-results-v0.1.md](docs/methodology/negative-and-conservative-results-v0.1.md). The current boundary-preservation pattern summary is recorded in [docs/synthesis/boundary-preservation-patterns-v0.1.md](docs/synthesis/boundary-preservation-patterns-v0.1.md).
 
 This stage treats SL5 evidence-gap preservation and reviewed rejections as methodologically meaningful outcomes. It also keeps `not_observed` distinct from proof of absence and forbids converting boundary preservation into real-world control-effectiveness, model-safety, statistical, or compliance claims.
+
+### Phase 2 Methodology Synthesis
+
+The Phase 2 synthesis is recorded in [docs/synthesis/phase2-methodology-synthesis-v0.1.md](docs/synthesis/phase2-methodology-synthesis-v0.1.md).
+
+It concludes that Phase 2 is complete: the project's main contribution is a protocol-governed artificial-organization research method with freeze-before-execution discipline, Game Master boundaries, reconstructable evidence packs, mechanical validation, candidate review, conservative-result preservation, and explicit claim boundaries. Phase 3 should next model non-intentional control slippage and its evidence requirements before any new run-producing work.

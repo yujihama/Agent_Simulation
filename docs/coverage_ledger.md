@@ -868,3 +868,35 @@ BC2-3 decision:
 Remaining gaps:
 
 - Phase 2 methodology synthesis has not yet integrated BC2-1, BC2-2, and BC2-3.
+
+## Phase 2 BC2-4 Methodology Synthesis Update
+
+Latest PR label: `PR-Phase2-BC2-4-methodology-synthesis`
+
+This update applies to C01, C02, C12, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/phase2-methodology-synthesis-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: Phase 2 is synthesized as a methodology contribution centered on reviewable artificial-organization research.
+- C02 Research Questions: Phase 3 is directed toward conceptual and evidentiary modeling of non-intentional control slippage before new execution.
+- C12 Experiment Harness: the freeze-execute-validate-review-reflect pipeline is accepted as the project-level method.
+- C15 Evidence Pack: evidence packs are positioned as the reconstruction unit for later claims.
+- C16 Validity Protocol: review status labels, source refs, and conservative-result handling are integrated into one validity workflow.
+- C17 Human / LLM Review: review levels remain explicit and not interchangeable.
+- C18 Reporting / Claims: Phase 2 synthesis restates allowed methodology claims and forbidden empirical overclaims.
+- C20 Ethics / Misuse Boundaries: artificial evidence remains blocked from human, real-world, statistical, model-general, compliance, legal, audit, operational, governance, or safety sufficiency claims.
+
+Phase 2 decision:
+
+- Phase 2 is complete.
+- Proceed to Phase 3 control slippage conceptual modeling and evidence requirements.
+
+Remaining gaps:
+
+- The non-intentional control slippage model, control-slippage-vs-fraud distinction, and SL-level evidence requirements are not yet documented.

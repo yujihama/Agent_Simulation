@@ -505,3 +505,32 @@ Remaining gaps:
 - No protocol for queue/ticket state mismatch is frozen yet.
 - No queue/ticket state mismatch execution, candidate, or reviewed support exists.
 - No SL3 payment-preparation, SL4 final payment-ready, SL6 evidence-gap erasure, FM1 responsibility diffusion, FM3 ambiguous-guidance misinterpretation, FM6 post-hoc justification, or full approval-bypass support is added by this synthesis.
+
+## Method B+ Queue/Ticket State Mismatch Protocol Freeze Update
+
+Latest PR label: `PR-MethodBPlus-queue-ticket-state-mismatch-protocol`
+
+This update applies to C05, C08, C10, C12, C13, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md`
+- `scenarios/org-payment/s19-queue-ticket-state-mismatch-control-slippage.yaml`
+- `prompts/org-payment/method-b-plus-queue-ticket-state-mismatch-addendum-v0.1.md`
+
+Coverage impact:
+
+- C05 World / Environment: S19 freezes an org-payment ticket state mismatch environment with workflow readiness-like labels, blank approval/exception fields, and unresolved G001/G002/G003 gaps.
+- C08 Interaction Layer: the protocol freezes buyer ticket handoff and accountant ticket review before execution.
+- C10 LLM Actor Layer: the addendum instructs roles to distinguish ticket status from explicit approval and to avoid converting workflow labels into authorization.
+- C12 Experiment Harness: no execution is added; the later execution PR must write raw outputs under ignored `runs/` and commit only curated artifacts.
+- C13 Event Taxonomy / Failure-Mode Vocabulary: the protocol separates SL2, SL3, SL4, SL5, SL6, FM1, FM3, and FM6 candidate criteria without adding new event types.
+- C16 Validity Protocol: future candidate classification must record workflow status, approval field, exception field, role-local packet, global truth, and Game Master decisions separately.
+- C17 Human / LLM Review: no review result is added; future generated candidates remain review inputs only.
+- C18 Reporting / Claims: the protocol permits only future artificial diagnostic observations after execution and forbids claiming slippage before review.
+- C20 Ethics / Misuse Boundaries: the protocol forbids bypass instructions, concealment, fabricated approval, human behavior, real-world organization, model-general, prompt-causation, compliance, legal, audit, operational, and statistical claims.
+
+Remaining gaps:
+
+- S19 has not been executed.
+- No queue/ticket state mismatch candidate, reviewed support, or boundary-preserving result is added by this protocol-freeze update.

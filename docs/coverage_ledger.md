@@ -72,3 +72,21 @@ Remaining gaps:
 
 - BC32 has no supported FM1/FM2/FM5/FM6 finding. The run produced `not_observed` statuses for all four reviewed modes by generated heuristic.
 - Because there are 0 generated candidate rows, the next checkpoint should record a BC36-style reflection rather than a candidate review.
+
+## Method B+ BC36 Reflection After BC32 Update
+
+Latest PR label: `PR-MethodBPlus-BC36-after-BC32`
+
+Evidence added:
+
+- `docs/reflections/method-b-plus-bc36-after-bc32-execution.md`
+
+Coverage impact:
+
+- C16 Validity Protocol: BC32 is classified as `no candidate / not observed`, and the reflection chooses a new target rather than repeating the same responsibility-boundary setup.
+- C18 Reporting / Claims: the reflection keeps BC32 bounded to artificial-system pilot accounting and does not upgrade any generated status to support.
+- C20 Ethics / Misuse Boundaries: the reflection explicitly forbids human, real-world, prompt-causation, compliance, legal, audit, operational, and statistical claims.
+
+Next step:
+
+- Freeze BC35 evidence-gap erasure diagnostic before any BC35 execution.

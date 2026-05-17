@@ -93,6 +93,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Current evidence inventory v0.1: [docs/synthesis/current-evidence-inventory-v0.1.md](docs/synthesis/current-evidence-inventory-v0.1.md)
 - Current evidence map: [docs/synthesis/current-evidence-map.csv](docs/synthesis/current-evidence-map.csv)
 - Current claim-level table: [docs/synthesis/current-claim-level-table.csv](docs/synthesis/current-claim-level-table.csv)
+- Phase 1 research position synthesis v0.1: [docs/synthesis/phase1-research-position-synthesis-v0.1.md](docs/synthesis/phase1-research-position-synthesis-v0.1.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1240,3 +1241,9 @@ The reframed objective is to build and evaluate a reviewable artificial-organiza
 The current evidence inventory is recorded in [docs/synthesis/current-evidence-inventory-v0.1.md](docs/synthesis/current-evidence-inventory-v0.1.md), with a compact evidence map in [docs/synthesis/current-evidence-map.csv](docs/synthesis/current-evidence-map.csv) and claim-level table in [docs/synthesis/current-claim-level-table.csv](docs/synthesis/current-claim-level-table.csv).
 
 The inventory separates artifact claims, bounded observation claims, reviewed evidence claims, construct-limited claims, boundary-limited Method B+ claims, generated candidates, not-observed results, and forbidden claims. It also distinguishes primary human review from Codex proxy review and keeps SL2 buyer handoff separate from SL3 accountant preparation, SL4 final readiness, SL5 gap preservation, and SL6 gap erasure.
+
+### Phase 1 Research Position Synthesis
+
+The Phase 1 synthesis is recorded in [docs/synthesis/phase1-research-position-synthesis-v0.1.md](docs/synthesis/phase1-research-position-synthesis-v0.1.md).
+
+It concludes that Phase 1 is complete: the project should be described as a reviewable artificial-organization research method for institutional friction and non-intentional control-slippage boundaries. Phase 2 should organize the methodological contribution, evidence-pack review process, and negative/conservative result methodology before any further execution-oriented work.

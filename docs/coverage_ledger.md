@@ -744,3 +744,32 @@ Remaining gaps:
 
 - Phase 1 synthesis has not yet integrated BC1-1 and BC1-2.
 - Methodological contribution documents are not yet separated as Phase 2 artifacts.
+
+## Phase 1 BC1-3 Research Position Synthesis Update
+
+Latest PR label: `PR-Phase1-BC1-3-research-position-synthesis`
+
+This update applies to C01, C02, C16, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/phase1-research-position-synthesis-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: Phase 1 now synthesizes the project as a reviewable artificial-organization research method rather than a human-social reproduction claim.
+- C02 Research Questions: updated research questions are accepted as the Phase 1 position for later methodology work.
+- C16 Validity Protocol: evidence inventory and claim levels become the basis for Phase 2 methodology hardening.
+- C18 Reporting / Claims: Phase 1 explicitly permits bounded artifact, observation, reviewed, construct-limited, boundary-limited, and hypothesis claims only.
+- C20 Ethics / Misuse Boundaries: Phase 1 forbids human, real-world, statistical, causal, model-general, compliance, legal, audit, operational, governance, or safety sufficiency claims.
+
+Phase 1 decision:
+
+- Phase 1 is complete.
+- Proceed to Phase 2 methodology contribution definition.
+
+Remaining gaps:
+
+- Phase 2 methodology contribution, evidence-pack methodology, review-protocol hardening, and negative/conservative-result methodology are not yet documented.

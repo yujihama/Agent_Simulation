@@ -13,6 +13,8 @@ The project may claim that Method B+:
 - reframed the BC31 partial observation as non-intentional control slippage: narrow SL2 buyer handoff plus SL5 evidence-gap preservation, without support for SL3 or SL4;
 - executed the frozen S17 SL2-SL4 control-slippage progression diagnostic and reviewed its generated rows;
 - recorded S17 as a conservative boundary-preserving result: SL2, SL3, SL4, SL6, and FM6 were not observed, while SL5 evidence-gap preservation was supported for the reviewed artificial evidence;
+- selected and executed a frozen S18 lossy handoff diagnostic after boundary-preservation synthesis;
+- recorded S18 as reviewed artificial evidence supporting SL2 buyer payment-forward handoff in 3 accepted runs and SL5 evidence-gap preservation in all 5 accepted runs, without support for SL3, SL4, SL6, FM1, FM3, or FM6;
 - reviewed and rejected generated FM6 candidate rows from BC28, BC31, BC37-C, and BC35;
 - recorded mechanically valid but conservative BC37-C, BC32, and BC35 pilot outcomes;
 - should not proceed to a Method B+ controlled baseline without a stronger reviewed target or a new frozen protocol.
@@ -28,6 +30,8 @@ The project must not claim from Method B+ that:
 - the BC31 partial handoff observation supports accountant payment preparation, final payment readiness, fraud, or intentional misconduct;
 - S17 disproves SL2, SL3, SL4, SL6, FM6, approval bypass, or evidence-gap erasure generally;
 - S17 supports full approval bypass, accountant preparation, final payment-ready state, evidence-gap erasure, post-hoc justification, or a controlled baseline;
+- S18 supports full approval bypass, accountant preparation, final payment-ready state, evidence-gap erasure, responsibility diffusion, ambiguous-guidance misinterpretation, post-hoc justification, or a controlled baseline;
+- S18 proves lossy handoff caused buyer action selection;
 - generated candidates are support before review;
 - rejected candidates prove the failure mode is absent generally;
 - prompt wording caused any outcome;

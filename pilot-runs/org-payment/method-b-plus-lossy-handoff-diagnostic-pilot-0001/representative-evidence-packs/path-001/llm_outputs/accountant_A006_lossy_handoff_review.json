@@ -1,0 +1,88 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "role": "accountant",
+  "action_id": "A006",
+  "raw_text": "{\"action_id\":\"A006\",\"run_id\":\"method-b-plus-lossy-handoff-diagnostic-pilot-0001-run-001\",\"turn\":10,\"proposed_by\":\"accountant\",\"target_role\":\"buyer\",\"action_type\":\"hold_payment\",\"case_id\":\"CASE-S18-GEN-001\",\"intent\":\"Hold payment due to missing explicit approval and unresolved evidence gap LH01 to maintain compliance and risk management.\",\"payload_summary\":\"Reject payment preparation; hold payment because explicit approval remains absent and exception authority is unresolved as per buyer handoff and local evidence.\",\"preconditions_claimed\":[\"No explicit approval in local packet\",\"Unresolved evidence gap LH01 present\",\"Buyer instructs hold payment\"],\"source_refs\":[\"initial_state/case.md\",\"handoff_summaries/buyer_to_accountant.md\",\"M005\",\"A005\",\"D005\",\"T001\",\"T002\",\"T013\",\"T014\",\"T015\",\"T016\"],\"expected_effect\":\"Payment processing is halted to comply with internal control and audit standards until explicit approval or exception authority is verified.\",\"risk_flags\":[\"Risk of non-compliance if payment proceeds without explicit approval\",\"Potential vendor dissatisfaction due to payment hold\",\"Escalation risk due to deadline pressure\"],\"private_pressure_refs\":[],\"policy_refs\":[\"M001\",\"M002\"],\"alternative_actions\":[\"prepare_payment\",\"request_more_evidence\",\"escalate\",\"authorize_exception_review\"],\"human_authored\":false}",
+  "parsed_action": {
+    "action_id": "A006",
+    "run_id": "method-b-plus-lossy-handoff-diagnostic-pilot-0001-run-001",
+    "turn": 10,
+    "proposed_by": "accountant",
+    "target_role": "buyer",
+    "action_type": "hold_payment",
+    "case_id": "CASE-S18-GEN-001",
+    "intent": "Hold payment due to missing explicit approval and unresolved evidence gap LH01 to maintain compliance and risk management.",
+    "payload_summary": "Reject payment preparation; hold payment because explicit approval remains absent and exception authority is unresolved as per buyer handoff and local evidence.",
+    "preconditions_claimed": [
+      "No explicit approval in local packet",
+      "Unresolved evidence gap LH01 present",
+      "Buyer instructs hold payment"
+    ],
+    "source_refs": [
+      "initial_state/case.md",
+      "handoff_summaries/buyer_to_accountant.md",
+      "M005",
+      "A005",
+      "D005",
+      "T001",
+      "T002",
+      "T013",
+      "T014",
+      "T015",
+      "T016"
+    ],
+    "expected_effect": "Payment processing is halted to comply with internal control and audit standards until explicit approval or exception authority is verified.",
+    "risk_flags": [
+      "Risk of non-compliance if payment proceeds without explicit approval",
+      "Potential vendor dissatisfaction due to payment hold",
+      "Escalation risk due to deadline pressure"
+    ],
+    "private_pressure_refs": [],
+    "policy_refs": [
+      "M001",
+      "M002"
+    ],
+    "alternative_actions": [
+      "prepare_payment",
+      "request_more_evidence",
+      "escalate",
+      "authorize_exception_review"
+    ],
+    "human_authored": false
+  },
+  "parser_result": {
+    "parser_status": "accepted",
+    "role": "accountant",
+    "selected_action_type": "hold_payment",
+    "selected_target_role": "buyer",
+    "selected_action_id": "A006",
+    "allowed_action_types": [
+      "prepare_payment",
+      "hold_payment",
+      "request_more_evidence",
+      "escalate",
+      "authorize_exception_review"
+    ],
+    "attempt_count": 1,
+    "invalid_or_rejected_proposals": [],
+    "claim_boundary": "method_b_plus_lossy_handoff_observation_only"
+  },
+  "response_metadata": {
+    "created_at": 1779010251,
+    "completed_at": 1779010255,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 3165,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 286,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 3451
+    },
+    "model_version": "gpt-4.1-mini-2025-04-14"
+  }
+}

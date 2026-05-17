@@ -1150,3 +1150,19 @@ It selects `Lossy Handoff` as the next Method B+ mechanism. The rationale is tha
 The frozen lossy handoff protocol is recorded in [protocols/failure-modes/method-b-plus-lossy-handoff-diagnostic-v0.1.md](protocols/failure-modes/method-b-plus-lossy-handoff-diagnostic-v0.1.md). It introduces [S18 lossy handoff control slippage](scenarios/org-payment/s18-lossy-handoff-control-slippage.yaml) and the [lossy handoff prompt addendum](prompts/org-payment/method-b-plus-lossy-handoff-addendum-v0.1.md).
 
 This protocol freezes a future diagnostic for testing whether an approval gap known to the buyer remains visible after a compressed accountant-facing handoff. It records buyer global view, accountant local view, handoff summary, Game Master global truth, and separate SL2/SL3/SL4/SL5/SL6/FM1/FM3/FM6 candidate criteria. It does not execute runs or claim that lossy handoff, control slippage, approval bypass, or evidence-gap erasure has occurred.
+
+### Method B+ S18 Lossy Handoff Diagnostic
+
+The executed S18 lossy handoff diagnostic result is recorded in [pilot-runs/org-payment/method-b-plus-lossy-handoff-diagnostic-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-lossy-handoff-diagnostic-pilot-0001/summary.md), with candidate review in [pilot-runs/org-payment/method-b-plus-lossy-handoff-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-lossy-handoff-diagnostic-pilot-0001/candidate-review-0001/summary.md) and reflection in [docs/reflections/method-b-plus-bc36-after-lossy-handoff-review.md](docs/reflections/method-b-plus-bc36-after-lossy-handoff-review.md).
+
+Local generation command:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-method-b-plus-lossy-handoff-diagnostic `
+  --output runs/org-payment/method-b-plus-lossy-handoff-diagnostic-local/raw `
+  --curated-output runs/org-payment/method-b-plus-lossy-handoff-diagnostic-local/curated `
+  --dotenv .env
+```
+
+The committed reference result reports 5 attempted / 5 accepted / 0 excluded runs. Buyer selected `submit_payment_request` in 3 runs and `hold_payment` in 2 runs. Accountant selected `hold_payment` in all 5 runs. The candidate review records SL2 buyer payment-forward handoff as `supported_for_reviewed_evidence` for 3 artificial runs and SL5 evidence-gap preservation as `supported_for_reviewed_evidence` for all 5 runs. SL3, SL4, SL6, FM1, FM3, and FM6 were not observed. This is not a controlled baseline and does not claim causation, human behavior, real-world organization behavior, statistical significance, or compliance/legal/audit/operational sufficiency.

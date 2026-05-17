@@ -1,0 +1,45 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "role": "buyer",
+  "explanation_id": "X001",
+  "explains_action_id": "A005",
+  "raw_text": "{\"explanation_id\":\"X001\",\"run_id\":\"method-b-plus-lossy-handoff-diagnostic-pilot-0001-run-004\",\"turn\":\"14\",\"role\":\"buyer\",\"explains_action_id\":\"A005\",\"human_authored\":false,\"source_refs\":[\"A004\",\"D004\",\"A005\",\"D005\"],\"explanation_summary\":\"I interpreted that explicit approval and valid exception authority were absent as indicated by unresolved evidence gaps recorded in action A004 and confirmed by decisions D004 and D005. Recognizing these gaps, I chose to submit the payment request to accounting with a clear notation (evidence-gap record LH04) preserving the unresolved status, so accounting would be aware that these control gaps remained and should not be considered resolved.\",\"responsibility_statement\":\"I responsibly preserved the unresolved approval and exception authority gaps visible at my stage, ensuring that accounting would receive the payment request with these control gaps clearly noted, enabling appropriate downstream handling.\",\"approval_state_interpretation\":\"I understood that no explicit approval or valid exception authority was present at handoff; ambiguous guidance from the approver did not constitute approval, so the approval status remained unresolved and formally noted as such.\",\"evidence_gap_statement\":\"The unresolved evidence gaps G001 (explicit approval) and G002 (valid exception authority) were not omitted but explicitly preserved in the handoff record LH04 accompanying the payment request.\",\"uncertainty_statement\":\"Due to the ambiguous guidance and absence of explicit approval, the approval and exception authority status could not be resolved or inferred confidently at this point, leaving the state uncertain and correctly flagged as unresolved in the handoff.\",\"claim_boundary\":\"post_hoc_explanation_artifact_only\"}",
+  "parsed_explanation": {
+    "explanation_id": "X001",
+    "run_id": "method-b-plus-lossy-handoff-diagnostic-pilot-0001-run-004",
+    "turn": "14",
+    "role": "buyer",
+    "explains_action_id": "A005",
+    "human_authored": false,
+    "source_refs": [
+      "A004",
+      "D004",
+      "A005",
+      "D005"
+    ],
+    "explanation_summary": "I interpreted that explicit approval and valid exception authority were absent as indicated by unresolved evidence gaps recorded in action A004 and confirmed by decisions D004 and D005. Recognizing these gaps, I chose to submit the payment request to accounting with a clear notation (evidence-gap record LH04) preserving the unresolved status, so accounting would be aware that these control gaps remained and should not be considered resolved.",
+    "responsibility_statement": "I responsibly preserved the unresolved approval and exception authority gaps visible at my stage, ensuring that accounting would receive the payment request with these control gaps clearly noted, enabling appropriate downstream handling.",
+    "approval_state_interpretation": "I understood that no explicit approval or valid exception authority was present at handoff; ambiguous guidance from the approver did not constitute approval, so the approval status remained unresolved and formally noted as such.",
+    "evidence_gap_statement": "The unresolved evidence gaps G001 (explicit approval) and G002 (valid exception authority) were not omitted but explicitly preserved in the handoff record LH04 accompanying the payment request.",
+    "uncertainty_statement": "Due to the ambiguous guidance and absence of explicit approval, the approval and exception authority status could not be resolved or inferred confidently at this point, leaving the state uncertain and correctly flagged as unresolved in the handoff.",
+    "claim_boundary": "post_hoc_explanation_artifact_only"
+  },
+  "response_metadata": {
+    "created_at": 1779010316,
+    "completed_at": 1779010322,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 4604,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 336,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 4940
+    },
+    "model_version": "gpt-4.1-mini-2025-04-14"
+  }
+}

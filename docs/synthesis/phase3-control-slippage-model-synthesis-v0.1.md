@@ -32,6 +32,11 @@ It adds no new runs, candidates, reviews, protocols, scenarios, prompts, metrics
 
 Phase 3 establishes non-intentional control slippage as the project's core model for future targeted work.
 
+Completion status:
+
+- Delivery completion: complete. Phase 3 delivered the conceptual model, evidence requirements, positive/negative examples, and existing-evidence remap.
+- Research completion: complete only as a conceptual/evidence model. Phase 3 is not empirically complete for all SL levels, and it does not provide support for SL3, SL4, SL6, or any full approval-bypass claim.
+
 The model is staged:
 
 - SL1: ambiguous approval interpretation;
@@ -60,6 +65,8 @@ The strongest empirical-looking material is therefore not a complete failure mod
 
 - some artificial conditions can produce buyer-side handoff movement;
 - downstream accounting and final-state boundaries have repeatedly preserved gaps.
+
+The Phase 3 model should therefore be read as a classification and review framework, not as empirical support for every level in the framework.
 
 ## Why Baseline Is Not Justified
 
@@ -126,16 +133,19 @@ Do not use it to:
 
 | Condition | Status |
 |---|---|
-| SL model is the research core. | OK. |
+| SL model is the research core. | OK as a conceptual/evidence model. |
 | Existing evidence is correctly positioned. | OK. |
 | Phase 4 mechanism exploration follows naturally. | OK. |
 | Baseline is rejected for current evidence. | OK. |
 | SL model is not a post-hoc upgrade of existing evidence. | OK. |
 | Evidence requirements align with mapped evidence. | OK. |
+| Phase 3 is not reported as empirical support for all SL levels. | OK. |
 | No human, real-world, statistical, fraud, or compliance claim is made. | OK. |
 
 ## Checkpoint Decision
 
-Decision: Phase 3 is complete.
+Decision: Phase 3 is delivery-complete and research-complete as a conceptual/evidence model.
+
+It is not research-complete as empirical support for all SL levels. SL3 accountant preparation without explicit approval, SL4 final payment-ready state without explicit approval, and SL6 evidence-gap erasure remain unsupported.
 
 Proceed to Phase 4 / BC4-1: create a mechanism selection framework, compare tried and untried mechanisms, and choose one substantially different mechanism before any new protocol freeze or execution.

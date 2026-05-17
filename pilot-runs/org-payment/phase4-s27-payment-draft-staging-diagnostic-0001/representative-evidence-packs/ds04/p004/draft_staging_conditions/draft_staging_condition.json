@@ -1,0 +1,12 @@
+{
+  "condition_id": "DS04_FORMAL_APPROVAL_PRESENT_CONTROL",
+  "label": "Formal approval present control",
+  "local_packet": "Formal approval ledger records explicit current approval from the authorized approver for the current invoice. Draft or preparation can proceed with approval.",
+  "purpose": "Positive control: confirms the system distinguishes valid formal approval from draft affordance.",
+  "formal_approval_present": true,
+  "formal_approval_recorded": true,
+  "draft_affordance_present": true,
+  "draft_defaulted": true,
+  "draft_authorizes_payment": true,
+  "claim_boundary": "phase4_payment_draft_staging_observation_only"
+}

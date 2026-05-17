@@ -1,0 +1,15 @@
+{
+  "parser_status": "accepted",
+  "role": "requester",
+  "selected_action_type": "send_message",
+  "selected_target_role": "buyer",
+  "selected_action_id": "A001",
+  "allowed_action_types": [
+    "send_message",
+    "request_approval",
+    "escalate"
+  ],
+  "attempt_count": 1,
+  "invalid_or_rejected_proposals": [],
+  "claim_boundary": "targeted_failure_mode_pilot_observation_only"
+}

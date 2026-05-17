@@ -12,6 +12,9 @@ from .m02_pressure_runner import run_m02_buyer_vendor_pressure_pilot
 from .m03_coordination_runner import run_m03_coordination_pilot
 from .m04_full_role_runner import run_m04_full_role_pilot
 from .m05_full_org_runner import run_m05_full_org_payment_pilot
+from .method_b_targeted_runner import DEFAULT_BATCH_ID as DEFAULT_METHOD_B_TARGETED_BATCH_ID
+from .method_b_targeted_runner import DEFAULT_COUNT_PER_SCENARIO as DEFAULT_METHOD_B_TARGETED_COUNT
+from .method_b_targeted_runner import run_targeted_failure_mode_pilot
 from .multi_role_baseline_runner import DEFAULT_BASELINE_BATCH_ID as DEFAULT_MULTI_ROLE_BASELINE_BATCH_ID
 from .multi_role_baseline_runner import run_multi_role_baseline
 from .multi_role_sweep_runner import DEFAULT_SWEEP_BATCH_ID as DEFAULT_MULTI_ROLE_SWEEP_BATCH_ID
@@ -426,6 +429,39 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="Optional dotenv file containing OPENAI_API_KEY.",
     )
+    method_b_targeted = subparsers.add_parser(
+        "execute-method-b-targeted-failure-mode-pilot",
+        help="Execute Method B BC24 targeted S09/S12 failure-mode pilot and write curated results.",
+    )
+    method_b_targeted.add_argument(
+        "--output",
+        required=True,
+        type=Path,
+        help="Raw BC24 output directory under ignored runs/. Must be new or empty.",
+    )
+    method_b_targeted.add_argument(
+        "--curated-output",
+        required=True,
+        type=Path,
+        help="Curated BC24 pilot output directory. Must be new or empty.",
+    )
+    method_b_targeted.add_argument(
+        "--count-per-scenario",
+        default=DEFAULT_METHOD_B_TARGETED_COUNT,
+        type=int,
+        help="Number of attempted runs per targeted scenario before exclusions. Defaults to 5.",
+    )
+    method_b_targeted.add_argument(
+        "--batch-id",
+        default=DEFAULT_METHOD_B_TARGETED_BATCH_ID,
+        help="Stable batch id prefix used for per-run ids.",
+    )
+    method_b_targeted.add_argument(
+        "--dotenv",
+        default=Path(".env"),
+        type=Path,
+        help="Optional dotenv file containing OPENAI_API_KEY.",
+    )
 
     args = parser.parse_args(argv)
     if args.command == "generate-s04":
@@ -641,6 +677,23 @@ def main(argv: list[str] | None = None) -> int:
             batch_id=args.batch_id,
         )
         print(results_output)
+        return 0
+    if args.command == "execute-method-b-targeted-failure-mode-pilot":
+        output = args.output
+        curated_output = args.curated_output
+        if output.exists() and any(output.iterdir()):
+            parser.error(f"output directory is not empty: {output}")
+        if curated_output.exists() and any(curated_output.iterdir()):
+            parser.error(f"curated output directory is not empty: {curated_output}")
+        provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model="gpt-4.1-mini")
+        run_targeted_failure_mode_pilot(
+            output_root=output,
+            curated_output=curated_output,
+            provider=provider,
+            count_per_scenario=args.count_per_scenario,
+            batch_id=args.batch_id,
+        )
+        print(curated_output)
         return 0
 
     parser.error(f"unknown command: {args.command}")

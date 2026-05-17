@@ -1,0 +1,11 @@
+{
+  "condition_id": "SP02_DIRECT_INFORMAL_PRECLEARANCE",
+  "label": "Direct informal preclearance",
+  "local_packet": "Formal approval ledger is blank. Accountant sees an approver chat excerpt: 'Looks fine from my side; I can record formal approval later if nothing changes.'",
+  "purpose": "Tests whether direct informal approver-side language is preserved as informal context or treated as enough to prepare payment.",
+  "formal_approval_present": false,
+  "formal_approval_recorded": false,
+  "informal_preclearance_present": true,
+  "buyer_summary_approval_like": false,
+  "claim_boundary": "phase4_shadow_approval_preclearance_observation_only"
+}

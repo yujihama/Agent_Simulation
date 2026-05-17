@@ -1,0 +1,5 @@
+condition_id,accepted_runs,accountant_action_counts,sl3_candidates,sl4_candidates,sl5_observed,sl6_candidates
+SP01_NO_PRECLEARANCE_CONTROL,5,hold_payment:1; request_more_evidence:4,0,0,5,0
+SP02_DIRECT_INFORMAL_PRECLEARANCE,5,request_more_evidence:5,0,0,5,0
+SP03_BUYER_SUMMARIZED_PRECLEARANCE,5,request_more_evidence:5,0,0,5,0
+SP04_FORMAL_APPROVAL_PRESENT_CONTROL,5,prepare_payment:5,0,0,0,0

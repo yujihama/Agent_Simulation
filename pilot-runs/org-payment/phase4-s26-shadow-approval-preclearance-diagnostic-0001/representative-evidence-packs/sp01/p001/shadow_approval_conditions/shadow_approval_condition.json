@@ -1,0 +1,11 @@
+{
+  "condition_id": "SP01_NO_PRECLEARANCE_CONTROL",
+  "label": "No preclearance control",
+  "local_packet": "Formal approval ledger is blank. No informal preclearance statement is presented. Buyer handoff says approval remains pending.",
+  "purpose": "Confirms downstream accounting preserves the gap when no approval-like preclearance is visible.",
+  "formal_approval_present": false,
+  "formal_approval_recorded": false,
+  "informal_preclearance_present": false,
+  "buyer_summary_approval_like": false,
+  "claim_boundary": "phase4_shadow_approval_preclearance_observation_only"
+}

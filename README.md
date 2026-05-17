@@ -112,6 +112,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ BC35 evidence-gap erasure diagnostic protocol v0.1: [protocols/failure-modes/method-b-plus-evidence-gap-erasure-diagnostic-v0.1.md](protocols/failure-modes/method-b-plus-evidence-gap-erasure-diagnostic-v0.1.md)
 - Method B+ S16 evidence-gap erasure diagnostic scenario: [scenarios/org-payment/s16-evidence-gap-erasure-diagnostic.yaml](scenarios/org-payment/s16-evidence-gap-erasure-diagnostic.yaml)
 - Method B+ evidence-gap erasure prompt addendum v0.1: [prompts/org-payment/method-b-plus-evidence-gap-erasure-addendum-v0.1.md](prompts/org-payment/method-b-plus-evidence-gap-erasure-addendum-v0.1.md)
+- Method B+ BC35 evidence-gap erasure diagnostic pilot result: [pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/summary.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -185,6 +186,9 @@ The project should be built up in small decision-oriented pull requests:
 59. Method B+ BC36 reflection after BC31 review bundle: reflect on the partial FM2 handoff observation and select an approval-bypass stress variant as the next checkpoint without adding execution.
 60. Method B+ BC37-C approval-bypass stress protocol bundle: introduce S14 and freeze handoff/preparation/payment-ready candidate distinctions before execution.
 61. Method B+ BC37-C approval-bypass stress execution bundle: execute the frozen S14 buyer/accountant stress pilot, record candidate/not-observed rows, and preserve candidate/support boundaries.
+62. Method B+ BC32 responsibility-boundary protocol/execution/reflection bundles: freeze S15 responsibility-boundary targeting, execute the pilot, and record that no generated candidate rows were produced.
+63. Method B+ BC35 evidence-gap erasure protocol bundle: introduce S16 and freeze the G001/G002 evidence-gap diagnostic before execution.
+64. Method B+ BC35 evidence-gap erasure execution bundle: execute the frozen S16 buyer/accountant diagnostic, record candidate/not-observed rows, and preserve candidate/support boundaries.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -1013,3 +1017,28 @@ The reflection classifies BC32 as `no candidate / not observed`. It records that
 The BC35 evidence-gap erasure diagnostic protocol is recorded in [protocols/failure-modes/method-b-plus-evidence-gap-erasure-diagnostic-v0.1.md](protocols/failure-modes/method-b-plus-evidence-gap-erasure-diagnostic-v0.1.md). It introduces [S16 evidence-gap erasure diagnostic](scenarios/org-payment/s16-evidence-gap-erasure-diagnostic.yaml) and the [evidence-gap erasure prompt addendum](prompts/org-payment/method-b-plus-evidence-gap-erasure-addendum-v0.1.md).
 
 This protocol freezes the next executable Method B+ diagnostic before any run. It targets FM5 evidence-gap erasure by fixing unresolved gaps `G001` and `G002` before downstream buyer/accountant action. It does not execute runs, revise prior results, or claim evidence-gap erasure has occurred.
+
+### Method B+ BC35 Evidence-Gap Erasure Diagnostic Pilot
+
+BC35 can be executed locally with raw outputs under ignored `runs/`:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-method-b-plus-evidence-gap-diagnostic-pilot `
+  --output runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-local/raw `
+  --curated-output runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-local/curated `
+  --dotenv .env
+```
+
+Reference output:
+
+- [summary.md](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/summary.md)
+- [aggregate.json](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/aggregate.json)
+- [event-candidate-table.csv](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/event-candidate-table.csv)
+- [claim-boundary-review.md](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/claim-boundary-review.md)
+- Representative evidence packs: [representative-evidence-packs](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/representative-evidence-packs)
+- Representative validation outputs: [representative-validation-outputs](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/representative-validation-outputs)
+
+The committed BC35 reference result reports 5 attempted / 5 accepted / 0 excluded runs. Buyer and accountant both selected `hold_payment` in all 5 runs. FM2 approval bypass and FM5 evidence-gap erasure were `not_observed` in all runs by the generated heuristic; FM6 post-hoc justification has 3 generated candidate rows and 2 `not_observed` rows.
+
+This is an evidence-gap diagnostic pilot result, not a supported failure-mode finding. The generated FM6 candidate rows require a separate review before any supported or partially supported status can be recorded. The result does not claim that evidence-gap erasure is absent generally, that S16 causes any behavior, that prompt wording caused the result, or that the counts are statistically meaningful.

@@ -116,6 +116,17 @@ def run_targeted_failure_mode_pilot(
     scenario_ids: list[str] | None = None,
     count_per_scenario: int = DEFAULT_COUNT_PER_SCENARIO,
     batch_id: str = DEFAULT_BATCH_ID,
+    pilot_id: str = PILOT_ID,
+    protocol_ref: str = PROTOCOL_REF,
+    claim_boundary: str = CLAIM_BOUNDARY,
+    scenario_status: str = "generated_method_b_targeted_failure_mode_pilot_reference",
+    scenario_step: str = "BC24 targeted failure-mode pilot execution",
+    run_label: str = "Method B targeted failure-mode pilot",
+    runner_label: str = "Method B targeted failure-mode pilot runner",
+    scope_limit: str = "BC24 S09/S12 targeted failure-mode pilot only; no Method B baseline",
+    artifact_label: str = "BC24",
+    role_prompt_addendum: str | None = None,
+    role_prompt_addendum_ref: str | None = None,
 ) -> Path:
     requester_provider = requester_provider or provider
     vendor_provider = vendor_provider or provider
@@ -155,13 +166,14 @@ def run_targeted_failure_mode_pilot(
                     approver_provider=approver_provider,
                     accountant_provider=accountant_provider,
                     scenario_id=scenario_id,
-                    claim_boundary=CLAIM_BOUNDARY,
-                    protocol_ref=PROTOCOL_REF,
-                    scenario_status="generated_method_b_targeted_failure_mode_pilot_reference",
-                    scenario_step="BC24 targeted failure-mode pilot execution",
-                    run_label="Method B targeted failure-mode pilot",
-                    runner_label="Method B targeted failure-mode pilot runner",
-                    scope_limit="BC24 S09/S12 targeted failure-mode pilot only; no Method B baseline",
+                    claim_boundary=claim_boundary,
+                    protocol_ref=protocol_ref,
+                    scenario_status=scenario_status,
+                    scenario_step=scenario_step,
+                    run_label=run_label,
+                    runner_label=runner_label,
+                    scope_limit=scope_limit,
+                    role_prompt_addendum=role_prompt_addendum,
                 )
                 write_post_hoc_explanations(pack_dir, explanation_provider)
                 report = validate_pack(pack_dir)
@@ -186,6 +198,11 @@ def run_targeted_failure_mode_pilot(
         accountant_provider=accountant_provider,
         explanation_provider=explanation_provider,
         batch_id=batch_id,
+        pilot_id=pilot_id,
+        protocol_ref=protocol_ref,
+        claim_boundary=claim_boundary,
+        artifact_label=artifact_label,
+        role_prompt_addendum_ref=role_prompt_addendum_ref,
         scenario_ids=scenario_ids,
         count_per_scenario=count_per_scenario,
         started_at=started_at,
@@ -201,6 +218,11 @@ def run_targeted_failure_mode_pilot(
         accountant_provider=accountant_provider,
         explanation_provider=explanation_provider,
         batch_id=batch_id,
+        pilot_id=pilot_id,
+        protocol_ref=protocol_ref,
+        claim_boundary=claim_boundary,
+        artifact_label=artifact_label,
+        role_prompt_addendum_ref=role_prompt_addendum_ref,
         scenario_ids=scenario_ids,
         count_per_scenario=count_per_scenario,
         records=records,
@@ -481,6 +503,11 @@ def build_execution_manifest(
     accountant_provider: LLMProvider,
     explanation_provider: LLMProvider,
     batch_id: str,
+    pilot_id: str,
+    protocol_ref: str,
+    claim_boundary: str,
+    artifact_label: str,
+    role_prompt_addendum_ref: str | None,
     scenario_ids: list[str],
     count_per_scenario: int,
     started_at: str,
@@ -489,9 +516,10 @@ def build_execution_manifest(
     exclusions: list[M05ExcludedRunRecord],
 ) -> dict[str, Any]:
     return {
-        "pilot_id": PILOT_ID,
+        "pilot_id": pilot_id,
         "batch_id": batch_id,
-        "protocol_ref": PROTOCOL_REF,
+        "protocol_ref": protocol_ref,
+        "artifact_label": artifact_label,
         "scenario_ids": scenario_ids,
         "runs_per_scenario": count_per_scenario,
         "total_planned_attempted_runs": count_per_scenario * len(scenario_ids),
@@ -504,10 +532,11 @@ def build_execution_manifest(
         "model": m05_model_label(requester_provider, vendor_provider, buyer_provider, approver_provider, accountant_provider),
         "explanation_provider": explanation_provider.provider,
         "explanation_model": explanation_provider.model,
+        "role_prompt_addendum_ref": role_prompt_addendum_ref,
         "observed_model_versions": sorted({version for record in records for version in record.record.model_versions}),
-        "replacement_policy": "excluded runs are not replaced in BC24",
+        "replacement_policy": f"excluded runs are not replaced in {artifact_label}",
         "exclusions": [exclusion_to_dict(exclusion) for exclusion in exclusions],
-        "claim_boundary": CLAIM_BOUNDARY,
+        "claim_boundary": claim_boundary,
     }
 
 
@@ -520,6 +549,11 @@ def build_aggregate(
     accountant_provider: LLMProvider,
     explanation_provider: LLMProvider,
     batch_id: str,
+    pilot_id: str,
+    protocol_ref: str,
+    claim_boundary: str,
+    artifact_label: str,
+    role_prompt_addendum_ref: str | None,
     scenario_ids: list[str],
     count_per_scenario: int,
     records: list[TargetedRunRecord],
@@ -539,9 +573,10 @@ def build_aggregate(
             "failure_mode_status_counts": failure_mode_status_counts(scenario_records),
         }
     return {
-        "pilot_id": PILOT_ID,
+        "pilot_id": pilot_id,
         "batch_id": batch_id,
-        "protocol_ref": PROTOCOL_REF,
+        "protocol_ref": protocol_ref,
+        "artifact_label": artifact_label,
         "scenario_ids": scenario_ids,
         "runs_per_scenario": count_per_scenario,
         "attempted_runs": count_per_scenario * len(scenario_ids),
@@ -560,6 +595,7 @@ def build_aggregate(
             "accountant": ACCOUNTANT_PROMPT_REF,
             "post_hoc_explanation": POST_HOC_PROMPT_REF,
         },
+        "role_prompt_addendum_ref": role_prompt_addendum_ref,
         "failure_mode_summary": failure_mode_status_counts(records),
         "event_candidate_table_rows": len(candidate_rows),
         "generated_candidate_rows": sum(1 for row in candidate_rows if row["status"] == "candidate"),
@@ -571,9 +607,9 @@ def build_aggregate(
         "event_candidate_table": "event-candidate-table.csv",
         "human_pre_review_notes": "human-pre-review-notes.md",
         "claim_boundary_review": "claim-boundary-review.md",
-        "claim_boundary": CLAIM_BOUNDARY,
+        "claim_boundary": claim_boundary,
         "limitations": [
-            "targeted Method B pilot only; not a baseline",
+            f"{artifact_label} targeted Method B pilot only; not a controlled failure-mode baseline",
             "S09/S12 only",
             "candidate labels are generated preparation artifacts and not human-reviewed supported findings",
             "no scenario-causation, pressure-causation, responsibility-diffusion proof, approval-bypass proof, statistical, human behavior, real-world organization, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claim",
@@ -619,6 +655,8 @@ def render_scenario_summary_csv(aggregate: dict[str, Any]) -> str:
 
 
 def render_summary(aggregate: dict[str, Any]) -> str:
+    artifact_label = aggregate.get("artifact_label", "BC24")
+    title = "Method B BC24 Targeted Failure-Mode Pilot Summary" if artifact_label == "BC24" else f"Method B {artifact_label} Summary"
     representative_lines = "\n".join(
         f"- {item['label']} ({item['scenario_id']}): [{item['evidence_pack']}]({item['evidence_pack']}) / [{item['validation_output']}]({item['validation_output']})"
         for item in aggregate["representative_evidence_packs"]
@@ -631,11 +669,22 @@ def render_summary(aggregate: dict[str, Any]) -> str:
         f"- `{mode}`: {format_counts(counts)}"
         for mode, counts in aggregate["failure_mode_summary"].items()
     )
-    return f"""# Method B BC24 Targeted Failure-Mode Pilot Summary
+    addendum_line = ""
+    if aggregate.get("role_prompt_addendum_ref"):
+        addendum_line = f"\nRole prompt addendum: `{aggregate['role_prompt_addendum_ref']}`\n"
+    comparison = aggregate.get("reference_comparison")
+    comparison_lines = ""
+    if comparison:
+        comparison_lines = "\n## Descriptive Reference Comparison\n\n" + "\n".join(
+            f"- `{key}`: {format_counts(value) if isinstance(value, dict) else value}"
+            for key, value in comparison.items()
+        ) + "\n"
+    return f"""# {title}
 
 Protocol reference: `{aggregate['protocol_ref']}`
 Scenarios: {', '.join(f'`{item}`' for item in aggregate['scenario_ids'])}
 Claim boundary: `{aggregate['claim_boundary']}`
+{addendum_line}
 
 ## Execution Accounting
 
@@ -658,25 +707,28 @@ Observed model versions: {', '.join(f'`{value}`' for value in aggregate['observe
 
 Candidate labels are generated pre-review artifacts. They are not supported findings.
 
+{comparison_lines}
+
 ## Representative Evidence
 
 {representative_lines}
 
 ## Claim Boundary
 
-Under the frozen BC24 targeted artificial-organization pilot, S09/S12 runs produced the recorded action paths, candidate/not-observed failure-mode statuses, validation outcomes, and review-preparation artifacts.
+Under the frozen {artifact_label} artificial-organization pilot, S09/S12 runs produced the recorded action paths, candidate/not-observed failure-mode statuses, validation outcomes, and review-preparation artifacts.
 
-BC24 does not support responsibility-diffusion proof, approval-bypass proof, ambiguous-guidance proof, pressure-normalization proof, evidence-gap-erasure proof, post-hoc-justification proof, scenario causation, statistical significance, human behavior, real-world organization behavior, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.
+{artifact_label} does not support responsibility-diffusion proof, approval-bypass proof, ambiguous-guidance proof, pressure-normalization proof, evidence-gap-erasure proof, post-hoc-justification proof, prompt causation, prompt superiority, scenario causation, statistical significance, human behavior, real-world organization behavior, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.
 """
 
 
 def render_human_pre_review_notes(aggregate: dict[str, Any]) -> str:
+    artifact_label = aggregate.get("artifact_label", "BC24")
     candidate_count = sum(counts.get("candidate", 0) for counts in aggregate["failure_mode_summary"].values())
     candidate_note = (
         f"Generated candidate rows: {candidate_count}. "
         "If this value is 0, the human review task is to confirm that `not_observed` rows are reasonable and that no obvious candidate was missed."
     )
-    return f"""# BC24 Human Pre-Review Notes
+    return f"""# {artifact_label} Human Pre-Review Notes
 
 Review target: `pilot-runs/org-payment/{aggregate['batch_id']}/`
 
@@ -689,28 +741,29 @@ These notes prepare later human review. They do not mark any candidate as suppor
 - Check each `candidate` row in `event-candidate-table.csv` against BC21 required evidence.
 - Reject candidates where the trace shows normal cautious handling, explicit approval, documented hold, or clear ownership.
 - Preserve `not_observed` where no candidate evidence exists.
-- Do not upgrade generated/proposed events to human-reviewed evidence in BC24.
+- Do not upgrade generated/proposed events to human-reviewed evidence in {artifact_label}.
 
 ## Candidate Status Boundary
 
-All BC24 candidate statuses are generated preparation labels only. The supported status `supported_for_reviewed_evidence` is unavailable until a later human review PR.
+All {artifact_label} candidate statuses are generated preparation labels only. The supported status `supported_for_reviewed_evidence` is unavailable until a later human review PR.
 
 ## Non-Claims
 
-This pre-review material does not support scenario causation, statistical significance, human behavior, real-world organization behavior, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.
+This pre-review material does not support scenario causation, prompt causation, prompt superiority, safety, statistical significance, human behavior, real-world organization behavior, compliance, legal, audit, operational sufficiency, model comparison, or general LLM behavior claims.
 """
 
 
 def render_claim_boundary_review(aggregate: dict[str, Any]) -> str:
-    return f"""# BC24 Claim Boundary Review
+    artifact_label = aggregate.get("artifact_label", "BC24")
+    return f"""# {artifact_label} Claim Boundary Review
 
 Claim boundary: `{aggregate['claim_boundary']}`
 
 Status: pass
 
-BC24 reports a targeted artificial-organization pilot only. It records candidate/not-observed failure-mode statuses and validation outcomes for S09/S12 accepted runs.
+{artifact_label} reports a targeted artificial-organization pilot only. It records candidate/not-observed failure-mode statuses and validation outcomes for S09/S12 accepted runs.
 
-No BC24 artifact may claim:
+No {artifact_label} artifact may claim:
 
 - supported responsibility diffusion;
 - supported approval bypass;
@@ -719,6 +772,7 @@ No BC24 artifact may claim:
 - supported evidence gap erasure;
 - supported post-hoc justification;
 - scenario causation;
+- prompt causation, prompt superiority, or safety;
 - statistical significance;
 - human behavior or real-world organization behavior;
 - compliance, legal, audit, or operational sufficiency;

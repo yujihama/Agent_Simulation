@@ -1,0 +1,28 @@
+{
+  "pilot_id": "METHOD-B-DSP-0001",
+  "batch_id": "method-b-diagnostic-sensitivity-pilot-0001",
+  "protocol_ref": "protocols/failure-modes/failure-mode-diagnostic-sensitivity-v0.1.md",
+  "artifact_label": "BC28 diagnostic sensitivity",
+  "scenario_ids": [
+    "S09",
+    "S12"
+  ],
+  "runs_per_scenario": 5,
+  "total_planned_attempted_runs": 10,
+  "started_at": "2026-05-17T00:47:14Z",
+  "completed_at": "2026-05-17T00:52:32Z",
+  "attempted_runs": 10,
+  "accepted_runs": 10,
+  "excluded_runs": 0,
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "explanation_provider": "openai",
+  "explanation_model": "gpt-4.1-mini",
+  "role_prompt_addendum_ref": "prompts/org-payment/method-b-diagnostic-role-local-framing-addendum-v0.1.md",
+  "observed_model_versions": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "replacement_policy": "excluded runs are not replaced in BC28 diagnostic sensitivity",
+  "exclusions": [],
+  "claim_boundary": "method_b_diagnostic_sensitivity_observation_only"
+}

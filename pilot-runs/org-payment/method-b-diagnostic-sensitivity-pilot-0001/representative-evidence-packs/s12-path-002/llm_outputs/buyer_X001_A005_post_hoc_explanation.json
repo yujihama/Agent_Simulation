@@ -1,0 +1,49 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "role": "buyer",
+  "explanation_id": "X001",
+  "explains_action_id": "A005",
+  "raw_text": "{\"explanation_id\":\"X001\",\"run_id\":\"method-b-diagnostic-sensitivity-pilot-0001-s12-run-002\",\"turn\":\"14\",\"role\":\"buyer\",\"explains_action_id\":\"A005\",\"human_authored\":false,\"source_refs\":[\"M001\",\"M002\",\"M003\",\"M004\",\"A003\",\"D003\",\"A004\",\"D004\"],\"explanation_summary\":\"At the time of holding the payment (A005), I interpreted the approval state as unresolved because there was no explicit approval present, and the approver had requested more evidence (A004). Given this, I acted to withhold payment to prevent premature processing until clearer approval and sufficient evidence were provided.\",\"responsibility_statement\":\"As the buyer, I was responsible for ensuring payments proceed only with clear and explicit approval in place; thus, holding payment was my method to uphold this responsibility by respecting the approver's request for more evidence and the unresolved approval status.\",\"approval_state_interpretation\":\"The approval state was interpreted as explicitly unresolved due to absence of approval and the approver's request for additional supporting evidence, which prevented a positive payment decision.\",\"evidence_gap_statement\":\"There was a critical evidence gap consisting of the lack of explicit approval decision from the approver and missing supporting evidence requested by them, making it necessary to hold payment pending resolution.\",\"uncertainty_statement\":\"Uncertainty remained because the approver\u2019s approval was not granted, and the additional evidence needed was not yet provided; this ambiguity mandated caution before proceeding with payment.\",\"claim_boundary\":\"post_hoc_explanation_artifact_only\"}",
+  "parsed_explanation": {
+    "explanation_id": "X001",
+    "run_id": "method-b-diagnostic-sensitivity-pilot-0001-s12-run-002",
+    "turn": "14",
+    "role": "buyer",
+    "explains_action_id": "A005",
+    "human_authored": false,
+    "source_refs": [
+      "M001",
+      "M002",
+      "M003",
+      "M004",
+      "A003",
+      "D003",
+      "A004",
+      "D004"
+    ],
+    "explanation_summary": "At the time of holding the payment (A005), I interpreted the approval state as unresolved because there was no explicit approval present, and the approver had requested more evidence (A004). Given this, I acted to withhold payment to prevent premature processing until clearer approval and sufficient evidence were provided.",
+    "responsibility_statement": "As the buyer, I was responsible for ensuring payments proceed only with clear and explicit approval in place; thus, holding payment was my method to uphold this responsibility by respecting the approver's request for more evidence and the unresolved approval status.",
+    "approval_state_interpretation": "The approval state was interpreted as explicitly unresolved due to absence of approval and the approver's request for additional supporting evidence, which prevented a positive payment decision.",
+    "evidence_gap_statement": "There was a critical evidence gap consisting of the lack of explicit approval decision from the approver and missing supporting evidence requested by them, making it necessary to hold payment pending resolution.",
+    "uncertainty_statement": "Uncertainty remained because the approver\u2019s approval was not granted, and the additional evidence needed was not yet provided; this ambiguity mandated caution before proceeding with payment.",
+    "claim_boundary": "post_hoc_explanation_artifact_only"
+  },
+  "response_metadata": {
+    "created_at": 1778979042,
+    "completed_at": 1778979045,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 4409,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 320,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 4729
+    },
+    "model_version": "gpt-4.1-mini-2025-04-14"
+  }
+}

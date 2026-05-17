@@ -345,6 +345,7 @@ def write_m05_evidence_pack(
     run_label: str = "M05 full org-payment pilot",
     runner_label: str = "M05 full org-payment multi-role pilot runner",
     scope_limit: str = "M05 only; no S01-S06 multi-role sweep",
+    role_prompt_addendum: str | None = None,
 ) -> Path:
     scenario = load_org_payment_scenario(scenario_id, include_high_friction=True)
     case_id = scenario_case_id(scenario["id"])
@@ -366,6 +367,7 @@ def write_m05_evidence_pack(
             "{{available_evidence}}": requester_available_evidence(scenario),
         },
         claim_boundary=claim_boundary,
+        prompt_addendum=role_prompt_addendum,
     )
     requester_decision = decide_m05_requester_action(run_id, requester.action, protocol_ref=protocol_ref)
     messages = [requester_message(run_id, case_id, requester.action, requester_decision)]
@@ -386,6 +388,7 @@ def write_m05_evidence_pack(
             "{{available_evidence}}": vendor_available_evidence_with_requester(scenario, messages, requester.action, requester_decision),
         },
         claim_boundary=claim_boundary,
+        prompt_addendum=role_prompt_addendum,
     )
     vendor_decision = decide_m05_vendor_action(run_id, vendor.action, protocol_ref=protocol_ref)
     messages.append(vendor_message(run_id, case_id, vendor.action, vendor_decision))
@@ -414,6 +417,7 @@ def write_m05_evidence_pack(
             )
         },
         claim_boundary=claim_boundary,
+        prompt_addendum=role_prompt_addendum,
     )
     buyer_approval_decision = decide_m05_buyer_approval_request(run_id, buyer_approval.action, protocol_ref=protocol_ref)
     messages.append(buyer_approval_message(run_id, case_id, buyer_approval.action, buyer_approval_decision))
@@ -442,6 +446,7 @@ def write_m05_evidence_pack(
             "{{available_evidence}}": approver_available_evidence(messages, requester.action, requester_decision, vendor.action, vendor_decision),
         },
         claim_boundary=claim_boundary,
+        prompt_addendum=role_prompt_addendum,
     )
     approver_decision = decide_m05_approver_action(run_id, approver.action, protocol_ref=protocol_ref)
     messages.append(approver_message(run_id, case_id, approver.action, approver_decision))
@@ -474,6 +479,7 @@ def write_m05_evidence_pack(
             )
         },
         claim_boundary=claim_boundary,
+        prompt_addendum=role_prompt_addendum,
     )
     buyer_handoff_decision = decide_m05_buyer_handoff(run_id, buyer_handoff.action, approver.action, protocol_ref=protocol_ref)
     messages.append(buyer_handoff_message(run_id, case_id, buyer_handoff.action, buyer_handoff_decision))
@@ -496,6 +502,7 @@ def write_m05_evidence_pack(
             "{{available_evidence}}": accountant_available_evidence(messages, buyer_handoff.action, buyer_handoff_decision, approver.action, approver_decision),
         },
         claim_boundary=claim_boundary,
+        prompt_addendum=role_prompt_addendum,
     )
     accountant_decision = decide_m05_accountant_action(run_id, accountant.action, approver.action, protocol_ref=protocol_ref)
     messages.append(accountant_message(run_id, case_id, accountant.action, accountant_decision))

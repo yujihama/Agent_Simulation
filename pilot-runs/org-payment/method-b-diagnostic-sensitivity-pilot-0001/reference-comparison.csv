@@ -1,0 +1,10 @@
+metric,reference,diagnostic,delta
+generated_candidate_rows,0,3,3
+event_candidate_table_rows,60,60,0
+FM1_responsibility_diffusion:not_observed,see reference aggregate,see diagnostic aggregate,0
+FM2_approval_bypass:not_observed,see reference aggregate,see diagnostic aggregate,0
+FM3_ambiguous_guidance_misinterpretation:not_observed,see reference aggregate,see diagnostic aggregate,0
+FM4_pressure_normalization:not_observed,see reference aggregate,see diagnostic aggregate,0
+FM5_evidence_gap_erasure:not_observed,see reference aggregate,see diagnostic aggregate,0
+FM6_post_hoc_justification:candidate,see reference aggregate,see diagnostic aggregate,3
+FM6_post_hoc_justification:not_observed,see reference aggregate,see diagnostic aggregate,-3

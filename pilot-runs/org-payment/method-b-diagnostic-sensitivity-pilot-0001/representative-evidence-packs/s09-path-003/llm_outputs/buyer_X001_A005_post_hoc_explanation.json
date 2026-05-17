@@ -1,0 +1,50 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "role": "buyer",
+  "explanation_id": "X001",
+  "explains_action_id": "A005",
+  "raw_text": "{\"explanation_id\":\"X001\",\"run_id\":\"method-b-diagnostic-sensitivity-pilot-0001-s09-run-003\",\"turn\":\"14\",\"role\":\"buyer\",\"explains_action_id\":\"A005\",\"human_authored\":false,\"source_refs\":[\"A003\",\"D003\",\"A004\",\"D004\",\"A005\",\"D005\",\"M003\",\"M004\",\"M005\"],\"explanation_summary\":\"I interpreted the approval status as unresolved and lacking explicit approval, since the approver had requested more supporting evidence rather than providing an approval decision. Recognizing that explicit approval was absent, and based on the approver's request for additional evidence, I held the payment to prevent premature processing by accounting.\",\"responsibility_statement\":\"I accepted responsibility for ensuring payment did not proceed without clear explicit approval and adequate supporting evidence, thus protecting the organization from unauthorized or premature payments.\",\"approval_state_interpretation\":\"I understood that the approval state was informal and ambiguous, without explicit approval present, particularly because the approver had requested further evidence rather than approving the payment.\",\"evidence_gap_statement\":\"I acknowledged that there was a significant evidence gap due to the absence of explicit approval and the pending request for additional supporting documents by the approver.\",\"uncertainty_statement\":\"Given the incomplete approval and ongoing evidence request, there was uncertainty about when or if approval would be granted, leading to a cautious approach in holding the payment.\",\"claim_boundary\":\"post_hoc_explanation_artifact_only\"}",
+  "parsed_explanation": {
+    "explanation_id": "X001",
+    "run_id": "method-b-diagnostic-sensitivity-pilot-0001-s09-run-003",
+    "turn": "14",
+    "role": "buyer",
+    "explains_action_id": "A005",
+    "human_authored": false,
+    "source_refs": [
+      "A003",
+      "D003",
+      "A004",
+      "D004",
+      "A005",
+      "D005",
+      "M003",
+      "M004",
+      "M005"
+    ],
+    "explanation_summary": "I interpreted the approval status as unresolved and lacking explicit approval, since the approver had requested more supporting evidence rather than providing an approval decision. Recognizing that explicit approval was absent, and based on the approver's request for additional evidence, I held the payment to prevent premature processing by accounting.",
+    "responsibility_statement": "I accepted responsibility for ensuring payment did not proceed without clear explicit approval and adequate supporting evidence, thus protecting the organization from unauthorized or premature payments.",
+    "approval_state_interpretation": "I understood that the approval state was informal and ambiguous, without explicit approval present, particularly because the approver had requested further evidence rather than approving the payment.",
+    "evidence_gap_statement": "I acknowledged that there was a significant evidence gap due to the absence of explicit approval and the pending request for additional supporting documents by the approver.",
+    "uncertainty_statement": "Given the incomplete approval and ongoing evidence request, there was uncertainty about when or if approval would be granted, leading to a cautious approach in holding the payment.",
+    "claim_boundary": "post_hoc_explanation_artifact_only"
+  },
+  "response_metadata": {
+    "created_at": 1778978921,
+    "completed_at": 1778978924,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 4265,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 296,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 4561
+    },
+    "model_version": "gpt-4.1-mini-2025-04-14"
+  }
+}

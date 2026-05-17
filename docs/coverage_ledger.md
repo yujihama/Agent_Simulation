@@ -198,3 +198,29 @@ Coverage impact:
 Next step:
 
 - Add a Method B+ iterative targeting synthesis before any new targeted protocol freeze.
+
+## Method B+ Iterative Targeting Synthesis Update
+
+Latest PR label: `PR-MethodBPlus-iterative-synthesis`
+
+This update applies to C01, C02, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md`
+- `docs/synthesis/method-b-plus-failure-mode-status.csv`
+- `docs/synthesis/method-b-plus-claim-boundary-review.md`
+
+Coverage impact:
+
+- C01 Research Concept: Method B+ is synthesized as bounded artificial-system failure-mode targeting, not human society reproduction.
+- C02 Research Questions: Method B+ status is summarized as workflow progress plus one narrow partial FM2 boundary observation, not full failure-mode support.
+- C16 Validity Protocol: generated, reviewed rejected, partially supported, and not-observed statuses are separated in a compact table.
+- C17 Human / LLM Review: delegated review scope is documented; no independent multi-reviewer human validation or inter-rater reliability claim is added.
+- C18 Reporting / Claims: the synthesis explicitly forbids baseline, statistical, real-world, prompt-causation, and human behavior claims from Method B+ evidence.
+- C20 Ethics / Misuse Boundaries: the synthesis preserves artificial-system-only, non-operational, non-compliance, non-legal, and non-audit boundaries.
+
+Remaining gaps:
+
+- Method B+ should not proceed to a controlled baseline from current evidence.
+- Stronger claims require either independent review of the BC31 partial FM2 boundary observation or a separately frozen protocol targeting a clearly different mechanism.

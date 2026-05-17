@@ -1,0 +1,133 @@
+# Method B+ Iterative Targeting Synthesis v0.1
+
+Date: 2026-05-17
+Status: accepted
+Phase: Method B+
+Checkpoint: iterative targeting synthesis after BC35 review
+Claim boundary: `method_b_plus_iterative_synthesis_only`
+
+## Scope
+
+This synthesis integrates the Method B+ iterative targeting work after BC35 review. It asks what the project can currently say about targeted failure-mode observability in artificial org-payment runs after repeated protocol-freeze, execution, review, and reflection cycles.
+
+This synthesis does not add new LLM execution, new scenarios, prompt changes, action-menu changes, Game Master changes, event taxonomy changes, metric changes, human-review judgments, or statistical analysis.
+
+## Source Artifacts
+
+| Area | Primary inputs |
+|---|---|
+| Failure-mode definitions | `protocols/failure-modes/failure-mode-taxonomy-v0.1.md` |
+| Method B baseline synthesis | `docs/synthesis/method-b-synthesis-v0.1.md`; `docs/synthesis/method-b-failure-mode-status.csv` |
+| BC28 FM6 review | `pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/fm6-candidate-review-0001/summary.md` |
+| BC31 ambiguity targeting | `protocols/failure-modes/method-b-plus-ambiguity-interpretation-v0.1.md`; `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md`; `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/ambiguity-candidate-review-0001/summary.md` |
+| BC37-C approval-bypass stress | `protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md`; `pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/summary.md`; `pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/candidate-review-0001/summary.md` |
+| BC32 responsibility boundary | `protocols/failure-modes/method-b-plus-responsibility-boundary-v0.1.md`; `pilot-runs/org-payment/method-b-plus-responsibility-boundary-pilot-0001/summary.md`; `docs/reflections/method-b-plus-bc36-after-bc32-execution.md` |
+| BC35 evidence-gap diagnostic | `protocols/failure-modes/method-b-plus-evidence-gap-erasure-diagnostic-v0.1.md`; `pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/summary.md`; `pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/candidate-review-0001/summary.md`; `docs/reflections/method-b-plus-bc36-after-bc35-review.md` |
+
+## Synthesis Summary
+
+Method B+ successfully exercised the intended iterative loop:
+
+1. Freeze a targeted protocol before execution.
+2. Execute a bounded artificial pilot.
+3. Review generated candidates before support.
+4. Reflect before selecting the next checkpoint.
+
+The work improved the project's ability to make narrow, reviewable distinctions among generated candidates, rejected candidates, partial support, and not-observed outcomes. It did not produce a fully supported Method B+ failure-mode finding.
+
+The strongest reviewed signal remains one narrow BC31 FM2 boundary observation: a buyer sent a payment request toward accounting while explicit approval was absent, but the accountant requested more evidence and the final state did not become payment-ready. This is `partially_supported_needs_revision`, not full approval-bypass support.
+
+Subsequent stress and diagnostic pilots were mechanically valid but conservative:
+
+- BC37-C: buyer/accountant held payment in all runs; FM6 candidates were reviewed and rejected.
+- BC32: approver approved in all runs; no generated FM1/FM2/FM5/FM6 candidates.
+- BC35: buyer/accountant held payment in all runs; G001/G002 remained visible; FM6 candidates were reviewed and rejected.
+
+The repeated conservative outcomes are informative. They show that the current artificial setup, prompts, action menus, and deterministic Game Master can preserve approval and evidence boundaries. They do not prove that the failure modes are absent generally.
+
+## Failure-Mode Status
+
+The compact status table is [method-b-plus-failure-mode-status.csv](method-b-plus-failure-mode-status.csv).
+
+| Failure mode | Current Method B+ status | Plain-language meaning |
+|---|---|---|
+| FM1 responsibility diffusion | `not_observed_in_bc32_targeted_scope` | The BC32 responsibility-boundary run did not show roles blurring responsibility in a way that satisfied the generated candidate criteria. |
+| FM2 approval bypass | `partially_supported_boundary_observation_only` | BC31 partially supports a narrow buyer handoff concern, but not accountant preparation or final payment readiness without approval. |
+| FM3 ambiguous guidance misinterpretation | `reviewed_rejected_for_bc31_candidate` | The BC31 ambiguous-guidance candidate was reviewed and rejected; downstream records preserved ambiguity rather than treating it as explicit approval. |
+| FM4 pressure normalization | `not_directly_targeted_in_method_b_plus_iteration` | Method B+ did not run a dedicated pressure-normalization target after the earlier Method B synthesis. |
+| FM5 evidence-gap erasure | `not_observed_in_bc35_targeted_scope` | BC35 fixed G001/G002 and observed that buyer/accountant preserved those gaps in all accepted runs. |
+| FM6 post-hoc justification | `reviewed_rejected_across_generated_method_b_plus_candidates` | Generated FM6 candidates from BC28, BC31, BC37-C, and BC35 were reviewed and rejected in their reviewed artificial evidence scopes. |
+
+## What Method B+ Can Claim
+
+| Claim level | Claim | Evidence | Boundary |
+|---|---|---|---|
+| `workflow_claim` | Method B+ implemented an iterative freeze-execute-review-reflect workflow for targeted failure-mode diagnostics. | BC31, BC37-C, BC32, and BC35 artifacts. | Workflow and artifact claim only. |
+| `partial_boundary_observation` | BC31 contains one partially supported FM2 buyer-handoff boundary observation. | `METHOD-B-PLUS-BC31-REVIEW-0001`. | Narrow reviewed artificial evidence only; not full approval bypass. |
+| `reviewed_rejection_claim` | Generated FM6 candidate rows in Method B+ reviewed scopes were rejected. | BC28, BC31, BC37-C, and BC35 candidate reviews. | Rejection applies only to reviewed candidate rows. |
+| `negative_diagnostic_observation` | BC37-C, BC32, and BC35 produced conservative or boundary-preserving paths under their frozen protocols. | Curated pilot summaries and reflections. | Not evidence that failure modes are absent generally. |
+| `next_step_decision` | Further targeted execution should not proceed blindly without synthesis or a new protocol freeze. | BC36 reflections, especially after BC35. | Research-planning claim only. |
+
+## What Method B+ Cannot Claim
+
+Method B+ cannot claim that:
+
+- human society has been reproduced;
+- real organizations would behave similarly;
+- responsibility diffusion, approval bypass, ambiguous guidance misinterpretation, pressure normalization, evidence-gap erasure, or post-hoc justification has been proven;
+- the BC31 partial handoff observation is a full approval-bypass finding;
+- generated candidates are support before review;
+- rejected FM6 candidates prove FM6 is absent generally;
+- prompt wording caused conservative or candidate outcomes;
+- the model has a general behavioral pattern;
+- results are statistically meaningful;
+- the artifacts provide compliance, legal, audit, or operational sufficiency.
+
+## Review Scope
+
+All Method B+ candidate reviews in this synthesis are delegated reviews by Codex under project-owner authorization unless otherwise stated. They are useful for internal claim control and candidate triage. They are not independent multi-reviewer human validation and carry no inter-rater reliability claim.
+
+The reviewed candidate/support boundary is still useful:
+
+- generated candidates are not treated as support;
+- reviewed rejected candidates remain rejected;
+- the single BC31 partial support is explicitly narrow and not upgraded into full failure-mode support.
+
+## Interpretation
+
+The current evidence suggests a design pattern, not a behavioral law: the artificial setup tends to preserve approval and evidence boundaries when the protocol makes missing approval, missing evidence, or hold options explicit. That pattern is a property of these artificial runs and artifacts. It should be treated as a constraint on future experimental design, not as evidence about humans or real organizations.
+
+The main research value of Method B+ is therefore methodological:
+
+- it shows which failure-mode candidates can be generated and reviewed;
+- it shows that many generated candidates are false positives when the action itself is conservative;
+- it shows that handoff/preparation/final-state distinctions matter for approval-bypass claims;
+- it shows that evidence-gap preservation must be tracked explicitly across actions, Game Master decisions, final state, metrics, and post-hoc explanations.
+
+## Recommended Next Options
+
+Do not freeze a Method B+ controlled baseline from the current evidence. The only partially supported item is a narrow BC31 buyer-handoff boundary observation, and later targeted pilots did not extend it to accounting preparation or final payment readiness.
+
+Useful next options are:
+
+1. Freeze an independent human-review protocol for the BC31 partial FM2 observation and the Method B+ rejected-candidate set.
+2. Design a new protocol only if it targets a clearly different mechanism, not just a stronger version of the same conservative setup.
+3. Run a second-domain post-hoc diagnostic only after freezing post-hoc explanation requirements that the earlier expense-reimbursement pilot lacked.
+4. Pause targeted execution and update the broader project synthesis to reflect the Method B+ status.
+
+## Checkpoint Decision
+
+Checkpoint decision: do not proceed to a Method B+ baseline yet.
+
+Rationale:
+
+- no fully supported Method B+ failure-mode finding exists;
+- generated FM6 candidates have repeatedly failed review;
+- the only partial support is too narrow for baseline execution;
+- additional execution should be preceded by a new frozen protocol with a clearly different target or by independent review of the existing partial finding.
+
+## Claim Boundary
+
+This synthesis supports only bounded artificial-system and workflow claims about the Method B+ evidence currently committed to this repository.
+
+It does not claim human behavior, real-world organization behavior, prompt causation, model-general behavior, statistical significance, compliance sufficiency, legal sufficiency, audit sufficiency, operational sufficiency, or completed social-chaos pseudo-reproduction.

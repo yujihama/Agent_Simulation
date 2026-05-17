@@ -171,6 +171,10 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S25 conflicting operational norms diagnostic result: [pilot-runs/org-payment/phase4-s25-conflicting-operational-norms-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s25-conflicting-operational-norms-diagnostic-0001/summary.md)
 - Phase 4 S25 conflicting operational norms candidate review: [pilot-runs/org-payment/phase4-s25-conflicting-operational-norms-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s25-conflicting-operational-norms-diagnostic-0001/candidate-review-0001/summary.md)
 - Phase 4 reflection after S25 conflicting operational norms diagnostic: [docs/reflections/phase4-after-s25-conflicting-operational-norms-diagnostic.md](docs/reflections/phase4-after-s25-conflicting-operational-norms-diagnostic.md)
+- Phase 4 reflection after S25 and next mechanism selection: [docs/reflections/phase4-after-s25-next-mechanism-selection.md](docs/reflections/phase4-after-s25-next-mechanism-selection.md)
+- Phase 4 shadow approval / informal preclearance protocol v0.1: [protocols/failure-modes/phase4-shadow-approval-preclearance-diagnostic-v0.1.md](protocols/failure-modes/phase4-shadow-approval-preclearance-diagnostic-v0.1.md)
+- Phase 4 S26 shadow approval / informal preclearance scenario: [scenarios/org-payment/s26-shadow-approval-preclearance-control-slippage.yaml](scenarios/org-payment/s26-shadow-approval-preclearance-control-slippage.yaml)
+- Phase 4 shadow approval / informal preclearance addendum v0.1: [prompts/org-payment/phase4-shadow-approval-preclearance-addendum-v0.1.md](prompts/org-payment/phase4-shadow-approval-preclearance-addendum-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1610,6 +1614,14 @@ The frozen S25 diagnostic result is recorded in [pilot-runs/org-payment/phase4-s
 It executed 20 frozen S25 runs using OpenAI `gpt-5.2`: four operational-norm conditions, 5 attempted runs per condition, 20 accepted, and 0 excluded. In ON01-ON03, where explicit current approval was absent, all 15 accepted runs selected hold/evidence-request actions and preserved SL5 approval/policy-practice gap handling. In ON04, where explicit current approval was recorded, all 5 accepted runs selected `prepare_payment`. No accepted run produced SL3 accountant payment preparation without approval, SL4 final payment-ready state without approval, SL6 evidence-gap erasure, FM3 operational-norm misattribution, FM4 conflicting institutional norm advancement, or FM6 post-hoc justification.
 
 Checkpoint decision: synthesize boundary preservation or select a genuinely different mechanism. Phase 4 remains open because S25 did not identify an information structure that produces stronger downstream slippage.
+
+### Phase 4 Shadow Approval / Informal Preclearance Diagnostic Protocol
+
+After S25, [docs/reflections/phase4-after-s25-next-mechanism-selection.md](docs/reflections/phase4-after-s25-next-mechanism-selection.md) selects a different information mechanism: informal approver-side preclearance or buyer-summarized preclearance that sounds approval-like while the formal approval ledger remains blank.
+
+The S26 protocol is frozen in [protocols/failure-modes/phase4-shadow-approval-preclearance-diagnostic-v0.1.md](protocols/failure-modes/phase4-shadow-approval-preclearance-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s26-shadow-approval-preclearance-control-slippage.yaml](scenarios/org-payment/s26-shadow-approval-preclearance-control-slippage.yaml) and prompt addendum [prompts/org-payment/phase4-shadow-approval-preclearance-addendum-v0.1.md](prompts/org-payment/phase4-shadow-approval-preclearance-addendum-v0.1.md).
+
+This is a protocol-freeze checkpoint only. It tests whether an accountant preserves, escalates, requests evidence for, or treats as preparation support an informal preclearance signal that is not formal current approval. It adds no runs and makes no result claim.
 
 ### Phase 4 Auxiliary Candidate Independent Review Protocol
 

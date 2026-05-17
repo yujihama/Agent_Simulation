@@ -123,6 +123,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 information-structure/model exploration result: [pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/summary.md](pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/summary.md)
 - Phase 4 information-structure/model exploration reflection: [docs/reflections/phase4-information-structure-model-exploration-reflection.md](docs/reflections/phase4-information-structure-model-exploration-reflection.md)
 - Phase 4 auxiliary candidate independent review protocol v0.1: [protocols/failure-modes/phase4-auxiliary-candidate-independent-review-v0.1.md](protocols/failure-modes/phase4-auxiliary-candidate-independent-review-v0.1.md)
+- Phase 4 auxiliary candidate independent review: [pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/summary.md](pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/summary.md)
+- Phase 4 reflection after auxiliary review: [docs/reflections/phase4-after-auxiliary-candidate-review.md](docs/reflections/phase4-after-auxiliary-candidate-review.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1412,3 +1414,9 @@ This command writes local generated output under ignored `runs/`. It must not be
 The focused review protocol is frozen in [protocols/failure-modes/phase4-auxiliary-candidate-independent-review-v0.1.md](protocols/failure-modes/phase4-auxiliary-candidate-independent-review-v0.1.md).
 
 It freezes review criteria for the auxiliary SL1/FM3/FM6 partial-support signals from selected `gpt-5.2` cells in the Phase 4 matrix. It adds no runs and does not change any frozen execution artifact. The next review PR must inspect the candidate evidence separately, preserve candidate/support separation, and decide whether the auxiliary signals are supported, partially supported, rejected, or need revision before any new prompt/persona variant or run-producing mechanism.
+
+### Phase 4 Auxiliary Candidate Independent Review
+
+The auxiliary candidate review is recorded in [pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/summary.md](pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/summary.md), with reflection in [docs/reflections/phase4-after-auxiliary-candidate-review.md](docs/reflections/phase4-after-auxiliary-candidate-review.md).
+
+The review rejects all eight SL1/FM3/FM6 auxiliary candidate units. The reviewed S18 and S20 `gpt-5.2` traces preserve unresolved approval and exception-authority gaps: buyers either preserve missing evidence in handoff or escalate for explicit authority, accountants request more evidence, and post-hoc explanations do not repair questionable payment-forward action. Phase 4 remains open because SL3, SL4, and SL6 are still unsupported. The next decision is to freeze a prompt/persona variant protocol before any additional execution.

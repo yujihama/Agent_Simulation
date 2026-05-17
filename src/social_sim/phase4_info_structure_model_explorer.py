@@ -92,6 +92,7 @@ def run_phase4_information_structure_model_exploration(
     structures: list[StructureCondition] | None = None,
     models: list[ModelCondition] | None = None,
     batch_id: str = DEFAULT_BATCH_ID,
+    write_repo_reflection: bool = True,
 ) -> Path:
     require_new_or_empty(output_root, "output_root")
     require_new_or_empty(curated_output, "curated_output")
@@ -131,7 +132,8 @@ def run_phase4_information_structure_model_exploration(
     write_text(curated_output / "candidate-summary.csv", render_candidate_summary_csv(aggregate["candidate_review_rows"]))
     write_text(curated_output / "summary.md", render_summary(aggregate))
     write_candidate_review_package(curated_output, aggregate)
-    write_text(ROOT / "docs" / "reflections" / "phase4-information-structure-model-exploration-reflection.md", render_reflection(aggregate))
+    if write_repo_reflection:
+        write_text(ROOT / "docs" / "reflections" / "phase4-information-structure-model-exploration-reflection.md", render_reflection(aggregate))
     return curated_output
 
 

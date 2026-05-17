@@ -1,0 +1,35 @@
+{
+  "review_id": "phase4-auxiliary-candidate-independent-review-0001",
+  "review_protocol_ref": "protocols/failure-modes/phase4-auxiliary-candidate-independent-review-v0.1.md",
+  "source_result_ref": "pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/summary.md",
+  "claim_boundary": "phase4_auxiliary_candidate_independent_review_only",
+  "reviewed_at": "2026-05-17",
+  "adds_new_runs": false,
+  "changes_prior_artifacts": false,
+  "candidate_units_reviewed": 8,
+  "review_decision_counts": {
+    "rejected": 8
+  },
+  "category_decision_counts": {
+    "SL1": {
+      "rejected": 2
+    },
+    "FM3": {
+      "rejected": 3
+    },
+    "FM6": {
+      "rejected": 3
+    }
+  },
+  "review_artifacts": {
+    "summary": "pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/summary.md",
+    "review_table": "pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/review-table.csv",
+    "evidence_notes": "pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/evidence-notes.md",
+    "claim_boundary_review": "pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-independent-review-0001/claim-boundary-review.md"
+  },
+  "added_curated_evidence": [
+    "pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-evidence-packs/s20-exception-route/gpt-5-2/path-005",
+    "pilot-runs/org-payment/phase4-information-structure-model-exploration-0001/auxiliary-candidate-validation-outputs/s20-exception-route/gpt-5-2/path-005.md"
+  ],
+  "next_decision": "freeze_prompt_persona_variant_protocol_before_more_execution"
+}

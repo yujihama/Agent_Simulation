@@ -144,6 +144,7 @@ The project should be built up in small decision-oriented pull requests:
 46. Method B BC24 targeted failure-mode pilot bundle: execute S09/S12 targeted full-role pilots, record candidate/not-observed failure-mode statuses, and prepare human pre-review material without supported failure-mode claims.
 47. Method B BC25 failure-mode evidence review bundle: review BC24 candidate/not-observed material, keep candidate/support boundaries intact, and record that no Method B failure mode is supported in the curated representative evidence.
 48. Method B BC26 baseline decision bundle: record that no failure-mode baseline protocol can be frozen because BC25 produced no supported or partially supported Method B failure-mode target.
+49. Method B BC27 baseline execution status bundle: record that controlled failure-mode baseline execution is not executable because no baseline protocol was frozen.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -769,3 +770,9 @@ The BC26 baseline decision is recorded in [protocols/failure-modes/failure-mode-
 BC26 does not freeze a controlled Method B failure-mode baseline protocol because BC25 recorded zero supported and zero partially supported failure-mode rows. Therefore BC27 baseline execution is not executable from the current evidence state.
 
 This is a no-baseline checkpoint decision, not a claim that failure modes are absent. The next feasible Method B step is a diagnostic sensitivity or revised targeting protocol frozen before execution.
+
+## Method B Failure-Mode Baseline Execution Status
+
+BC27 execution status is recorded in [pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/failure-mode-review-0001/baseline-execution-status.md](pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/failure-mode-review-0001/baseline-execution-status.md).
+
+No BC27 runs were attempted or accepted. This is because BC26 did not freeze a controlled failure-mode baseline protocol. This status note prevents a silent skip; it does not claim failure-mode absence or any baseline result.

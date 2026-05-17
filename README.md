@@ -1144,3 +1144,9 @@ It reframes the repeated conservative Method B+ outcomes as an artificial-enviro
 The next-mechanism selection is recorded in [docs/reflections/method-b-plus-next-mechanism-selection.md](docs/reflections/method-b-plus-next-mechanism-selection.md).
 
 It selects `Lossy Handoff` as the next Method B+ mechanism. The rationale is that prior runs preserved gaps when the missing approval state was highly visible, so the next diagnostic should test whether a gap known upstream remains visible after a compressed buyer-to-accountant handoff. This is a design decision only; it does not execute runs or claim that lossy handoff, control slippage, or approval bypass has occurred.
+
+### Method B+ Lossy Handoff Protocol
+
+The frozen lossy handoff protocol is recorded in [protocols/failure-modes/method-b-plus-lossy-handoff-diagnostic-v0.1.md](protocols/failure-modes/method-b-plus-lossy-handoff-diagnostic-v0.1.md). It introduces [S18 lossy handoff control slippage](scenarios/org-payment/s18-lossy-handoff-control-slippage.yaml) and the [lossy handoff prompt addendum](prompts/org-payment/method-b-plus-lossy-handoff-addendum-v0.1.md).
+
+This protocol freezes a future diagnostic for testing whether an approval gap known to the buyer remains visible after a compressed accountant-facing handoff. It records buyer global view, accountant local view, handoff summary, Game Master global truth, and separate SL2/SL3/SL4/SL5/SL6/FM1/FM3/FM6 candidate criteria. It does not execute runs or claim that lossy handoff, control slippage, approval bypass, or evidence-gap erasure has occurred.

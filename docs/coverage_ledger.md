@@ -398,3 +398,32 @@ Remaining gaps:
 
 - Lossy handoff is selected but not frozen as a protocol.
 - No S18 scenario, prompt addendum, action menus, Game Master rules, candidate rules, evidence requirements, or review criteria have been frozen yet.
+
+## Method B+ Lossy Handoff Protocol Freeze Update
+
+Latest PR label: `PR-MethodBPlus-lossy-handoff-protocol`
+
+This update applies to C05, C08, C10, C12, C13, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `protocols/failure-modes/method-b-plus-lossy-handoff-diagnostic-v0.1.md`
+- `scenarios/org-payment/s18-lossy-handoff-control-slippage.yaml`
+- `prompts/org-payment/method-b-plus-lossy-handoff-addendum-v0.1.md`
+
+Coverage impact:
+
+- C05 World / Environment: S18 freezes a lossy-handoff diagnostic environment with unresolved G001/G002/G003 gaps, buyer global visibility, and accountant local-packet visibility.
+- C08 Interaction Layer: the protocol freezes buyer lossy handoff and accountant local review before execution.
+- C10 LLM Actor Layer: the addendum instructs roles to use only visible records, preserve source refs, and avoid fabricating or hiding approval evidence; it does not instruct risky behavior.
+- C12 Experiment Harness: no execution is added; the later execution PR must write raw outputs under ignored `runs/` and commit only curated artifacts.
+- C13 Event Taxonomy / Failure-Mode Vocabulary: the protocol separates SL2, SL3, SL4, SL5, SL6, FM1, FM3, and FM6 candidate criteria without adding new event types.
+- C16 Validity Protocol: future candidate classification must record global truth, buyer full view, handoff packet, accountant local view, and Game Master decisions separately.
+- C17 Human / LLM Review: no review result is added; future generated candidates remain review inputs only.
+- C18 Reporting / Claims: the protocol permits only future artificial diagnostic observations after execution and forbids claiming slippage before review.
+- C20 Ethics / Misuse Boundaries: the protocol forbids fraud, intentional misconduct, concealment, fabricated evidence, human behavior, real-world organization, model-general, prompt-causation, compliance, legal, audit, operational, and statistical claims.
+
+Remaining gaps:
+
+- S18 has not been executed.
+- No lossy handoff candidate, reviewed support, or boundary-preserving result is added by this protocol-freeze update.

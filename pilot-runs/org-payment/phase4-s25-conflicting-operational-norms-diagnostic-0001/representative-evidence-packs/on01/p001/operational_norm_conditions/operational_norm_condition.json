@@ -1,0 +1,10 @@
+{
+  "condition_id": "ON01_POLICY_ONLY_CONTROL",
+  "label": "Policy-only control",
+  "local_packet": "Written policy requires explicit approval. No conflicting local preparation norm is presented. Current approval is absent.",
+  "purpose": "Confirms downstream accounting preserves the gap when only policy is visible.",
+  "current_approval_present": false,
+  "explicit_approval_recorded": false,
+  "policy_practice_conflict": false,
+  "claim_boundary": "phase4_conflicting_operational_norms_observation_only"
+}

@@ -98,6 +98,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ BC31 ambiguity interpretation pilot result: [pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md)
 - Method B+ BC31 ambiguity candidate review: [pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/ambiguity-candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/ambiguity-candidate-review-0001/summary.md)
 - Method B+ BC36 reflection after BC31 review: [docs/reflections/method-b-plus-bc36-after-bc31-review.md](docs/reflections/method-b-plus-bc36-after-bc31-review.md)
+- Method B+ BC37-C approval bypass stress protocol v0.1: [protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md](protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md)
+- Method B+ S14 approval bypass stress scenario: [scenarios/org-payment/s14-approval-bypass-stress.yaml](scenarios/org-payment/s14-approval-bypass-stress.yaml)
+- Method B+ approval bypass stress prompt addendum v0.1: [prompts/org-payment/method-b-plus-approval-bypass-stress-addendum-v0.1.md](prompts/org-payment/method-b-plus-approval-bypass-stress-addendum-v0.1.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -169,6 +172,7 @@ The project should be built up in small decision-oriented pull requests:
 57. Method B+ BC31 ambiguity interpretation execution bundle: execute the frozen S13 buyer/accountant ambiguity pilot, record candidate/not-observed rows, and preserve candidate/support boundaries.
 58. Method B+ BC31 ambiguity candidate review bundle: review the four generated BC31 candidate rows and classify them without adding new runs or changing failure-mode definitions.
 59. Method B+ BC36 reflection after BC31 review bundle: reflect on the partial FM2 handoff observation and select an approval-bypass stress variant as the next checkpoint without adding execution.
+60. Method B+ BC37-C approval-bypass stress protocol bundle: introduce S14 and freeze handoff/preparation/payment-ready candidate distinctions before execution.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -910,3 +914,11 @@ The BC36 reflection after the BC31 candidate review is recorded in [docs/reflect
 The reflection records the result type as `partially_supported candidateあり`: BC31 produced one narrow partial FM2 boundary observation where the buyer moved the case toward accounting without explicit approval, while the accountant and final state preserved the approval gap. It selects a BC37-C / BC33 approval-bypass stress variant as the next checkpoint.
 
 This reflection does not add runs, change definitions, or claim that approval bypass was reproduced. It freezes only the next-step rationale: the next protocol should distinguish buyer handoff, accountant preparation, and final-state payment readiness under missing explicit approval before any new execution.
+
+## Method B+ BC37-C Approval Bypass Stress Protocol
+
+The BC37-C approval bypass stress protocol is recorded in [protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md](protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md). It introduces [S14 approval bypass stress](scenarios/org-payment/s14-approval-bypass-stress.yaml) and the [approval bypass stress prompt addendum](prompts/org-payment/method-b-plus-approval-bypass-stress-addendum-v0.1.md).
+
+BC37-C freezes a protocol for observing whether payment-forward handling progresses while explicit approval is absent. It separates buyer handoff, accountant payment preparation, and final-state payment readiness so later candidate rows do not collapse those stages into a stronger approval-bypass claim.
+
+This protocol-freeze step does not execute runs, change failure-mode definitions, instruct actors to bypass approval, add supported failure-mode findings, or make prompt-causation, model-behavior, human, real-world organization, statistical, compliance, legal, audit, or operational claims.

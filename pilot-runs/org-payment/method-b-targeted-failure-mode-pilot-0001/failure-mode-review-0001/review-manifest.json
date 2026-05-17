@@ -1,0 +1,32 @@
+{
+  "review_id": "METHOD-B-BC25-FM-REVIEW-0001",
+  "review_protocol_ref": "protocols/failure-modes/method-b-failure-mode-review-v0.1.md",
+  "reviewed_pilot": "BC24",
+  "reviewed_result_ref": "pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/summary.md",
+  "reviewed_aggregate_ref": "pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/aggregate.json",
+  "reviewed_candidate_table_ref": "pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/event-candidate-table.csv",
+  "review_output_location": "pilot-runs/org-payment/method-b-targeted-failure-mode-pilot-0001/failure-mode-review-0001/",
+  "primary_reviewer_role": "Codex delegated reviewer acting under project owner authorization",
+  "primary_review_date": "2026-05-17",
+  "secondary_reviewer_role": null,
+  "adjudication": null,
+  "reviewed_representative_pack_count": 6,
+  "generated_candidate_rows": 0,
+  "event_candidate_table_rows": 60,
+  "failure_mode_review_rows": 60,
+  "review_judgment_counts": {
+    "accepted": 36,
+    "not_applicable": 24
+  },
+  "supported_failure_mode_rows_after_review": 0,
+  "partially_supported_rows_after_review": 0,
+  "rejected_candidate_rows_after_review": 0,
+  "claim_boundary": "method_b_failure_mode_review_observation_only",
+  "limitations": [
+    "No generated candidate rows existed in BC24.",
+    "Only curated representative packs were trace-reviewed in BC25.",
+    "Non-representative accepted runs remain aggregate not_observed records and were not individually trace-reviewed.",
+    "No failure mode is supported for reviewed evidence after BC25.",
+    "No statistical, causal, human behavior, real-world organization, compliance, legal, audit, operational, model comparison, or general LLM behavior claim is supported."
+  ]
+}

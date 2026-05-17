@@ -115,6 +115,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ BC35 evidence-gap erasure diagnostic pilot result: [pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/summary.md)
 - Method B+ BC35 FM6 candidate review: [pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-evidence-gap-erasure-diagnostic-pilot-0001/candidate-review-0001/summary.md)
 - Method B+ BC36 reflection after BC35 review: [docs/reflections/method-b-plus-bc36-after-bc35-review.md](docs/reflections/method-b-plus-bc36-after-bc35-review.md)
+- Method B+ iterative targeting synthesis v0.1: [docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md](docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md)
+- Method B+ failure-mode status table: [docs/synthesis/method-b-plus-failure-mode-status.csv](docs/synthesis/method-b-plus-failure-mode-status.csv)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -193,6 +195,7 @@ The project should be built up in small decision-oriented pull requests:
 64. Method B+ BC35 evidence-gap erasure execution bundle: execute the frozen S16 buyer/accountant diagnostic, record candidate/not-observed rows, and preserve candidate/support boundaries.
 65. Method B+ BC35 FM6 candidate review bundle: review the three generated FM6 candidate rows without adding runs or changing failure-mode definitions.
 66. Method B+ BC36 reflection after BC35 review bundle: synthesize the BC35 review outcome and select a Method B+ iterative targeting synthesis as the next checkpoint.
+67. Method B+ iterative targeting synthesis bundle: summarize BC34/BC28, BC31, BC37-C, BC32, and BC35 status without adding runs or upgrading claims.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -1061,3 +1064,9 @@ The BC35 candidate review rejects all three generated FM6 rows. BC35 therefore h
 The BC36 reflection after BC35 review is recorded in [docs/reflections/method-b-plus-bc36-after-bc35-review.md](docs/reflections/method-b-plus-bc36-after-bc35-review.md).
 
 The reflection classifies BC35 as `candidateあり、reviewでrejected` plus `no candidate / not observed` for the primary evidence-gap-erasure target. It records that BC35 was mechanically valid, preserved G001/G002 in all five accepted runs, and rejected all three generated FM6 candidate rows. The next selected checkpoint is a Method B+ iterative targeting synthesis before any further targeted execution.
+
+### Method B+ Iterative Targeting Synthesis
+
+The Method B+ synthesis is recorded in [docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md](docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md), with the compact status table in [docs/synthesis/method-b-plus-failure-mode-status.csv](docs/synthesis/method-b-plus-failure-mode-status.csv) and claim-boundary review in [docs/synthesis/method-b-plus-claim-boundary-review.md](docs/synthesis/method-b-plus-claim-boundary-review.md).
+
+The synthesis records that Method B+ produced one narrow BC31 partially supported FM2 buyer-handoff boundary observation, reviewed and rejected generated FM6 candidates across BC28/BC31/BC37-C/BC35, and did not produce a fully supported failure-mode finding. It recommends not freezing a Method B+ controlled baseline from the current evidence.

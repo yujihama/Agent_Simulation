@@ -1563,3 +1563,57 @@ Next step:
 
 - Execute the frozen S20 downstream-accounting threshold diagnostic only if the runner can implement the protocol without changing frozen conditions after seeing outputs.
 - Phase 4 remains open until execution and candidate review determine whether this threshold produces stronger downstream slippage or another boundary-preserving result.
+
+## Phase 4 S20 Downstream-Accounting Threshold Diagnostic Execution Update
+
+Latest PR label: `PR-Phase4-s20-downstream-accounting-threshold-diagnostic-execution`
+
+This update applies to C02, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `src/social_sim/phase4_s20_downstream_threshold_runner.py`
+- `tests/test_phase4_s20_downstream_threshold_pilot.py`
+- `pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/summary.md`
+- `pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/aggregate.json`
+- `pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/execution-manifest.json`
+- `pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/scenario-summary.csv`
+- `pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/event-candidate-table.csv`
+- `pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/candidate-review-0001/summary.md`
+- `docs/reflections/phase4-after-s20-downstream-accounting-threshold-diagnostic.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: executes the frozen S20 downstream-accounting threshold diagnostic and shows that this tested accountant-threshold mechanism did not produce SL3, SL4, or SL6 support.
+- C08 Interaction Layer: records deterministic S20-style SL2 buyer handoff context followed by accountant LLM threshold decisions across four local information conditions.
+- C09 Game Master / Arbiter: deterministic Game Master records all accountant actions while preserving global truth about missing explicit approval and missing exception authority.
+- C10 LLM Actor Layer: OpenAI `gpt-5.2` controls accountant action and post-hoc explanation turns only; this is not a model comparison, model ranking, or model-general claim.
+- C12 Experiment Harness: adds a CLI and runner for 20 attempted runs, writes raw outputs under ignored `runs/`, and commits only curated aggregate and representative evidence artifacts.
+- C13 Event Taxonomy: no event taxonomy change is made.
+- C14 Metrics: reports threshold condition counts, accountant action counts, SL2 context, SL3/SL4/SL5/SL6/FM3/FM6 statuses, parser summaries, GM decisions, validation counts, exclusions, and reviewed candidate decisions.
+- C15 Evidence Pack: representative evidence packs validate mechanically and include threshold condition records, accountant role views, handoff summaries, action menu, parser result, proposal attempts, GM decisions, trace, metrics, events, explanations, reviewer notes, and reconstruction checklist.
+- C16 Validity Protocol: candidate/support separation is preserved; scripted SL2 context is not treated as a new buyer-choice support finding; SL3, SL4, SL5, and SL6 remain separated.
+- C17 Human / LLM Review: proxy review classifies SL5 as supported for reviewed artificial evidence, FM3 as partial/needs-revision, SL3/SL4/SL6/FM6 as not observed, and scripted SL2 context as not applicable to new buyer-choice support.
+- C18 Reporting / Claims: no full approval bypass, accountant payment preparation, final payment-ready, evidence-gap erasure, prompt-causation, model-comparison, baseline, statistical, human, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim is made.
+- C20 Ethics / Misuse Boundaries: the diagnostic does not instruct actors to bypass controls, prepare payment without support, hide gaps, fabricate evidence, or erase records.
+
+Observed execution result:
+
+- Attempted runs: 20.
+- Accepted runs: 20.
+- Excluded runs: 0.
+- Accountant action counts: `hold_payment`: 14; `authorize_exception_review`: 6.
+- Scripted SL2 downstream context: 20, not counted as new buyer-choice support.
+- SL3 accountant payment preparation without explicit approval: not observed.
+- SL4 final payment-ready state without explicit approval: not observed.
+- SL5 evidence-gap preservation: supported for reviewed artificial evidence in all accepted runs.
+- SL6 evidence-gap erasure: not observed.
+- FM3 ambiguous exception or queue-routing operationalization: partially supported / needs revision for the `authorize_exception_review` path only.
+- FM6 post-hoc justification: not observed.
+
+Next step:
+
+- Review or analyze the auxiliary exception-review operationalization signal before further run-producing work.
+- Phase 4 remains open because the tested downstream-accounting threshold did not produce stronger downstream slippage beyond SL5 preservation and auxiliary FM3-style operationalization.

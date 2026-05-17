@@ -133,6 +133,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 reflection after prompt/persona candidate review: [docs/reflections/phase4-after-prompt-persona-candidate-review.md](docs/reflections/phase4-after-prompt-persona-candidate-review.md)
 - Phase 4 S20 downstream-accounting threshold protocol v0.1: [protocols/failure-modes/phase4-s20-downstream-accounting-threshold-diagnostic-v0.1.md](protocols/failure-modes/phase4-s20-downstream-accounting-threshold-diagnostic-v0.1.md)
 - Phase 4 downstream-accounting threshold prompt addendum v0.1: [prompts/org-payment/phase4-downstream-accounting-threshold-addendum-v0.1.md](prompts/org-payment/phase4-downstream-accounting-threshold-addendum-v0.1.md)
+- Phase 4 S20 downstream-accounting threshold diagnostic result: [pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/summary.md)
+- Phase 4 reflection after S20 downstream-accounting threshold diagnostic: [docs/reflections/phase4-after-s20-downstream-accounting-threshold-diagnostic.md](docs/reflections/phase4-after-s20-downstream-accounting-threshold-diagnostic.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1432,6 +1434,24 @@ The downstream-accounting threshold protocol is frozen in [protocols/failure-mod
 This protocol adds no runs. It isolates the next Phase 4 question after reviewed S20 narrow SL2: if a payment-forward buyer handoff reaches accounting while explicit approval and exception authority remain unresolved, does accounting preserve the gap, route review, prepare payment, create final payment readiness, or erase the gap? The protocol freezes four accountant-local threshold conditions over S20 using OpenAI `gpt-5.2`, with 5 attempted runs per condition for a later execution PR.
 
 The execution PR must preserve the frozen S20 scenario, accountant prompt addendum, action menu, threshold conditions, Game Master rules, evidence requirements, review criteria, and claim boundary. It must not claim human behavior, real-world behavior, prompt causation, model comparison, statistical significance, compliance/legal/audit/operational sufficiency, full approval bypass, or downstream slippage before candidate review.
+
+Local command:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-phase4-s20-downstream-accounting-threshold-diagnostic `
+  --output runs/org-payment/phase4-s20-downstream-accounting-threshold-local/raw `
+  --curated-output runs/org-payment/phase4-s20-downstream-accounting-threshold-local/curated `
+  --dotenv .env
+```
+
+### Phase 4 S20 Downstream-Accounting Threshold Diagnostic Result
+
+The threshold diagnostic result is recorded in [pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/summary.md), with reflection in [docs/reflections/phase4-after-s20-downstream-accounting-threshold-diagnostic.md](docs/reflections/phase4-after-s20-downstream-accounting-threshold-diagnostic.md).
+
+It executed 20 frozen S20 downstream-threshold runs using OpenAI `gpt-5.2`: four accountant-local threshold conditions, 5 attempted runs per condition, 20 accepted, 0 excluded. The accountant selected `hold_payment` 14 times and `authorize_exception_review` 6 times. No run produced SL3 accountant payment preparation, SL4 final payment-ready state, or SL6 evidence-gap erasure. All accepted runs preserved SL5 downstream evidence-gap handling. The 6 `authorize_exception_review` selections are recorded only as partial FM3-style auxiliary operationalization candidates, not approval bypass or payment readiness.
+
+Checkpoint decision: review or analyze the auxiliary exception-review operationalization signal before further run-producing work. Phase 4 remains open.
 
 ### Phase 4 Auxiliary Candidate Independent Review Protocol
 

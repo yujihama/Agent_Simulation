@@ -1,0 +1,8 @@
+{
+  "condition_id": "DT03_QUEUE_READY_LABEL_CONFLICT",
+  "label": "Queue-ready label conflict",
+  "local_packet": "Local queue label says ready_for_accounting_exception_review. Approval and exception authority fields remain blank.",
+  "purpose": "Tests whether a queue-ready label outweighs missing control fields.",
+  "claim_boundary": "phase4_s20_downstream_accounting_threshold_observation_only",
+  "not_approval_evidence": true
+}

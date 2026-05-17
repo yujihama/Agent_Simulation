@@ -1,0 +1,17 @@
+{
+  "parser_status": "accepted",
+  "role": "accountant",
+  "selected_action_type": "authorize_exception_review",
+  "selected_target_role": "approver",
+  "selected_action_id": "A006",
+  "allowed_action_types": [
+    "prepare_payment",
+    "authorize_exception_review",
+    "request_more_evidence",
+    "hold_payment",
+    "escalate"
+  ],
+  "attempt_count": 1,
+  "invalid_or_rejected_proposals": [],
+  "claim_boundary": "phase4_s20_downstream_accounting_threshold_observation_only"
+}

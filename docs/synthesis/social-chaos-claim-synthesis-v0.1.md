@@ -23,6 +23,7 @@ This synthesis does not add new LLM runs, revise scenarios, revise prompts, revi
 | Human and construct review | `results/org-payment/exp-0002-multi-role-baseline/human-review-0001/summary.md`; `results/org-payment/exp-0002-multi-role-baseline/construct-validity-0001/summary.md` |
 | Intervention and sensitivity | `results/org-payment/exp-0003-intervention-validity-stress-test-0001/summary.md`; `results/org-payment/exp-0004-provider-randomness-sensitivity-0001/summary.md`; `results/org-payment/exp-0004-provider-randomness-sensitivity-0001/review.md` |
 | Second domain | `protocols/domain-expansion/expense-reimbursement-pilot-v0.1.md`; `results/expense-reimbursement/exp-0005-second-domain-pilot-0001/summary.md`; `results/expense-reimbursement/exp-0005-second-domain-pilot-0001/review.md` |
+| Method B+ endpoint | `docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md`; `docs/synthesis/method-b-plus-periodic-synthesis-after-s18-s19-v0.1.md`; `docs/synthesis/method-b-plus-endpoint-claim-hardening-review-v0.1.md`; `docs/synthesis/non-intentional-control-slippage-map.csv`; `docs/synthesis/method-b-plus-failure-mode-status.csv` |
 
 ## Synthesis Summary
 
@@ -31,6 +32,8 @@ The project built a staged artificial-organization research pipeline. It starts 
 The strongest supported claim is not that the system reproduces real social chaos. The strongest supported claim is that the repository now contains a controlled artifact pipeline that can generate, validate, review, and synthesize traceable artificial-organization interactions while keeping claim boundaries explicit.
 
 Under staged, frozen artificial-organization protocols, this project shows that LLM-controlled roles can generate mechanically valid, reviewable traces of institutional friction-like patterns such as evidence gaps, approval ambiguity, pressure context, and coordination holds in a constrained org-payment setting, with one limited second-domain transfer pilot. These are artificial-system observations and hypotheses for future validation, not direct evidence about human societies or real organizations.
+
+The Method B+ endpoint extends the synthesis with a more targeted control-boundary finding. It supports a bounded artificial-system claim that downstream accounting often preserved explicit approval/evidence gaps under current Method B+ protocols, while narrow buyer-side SL2 handoff can appear under some artificial conditions, especially lossy handoff. It does not support stronger non-intentional control slippage such as accountant payment preparation without explicit approval, final payment-ready state without explicit approval, or evidence-gap erasure.
 
 ## What The Project Can Claim
 
@@ -44,6 +47,8 @@ Under staged, frozen artificial-organization protocols, this project shows that 
 | `bounded_observation_claim` | EXP-0003 records descriptive S01-S06 institutional contrasts over committed EXP-0002 artifacts. | `results/org-payment/exp-0003-intervention-validity-stress-test-0001/summary.md`. | It is not a new causal intervention experiment. |
 | `bounded_observation_claim` | EXP-0004 records one provider-randomness sensitivity axis with fixed model, prompts, menus, scenarios, parser, metrics, and Game Master conditions. | `results/org-payment/exp-0004-provider-randomness-sensitivity-0001/summary.md`; `review.md`. | It does not support robustness, model-comparison, or statistical claims. |
 | `bounded_observation_claim` | EXP-0005 shows that the action-proposal, Game Master, evidence-pack, validator, and aggregate-reporting structure can produce one mechanically valid expense-reimbursement pilot artifact. | `results/expense-reimbursement/exp-0005-second-domain-pilot-0001/summary.md`; `review.md`. | It is one second-domain pilot, not cross-domain validation. |
+| `bounded_artificial_system_claim` | Method B+ supports that downstream accounting often preserves explicit approval/evidence gaps under current targeted protocols. | `docs/synthesis/method-b-plus-endpoint-claim-hardening-review-v0.1.md`; S17/S18/S19 candidate reviews. | Artificial Method B+ scope only; no real-world control-effectiveness or general LLM-safety claim. |
+| `boundary_limited_observation_claim` | Narrow buyer-side SL2 handoff can appear under some artificial Method B+ conditions, especially S18 lossy handoff. | BC31 second-pass review; S18 candidate review; `docs/synthesis/non-intentional-control-slippage-map.csv`. | Does not support SL3 accountant preparation, SL4 final payment readiness, full approval bypass, or causation. |
 | `hypothesis_for_future_work` | The artificial-organization method may be useful for generating reviewable hypotheses about institutional friction mechanisms. | Combined pipeline and review artifacts. | Requires broader domains, more review, sensitivity axes, and external validation before stronger claims. |
 
 ## What The Project Cannot Claim
@@ -55,6 +60,8 @@ The project cannot claim that:
 - Real organizations can be predicted from these artifacts.
 - Institutional failure has been proven.
 - Responsibility diffusion, approval bypass, or policy exploitation has been proven as a real-world or human phenomenon.
+- Full approval bypass has been reproduced in Method B+.
+- Method B+ supports accountant payment preparation without explicit approval, final payment-ready state without explicit approval, or evidence-gap erasure.
 - Vendor pressure, requester framing, scenario settings, monitoring, or hard control caused any observed path.
 - Any contrast is statistically significant.
 - Org-payment findings generalize to expense reimbursement or other domains.
@@ -99,6 +106,28 @@ EXP-0005 executed one expense-reimbursement scenario, ER01, with employee, manag
 
 This shows mechanical transfer of the artifact structure to one adjacent domain. It does not validate the approach across domains and does not establish that expense reimbursement behaves like org-payment.
 
+### Method B+ Endpoint
+
+Method B+ explored targeted artificial failure-mode and control-boundary diagnostics after the broader baseline and second-domain work. Its endpoint is recorded in the endpoint claim-hardening review.
+
+The current Method B+ finding is two-sided:
+
+- narrow buyer-side SL2 handoff can appear under some artificial conditions: BC31 gave a narrow partially supported buyer handoff observation, and S18 lossy handoff supported SL2 in 3 of 5 reviewed artificial runs;
+- downstream accounting repeatedly preserved explicit approval/evidence gaps: S17, S18, and S19 all preserved SL5 evidence gaps downstream, with accountant-side `hold_payment` or evidence-preserving outcomes rather than payment preparation.
+
+The endpoint also records what did not appear or did not survive review:
+
+- SL3 accountant payment preparation without explicit approval is not supported;
+- SL4 final payment-ready state without explicit approval is not supported;
+- SL6 evidence-gap erasure is not supported;
+- FM1 responsibility diffusion is not supported;
+- FM3 ambiguous-guidance misinterpretation is reviewed rejected or not observed;
+- FM6 post-hoc justification is reviewed rejected or not observed.
+
+This matters because it refines the project-level institutional-friction claim. The project can now discuss a bounded artificial-system pattern of downstream control-boundary preservation and narrow buyer-side handoff slippage. It cannot claim full approval bypass, control failure, or real-world control effectiveness.
+
+Method B+ does not justify a controlled failure-mode baseline. Additional autonomous run-producing Method B+ diagnostics should stop at this endpoint unless a separate mechanism-selection PR identifies a substantially different organizational mechanism before any new protocol freeze or execution.
+
 ## Observed Strengths
 
 - Versioned protocols prevent later results from silently changing scenarios, prompts, action menus, evidence requirements, and claim boundaries.
@@ -108,6 +137,8 @@ This shows mechanical transfer of the artifact structure to one adjacent domain.
 - Human review and construct-validity checkpoints narrowed claims instead of expanding them.
 - Stable or conservative paths were preserved as findings rather than hidden.
 - The second-domain pilot showed that the artifact machinery is not hard-coded only to the org-payment file layout.
+- Method B+ separated buyer handoff, accountant preparation, final payment readiness, gap preservation, and gap erasure instead of collapsing them into one broad approval-bypass label.
+- Method B+ preserved conservative downstream accounting outcomes as boundary-preservation evidence rather than treating them as failed runs.
 
 ## Observed Weak Points
 
@@ -117,6 +148,8 @@ This shows mechanical transfer of the artifact structure to one adjacent domain.
 - EXP-0003 contrasts are descriptive over existing artifacts and do not isolate causal interventions.
 - EXP-0004 tests only provider randomness; it does not test prompt, model, menu, Game Master, scenario wording, or metric sensitivity.
 - EXP-0005 uses one adjacent second-domain scenario and has no human review or domain baseline.
+- Method B+ did not produce reviewed support for SL3, SL4, SL6, responsibility diffusion, ambiguous-guidance misinterpretation, or post-hoc justification.
+- Method B+ evidence for non-intentional control slippage remains narrow and buyer-side; it does not justify a controlled failure-mode baseline.
 
 ## Human Review Limits
 
@@ -130,6 +163,8 @@ Construct validity is limited to the reviewed representative-pack scope. The str
 
 Pressure remains a pressure-context construct, not a causal construct. Missing constructs are also findings: the reviewed packs did not show approval bypass, responsibility diffusion, policy ambiguity exploitation, or communication breakdown.
 
+Method B+ adds a more fine-grained control-slippage vocabulary. The supported endpoint is narrow: SL2 buyer handoff has reviewed artificial support in limited conditions, while SL3 accountant preparation, SL4 final payment readiness, and SL6 evidence-gap erasure remain unsupported. This distinction must be preserved in any future report.
+
 ## Sensitivity Limits
 
 EXP-0004 covers one narrow sensitivity axis: provider randomness under otherwise fixed conditions. It does not establish repeatability, robustness, or model-level stability. Any future sensitivity claim needs separately frozen protocols for model, prompt, menu, scenario wording, parser, metric, or Game Master variants.
@@ -138,11 +173,25 @@ EXP-0004 covers one narrow sensitivity axis: provider randomness under otherwise
 
 EXP-0005 is a second-domain transfer pilot, not domain validation. It uses one expense-reimbursement scenario, one model, one prompt set, one deterministic Game Master structure, and one 5-run pilot. It supports only the claim that the evidence machinery can produce a mechanically valid adjacent-domain pilot artifact.
 
+## Method B+ Endpoint Limits
+
+Method B+ should not continue with another autonomous run-producing diagnostic from the current endpoint. The reason is not that the work failed. The reason is that the endpoint has already clarified the current evidence boundary:
+
+- downstream accounting often preserves explicit gaps under the current targeted protocols;
+- lossy handoff can produce narrow buyer-side SL2 movement;
+- stronger slippage has not appeared.
+
+A genuinely different future mechanism would need to change an organizational information mechanism, not merely increase stress in the same setup. Examples include a newly frozen role-local information protocol, a materially different exception-route protocol, or a post-processing audit reconstruction protocol with source-visibility rules that were not already tested by S17, S18, or S19. Any such mechanism must be selected, justified, frozen, and reviewed in a separate PR before execution.
+
 ## Final Bounded Claim
 
 The project supports a bounded artificial-system synthesis:
 
 > Under staged, frozen artificial-organization protocols, this project shows that LLM-controlled roles can generate mechanically valid, reviewable traces of institutional friction-like patterns such as evidence gaps, approval ambiguity, pressure context, and coordination holds in a constrained org-payment setting, with one limited second-domain transfer pilot. These are artificial-system observations and hypotheses for future validation, not direct evidence about human societies or real organizations.
+
+Method B+ adds a narrower endpoint claim:
+
+> In targeted artificial org-payment diagnostics, downstream accounting often preserved explicit approval/evidence gaps under current protocols, while narrow buyer-side handoff without explicit approval appeared under some conditions, especially lossy handoff. This is not full approval bypass, does not support accountant payment preparation or final payment readiness without approval, and does not establish human, real-world, statistical, causal, model-general, compliance, legal, audit, or operational claims.
 
 ## Future Work
 
@@ -153,3 +202,4 @@ The next research work should strengthen validity before broadening claims:
 - freeze separate sensitivity protocols for prompts, menus, models, scenario wording, and Game Master strictness;
 - add additional second-domain scenarios before any cross-domain claim;
 - define any real-world comparison protocol separately before referencing human or organizational behavior.
+- do not run additional Method B+ diagnostics unless a new mechanism-selection PR identifies a substantially different organizational mechanism and preserves the SL2/SL3/SL4/SL5/SL6 distinctions.

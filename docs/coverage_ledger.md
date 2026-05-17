@@ -654,3 +654,38 @@ Remaining gaps:
 - No autonomous run-producing Method B+ diagnostic should proceed without a new mechanism-selection PR.
 - Independent project-owner or external human review remains optional if stronger review status is required.
 - Broader synthesis can integrate Method B+ as boundary-preservation plus narrow SL2 evidence, not as full failure-mode reproduction.
+
+## Method B+ Broader Synthesis Integration Update
+
+Latest PR label: `PR-MethodBPlus-broader-synthesis-integration`
+
+This update applies to C01, C02, C13, C16, C18, and C20.
+
+Evidence updated:
+
+- `docs/synthesis/social-chaos-claim-synthesis-v0.1.md`
+- `docs/synthesis/evidence-map.csv`
+- `docs/synthesis/claim-boundary-review.md`
+- `docs/synthesis/limitations.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: the broader artificial-organization synthesis now includes the Method B+ endpoint as a boundary-preservation and narrow control-slippage finding, not as social-chaos reproduction.
+- C02 Research Questions: the project-level synthesis now distinguishes downstream control-boundary preservation from narrow buyer-side SL2 handoff and unsupported stronger slippage.
+- C13 Event Taxonomy / Failure-Mode Vocabulary: SL2, SL3, SL4, SL5, SL6, FM1, FM3, and FM6 remain separated in the broader synthesis.
+- C16 Validity Protocol: the synthesis preserves the endpoint decision that no controlled Method B+ failure-mode baseline is justified.
+- C18 Reporting / Claims: allowed project-level claims now include bounded artificial-system boundary preservation and narrow SL2 handoff only; forbidden claims include full approval bypass, real-world behavior, statistical significance, causal effects, and operational sufficiency.
+- C20 Ethics / Misuse Boundaries: the broader synthesis explicitly forbids treating Method B+ as evidence of human behavior, real organization behavior, compliance/legal/audit sufficiency, or general model safety/reliability.
+
+Integrated endpoint result:
+
+- BC31 and S18 support narrow buyer-side SL2 handoff under bounded artificial conditions.
+- S17, S18, and S19 support downstream SL5 evidence-gap preservation under reviewed artificial scopes.
+- SL3, SL4, SL6, FM1, FM3, and FM6 remain unsupported, reviewed rejected, or not observed.
+
+Remaining gaps:
+
+- No additional Method B+ diagnostic should execute without a new mechanism-selection PR.
+- Stronger claims require new frozen mechanisms, additional review, sensitivity checks, or external validation.

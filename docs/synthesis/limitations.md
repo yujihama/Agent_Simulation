@@ -19,6 +19,7 @@ Protocol: `protocols/synthesis/social-chaos-claim-synthesis-v0.1.md`
 - EXP-0003 adds no new LLM execution.
 - EXP-0004 has 12 accepted repeat runs and tests only provider randomness under fixed conditions.
 - EXP-0005 has 5 accepted ER01 runs and no human review.
+- Method B+ endpoint findings come from targeted artificial diagnostics and Codex delegated/proxy reviews, not independent multi-reviewer human validation.
 
 ## Construct Limits
 
@@ -27,6 +28,8 @@ Protocol: `protocols/synthesis/social-chaos-claim-synthesis-v0.1.md`
 - Pressure context must not be interpreted as pressure causation.
 - `approval_bypass`, `responsibility_diffusion`, `policy_ambiguity_exploited`, and `communication_breakdown` were not observed in reviewed EXP-0002 representative packs.
 - Generated/proposed event labels outside reviewed scope remain generated/proposed only.
+- Method B+ supports only narrow buyer-side SL2 handoff in bounded artificial conditions and repeated SL5 evidence-gap preservation downstream.
+- Method B+ does not support SL3 accountant payment preparation without explicit approval, SL4 final payment-ready state without explicit approval, SL6 evidence-gap erasure, responsibility diffusion, ambiguous-guidance misinterpretation, or post-hoc justification.
 
 ## Method Limits
 
@@ -38,6 +41,7 @@ Protocol: `protocols/synthesis/social-chaos-claim-synthesis-v0.1.md`
 - There is no action-menu sensitivity test.
 - There is no Game Master strictness sensitivity test.
 - There is no scenario-wording sensitivity test.
+- Method B+ did not freeze or execute a controlled failure-mode baseline because the endpoint evidence does not justify one.
 
 ## Statistical Limits
 
@@ -61,3 +65,5 @@ Protocol: `protocols/synthesis/social-chaos-claim-synthesis-v0.1.md`
 - The synthesis can state hypotheses for future validation.
 - The synthesis cannot upgrade generated labels, pilot observations, or descriptive contrasts into real-world conclusions.
 - Future reports must preserve the EXP-0002 pressure-citation correction when discussing vendor context and vendor pressure.
+- Future Method B+ reports must preserve the SL2/SL3/SL4/SL5/SL6 distinctions and must not convert narrow buyer handoff into full approval bypass.
+- Additional Method B+ diagnostics require a new mechanism-selection PR before any protocol freeze or execution.

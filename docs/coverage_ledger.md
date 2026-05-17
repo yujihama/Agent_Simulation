@@ -1140,3 +1140,35 @@ BC4-3 decision:
 Remaining gaps:
 
 - Phase 4 has not yet synthesized whether the exception-route ambiguity result changes the project-level decision about further mechanisms, baseline readiness, or methodological consolidation.
+
+## Phase 4 BC4-4 Mechanism Exploration Synthesis Update
+
+Latest PR label: `PR-Phase4-BC4-4-mechanism-synthesis`
+
+This update applies to C01, C02, C08, C16, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: Phase 4 is synthesized as mechanism exploration for artificial control-boundary behavior, not as proof of social chaos or real-world control outcomes.
+- C02 Research Questions: current evidence is positioned as repeated SL5 boundary preservation plus narrow SL2 support from BC31/S18 only; SL1, SL3, SL4, SL6, FM1, FM3, and FM6 remain unsupported in the reviewed scope.
+- C08 Interaction Layer: lossy handoff, queue/ticket mismatch, and exception-route ambiguity are compared as mechanism diagnostics rather than repeated stress prompts.
+- C16 Validity Protocol: the synthesis rejects controlled failure-mode baseline readiness from the current evidence and preserves generated-candidate versus reviewed-support distinctions.
+- C18 Reporting / Claims: allowed claims are limited to Phase 4 workflow completion, S20 accepted-run boundary preservation, and baseline non-readiness.
+- C20 Ethics / Misuse Boundaries: the synthesis forbids human, real-world, statistical, compliance, legal, audit, operational, governance, safety, prompt-causation, and model-general claims.
+
+BC4-4 decision:
+
+- Phase 4 mechanism exploration synthesis is complete for this roadmap pass.
+- Do not start another autonomous run-producing diagnostic unless a later mechanism-selection PR identifies a substantially different organizational mechanism.
+- Do not proceed to a controlled failure-mode baseline from the current evidence state.
+
+Remaining gaps:
+
+- The project has not yet consolidated Phase 1-4 into a final report-style synthesis or publication outline.
+- Any future execution requires a new mechanism-selection checkpoint before protocol freeze.

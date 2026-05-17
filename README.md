@@ -117,6 +117,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S20 exception route ambiguity diagnostic result: [pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/summary.md](pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/summary.md)
 - Phase 4 S20 exception route ambiguity candidate review: [pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-exception-route-ambiguity-diagnostic-pilot-0001/candidate-review-0001/summary.md)
 - Phase 4 BC36 reflection after exception route review: [docs/reflections/phase4-bc36-after-exception-route-review.md](docs/reflections/phase4-bc36-after-exception-route-review.md)
+- Phase 4 mechanism exploration synthesis v0.1: [docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md](docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1348,3 +1349,9 @@ python -m social_sim execute-phase4-exception-route-ambiguity-diagnostic `
   --curated-output runs/org-payment/phase4-exception-route-ambiguity-diagnostic-local/curated `
   --dotenv .env
 ```
+
+### Phase 4 Mechanism Exploration Synthesis
+
+BC4-4 is recorded in [docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md](docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md).
+
+The synthesis concludes that Phase 4 did not add stronger slippage support beyond the existing narrow SL2 observations from BC31/S18. S20 reinforced the repeated SL5 boundary-preservation pattern in accepted runs and did not support SL1, SL2, SL3, SL4, SL6, FM1, FM3, or FM6. The project should not proceed to a controlled failure-mode baseline from this evidence state, and autonomous run-producing diagnostics should pause unless a later mechanism-selection PR identifies a substantially different mechanism.

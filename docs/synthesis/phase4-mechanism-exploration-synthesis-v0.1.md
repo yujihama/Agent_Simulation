@@ -105,6 +105,14 @@ Recommended next work:
 
 Any future run-producing work must define, before execution, what would count as delivery completion and what would count as research completion.
 
+## Corrective Reopen
+
+This synthesis is superseded in one respect by `docs/reflections/phase4-reopen-research-objective.md`.
+
+The delivery-complete / research-partial distinction remains valid. However, Phase 4 should no longer be treated as paused by default. Under the user's current instruction, Phase 4 research is reopened until the project identifies which information structures can produce reviewable slippage candidates, or until a concrete blocker prevents further progress.
+
+Future execution still requires protocol freeze before any run-producing work.
+
 ## Allowed Claims
 
 This synthesis may claim:

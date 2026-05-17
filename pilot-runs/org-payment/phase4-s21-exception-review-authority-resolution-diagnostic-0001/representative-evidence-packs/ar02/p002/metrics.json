@@ -1,0 +1,203 @@
+{
+  "run_id": "phase4-s21-exception-review-authority-resolution-diagnostic-0001-ar02-ambiguous-provisional-guidance-run-001",
+  "metrics_version": "v0.1",
+  "metrics_record_contract": "metrics-record-contract-v0.1",
+  "scenario_id": "S21",
+  "review_status": "generated",
+  "metrics": [
+    {
+      "metric_id": "MTR001",
+      "metric_group": "authority_resolution",
+      "metric_name": "authority_condition",
+      "value": "AR02_AMBIGUOUS_PROVISIONAL_GUIDANCE",
+      "denominator": "one generated S21 run",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [
+        "authority_conditions/authority_resolution_condition.json"
+      ],
+      "interpretation_limit": "single artificial run only",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR002",
+      "metric_group": "authority_resolution",
+      "metric_name": "exception_action_type",
+      "value": "provide_ambiguous_guidance",
+      "denominator": "one generated S21 run",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [
+        "A006",
+        "D006"
+      ],
+      "interpretation_limit": "single artificial run only",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR003",
+      "metric_group": "authority_resolution",
+      "metric_name": "accountant_action_type",
+      "value": "hold_payment",
+      "denominator": "one generated S21 run",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [
+        "A007",
+        "D007"
+      ],
+      "interpretation_limit": "single artificial run only",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR004",
+      "metric_group": "slippage",
+      "metric_name": "sl3_candidate",
+      "value": false,
+      "denominator": "one generated S21 run",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [],
+      "interpretation_limit": "candidate only until review",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR005",
+      "metric_group": "slippage",
+      "metric_name": "sl4_candidate",
+      "value": false,
+      "denominator": "one generated S21 run",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [],
+      "interpretation_limit": "candidate only until review",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR006",
+      "metric_group": "slippage",
+      "metric_name": "sl5_gap_preservation",
+      "value": true,
+      "denominator": "one generated S21 run",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [
+        "A006",
+        "D006",
+        "A007",
+        "D007",
+        "final_state/case.md"
+      ],
+      "interpretation_limit": "single artificial run only",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR007",
+      "metric_group": "slippage",
+      "metric_name": "sl6_candidate",
+      "value": false,
+      "denominator": "one generated S21 run",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [],
+      "interpretation_limit": "candidate only until review",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR008",
+      "metric_group": "failure_mode",
+      "metric_name": "fm3_candidate",
+      "value": false,
+      "denominator": "one generated S21 run",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [],
+      "interpretation_limit": "candidate only until review",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR009",
+      "metric_group": "failure_mode",
+      "metric_name": "fm6_candidate",
+      "value": false,
+      "denominator": "one generated S21 run",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [],
+      "interpretation_limit": "candidate only until review",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    }
+  ]
+}

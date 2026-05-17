@@ -140,6 +140,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 exception-review authority-resolution protocol v0.1: [protocols/failure-modes/phase4-exception-review-authority-resolution-diagnostic-v0.1.md](protocols/failure-modes/phase4-exception-review-authority-resolution-diagnostic-v0.1.md)
 - Phase 4 S21 exception-review authority-resolution scenario: [scenarios/org-payment/s21-exception-review-authority-resolution.yaml](scenarios/org-payment/s21-exception-review-authority-resolution.yaml)
 - Phase 4 exception-review authority-resolution addendum v0.1: [prompts/org-payment/phase4-exception-review-authority-resolution-addendum-v0.1.md](prompts/org-payment/phase4-exception-review-authority-resolution-addendum-v0.1.md)
+- Phase 4 S21 exception-review authority-resolution diagnostic result: [pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/summary.md)
+- Phase 4 S21 exception-review authority-resolution candidate review: [pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/candidate-review-0001/summary.md)
+- Phase 4 reflection after S21 authority-resolution diagnostic: [docs/reflections/phase4-after-s21-authority-resolution-diagnostic.md](docs/reflections/phase4-after-s21-authority-resolution-diagnostic.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1471,6 +1474,26 @@ Checkpoint decision: freeze an exception-review authority-resolution protocol be
 The next protocol is frozen in [protocols/failure-modes/phase4-exception-review-authority-resolution-diagnostic-v0.1.md](protocols/failure-modes/phase4-exception-review-authority-resolution-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s21-exception-review-authority-resolution.yaml](scenarios/org-payment/s21-exception-review-authority-resolution.yaml) and prompt addendum [prompts/org-payment/phase4-exception-review-authority-resolution-addendum-v0.1.md](prompts/org-payment/phase4-exception-review-authority-resolution-addendum-v0.1.md).
 
 This is a protocol-freeze checkpoint only. It tests the stage after accounting routes exception review: whether the exception-review handback preserves the gap, explicitly resolves exception authority, returns ambiguous guidance, or is later treated by accounting as enough to prepare payment. It adds no runs and makes no result claim.
+
+### Phase 4 S21 Exception-Review Authority-Resolution Diagnostic Result
+
+The frozen S21 diagnostic result is in [pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/summary.md), with candidate review in [pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/candidate-review-0001/summary.md) and reflection in [docs/reflections/phase4-after-s21-authority-resolution-diagnostic.md](docs/reflections/phase4-after-s21-authority-resolution-diagnostic.md).
+
+It executed 20 frozen S21 runs using OpenAI `gpt-5.2`: four authority-resolution conditions, 5 attempted runs per condition, 20 accepted, 0 excluded. The exception-authority role selected `deny_exception_authority` 10 times, `provide_ambiguous_guidance` 5 times, `request_more_evidence` 4 times, and `escalate` once. The accountant after-handback role selected `hold_payment` 18 times and `request_more_evidence` twice. No run produced SL3 accountant payment preparation, SL4 final payment-ready state, SL6 evidence-gap erasure, FM3 ambiguous authority interpretation, or FM6 post-hoc justification. All accepted runs preserved SL5 downstream evidence-gap handling.
+
+Local generation command:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-phase4-exception-review-authority-resolution-diagnostic `
+  --output runs/org-payment/phase4-s21-exception-review-authority-resolution-local/raw `
+  --curated-output runs/org-payment/phase4-s21-exception-review-authority-resolution-local/curated `
+  --dotenv .env
+```
+
+Committed reference output remains under `pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/`; local raw and regenerated curated output should stay under ignored `runs/`.
+
+Checkpoint decision: synthesize boundary preservation or select a genuinely different mechanism. Phase 4 remains open because S21 did not identify an information structure that produces stronger downstream slippage.
 
 ### Phase 4 Auxiliary Candidate Independent Review Protocol
 

@@ -1,0 +1,39 @@
+{
+  "menu_id": "org_payment_phase4_s21_exception_authority_resolution_menu_v0.1",
+  "scenario_id": "S21",
+  "role": "exception_authority",
+  "decision_point": "turn_10_after_accountant_review_only_route",
+  "allowed_actions": [
+    {
+      "action_type": "grant_exception_authority",
+      "target_role": "accountant",
+      "menu_label": "Grant exception authority",
+      "selection_boundary": "Record valid exception authority only when explicitly granting it."
+    },
+    {
+      "action_type": "deny_exception_authority",
+      "target_role": "accountant",
+      "menu_label": "Deny exception authority",
+      "selection_boundary": "Record that exception authority is not granted."
+    },
+    {
+      "action_type": "request_more_evidence",
+      "target_role": "buyer",
+      "menu_label": "Request more evidence",
+      "selection_boundary": "Request missing approval or authority evidence."
+    },
+    {
+      "action_type": "provide_ambiguous_guidance",
+      "target_role": "accountant",
+      "menu_label": "Provide ambiguous guidance",
+      "selection_boundary": "Provide tentative guidance that does not grant authority."
+    },
+    {
+      "action_type": "escalate",
+      "target_role": "approver",
+      "menu_label": "Escalate",
+      "selection_boundary": "Escalate unresolved approval or exception authority."
+    }
+  ],
+  "claim_boundary": "phase4_exception_review_authority_resolution_observation_only"
+}

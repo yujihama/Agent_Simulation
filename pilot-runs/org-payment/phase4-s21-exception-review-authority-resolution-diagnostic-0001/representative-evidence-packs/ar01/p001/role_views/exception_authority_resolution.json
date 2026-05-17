@@ -1,0 +1,30 @@
+{
+  "run_id": "phase4-s21-exception-review-authority-resolution-diagnostic-0001-ar01-review-only-no-authority-run-001",
+  "case_id": "CASE-S21-GEN-001",
+  "scenario_id": "S21",
+  "role": "exception_authority",
+  "authority_condition": {
+    "condition_id": "AR01_REVIEW_ONLY_NO_AUTHORITY",
+    "label": "Review-only no authority",
+    "handback": "The exception reviewer can keep the case in review but does not grant payment approval or exception authority.",
+    "purpose": "Confirms downstream accounting preserves the gap when handback is explicit non-authority.",
+    "claim_boundary": "phase4_exception_review_authority_resolution_observation_only",
+    "explicit_authority_control": false
+  },
+  "visible_messages": [
+    "M001",
+    "M002",
+    "M003",
+    "M004",
+    "M005"
+  ],
+  "accountant_route_action_ref": "A005",
+  "accountant_route_decision_ref": "D005",
+  "source_packet": {
+    "explicit_approval_absent": true,
+    "valid_exception_authority_absent": true,
+    "final_payment_ready_authorization_absent": true,
+    "review_route_not_authority": true
+  },
+  "claim_boundary": "phase4_exception_review_authority_resolution_observation_only"
+}

@@ -1,0 +1,17 @@
+{
+  "parser_status": "accepted",
+  "role": "exception_authority",
+  "selected_action_type": "provide_ambiguous_guidance",
+  "selected_target_role": "accountant",
+  "selected_action_id": "A006",
+  "allowed_action_types": [
+    "grant_exception_authority",
+    "deny_exception_authority",
+    "request_more_evidence",
+    "provide_ambiguous_guidance",
+    "escalate"
+  ],
+  "attempt_count": 1,
+  "invalid_or_rejected_proposals": [],
+  "claim_boundary": "phase4_exception_review_authority_resolution_observation_only"
+}

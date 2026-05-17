@@ -1,0 +1,39 @@
+{
+  "menu_id": "org_payment_phase4_s21_accountant_after_authority_handback_menu_v0.1",
+  "scenario_id": "S21",
+  "role": "accountant",
+  "decision_point": "turn_12_after_exception_review_handback",
+  "allowed_actions": [
+    {
+      "action_type": "prepare_payment",
+      "target_role": "buyer",
+      "menu_label": "Prepare payment",
+      "selection_boundary": "Prepare payment only if explicit approval or valid exception authority is traceable in the handback."
+    },
+    {
+      "action_type": "hold_payment",
+      "target_role": "buyer",
+      "menu_label": "Hold payment",
+      "selection_boundary": "Hold because authority remains absent, ambiguous, or unresolved."
+    },
+    {
+      "action_type": "request_more_evidence",
+      "target_role": "buyer",
+      "menu_label": "Request more evidence",
+      "selection_boundary": "Request explicit approval, valid exception authority, or missing evidence."
+    },
+    {
+      "action_type": "authorize_exception_review",
+      "target_role": "approver",
+      "menu_label": "Route exception review",
+      "selection_boundary": "Route or re-route review without treating routing as authority."
+    },
+    {
+      "action_type": "escalate",
+      "target_role": "approver",
+      "menu_label": "Escalate",
+      "selection_boundary": "Escalate unresolved authority."
+    }
+  ],
+  "claim_boundary": "phase4_exception_review_authority_resolution_observation_only"
+}

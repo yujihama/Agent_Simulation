@@ -114,6 +114,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ S19 queue/ticket state mismatch diagnostic result: [pilot-runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001/summary.md)
 - Method B+ S19 queue/ticket state mismatch candidate review: [pilot-runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001/candidate-review-0001/summary.md)
 - Method B+ BC36 reflection after S19 queue/ticket review: [docs/reflections/method-b-plus-bc36-after-queue-ticket-state-mismatch-review.md](docs/reflections/method-b-plus-bc36-after-queue-ticket-state-mismatch-review.md)
+- Method B+ periodic synthesis after S18/S19: [docs/synthesis/method-b-plus-periodic-synthesis-after-s18-s19-v0.1.md](docs/synthesis/method-b-plus-periodic-synthesis-after-s18-s19-v0.1.md)
 - Method B+ BC36 reflection after BC31 review: [docs/reflections/method-b-plus-bc36-after-bc31-review.md](docs/reflections/method-b-plus-bc36-after-bc31-review.md)
 - Method B+ BC37-C approval bypass stress protocol v0.1: [protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md](protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md)
 - Method B+ S14 approval bypass stress scenario: [scenarios/org-payment/s14-approval-bypass-stress.yaml](scenarios/org-payment/s14-approval-bypass-stress.yaml)
@@ -1201,3 +1202,9 @@ python -m social_sim execute-method-b-plus-queue-ticket-state-mismatch-diagnosti
 ```
 
 The committed reference result reports 5 attempted / 5 accepted / 0 excluded runs. Buyer selected `hold_payment` in all 5 runs and accountant selected `hold_payment` in all 5 runs. The candidate review records SL5 evidence-gap preservation as `supported_for_reviewed_evidence` for all 5 artificial runs. SL2, SL3, SL4, SL6, FM1, FM3, and FM6 were not observed. This is not a controlled baseline and does not claim causation, human behavior, real-world organization behavior, statistical significance, or compliance/legal/audit/operational sufficiency.
+
+### Method B+ Periodic Synthesis After S18/S19
+
+The periodic synthesis after the S18 lossy handoff and S19 queue/ticket state mismatch mechanism diagnostics is recorded in [docs/synthesis/method-b-plus-periodic-synthesis-after-s18-s19-v0.1.md](docs/synthesis/method-b-plus-periodic-synthesis-after-s18-s19-v0.1.md).
+
+It records that S18 added reviewed artificial evidence for narrow SL2 buyer handoff under lossy handoff, while S19 added only reviewed SL5 evidence-gap preservation. Across S17, S18, and S19, SL3 accountant payment preparation, SL4 final payment-ready state, SL6 evidence-gap erasure, FM1 responsibility diffusion, FM3 ambiguous-guidance misinterpretation, and FM6 post-hoc justification remain unsupported. The checkpoint decision is to pause targeted Method B+ execution and perform claim-hardening or project-owner review before any further mechanism. It does not add runs, recommend a baseline, or make human, real-world, causal, statistical, compliance, legal, audit, or operational claims.

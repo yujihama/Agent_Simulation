@@ -224,3 +224,29 @@ Remaining gaps:
 
 - Method B+ should not proceed to a controlled baseline from current evidence.
 - Stronger claims require either independent review of the BC31 partial FM2 boundary observation or a separately frozen protocol targeting a clearly different mechanism.
+
+## Method B+ BC31 FM2 Independent Review Update
+
+Latest PR label: `PR-MethodBPlus-BC31-FM2-independent-review`
+
+This update applies to C16, C17, C18, and C20.
+
+Evidence added:
+
+- `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/bc31-fm2-independent-review-0001/summary.md`
+- `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/bc31-fm2-independent-review-0001/review-table.csv`
+- `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/bc31-fm2-independent-review-0001/evidence-notes.md`
+- `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/bc31-fm2-independent-review-0001/claim-boundary-review.md`
+- `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/bc31-fm2-independent-review-0001/review-manifest.json`
+
+Coverage impact:
+
+- C16 Validity Protocol: BC31 candidate `BC31-CAND-002` was independently re-reviewed against the existing FM2 taxonomy without adding runs or changing definitions.
+- C17 Human / LLM Review: the second-pass proxy review confirms the prior partial-support classification for the narrow buyer handoff boundary only; it is still not independent multi-reviewer human validation.
+- C18 Reporting / Claims: Method B+ may report `partially_supported_needs_revision_confirmed` for the BC31 buyer handoff boundary, but not full approval bypass, accountant payment preparation, or final payment readiness.
+- C20 Ethics / Misuse Boundaries: the review preserves no human behavior, real-world organization, prompt-causation, model-general, compliance, legal, audit, operational sufficiency, or statistical claim.
+
+Remaining gaps:
+
+- BC31 FM2 remains a narrow partial support item, not a baseline-ready failure-mode finding.
+- Stronger reviewed-evidence status would require an external or project-owner human-review protocol, or a new frozen protocol that separately tests buyer handoff, accountant preparation, and final-state payment readiness.

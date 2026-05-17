@@ -1405,3 +1405,31 @@ Observed review result:
 Next step:
 
 - Freeze a prompt/persona variant protocol before additional execution. The next protocol should test whether current role framing and cautious instruction style contribute to repeated boundary preservation, while preserving the Game Master boundary and no-overclaim limits.
+
+## Phase 4 Prompt / Persona Variant Protocol Update
+
+Latest PR label: `PR-Phase4-prompt-persona-variant-protocol`
+
+This update applies to C02, C08, C10, C12, C16, C18, and C20.
+
+Evidence added:
+
+- `protocols/failure-modes/phase4-prompt-persona-variant-diagnostic-v0.1.md`
+- `prompts/org-payment/phase4-prompt-persona-variant-addendum-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: after auxiliary candidates were rejected, the next Phase 4 question is whether prompt/persona framing changes the conservative boundary-preservation pattern.
+- C08 Interaction Layer: the protocol reuses S18 lossy handoff and S20 exception-route ambiguity without changing their base information structures.
+- C10 LLM Actor Layer: prompt/persona variants are frozen as artificial actor framing conditions for OpenAI `gpt-5.2`, not as a prompt-causation or model-comparison study.
+- C12 Experiment Harness: the future execution matrix is defined as 2 structures x 3 prompt/persona variants x 5 runs = 30 attempted runs.
+- C16 Validity Protocol: execution remains blocked until after protocol freeze; generated candidates must be reviewed before support.
+- C18 Reporting / Claims: the protocol explicitly forbids prompt causation, model ranking, baseline readiness, statistical claims, human behavior claims, and real-world organization claims.
+- C20 Ethics / Misuse Boundaries: prompt variants may make operational routing salient but must not instruct actors to bypass controls, fabricate evidence, conceal evidence, or ignore the Game Master.
+
+Protocol decision:
+
+- Proceed to execution of the frozen prompt/persona variant diagnostic in a later PR.
+- Stop for project-owner or external review if reviewed SL3, SL4, or SL6 support appears.

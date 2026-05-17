@@ -85,6 +85,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Social chaos evidence map: [docs/synthesis/evidence-map.csv](docs/synthesis/evidence-map.csv)
 - Social chaos claim-boundary review: [docs/synthesis/claim-boundary-review.md](docs/synthesis/claim-boundary-review.md)
 - Social chaos synthesis limitations: [docs/synthesis/limitations.md](docs/synthesis/limitations.md)
+- Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 
 ## Initial PR Sequence
 
@@ -132,6 +133,7 @@ The project should be built up in small decision-oriented pull requests:
 40. P10 second-domain execution bundle: execute EXP-0005 on ER01 and add curated aggregate result without cross-domain generalization claims.
 41. P10 synthesis protocol bundle: review EXP-0005 and freeze BC20 social-chaos claim synthesis inputs, claim levels, and forbidden claims before writing synthesis.
 42. P10 synthesis execution bundle: write the BC20 social-chaos claim synthesis, evidence map, limitations, and claim-boundary review without adding new runs or upgrading evidence strength.
+43. Method B BC21 failure-mode taxonomy bundle: define responsibility diffusion, approval bypass, ambiguous guidance misinterpretation, pressure-normalization, evidence-gap erasure, and post-hoc justification candidates before adding high-friction scenarios.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -690,3 +692,11 @@ The protocol allows only bounded artificial-system observations and hypotheses f
 The BC20 synthesis is recorded in [docs/synthesis/social-chaos-claim-synthesis-v0.1.md](docs/synthesis/social-chaos-claim-synthesis-v0.1.md), with an evidence map in [docs/synthesis/evidence-map.csv](docs/synthesis/evidence-map.csv), claim-boundary review in [docs/synthesis/claim-boundary-review.md](docs/synthesis/claim-boundary-review.md), and limitations in [docs/synthesis/limitations.md](docs/synthesis/limitations.md).
 
 The synthesis states that, under staged frozen artificial-organization protocols, LLM-controlled roles can generate mechanically valid, reviewable traces of institutional friction-like patterns in a constrained org-payment setting, with one limited expense-reimbursement transfer pilot. This is an artificial-system observation and a hypothesis source for future validation. It is not direct evidence about human societies, real organizations, causality, statistical significance, compliance, legal sufficiency, audit sufficiency, operational sufficiency, cross-domain validation, or general LLM behavior.
+
+## Method B Failure-Mode Taxonomy
+
+Method B starts in [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md).
+
+This taxonomy defines targeted failure-mode candidates before new high-friction scenarios or runs are added. It covers responsibility diffusion, approval bypass, ambiguous guidance misinterpretation, pressure-normalization, evidence-gap erasure, and post-hoc justification. It includes positive examples, negative examples, required evidence, non-examples, and human-review criteria so later PRs cannot label normal handoffs or cautious holds as institutional failure after seeing results.
+
+BC21 does not claim that any Method B failure mode has been observed. It only freezes the definitions and review boundary for later targeted scenario and pilot work.

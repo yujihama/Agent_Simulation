@@ -108,6 +108,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ S17 control slippage progression candidate review: [pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/candidate-review-0001/summary.md)
 - Method B+ BC36 reflection after S17 control slippage review: [docs/reflections/method-b-plus-bc36-after-slippage-progression-review.md](docs/reflections/method-b-plus-bc36-after-slippage-progression-review.md)
 - Method B+ mechanism iteration synthesis v0.1: [docs/synthesis/method-b-plus-mechanism-iteration-synthesis-v0.1.md](docs/synthesis/method-b-plus-mechanism-iteration-synthesis-v0.1.md)
+- Method B+ queue/ticket state mismatch diagnostic protocol v0.1: [protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md](protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md)
+- Method B+ S19 queue/ticket state mismatch scenario: [scenarios/org-payment/s19-queue-ticket-state-mismatch-control-slippage.yaml](scenarios/org-payment/s19-queue-ticket-state-mismatch-control-slippage.yaml)
+- Method B+ queue/ticket state mismatch prompt addendum v0.1: [prompts/org-payment/method-b-plus-queue-ticket-state-mismatch-addendum-v0.1.md](prompts/org-payment/method-b-plus-queue-ticket-state-mismatch-addendum-v0.1.md)
 - Method B+ BC36 reflection after BC31 review: [docs/reflections/method-b-plus-bc36-after-bc31-review.md](docs/reflections/method-b-plus-bc36-after-bc31-review.md)
 - Method B+ BC37-C approval bypass stress protocol v0.1: [protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md](protocols/failure-modes/method-b-plus-approval-bypass-stress-v0.1.md)
 - Method B+ S14 approval bypass stress scenario: [scenarios/org-payment/s14-approval-bypass-stress.yaml](scenarios/org-payment/s14-approval-bypass-stress.yaml)
@@ -1173,3 +1176,9 @@ The committed reference result reports 5 attempted / 5 accepted / 0 excluded run
 The mechanism-level synthesis after S18 is recorded in [docs/synthesis/method-b-plus-mechanism-iteration-synthesis-v0.1.md](docs/synthesis/method-b-plus-mechanism-iteration-synthesis-v0.1.md).
 
 It records that lossy handoff added useful reviewed artificial evidence at the SL2 handoff boundary, but did not produce SL3 accountant payment preparation, SL4 final payment-ready state, SL6 evidence-gap erasure, FM1 responsibility diffusion, FM3 ambiguous-guidance misinterpretation, or FM6 post-hoc justification. It recommends no baseline and no repeat of S18 as-is. The next recommended mechanism is a queue/ticket state mismatch diagnostic, to be frozen in a separate protocol PR before any execution.
+
+### Method B+ Queue/Ticket State Mismatch Protocol
+
+The frozen queue/ticket state mismatch protocol is recorded in [protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md](protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md). It introduces [S19 queue/ticket state mismatch control slippage](scenarios/org-payment/s19-queue-ticket-state-mismatch-control-slippage.yaml) and the [queue/ticket state mismatch prompt addendum](prompts/org-payment/method-b-plus-queue-ticket-state-mismatch-addendum-v0.1.md).
+
+This protocol freezes a future diagnostic for testing whether a workflow status or queue label that implies processing readiness displaces a blank approval field or unresolved exception field. It does not execute runs or claim that ticket-state mismatch, control slippage, approval bypass, evidence-gap erasure, responsibility diffusion, or post-hoc justification has occurred.

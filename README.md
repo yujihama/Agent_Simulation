@@ -91,6 +91,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
 - Method B claim-boundary review: [docs/synthesis/method-b-claim-boundary-review.md](docs/synthesis/method-b-claim-boundary-review.md)
 - Method B BC28 FM6 candidate review: [pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/fm6-candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/fm6-candidate-review-0001/summary.md)
+- Method B+ BC36 reflection after FM6 review: [docs/reflections/method-b-plus-bc36-after-fm6-review.md](docs/reflections/method-b-plus-bc36-after-fm6-review.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -157,6 +158,7 @@ The project should be built up in small decision-oriented pull requests:
 52. Method B BC29 second-domain transfer review bundle: review existing EXP-0005 expense-reimbursement evidence against Method B failure-mode mapping without new runs or cross-domain validation claims.
 53. Method B BC30 synthesis bundle: synthesize BC21-BC29 failure-mode status, evidence levels, human-review scope, diagnostic sensitivity, and second-domain limits without supported failure-mode or human-society claims.
 54. Method B BC28 FM6 candidate review bundle: review the three generated FM6 post-hoc-justification candidate rows and decide whether any are supported, partially supported, rejected, or need revision.
+55. Method B+ BC36 reflection bundle: reflect on the rejected FM6 review result and select BC31 ambiguity interpretation targeting as the next checkpoint without adding execution.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -847,3 +849,11 @@ The BC28 FM6 candidate review is recorded in [pilot-runs/org-payment/method-b-di
 The review evaluates the three generated FM6 post-hoc-justification candidate rows from the BC28 diagnostic sensitivity pilot. All three are reviewed as `rejected`: the underlying actions requested more evidence or held payment, and the post-hoc explanations preserved unresolved approval and evidence gaps rather than repairing a questionable prior action.
 
 After this review, Method B still has no supported or partially supported failure-mode finding. This review does not add new runs, change FM6 definitions, claim prompt causation, claim statistical significance, or make human/real-world organization claims.
+
+## Method B+ BC36 Reflection
+
+The BC36 reflection after the FM6 candidate review is recorded in [docs/reflections/method-b-plus-bc36-after-fm6-review.md](docs/reflections/method-b-plus-bc36-after-fm6-review.md).
+
+The reflection records the result type as `candidateあり、reviewでrejected`: BC28 generated three FM6 candidates, but all three were rejected in review. It selects BC31 ambiguity interpretation targeting as the next checkpoint because ambiguous approval-related language is an upstream surface for ambiguous guidance misinterpretation, approval bypass, evidence-gap erasure, and later post-hoc justification.
+
+This reflection does not add runs or claim that ambiguity will produce failure modes. It freezes the next-step rationale only; BC31 must still be separately frozen before execution.

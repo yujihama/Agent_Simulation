@@ -581,3 +581,38 @@ Remaining gaps:
 - S19 does not support buyer payment-forward handoff, accountant payment preparation, final payment readiness, evidence-gap erasure, responsibility diffusion, ambiguous-guidance misinterpretation, or post-hoc justification.
 - The result does not justify a controlled failure-mode baseline.
 - The next step is periodic synthesis before any further targeted execution.
+
+## Method B+ Periodic Synthesis After S18/S19 Update
+
+Latest PR label: `PR-MethodBPlus-periodic-synthesis-after-s18-s19`
+
+This update applies to C01, C02, C08, C13, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/method-b-plus-periodic-synthesis-after-s18-s19-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: Method B+ is now summarized as two completed mechanism iterations after boundary-preservation synthesis, not as an open-ended search for stronger slippage.
+- C02 Research Questions: the synthesis separates what was newly visible from S18 lossy handoff from what remained boundary-preserving in S19 queue/ticket state mismatch.
+- C08 Interaction Layer: the synthesis compares handoff-based information transfer and ticket-state signaling as distinct artificial interaction mechanisms.
+- C13 Event Taxonomy / Failure-Mode Vocabulary: SL2, SL3, SL4, SL5, SL6, FM1, FM3, and FM6 remain separated; SL2 is not collapsed into SL3 or SL4.
+- C16 Validity Protocol: the synthesis confirms generated/support boundaries and records that no controlled failure-mode baseline is justified from current reviewed evidence.
+- C17 Human / LLM Review: reviewed status remains delegated/proxy review under project-owner authorization; no independent multi-reviewer human validation or inter-rater reliability claim is added.
+- C18 Reporting / Claims: the checkpoint decision is to pause targeted execution and perform claim-hardening or project-owner review before another mechanism; no baseline, causal, human, real-world, statistical, compliance, legal, audit, or operational claim is added.
+- C20 Ethics / Misuse Boundaries: the synthesis preserves artificial-system-only boundaries and forbids treating conservative outcomes as proof of real-world control effectiveness or absence of failure.
+
+Periodic synthesis result:
+
+- S18 added reviewed artificial-evidence support for narrow SL2 buyer handoff under lossy handoff and SL5 downstream evidence-gap preservation.
+- S19 added reviewed artificial-evidence support only for SL5 evidence-gap preservation.
+- SL3, SL4, SL6, FM1, FM3, and FM6 remain unsupported after S18/S19.
+
+Remaining gaps:
+
+- No controlled failure-mode baseline is justified.
+- No immediate further targeted execution should be run without a new mechanism-selection rationale.
+- Project-owner or external human review remains a future option if stronger reviewed-evidence status is required.

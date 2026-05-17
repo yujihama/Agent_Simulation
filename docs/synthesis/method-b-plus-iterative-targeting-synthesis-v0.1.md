@@ -20,6 +20,7 @@ This synthesis does not add new LLM execution, new scenarios, prompt changes, ac
 | Control-slippage taxonomy, protocol, and S17 diagnostic | `protocols/failure-modes/non-intentional-control-slippage-taxonomy-v0.1.md`; `docs/synthesis/non-intentional-control-slippage-map.csv`; `docs/reflections/method-b-plus-bc36-after-bc31-fm2-independent-review.md`; `protocols/failure-modes/method-b-plus-control-slippage-progression-diagnostic-v0.1.md`; `scenarios/org-payment/s17-control-slippage-progression-diagnostic.yaml`; `prompts/org-payment/method-b-plus-control-slippage-progression-addendum-v0.1.md`; `pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/summary.md`; `pilot-runs/org-payment/method-b-plus-control-slippage-progression-diagnostic-pilot-0001/candidate-review-0001/summary.md`; `docs/reflections/method-b-plus-bc36-after-slippage-progression-review.md` |
 | Lossy handoff mechanism diagnostic | `docs/synthesis/method-b-plus-boundary-preservation-synthesis-v0.1.md`; `docs/reflections/method-b-plus-next-mechanism-selection.md`; `protocols/failure-modes/method-b-plus-lossy-handoff-diagnostic-v0.1.md`; `scenarios/org-payment/s18-lossy-handoff-control-slippage.yaml`; `prompts/org-payment/method-b-plus-lossy-handoff-addendum-v0.1.md`; `pilot-runs/org-payment/method-b-plus-lossy-handoff-diagnostic-pilot-0001/summary.md`; `pilot-runs/org-payment/method-b-plus-lossy-handoff-diagnostic-pilot-0001/candidate-review-0001/summary.md`; `docs/reflections/method-b-plus-bc36-after-lossy-handoff-review.md` |
 | Queue/ticket state mismatch diagnostic | `docs/synthesis/method-b-plus-mechanism-iteration-synthesis-v0.1.md`; `protocols/failure-modes/method-b-plus-queue-ticket-state-mismatch-diagnostic-v0.1.md`; `scenarios/org-payment/s19-queue-ticket-state-mismatch-control-slippage.yaml`; `prompts/org-payment/method-b-plus-queue-ticket-state-mismatch-addendum-v0.1.md`; `pilot-runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001/summary.md`; `pilot-runs/org-payment/method-b-plus-queue-ticket-state-mismatch-diagnostic-pilot-0001/candidate-review-0001/summary.md`; `docs/reflections/method-b-plus-bc36-after-queue-ticket-state-mismatch-review.md` |
+| Periodic mechanism synthesis | `docs/synthesis/method-b-plus-periodic-synthesis-after-s18-s19-v0.1.md` |
 | Method B baseline synthesis | `docs/synthesis/method-b-synthesis-v0.1.md`; `docs/synthesis/method-b-failure-mode-status.csv` |
 | BC28 FM6 review | `pilot-runs/org-payment/method-b-diagnostic-sensitivity-pilot-0001/fm6-candidate-review-0001/summary.md` |
 | BC31 ambiguity targeting | `protocols/failure-modes/method-b-plus-ambiguity-interpretation-v0.1.md`; `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/summary.md`; `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/ambiguity-candidate-review-0001/summary.md`; `pilot-runs/org-payment/method-b-plus-ambiguity-targeting-pilot-0001/bc31-fm2-independent-review-0001/summary.md` |
@@ -116,9 +117,9 @@ The main research value of Method B+ is therefore methodological:
 
 Do not freeze a Method B+ controlled baseline from the current evidence. The only stronger reviewed support remains narrow SL2 buyer handoff support from BC31 and S18, both paired with downstream gap preservation. Later targeted pilots, including S17 and S19, did not extend it to accounting preparation or final payment readiness.
 
-Useful next options are:
+Useful next options after the S18/S19 periodic synthesis are:
 
-1. Pause targeted execution and update the broader project synthesis to reflect that S17 and S19 produced conservative boundary preservation and S18 produced SL2 only.
+1. Pause targeted execution and prepare a Method B+ endpoint / claim-hardening synthesis.
 2. Freeze an external or project-owner human-review protocol for the BC31 partial FM2/SL2 observation if stronger reviewed-evidence status is needed.
 3. Design a genuinely new mechanism only if the next research question can be frozen before execution without chasing the S17 conservative result.
 4. Run a second-domain post-hoc diagnostic only after freezing post-hoc explanation requirements that the earlier expense-reimbursement pilot lacked.
@@ -134,7 +135,7 @@ Rationale:
 - the only partial support is too narrow for baseline execution, even after second-pass proxy confirmation;
 - S17 and S19 produced no SL2, SL3, SL4, SL6, or FM6 support and supported only SL5 gap preservation;
 - S18 produced SL2 but no SL3, SL4, SL6, FM1, FM3, or FM6 support;
-- additional targeted execution should pause until a periodic synthesis records what the mechanism iterations have and have not added.
+- the periodic synthesis after S18/S19 records that targeted execution should pause before any further mechanism is selected.
 
 ## Claim Boundary
 

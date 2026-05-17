@@ -107,6 +107,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ BC32 responsibility boundary protocol v0.1: [protocols/failure-modes/method-b-plus-responsibility-boundary-v0.1.md](protocols/failure-modes/method-b-plus-responsibility-boundary-v0.1.md)
 - Method B+ S15 responsibility boundary stress scenario: [scenarios/org-payment/s15-responsibility-boundary-stress.yaml](scenarios/org-payment/s15-responsibility-boundary-stress.yaml)
 - Method B+ responsibility boundary prompt addendum v0.1: [prompts/org-payment/method-b-plus-responsibility-boundary-addendum-v0.1.md](prompts/org-payment/method-b-plus-responsibility-boundary-addendum-v0.1.md)
+- Method B+ BC32 responsibility boundary pilot result: [pilot-runs/org-payment/method-b-plus-responsibility-boundary-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-responsibility-boundary-pilot-0001/summary.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -971,3 +972,28 @@ The reflection classifies BC37-C as `candidateあり、reviewでrejected` plus `
 The BC32 responsibility boundary protocol is recorded in [protocols/failure-modes/method-b-plus-responsibility-boundary-v0.1.md](protocols/failure-modes/method-b-plus-responsibility-boundary-v0.1.md). It introduces [S15 responsibility boundary stress](scenarios/org-payment/s15-responsibility-boundary-stress.yaml) and the [responsibility boundary prompt addendum](prompts/org-payment/method-b-plus-responsibility-boundary-addendum-v0.1.md).
 
 This protocol freezes the next executable Method B+ pilot before any run. It targets FM1 responsibility diffusion while explicitly forbidding instructions to deflect blame, hide responsibility, or treat normal role specialization as a failure mode. Execution must remain separate from this protocol PR.
+
+### Method B+ BC32 Responsibility Boundary Pilot
+
+BC32 can be executed locally with raw outputs under ignored `runs/`:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-method-b-plus-responsibility-boundary-pilot `
+  --output runs/org-payment/method-b-plus-responsibility-boundary-pilot-local/raw `
+  --curated-output runs/org-payment/method-b-plus-responsibility-boundary-pilot-local/curated `
+  --dotenv .env
+```
+
+Reference output:
+
+- [summary.md](pilot-runs/org-payment/method-b-plus-responsibility-boundary-pilot-0001/summary.md)
+- [aggregate.json](pilot-runs/org-payment/method-b-plus-responsibility-boundary-pilot-0001/aggregate.json)
+- [event-candidate-table.csv](pilot-runs/org-payment/method-b-plus-responsibility-boundary-pilot-0001/event-candidate-table.csv)
+- [claim-boundary-review.md](pilot-runs/org-payment/method-b-plus-responsibility-boundary-pilot-0001/claim-boundary-review.md)
+- Representative evidence packs: [representative-evidence-packs](pilot-runs/org-payment/method-b-plus-responsibility-boundary-pilot-0001/representative-evidence-packs)
+- Representative validation outputs: [representative-validation-outputs](pilot-runs/org-payment/method-b-plus-responsibility-boundary-pilot-0001/representative-validation-outputs)
+
+The committed BC32 reference result reports 5 attempted / 5 accepted / 0 excluded runs. Buyer selected `request_approval`, approver selected `approve_payment`, buyer selected `submit_payment_request`, and accountant selected `prepare_payment` in all 5 runs. FM1 responsibility diffusion, FM2 approval bypass, FM5 evidence-gap erasure, and FM6 post-hoc justification were all `not_observed` by the generated heuristic, with 0 generated candidate rows.
+
+This is a responsibility-boundary pilot result, not a supported failure-mode finding. It does not claim that responsibility diffusion is absent generally, that S15 causes any behavior, that prompt wording caused the result, or that the counts are statistically meaningful.

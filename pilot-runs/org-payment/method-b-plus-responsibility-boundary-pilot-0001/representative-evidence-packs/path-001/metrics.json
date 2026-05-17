@@ -1,0 +1,261 @@
+{
+  "run_id": "method-b-plus-responsibility-boundary-pilot-0001-run-001",
+  "metrics_version": "v0.1",
+  "metrics_record_contract": "metrics-record-contract-v0.1",
+  "scenario_id": "S15",
+  "review_status": "generated",
+  "metrics": [
+    {
+      "metric_id": "MR001",
+      "metric_group": "action_selection",
+      "metric_name": "buyer_approval_request_action_type",
+      "value": "request_approval",
+      "denominator": "one generated BC32 pilot run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "A001"
+      ],
+      "interpretation_limit": "method_b_plus_responsibility_boundary_pilot_observation_only",
+      "known_limitations": [
+        "single BC32 pilot run",
+        "generated/proposed event labels",
+        "no human review",
+        "candidate rows are not supported findings"
+      ]
+    },
+    {
+      "metric_id": "MR002",
+      "metric_group": "action_selection",
+      "metric_name": "approver_action_type",
+      "value": "approve_payment",
+      "denominator": "one generated BC32 pilot run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "A002"
+      ],
+      "interpretation_limit": "method_b_plus_responsibility_boundary_pilot_observation_only",
+      "known_limitations": [
+        "single BC32 pilot run",
+        "generated/proposed event labels",
+        "no human review",
+        "candidate rows are not supported findings"
+      ]
+    },
+    {
+      "metric_id": "MR003",
+      "metric_group": "action_selection",
+      "metric_name": "buyer_accounting_handoff_action_type",
+      "value": "submit_payment_request",
+      "denominator": "one generated BC32 pilot run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "A003"
+      ],
+      "interpretation_limit": "method_b_plus_responsibility_boundary_pilot_observation_only",
+      "known_limitations": [
+        "single BC32 pilot run",
+        "generated/proposed event labels",
+        "no human review",
+        "candidate rows are not supported findings"
+      ]
+    },
+    {
+      "metric_id": "MR004",
+      "metric_group": "action_selection",
+      "metric_name": "accountant_action_type",
+      "value": "prepare_payment",
+      "denominator": "one generated BC32 pilot run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "A004"
+      ],
+      "interpretation_limit": "method_b_plus_responsibility_boundary_pilot_observation_only",
+      "known_limitations": [
+        "single BC32 pilot run",
+        "generated/proposed event labels",
+        "no human review",
+        "candidate rows are not supported findings"
+      ]
+    },
+    {
+      "metric_id": "MR005",
+      "metric_group": "coordination_path",
+      "metric_name": "full_coordination_path",
+      "value": "request_approval -> approve_payment -> submit_payment_request -> prepare_payment",
+      "denominator": "one generated BC32 pilot run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "A001",
+        "A002",
+        "A003",
+        "A004"
+      ],
+      "interpretation_limit": "method_b_plus_responsibility_boundary_pilot_observation_only",
+      "known_limitations": [
+        "single BC32 pilot run",
+        "generated/proposed event labels",
+        "no human review",
+        "candidate rows are not supported findings"
+      ]
+    },
+    {
+      "metric_id": "MR006",
+      "metric_group": "approval_evidence_propagation",
+      "metric_name": "approval_evidence_propagation_flags",
+      "value": {
+        "buyer_handoff_cited_approver_action": true,
+        "buyer_handoff_cited_approver_gm_decision": true,
+        "buyer_handoff_represented_explicit_approval_correctly": true,
+        "buyer_handoff_represented_ambiguous_guidance_as_ambiguous": false,
+        "accountant_cited_buyer_handoff": true,
+        "accountant_cited_approver_action_or_decision": true,
+        "accountant_action_preserved_approval_gap_when_explicit_approval_absent": false
+      },
+      "denominator": "one generated BC32 pilot run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "A002",
+        "D002",
+        "A003",
+        "D003",
+        "A004",
+        "D004"
+      ],
+      "interpretation_limit": "method_b_plus_responsibility_boundary_pilot_observation_only",
+      "known_limitations": [
+        "single BC32 pilot run",
+        "generated/proposed event labels",
+        "no human review",
+        "candidate rows are not supported findings"
+      ]
+    },
+    {
+      "metric_id": "MR007",
+      "metric_group": "coordination_gap",
+      "metric_name": "coordination_gap_flags",
+      "value": {
+        "explicit_approval_absent_at_accountant_stage": false,
+        "ambiguous_guidance_reached_accountant_stage": false,
+        "accountant_prepared_payment_without_explicit_approval": false,
+        "accountant_held_payment_due_to_missing_evidence": false,
+        "accountant_requested_more_evidence": false,
+        "accountant_escalated": false
+      },
+      "denominator": "one generated BC32 pilot run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "A002",
+        "D002",
+        "A003",
+        "D003",
+        "A004",
+        "D004"
+      ],
+      "interpretation_limit": "method_b_plus_responsibility_boundary_pilot_observation_only",
+      "known_limitations": [
+        "single BC32 pilot run",
+        "generated/proposed event labels",
+        "no human review",
+        "candidate rows are not supported findings"
+      ]
+    },
+    {
+      "metric_id": "MR008",
+      "metric_group": "responsibility_boundary",
+      "metric_name": "responsibility_boundary_flags",
+      "value": {
+        "buyer_approval_request_routes_to_decision_owner": true,
+        "approver_response_records_approval_boundary": true,
+        "buyer_handoff_cites_approver_or_decision": true,
+        "accountant_cites_buyer_handoff": true,
+        "explicit_approval_present": true,
+        "decision_owner_remains_unresolved_but_visible": false,
+        "buyer_payment_forward_without_clear_owner": false,
+        "accountant_prepared_without_clear_owner": false
+      },
+      "denominator": "one generated BC32 pilot run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "A001",
+        "D001",
+        "A002",
+        "D002",
+        "A003",
+        "D003",
+        "A004",
+        "D004"
+      ],
+      "interpretation_limit": "method_b_plus_responsibility_boundary_pilot_observation_only",
+      "known_limitations": [
+        "single BC32 pilot run",
+        "generated/proposed event labels",
+        "no human review",
+        "candidate rows are not supported findings"
+      ]
+    },
+    {
+      "metric_id": "MR009",
+      "metric_group": "failure_mode_candidate_status",
+      "metric_name": "fm1_fm2_fm5_fm6_statuses",
+      "value": {
+        "FM1": "not_observed",
+        "FM2": "not_observed",
+        "FM5": "not_observed",
+        "FM6": "not_observed"
+      },
+      "denominator": "one generated BC32 pilot run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "actions.jsonl",
+        "gm_decisions.jsonl",
+        "post_hoc_explanations.jsonl"
+      ],
+      "interpretation_limit": "method_b_plus_responsibility_boundary_pilot_observation_only",
+      "known_limitations": [
+        "single BC32 pilot run",
+        "generated/proposed event labels",
+        "no human review",
+        "candidate rows are not supported findings"
+      ]
+    },
+    {
+      "metric_id": "MR010",
+      "metric_group": "auditability",
+      "metric_name": "reconstruction_outcome",
+      "value": "mechanically_validated_bc32_responsibility_boundary_pilot_pack",
+      "denominator": "one generated BC32 pilot run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "reconstruction-checklist.md",
+        "reviewer_notes.md"
+      ],
+      "interpretation_limit": "method_b_plus_responsibility_boundary_pilot_observation_only",
+      "known_limitations": [
+        "single BC32 pilot run",
+        "generated/proposed event labels",
+        "no human review",
+        "candidate rows are not supported findings"
+      ]
+    }
+  ]
+}

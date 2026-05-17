@@ -689,3 +689,30 @@ Remaining gaps:
 
 - No additional Method B+ diagnostic should execute without a new mechanism-selection PR.
 - Stronger claims require new frozen mechanisms, additional review, sensitivity checks, or external validation.
+
+## Phase 1 BC1-1 Research Objective Reframing Update
+
+Latest PR label: `PR-Phase1-BC1-1-research-objective-reframing`
+
+This update applies to C01, C02, C16, C18, and C20.
+
+Evidence added:
+
+- `docs/research/research-objective-reframing-v0.1.md`
+- `docs/research/research-questions-v0.2.md`
+- `docs/research/claim-positioning-v0.2.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: the project objective is reframed as a reviewable artificial-organization methodology for institutional friction and non-intentional control slippage, not human social-chaos reproduction.
+- C02 Research Questions: research questions are updated around artifact method, claim control, institutional-friction representation, control-slippage stages, boundary-preserving conditions, and future mechanism selection.
+- C16 Validity Protocol: the reframing keeps generated candidates, reviewed evidence, proxy review, not-observed results, and baseline readiness separate.
+- C18 Reporting / Claims: claim positioning now requires the weakest accurate claim level and explicitly separates SL2 from full approval bypass.
+- C20 Ethics / Misuse Boundaries: the reframing forbids human, real-world, statistical, model-general, compliance, legal, audit, operational, governance, or safety sufficiency claims.
+
+Remaining gaps:
+
+- Current evidence still needs a structured inventory by artifact, claim level, and review level.
+- Phase 1 synthesis has not yet integrated the objective reframing and evidence inventory.

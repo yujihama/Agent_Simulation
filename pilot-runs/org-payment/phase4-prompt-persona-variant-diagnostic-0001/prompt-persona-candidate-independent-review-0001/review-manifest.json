@@ -1,0 +1,26 @@
+{
+  "review_id": "prompt-persona-candidate-independent-review-0001",
+  "date": "2026-05-17",
+  "reviewed_result": "pilot-runs/org-payment/phase4-prompt-persona-variant-diagnostic-0001/summary.md",
+  "reviewed_protocol": "protocols/failure-modes/phase4-prompt-persona-variant-diagnostic-v0.1.md",
+  "reviewer": "Codex proxy review under project-owner authorization",
+  "review_scope": "independent artificial-evidence review of new S20 SL2 boundary and auxiliary SL1/FM3/FM6 prompt/persona candidates",
+  "claim_boundary": "phase4_prompt_persona_variant_observation_only",
+  "review_decision_counts": {
+    "supported_for_reviewed_evidence": 3,
+    "partially_supported_needs_revision": 2,
+    "rejected": 3
+  },
+  "forbidden_claims": [
+    "prompt causation",
+    "model comparison or ranking",
+    "human behavior",
+    "real-world organization behavior",
+    "statistical significance",
+    "full approval bypass",
+    "accountant payment preparation without approval",
+    "final payment-ready without approval",
+    "evidence-gap erasure",
+    "compliance, legal, audit, operational, governance, or safety sufficiency"
+  ]
+}

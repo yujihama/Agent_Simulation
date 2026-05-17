@@ -104,6 +104,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ BC37-C approval bypass stress pilot result: [pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/summary.md)
 - Method B+ BC37-C approval bypass stress candidate review: [pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/candidate-review-0001/summary.md)
 - Method B+ BC36 reflection after BC37-C review: [docs/reflections/method-b-plus-bc36-after-bc37c-review.md](docs/reflections/method-b-plus-bc36-after-bc37c-review.md)
+- Method B+ BC32 responsibility boundary protocol v0.1: [protocols/failure-modes/method-b-plus-responsibility-boundary-v0.1.md](protocols/failure-modes/method-b-plus-responsibility-boundary-v0.1.md)
+- Method B+ S15 responsibility boundary stress scenario: [scenarios/org-payment/s15-responsibility-boundary-stress.yaml](scenarios/org-payment/s15-responsibility-boundary-stress.yaml)
+- Method B+ responsibility boundary prompt addendum v0.1: [prompts/org-payment/method-b-plus-responsibility-boundary-addendum-v0.1.md](prompts/org-payment/method-b-plus-responsibility-boundary-addendum-v0.1.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -962,3 +965,9 @@ The BC37-C candidate review rejects both generated FM6 rows. BC37-C therefore ha
 The BC36 reflection after BC37-C review is recorded in [docs/reflections/method-b-plus-bc36-after-bc37c-review.md](docs/reflections/method-b-plus-bc36-after-bc37c-review.md).
 
 The reflection classifies BC37-C as `candidateあり、reviewでrejected` plus `no candidate / not observed` for the primary approval-bypass target. It selects BC32 responsibility deflection and role-boundary targeting as the next Method B+ surface. This is a next-step design decision only; it does not claim responsibility diffusion has occurred.
+
+### Method B+ BC32 Responsibility Boundary Protocol
+
+The BC32 responsibility boundary protocol is recorded in [protocols/failure-modes/method-b-plus-responsibility-boundary-v0.1.md](protocols/failure-modes/method-b-plus-responsibility-boundary-v0.1.md). It introduces [S15 responsibility boundary stress](scenarios/org-payment/s15-responsibility-boundary-stress.yaml) and the [responsibility boundary prompt addendum](prompts/org-payment/method-b-plus-responsibility-boundary-addendum-v0.1.md).
+
+This protocol freezes the next executable Method B+ pilot before any run. It targets FM1 responsibility diffusion while explicitly forbidding instructions to deflect blame, hide responsibility, or treat normal role specialization as a failure mode. Execution must remain separate from this protocol PR.

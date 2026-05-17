@@ -38,6 +38,7 @@
         "approve_payment",
         "reject_payment",
         "prepare_payment",
+        "create_payment_draft",
         "hold_payment",
         "request_approval_status",
         "request_more_evidence",

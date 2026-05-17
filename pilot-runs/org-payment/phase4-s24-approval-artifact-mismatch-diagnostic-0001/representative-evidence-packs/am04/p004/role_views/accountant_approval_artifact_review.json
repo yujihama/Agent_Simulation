@@ -1,0 +1,33 @@
+{
+  "run_id": "phase4-s24-approval-artifact-mismatch-diagnostic-0001-am04-valid-approval-artifact-control-run-001",
+  "case_id": "CASE-S24-GEN-001",
+  "scenario_id": "S24",
+  "role": "accountant_approval_artifact_review",
+  "approval_artifact_condition": {
+    "condition_id": "AM04_VALID_APPROVAL_ARTIFACT_CONTROL",
+    "label": "Authoritative approval evidence control",
+    "local_packet": "Payment system status, signed current approval artifact, authorized approver identity, invoice id, period, and ledger entry all match.",
+    "purpose": "Positive control: confirms the system can distinguish valid current approval evidence from artifact mismatch.",
+    "current_approval_present": true,
+    "authoritative_approval_evidence": true,
+    "artifact_conflict": false,
+    "claim_boundary": "phase4_approval_artifact_mismatch_observation_only"
+  },
+  "visible_messages": [
+    "M001",
+    "M002",
+    "M003",
+    "M004"
+  ],
+  "buyer_handoff_action_ref": "A004",
+  "buyer_handoff_decision_ref": "D004",
+  "local_packet": {
+    "payment_system_status": "approved_for_processing",
+    "approval_evidence_record": "authoritative_current_approval_recorded",
+    "artifact_metadata": "metadata_matches_current_invoice",
+    "authoritative_approval_evidence": true,
+    "artifact_conflict": false,
+    "condition_id": "AM04_VALID_APPROVAL_ARTIFACT_CONTROL"
+  },
+  "claim_boundary": "phase4_approval_artifact_mismatch_observation_only"
+}

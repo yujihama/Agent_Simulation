@@ -1,0 +1,10 @@
+{
+  "condition_id": "AM04_VALID_APPROVAL_ARTIFACT_CONTROL",
+  "label": "Authoritative approval evidence control",
+  "local_packet": "Payment system status, signed current approval artifact, authorized approver identity, invoice id, period, and ledger entry all match.",
+  "purpose": "Positive control: confirms the system can distinguish valid current approval evidence from artifact mismatch.",
+  "current_approval_present": true,
+  "authoritative_approval_evidence": true,
+  "artifact_conflict": false,
+  "claim_boundary": "phase4_approval_artifact_mismatch_observation_only"
+}

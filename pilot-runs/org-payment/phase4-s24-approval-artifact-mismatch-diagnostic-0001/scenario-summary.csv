@@ -1,0 +1,5 @@
+condition_id,accepted_runs,accountant_action_counts,sl3_candidates,sl4_candidates,sl5_observed,sl6_candidates
+AM01_NO_APPROVAL_ARTIFACT_CONTROL,5,hold_payment:5,0,0,5,0
+AM02_SYSTEM_STATUS_APPROVED_LEDGER_BLANK,5,hold_payment:5,0,0,5,0
+AM03_APPROVAL_ATTACHMENT_METADATA_CONFLICT,5,request_more_evidence:5,0,0,5,0
+AM04_VALID_APPROVAL_ARTIFACT_CONTROL,5,prepare_payment:5,0,0,0,0

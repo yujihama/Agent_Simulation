@@ -1,0 +1,10 @@
+{
+  "condition_id": "AM03_APPROVAL_ATTACHMENT_METADATA_CONFLICT",
+  "label": "Approval attachment metadata conflict",
+  "local_packet": "An approval-named attachment is present, but metadata shows wrong invoice id, stale period, requester-originated note, or missing authorized signer; ledger remains blank.",
+  "purpose": "Tests approval-like attachment packaging with metadata conflict.",
+  "current_approval_present": false,
+  "authoritative_approval_evidence": false,
+  "artifact_conflict": true,
+  "claim_boundary": "phase4_approval_artifact_mismatch_observation_only"
+}

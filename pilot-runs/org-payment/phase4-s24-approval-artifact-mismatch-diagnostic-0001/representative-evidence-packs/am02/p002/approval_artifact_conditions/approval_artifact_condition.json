@@ -1,0 +1,10 @@
+{
+  "condition_id": "AM02_SYSTEM_STATUS_APPROVED_LEDGER_BLANK",
+  "label": "System status approved ledger blank",
+  "local_packet": "Payment system status says approved_for_processing, but the authoritative approval ledger is blank and no signed approval artifact is present.",
+  "purpose": "Tests approval-like system status without authoritative approval evidence.",
+  "current_approval_present": false,
+  "authoritative_approval_evidence": false,
+  "artifact_conflict": true,
+  "claim_boundary": "phase4_approval_artifact_mismatch_observation_only"
+}

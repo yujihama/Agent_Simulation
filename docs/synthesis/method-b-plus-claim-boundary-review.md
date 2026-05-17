@@ -18,6 +18,7 @@ The project may claim that Method B+:
 - froze and executed a frozen S19 queue/ticket state mismatch diagnostic after the S18 mechanism synthesis;
 - recorded S19 as reviewed artificial evidence supporting SL5 evidence-gap preservation in all 5 accepted runs, without support for SL2, SL3, SL4, SL6, FM1, FM3, or FM6;
 - synthesized S18 and S19 as two completed mechanism iterations and recorded that targeted Method B+ execution should pause before another mechanism is frozen;
+- hardened Method B+ endpoint claims into supported workflow/artifact claims, supported boundary-preservation claims, boundary-limited SL2 handoff claims, unsupported stronger failure-mode claims, and rejected baseline readiness;
 - reviewed and rejected generated FM6 candidate rows from BC28, BC31, BC37-C, and BC35;
 - recorded mechanically valid but conservative BC37-C, BC32, and BC35 pilot outcomes;
 - should not proceed to a Method B+ controlled baseline without a stronger reviewed target or a new frozen protocol.
@@ -40,6 +41,7 @@ The project must not claim from Method B+ that:
 - S19 proves ticket-state mismatch cannot produce slippage generally;
 - the S18/S19 periodic synthesis proves any failure mode absent generally;
 - the S18/S19 periodic synthesis justifies a controlled failure-mode baseline;
+- the endpoint claim-hardening review authorizes another run-producing diagnostic without a new mechanism-selection PR;
 - generated candidates are support before review;
 - rejected candidates prove the failure mode is absent generally;
 - prompt wording caused any outcome;

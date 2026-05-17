@@ -1700,3 +1700,63 @@ Next step:
 
 - Execute the frozen S21 exception-review authority-resolution diagnostic only if the runner can implement it without changing frozen conditions after seeing outputs.
 - Phase 4 remains open until execution and candidate review determine whether this handback stage produces stronger downstream slippage or another boundary-preserving result.
+
+## Phase 4 S21 Exception-Review Authority-Resolution Diagnostic Execution Update
+
+Latest PR label: `PR-Phase4-S21-authority-resolution-execution`
+
+This update applies to C02, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `src/social_sim/phase4_s21_authority_resolution_runner.py`
+- `tests/test_phase4_s21_authority_resolution_pilot.py`
+- `pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/summary.md`
+- `pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/aggregate.json`
+- `pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/execution-manifest.json`
+- `pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/event-candidate-table.csv`
+- `pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/candidate-review-0001/summary.md`
+- `pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/representative-evidence-packs/`
+- `pilot-runs/org-payment/phase4-s21-exception-review-authority-resolution-diagnostic-0001/representative-validation-outputs/`
+- `docs/reflections/phase4-after-s21-authority-resolution-diagnostic.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: executes the frozen S21 question and records that this authority-resolution handback structure did not produce reviewed SL3, SL4, or SL6 support.
+- C08 Interaction Layer: records scripted S21 SL2/review-route setup followed by LLM exception-authority and accountant after-handback decisions across four authority-resolution conditions.
+- C09 Game Master / Arbiter: deterministic menu-aware decisions preserved the distinction between review routing, explicit exception authority, unresolved approval, and downstream payment preparation.
+- C10 LLM Actor Layer: OpenAI `gpt-5.2` generated exception-authority, accountant, and post-hoc explanation artifacts; this remains a single-model diagnostic, not a model-comparison or model-ranking claim.
+- C12 Experiment Harness: the S21 runner and CLI generated 20 attempted / 20 accepted / 0 excluded evidence packs; raw outputs remain under ignored `runs/` and curated artifacts are under `pilot-runs/`.
+- C13 Event Taxonomy: no new event type was added; generated/proposed event labels remain bounded by the existing taxonomy.
+- C14 Metrics: descriptive metrics separately report authority condition, exception action, accountant action, SL3, SL4, SL5, SL6, FM3, and FM6 statuses.
+- C15 Evidence Pack: representative S21 evidence packs validate mechanically and include authority conditions, role views, handback summaries, action menus, parser results, proposal attempts, post-hoc explanations, trace, events, metrics, reviewer notes, and reconstruction checklist.
+- C16 Validity Protocol: generated rows were reviewed in the same PR package; SL5 is supported for reviewed artificial evidence, while SL3, SL4, SL6, FM3, and FM6 are not observed.
+- C17 Human / LLM Review: candidate review remains Codex proxy review under project-owner authorization, not independent external or multi-reviewer human validation.
+- C18 Reporting / Claims: the result is limited to artificial-system S21 diagnostic observations; it is not a baseline, statistical result, prompt-causation result, model comparison, human behavior claim, or real-world organization claim.
+- C20 Ethics / Misuse Boundaries: the result makes no compliance, legal, audit, operational, governance, or safety sufficiency claim.
+
+Observed S21 result:
+
+- Attempted runs: 20.
+- Accepted runs: 20.
+- Excluded runs: 0.
+- Exception-authority actions: `deny_exception_authority`: 10; `provide_ambiguous_guidance`: 5; `request_more_evidence`: 4; `escalate`: 1.
+- Accountant after-handback actions: `hold_payment`: 18; `request_more_evidence`: 2.
+- SL3 accountant payment preparation without authority: not observed.
+- SL4 final payment-ready without authority: not observed.
+- SL5 evidence-gap preservation: observed in all 20 accepted runs.
+- SL6 evidence-gap erasure: not observed.
+- FM3 ambiguous authority interpretation: not observed.
+- FM6 post-hoc justification: not observed.
+
+Remaining gaps:
+
+- S21 did not identify an information structure that produces stronger downstream slippage.
+- The explicit-authority control condition did not produce an exception-authority grant in the accepted runs, so future work should not infer positive-control behavior from this result.
+- Phase 4 remains open because the tested handback structure again reinforced downstream boundary preservation rather than SL3, SL4, or SL6.
+
+Next step:
+
+- Synthesize boundary preservation or select a genuinely different mechanism before any further run-producing diagnostic.

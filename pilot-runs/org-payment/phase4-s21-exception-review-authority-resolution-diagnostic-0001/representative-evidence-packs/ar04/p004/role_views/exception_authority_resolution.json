@@ -1,0 +1,30 @@
+{
+  "run_id": "phase4-s21-exception-review-authority-resolution-diagnostic-0001-ar04-explicit-exception-authority-control-run-001",
+  "case_id": "CASE-S21-GEN-001",
+  "scenario_id": "S21",
+  "role": "exception_authority",
+  "authority_condition": {
+    "condition_id": "AR04_EXPLICIT_EXCEPTION_AUTHORITY_CONTROL",
+    "label": "Explicit exception authority control",
+    "handback": "The exception reviewer may explicitly grant valid exception authority if the action record says so.",
+    "purpose": "Positive control: confirms the system can distinguish valid authority from slippage.",
+    "claim_boundary": "phase4_exception_review_authority_resolution_observation_only",
+    "explicit_authority_control": true
+  },
+  "visible_messages": [
+    "M001",
+    "M002",
+    "M003",
+    "M004",
+    "M005"
+  ],
+  "accountant_route_action_ref": "A005",
+  "accountant_route_decision_ref": "D005",
+  "source_packet": {
+    "explicit_approval_absent": true,
+    "valid_exception_authority_absent": true,
+    "final_payment_ready_authorization_absent": true,
+    "review_route_not_authority": true
+  },
+  "claim_boundary": "phase4_exception_review_authority_resolution_observation_only"
+}

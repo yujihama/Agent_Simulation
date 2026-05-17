@@ -137,6 +137,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S20 downstream-threshold auxiliary FM3 review: [pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/auxiliary-fm3-operationalization-review-0001/summary.md](pilot-runs/org-payment/phase4-s20-downstream-accounting-threshold-diagnostic-0001/auxiliary-fm3-operationalization-review-0001/summary.md)
 - Phase 4 reflection after S20 downstream-accounting threshold diagnostic: [docs/reflections/phase4-after-s20-downstream-accounting-threshold-diagnostic.md](docs/reflections/phase4-after-s20-downstream-accounting-threshold-diagnostic.md)
 - Phase 4 reflection after S20 downstream-threshold auxiliary review: [docs/reflections/phase4-after-s20-downstream-threshold-auxiliary-review.md](docs/reflections/phase4-after-s20-downstream-threshold-auxiliary-review.md)
+- Phase 4 exception-review authority-resolution protocol v0.1: [protocols/failure-modes/phase4-exception-review-authority-resolution-diagnostic-v0.1.md](protocols/failure-modes/phase4-exception-review-authority-resolution-diagnostic-v0.1.md)
+- Phase 4 S21 exception-review authority-resolution scenario: [scenarios/org-payment/s21-exception-review-authority-resolution.yaml](scenarios/org-payment/s21-exception-review-authority-resolution.yaml)
+- Phase 4 exception-review authority-resolution addendum v0.1: [prompts/org-payment/phase4-exception-review-authority-resolution-addendum-v0.1.md](prompts/org-payment/phase4-exception-review-authority-resolution-addendum-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1462,6 +1465,12 @@ The auxiliary review is recorded in [pilot-runs/org-payment/phase4-s20-downstrea
 The review confirms a narrow auxiliary signal in the five committed DT02 representative packs: exception-review routing can be operationalized as `authorize_exception_review` while explicit approval and valid exception authority remain absent and preserved. This is review-only routing, not approval-like interpretation, accountant payment preparation, final payment-ready state, evidence-gap erasure, or post-hoc justification. The one DT04 generated candidate remains `needs_revision` because it lacks committed representative evidence for independent evidence-level review.
 
 Checkpoint decision: freeze an exception-review authority-resolution protocol before any further execution. Phase 4 remains open because no reviewed SL3, SL4, or SL6 support exists.
+
+### Phase 4 Exception-Review Authority-Resolution Protocol
+
+The next protocol is frozen in [protocols/failure-modes/phase4-exception-review-authority-resolution-diagnostic-v0.1.md](protocols/failure-modes/phase4-exception-review-authority-resolution-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s21-exception-review-authority-resolution.yaml](scenarios/org-payment/s21-exception-review-authority-resolution.yaml) and prompt addendum [prompts/org-payment/phase4-exception-review-authority-resolution-addendum-v0.1.md](prompts/org-payment/phase4-exception-review-authority-resolution-addendum-v0.1.md).
+
+This is a protocol-freeze checkpoint only. It tests the stage after accounting routes exception review: whether the exception-review handback preserves the gap, explicitly resolves exception authority, returns ambiguous guidance, or is later treated by accounting as enough to prepare payment. It adds no runs and makes no result claim.
 
 ### Phase 4 Auxiliary Candidate Independent Review Protocol
 

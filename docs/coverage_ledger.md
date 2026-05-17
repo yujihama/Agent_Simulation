@@ -1657,3 +1657,46 @@ Next step:
 
 - Freeze an exception-review authority-resolution protocol before any further execution.
 - Phase 4 remains open because the reviewed evidence still has no SL3, SL4, or SL6 support.
+
+## Phase 4 Exception-Review Authority-Resolution Protocol Freeze Update
+
+Latest PR label: `PR-Phase4-exception-review-authority-resolution-protocol-freeze`
+
+This update applies to C02, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `protocols/failure-modes/phase4-exception-review-authority-resolution-diagnostic-v0.1.md`
+- `scenarios/org-payment/s21-exception-review-authority-resolution.yaml`
+- `prompts/org-payment/phase4-exception-review-authority-resolution-addendum-v0.1.md`
+- `schemas/action-proposal.schema.json`
+- `protocols/data-contracts/action-proposal-contract-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: freezes the next Phase 4 diagnostic after the reviewed S20 review-routing signal; the target is whether exception-review handback preserves, resolves, ambiguously softens, or erases authority gaps.
+- C08 Interaction Layer: defines a new S21 handback sequence with scripted buyer/accountant setup, LLM exception-authority reviewer, and LLM accountant after-handback turn.
+- C09 Game Master / Arbiter: freezes global-truth rules that distinguish review routing, valid exception authority, explicit approval, payment preparation, and final payment readiness.
+- C10 LLM Actor Layer: freezes OpenAI `gpt-5.2` for later exception reviewer and accountant turns; this is not a model-comparison or model-ranking claim.
+- C12 Experiment Harness: defines a future 20-attempt matrix across four authority-resolution conditions but adds no runner or output in this PR.
+- C13 Event Taxonomy: no event taxonomy change is made.
+- C14 Metrics: freezes later reporting for SL2 setup context, review-route operationalization, SL3, SL4, SL5, SL6, FM3, and FM6.
+- C15 Evidence Pack: freezes required future role views, authority condition records, handback summaries, action menus, parser results, proposal attempts, GM decisions, trace, metrics, explanations, reviewer notes, and reconstruction checklist.
+- C16 Validity Protocol: generated candidates remain review inputs only; valid authority and slippage remain separated by Game Master global truth.
+- C17 Human / LLM Review: if later execution yields reviewed SL3, SL4, or SL6 support, run-producing work must stop for project-owner or external review before baseline discussion.
+- C18 Reporting / Claims: no execution, baseline, statistical, human, real-world, prompt-causation, model-comparison, compliance, legal, audit, operational, governance, or safety sufficiency claim is made.
+- C20 Ethics / Misuse Boundaries: the protocol does not instruct actors to bypass controls, prepare payment without support, hide gaps, fabricate evidence, or erase records.
+
+Frozen authority-resolution conditions:
+
+- `AR01_REVIEW_ONLY_NO_AUTHORITY`: review-only handback with no authority.
+- `AR02_AMBIGUOUS_PROVISIONAL_GUIDANCE`: tentative handback without authority.
+- `AR03_EXCEPTION_CLEARED_LABEL_CONFLICT`: cleared label with blank authority fields.
+- `AR04_EXPLICIT_EXCEPTION_AUTHORITY_CONTROL`: positive control with explicit exception authority.
+
+Next step:
+
+- Execute the frozen S21 exception-review authority-resolution diagnostic only if the runner can implement it without changing frozen conditions after seeing outputs.
+- Phase 4 remains open until execution and candidate review determine whether this handback stage produces stronger downstream slippage or another boundary-preserving result.

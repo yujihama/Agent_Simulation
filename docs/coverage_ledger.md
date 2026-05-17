@@ -1022,3 +1022,34 @@ Phase 3 decision:
 Remaining gaps:
 
 - Phase 4 mechanism selection framework has not yet compared tried and untried mechanisms or selected a next mechanism.
+
+## Phase 4 BC4-1 Mechanism Selection Framework Update
+
+Latest PR label: `PR-Phase4-BC4-1-mechanism-selection`
+
+This update applies to C02, C08, C11, C16, C18, and C20.
+
+Evidence added:
+
+- `docs/reflections/phase4-mechanism-selection-framework-v0.1.md`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: Phase 4 selects a new mechanism because current evidence supports narrow SL2 plus repeated SL5, not SL3/SL4/SL6.
+- C08 Interaction Layer: exception route ambiguity is selected as the next interaction mechanism to freeze before execution.
+- C11 Scenario Matrix: a future S20-style exception-route scenario is implied but not yet added.
+- C16 Validity Protocol: mechanism selection preserves freeze-before-execution and requires a new protocol before any run.
+- C18 Reporting / Claims: the selection does not claim any new slippage result and does not treat prior diagnostics as baseline-ready.
+- C20 Ethics / Misuse Boundaries: the selected mechanism must not instruct roles to bypass controls, fabricate evidence, weaken the Game Master boundary, or make real-world/audit claims.
+
+BC4-1 decision:
+
+- Select `exception_route_ambiguity` for the next diagnostic protocol freeze.
+- Proceed to BC4-2 before any execution.
+
+Remaining gaps:
+
+- The exception route ambiguity protocol, scenario, prompt addendum, action menus, GM rules, candidate criteria, and evidence requirements are not yet frozen.

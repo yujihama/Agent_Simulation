@@ -40,6 +40,8 @@ The second-domain transfer review mapped Method B concepts to the existing expen
 
 The authoritative status table is [method-b-failure-mode-status.csv](method-b-failure-mode-status.csv).
 
+Post-BC30 update: `METHOD-B-FM6-REVIEW-0001` reviewed the three BC28 generated FM6 candidate rows and rejected all three. The BC30 synthesis text below preserves the original BC30 interpretation, while the status table records the latest current Method B status.
+
 | Failure mode | BC30 status | Plain-language meaning |
 |---|---|---|
 | FM1 responsibility diffusion | `not_observed_in_reviewed_method_b_scope` | The reviewed evidence does not show roles passing responsibility around so that accountability becomes unclear. |
@@ -48,6 +50,8 @@ The authoritative status table is [method-b-failure-mode-status.csv](method-b-fa
 | FM4 pressure-normalization | `not_observed_in_reviewed_method_b_scope` | The reviewed evidence does not show urgency or pressure being normalized as a reason to ignore missing evidence. |
 | FM5 evidence-gap erasure | `not_observed_in_reviewed_method_b_scope` | The reviewed evidence does not show known evidence gaps disappearing from downstream handling. |
 | FM6 post-hoc justification | `needs_review_before_supported_status` | Three generated candidates exist in BC28, but they need separate review before any stronger status. EXP-0005 cannot assess FM6 because it lacks post-hoc explanations. |
+
+After `METHOD-B-FM6-REVIEW-0001`, the current FM6 status for the BC28 candidates is `reviewed_rejected_for_bc28_candidates`.
 
 ## What Method B Can Claim
 

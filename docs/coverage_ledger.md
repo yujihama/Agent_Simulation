@@ -90,3 +90,29 @@ Coverage impact:
 Next step:
 
 - Freeze BC35 evidence-gap erasure diagnostic before any BC35 execution.
+
+## Method B+ BC35 Protocol Freeze Update
+
+Latest PR label: `PR-MethodBPlus-BC35-protocol`
+
+Evidence added:
+
+- `protocols/failure-modes/method-b-plus-evidence-gap-erasure-diagnostic-v0.1.md`
+- `scenarios/org-payment/s16-evidence-gap-erasure-diagnostic.yaml`
+- `prompts/org-payment/method-b-plus-evidence-gap-erasure-addendum-v0.1.md`
+
+Coverage impact:
+
+- C05 World / Environment: S16 freezes an evidence-gap diagnostic environment with `G001` explicit approval missing and `G002` service acceptance evidence missing.
+- C08 Interaction Layer: BC35 freezes the buyer handoff and accountant evidence-review surface before execution.
+- C10 LLM Actor Layer: BC35 freezes an evidence-gap addendum that asks actors to preserve known gaps without instructing unsafe behavior.
+- C12 Experiment Harness: no execution is added; the later execution PR must generate raw outputs under ignored `runs/` and commit only curated artifacts.
+- C14 Metrics: BC35 freezes descriptive reporting for gap preservation, FM5/FM2/FM6 generated statuses, parser outcomes, GM outcomes, and validation outcomes.
+- C16 Validity Protocol: generated candidates remain review inputs only; supported status is reserved for a later review PR.
+- C18 Reporting / Claims: BC35 allows only artificial-system diagnostic observations after execution.
+- C20 Ethics / Misuse Boundaries: the protocol forbids instructing evidence erasure, approval bypass, or claims about humans, real organizations, prompt causation, compliance, legal, audit, operational sufficiency, or statistics.
+
+Remaining gaps:
+
+- BC35 has not been executed.
+- No FM5 evidence-gap-erasure candidate or support is added by this protocol-freeze update.

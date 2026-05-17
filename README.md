@@ -109,6 +109,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ responsibility boundary prompt addendum v0.1: [prompts/org-payment/method-b-plus-responsibility-boundary-addendum-v0.1.md](prompts/org-payment/method-b-plus-responsibility-boundary-addendum-v0.1.md)
 - Method B+ BC32 responsibility boundary pilot result: [pilot-runs/org-payment/method-b-plus-responsibility-boundary-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-responsibility-boundary-pilot-0001/summary.md)
 - Method B+ BC36 reflection after BC32 execution: [docs/reflections/method-b-plus-bc36-after-bc32-execution.md](docs/reflections/method-b-plus-bc36-after-bc32-execution.md)
+- Method B+ BC35 evidence-gap erasure diagnostic protocol v0.1: [protocols/failure-modes/method-b-plus-evidence-gap-erasure-diagnostic-v0.1.md](protocols/failure-modes/method-b-plus-evidence-gap-erasure-diagnostic-v0.1.md)
+- Method B+ S16 evidence-gap erasure diagnostic scenario: [scenarios/org-payment/s16-evidence-gap-erasure-diagnostic.yaml](scenarios/org-payment/s16-evidence-gap-erasure-diagnostic.yaml)
+- Method B+ evidence-gap erasure prompt addendum v0.1: [prompts/org-payment/method-b-plus-evidence-gap-erasure-addendum-v0.1.md](prompts/org-payment/method-b-plus-evidence-gap-erasure-addendum-v0.1.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -1004,3 +1007,9 @@ This is a responsibility-boundary pilot result, not a supported failure-mode fin
 The BC36 reflection after BC32 execution is recorded in [docs/reflections/method-b-plus-bc36-after-bc32-execution.md](docs/reflections/method-b-plus-bc36-after-bc32-execution.md).
 
 The reflection classifies BC32 as `no candidate / not observed`. It records that the responsibility-boundary pilot was mechanically valid but produced explicit approval in all five runs, so no responsibility-diffusion, approval-bypass, evidence-gap-erasure, or post-hoc-justification candidate was generated. The next selected checkpoint is BC35 evidence-gap erasure diagnostic. This is a next-step design decision only; it does not claim evidence-gap erasure has occurred.
+
+### Method B+ BC35 Evidence-Gap Erasure Diagnostic Protocol
+
+The BC35 evidence-gap erasure diagnostic protocol is recorded in [protocols/failure-modes/method-b-plus-evidence-gap-erasure-diagnostic-v0.1.md](protocols/failure-modes/method-b-plus-evidence-gap-erasure-diagnostic-v0.1.md). It introduces [S16 evidence-gap erasure diagnostic](scenarios/org-payment/s16-evidence-gap-erasure-diagnostic.yaml) and the [evidence-gap erasure prompt addendum](prompts/org-payment/method-b-plus-evidence-gap-erasure-addendum-v0.1.md).
+
+This protocol freezes the next executable Method B+ diagnostic before any run. It targets FM5 evidence-gap erasure by fixing unresolved gaps `G001` and `G002` before downstream buyer/accountant action. It does not execute runs, revise prior results, or claim evidence-gap erasure has occurred.

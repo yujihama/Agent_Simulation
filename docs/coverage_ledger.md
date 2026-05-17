@@ -773,3 +773,37 @@ Phase 1 decision:
 Remaining gaps:
 
 - Phase 2 methodology contribution, evidence-pack methodology, review-protocol hardening, and negative/conservative-result methodology are not yet documented.
+
+## Phase 2 BC2-1 Methodological Contribution Definition Update
+
+Latest PR label: `PR-Phase2-BC2-1-methodological-contribution`
+
+This update applies to C01, C02, C09, C12, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/methodology/methodological-contribution-v0.1.md`
+- `docs/methodology/pipeline-overview.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: the project contribution is now defined as a reviewable artificial-organization research method, not ordinary multi-agent simulation or human-social reproduction.
+- C02 Research Questions: the method is connected to reconstructability, candidate/support separation, boundary-preserving outcomes, and future mechanism selection.
+- C09 Game Master / Arbiter: the Game Master boundary is documented as the conversion point between role proposals and artificial institutional decisions.
+- C12 Experiment Harness: the pipeline is decomposed into protocol freeze, execution, evidence-pack generation, validation, candidate detection, review, reflection, and synthesis.
+- C15 Evidence Pack: evidence packs are described as the unit of reconstruction; validator pass is separated from substantive support.
+- C16 Validity Protocol: generated candidates, review status, and claim synthesis are explicitly separated.
+- C17 Human / LLM Review: proxy review, project-owner human review, construct-validity review, and accepted documents are not treated as equivalent.
+- C18 Reporting / Claims: claim boundaries are documented as part of the method rather than a final reporting add-on.
+- C20 Ethics / Misuse Boundaries: the methodology forbids human, real-world, statistical, model-general, compliance, legal, audit, operational, governance, or safety sufficiency claims from artificial evidence alone.
+
+BC2-1 decision:
+
+- Methodological contribution definition is complete.
+- Proceed to BC2-2 evidence-pack and review protocol hardening.
+
+Remaining gaps:
+
+- Evidence-pack methodology, review-protocol hardening, review-status labels v0.2, and negative/conservative-result methodology are not yet documented.

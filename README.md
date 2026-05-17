@@ -94,6 +94,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Current evidence map: [docs/synthesis/current-evidence-map.csv](docs/synthesis/current-evidence-map.csv)
 - Current claim-level table: [docs/synthesis/current-claim-level-table.csv](docs/synthesis/current-claim-level-table.csv)
 - Phase 1 research position synthesis v0.1: [docs/synthesis/phase1-research-position-synthesis-v0.1.md](docs/synthesis/phase1-research-position-synthesis-v0.1.md)
+- Methodological contribution v0.1: [docs/methodology/methodological-contribution-v0.1.md](docs/methodology/methodological-contribution-v0.1.md)
+- Pipeline overview: [docs/methodology/pipeline-overview.md](docs/methodology/pipeline-overview.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1247,3 +1249,11 @@ The inventory separates artifact claims, bounded observation claims, reviewed ev
 The Phase 1 synthesis is recorded in [docs/synthesis/phase1-research-position-synthesis-v0.1.md](docs/synthesis/phase1-research-position-synthesis-v0.1.md).
 
 It concludes that Phase 1 is complete: the project should be described as a reviewable artificial-organization research method for institutional friction and non-intentional control-slippage boundaries. Phase 2 should organize the methodological contribution, evidence-pack review process, and negative/conservative result methodology before any further execution-oriented work.
+
+### Phase 2 Methodological Contribution
+
+The Phase 2 methodology definition is recorded in [docs/methodology/methodological-contribution-v0.1.md](docs/methodology/methodological-contribution-v0.1.md), with the staged pipeline summarized in [docs/methodology/pipeline-overview.md](docs/methodology/pipeline-overview.md).
+
+BC2-1 defines the contribution as a reviewable artificial-organization research method, not merely a multi-agent simulation. The method combines protocol freeze, role action proposals, deterministic Game Master decisions, evidence packs, mechanical validation, candidate review, reflection, synthesis, and explicit claim boundaries.
+
+This stage adds no new empirical result. It clarifies why conservative and negative outcomes remain research-relevant and why validator passes, generated candidates, reviewed support, and project-level claims must remain separate.

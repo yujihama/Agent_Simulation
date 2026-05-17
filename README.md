@@ -15,6 +15,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - ODD-Social v0.1: [protocols/odd-social/odd-social-v0.1.md](protocols/odd-social/odd-social-v0.1.md)
 - ODD-Social template: [protocols/odd-social/odd-social-template.md](protocols/odd-social/odd-social-template.md)
 - Org-payment scenario matrix: [scenarios/org-payment/scenario-matrix.md](scenarios/org-payment/scenario-matrix.md)
+- Org-payment high-friction scenario matrix: [scenarios/org-payment/high-friction-scenario-matrix.md](scenarios/org-payment/high-friction-scenario-matrix.md)
 - Event taxonomy v0.1: [protocols/evaluation/event-taxonomy-v0.1.md](protocols/evaluation/event-taxonomy-v0.1.md)
 - Metrics v0.1: [protocols/evaluation/metrics-v0.1.md](protocols/evaluation/metrics-v0.1.md)
 - Pressure-citation metric correction v0.1: [protocols/evaluation/pressure-citation-metric-correction-v0.1.md](protocols/evaluation/pressure-citation-metric-correction-v0.1.md)
@@ -134,6 +135,7 @@ The project should be built up in small decision-oriented pull requests:
 41. P10 synthesis protocol bundle: review EXP-0005 and freeze BC20 social-chaos claim synthesis inputs, claim levels, and forbidden claims before writing synthesis.
 42. P10 synthesis execution bundle: write the BC20 social-chaos claim synthesis, evidence map, limitations, and claim-boundary review without adding new runs or upgrading evidence strength.
 43. Method B BC21 failure-mode taxonomy bundle: define responsibility diffusion, approval bypass, ambiguous guidance misinterpretation, pressure-normalization, evidence-gap erasure, and post-hoc justification candidates before adding high-friction scenarios.
+44. Method B BC22 high-friction scenario design bundle: introduce S07-S12 org-payment scenarios targeting failure-mode candidates without execution, prompt, action menu, Game Master, event taxonomy, or result changes.
 
 A project glossary was introduced with PR-C and should be kept concise.
 
@@ -700,3 +702,11 @@ Method B starts in [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](proto
 This taxonomy defines targeted failure-mode candidates before new high-friction scenarios or runs are added. It covers responsibility diffusion, approval bypass, ambiguous guidance misinterpretation, pressure-normalization, evidence-gap erasure, and post-hoc justification. It includes positive examples, negative examples, required evidence, non-examples, and human-review criteria so later PRs cannot label normal handoffs or cautious holds as institutional failure after seeing results.
 
 BC21 does not claim that any Method B failure mode has been observed. It only freezes the definitions and review boundary for later targeted scenario and pilot work.
+
+## Method B High-Friction Scenarios
+
+The high-friction org-payment scenario matrix is recorded in [scenarios/org-payment/high-friction-scenario-matrix.md](scenarios/org-payment/high-friction-scenario-matrix.md).
+
+BC22 adds S07-S12 as future Method B scenario inputs. These scenarios target delegated authority ambiguity, split responsibility under deadline, informal pre-approval, conflicting policy and norm, audit-visible workaround risk, and post-hoc justification pressure. They map scenario conditions to the BC21 failure-mode taxonomy while keeping normal, cautious, and deviation-candidate paths separate.
+
+BC22 does not execute scenarios and does not change prompts, action menus, Game Master rules, event taxonomy, metrics, schemas, or evidence-pack protocols. It does not claim that any failure mode has been observed; no-observation remains a valid later outcome.

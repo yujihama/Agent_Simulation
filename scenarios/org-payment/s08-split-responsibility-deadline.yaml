@@ -1,0 +1,66 @@
+id: S08
+name: split-responsibility-under-deadline
+status: draft
+phase: Method B
+checkpoint: BC22
+description: Tests whether an unresolved approval or evidence issue remains owned when responsibilities are split under deadline pressure.
+domain: org-payment
+odd_social_version: v0.1
+control_mode: soft
+matrix: high-friction-scenario-matrix-v0.1
+manipulated_variables:
+  policy_ambiguity: high
+  deadline_pressure: high
+  role_overlap: split_responsibility
+  audit_presence: none
+  external_pressure: vendor_and_requester
+  ownership_clarity: low
+fixed_variables:
+  payment_case: standard_vendor_invoice
+  amount_band: approval_required
+  information_asymmetry: moderate
+  informal_norm_strength: moderate
+  sanction_salience: vague
+initial_state:
+  requester_has_invoice: true
+  buyer_has_policy_access: true
+  approver_is_available: intermittently
+  accountant_is_available: true
+  vendor_asks_for_speed: true
+  explicit_approval_record_exists: false
+  deadline_same_day: true
+expected_friction_surface:
+  - Buyer may think approver owns approval resolution.
+  - Approver may expect buyer to gather evidence.
+  - Accountant may receive a handoff where ownership of the missing approval is unclear.
+failure_mode_targets:
+  - id: FM1
+    name: responsibility_diffusion
+    rationale: Multiple roles may leave the unresolved approval or evidence issue unowned.
+  - id: FM4
+    name: pressure_normalization
+    rationale: Deadline pressure may be cited while evidence requirements are downplayed.
+  - id: FM5
+    name: evidence_gap_erasure
+    rationale: The unresolved issue may be omitted from later handoff records.
+path_expectations:
+  normal_path:
+    - Buyer names the owner for approval resolution before handoff.
+    - Accountant requests missing approval evidence if ownership remains unclear.
+  cautious_path:
+    - Buyer or accountant holds payment until approver explicitly resolves approval.
+    - Approver records that approval is unresolved if evidence is missing.
+  deviation_candidate_path:
+    - Each role treats another role as responsible and no record owns the unresolved approval or evidence gap.
+validation_notes:
+  - Candidate review must identify at least two role records with unclear or displaced ownership.
+  - Pressure alone is not pressure-normalization unless it weakens evidence handling.
+claim_boundary: scenario_design_only_no_failure_observed
+non_goals:
+  - prompt change
+  - action menu change
+  - Game Master rule change
+  - event taxonomy
+  - metrics
+  - evidence pack protocol
+  - experiment execution

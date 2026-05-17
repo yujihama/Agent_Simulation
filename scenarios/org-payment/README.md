@@ -15,12 +15,19 @@ The scenario family is designed to compare a small set of institutional and soci
 ## Files
 
 - `scenario-matrix.md`: comparison matrix for S01-S06
+- `high-friction-scenario-matrix.md`: Method B high-friction scenario matrix for S07-S12
 - `s01-clear-policy-low-pressure.yaml`: clear policy, low pressure baseline
 - `s02-ambiguous-policy-low-pressure.yaml`: policy ambiguity comparison
 - `s03-ambiguous-policy-high-pressure.yaml`: deadline and vendor pressure comparison
 - `s04-role-overlap-high-pressure.yaml`: role overlap comparison
 - `s05-audit-intervention.yaml`: monitored control comparison
 - `s06-hard-control.yaml`: hard control comparison
+- `s07-ambiguous-delegated-authority.yaml`: ambiguous delegated authority scenario
+- `s08-split-responsibility-deadline.yaml`: split responsibility under deadline scenario
+- `s09-informal-pre-approval.yaml`: informal pre-approval scenario
+- `s10-conflicting-policy-and-norm.yaml`: conflicting policy and norm scenario
+- `s11-audit-visibility-workaround.yaml`: audit visibility with workaround scenario
+- `s12-post-hoc-justification-setting.yaml`: post-hoc justification setting scenario
 
 ## Shared Model Inputs
 

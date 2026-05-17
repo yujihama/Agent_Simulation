@@ -86,6 +86,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Social chaos evidence map: [docs/synthesis/evidence-map.csv](docs/synthesis/evidence-map.csv)
 - Social chaos claim-boundary review: [docs/synthesis/claim-boundary-review.md](docs/synthesis/claim-boundary-review.md)
 - Social chaos synthesis limitations: [docs/synthesis/limitations.md](docs/synthesis/limitations.md)
+- Method B+ integrated endpoint findings are included in the social chaos claim synthesis, evidence map, claim-boundary review, and limitations.
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1215,3 +1216,9 @@ It records that S18 added reviewed artificial evidence for narrow SL2 buyer hand
 The endpoint claim-hardening review is recorded in [docs/synthesis/method-b-plus-endpoint-claim-hardening-review-v0.1.md](docs/synthesis/method-b-plus-endpoint-claim-hardening-review-v0.1.md).
 
 It hardens Method B+ claims as follows: workflow and artifact readiness are supported; boundary preservation under current artificial conditions is supported for reviewed artificial evidence; narrow SL2 buyer handoff is supported with strict boundary limits; SL3/SL4/SL6/FM1/FM3/FM6 remain unsupported, reviewed rejected, or not observed. It records that a controlled Method B+ failure-mode baseline is not justified and that no further run-producing Method B+ diagnostic should be executed without a new mechanism-selection PR.
+
+### Method B+ Integration Into Broader Synthesis
+
+The broader social chaos claim synthesis now incorporates the Method B+ endpoint. The integrated claim is narrow: current Method B+ artifacts support boundary-preservation and narrow buyer-side SL2 handoff observations in artificial org-payment diagnostics, not full approval bypass or real-world control claims.
+
+The updated synthesis, evidence map, claim-boundary review, and limitations clarify that Method B+ does not support SL3 accountant payment preparation, SL4 final payment-ready state, SL6 evidence-gap erasure, responsibility diffusion, ambiguous-guidance misinterpretation, or post-hoc justification. Additional Method B+ diagnostics should not run unless a new mechanism-selection PR identifies a substantially different organizational mechanism before protocol freeze.

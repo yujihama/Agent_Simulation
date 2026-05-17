@@ -104,6 +104,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 2 methodology synthesis v0.1: [docs/synthesis/phase2-methodology-synthesis-v0.1.md](docs/synthesis/phase2-methodology-synthesis-v0.1.md)
 - Non-intentional control slippage model v0.1: [docs/models/non-intentional-control-slippage-model-v0.1.md](docs/models/non-intentional-control-slippage-model-v0.1.md)
 - Control slippage vs fraud: [docs/models/control-slippage-vs-fraud.md](docs/models/control-slippage-vs-fraud.md)
+- Control slippage evidence requirements v0.1: [protocols/evaluation/control-slippage-evidence-requirements-v0.1.md](protocols/evaluation/control-slippage-evidence-requirements-v0.1.md)
+- Control slippage positive and negative examples: [docs/models/control-slippage-positive-negative-examples.md](docs/models/control-slippage-positive-negative-examples.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1289,3 +1291,9 @@ It concludes that Phase 2 is complete: the project's main contribution is a prot
 Phase 3 begins by defining non-intentional control slippage in [docs/models/non-intentional-control-slippage-model-v0.1.md](docs/models/non-intentional-control-slippage-model-v0.1.md) and separating it from fraud or malicious bypass in [docs/models/control-slippage-vs-fraud.md](docs/models/control-slippage-vs-fraud.md).
 
 The model treats SL1-SL6 as staged artificial-process concepts. Current evidence is positioned as narrow SL2 buyer-side handoff plus repeated SL5 evidence-gap preservation, with no support for SL3 accountant preparation, SL4 final payment-ready state, or SL6 evidence-gap erasure. The model does not claim fraud, intent, human behavior, real-world control deficiency, or audit sufficiency.
+
+### Phase 3 Control Slippage Evidence Requirements
+
+BC3-2 freezes source-ref-based evidence requirements for SL1-SL6 in [protocols/evaluation/control-slippage-evidence-requirements-v0.1.md](protocols/evaluation/control-slippage-evidence-requirements-v0.1.md). Positive and negative examples are provided in [docs/models/control-slippage-positive-negative-examples.md](docs/models/control-slippage-positive-negative-examples.md).
+
+The evidence requirements keep SL2 handoff, SL3 preparation, SL4 final readiness, SL5 preservation, and SL6 erasure separate. They require visible artifacts rather than hidden reasoning, and they distinguish SL6 gap erasure from ordinary missing documentation.

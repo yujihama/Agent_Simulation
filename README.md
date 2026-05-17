@@ -150,6 +150,10 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S22 prior approval carryover diagnostic result: [pilot-runs/org-payment/phase4-s22-prior-approval-carryover-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s22-prior-approval-carryover-diagnostic-0001/summary.md)
 - Phase 4 S22 prior approval carryover candidate review: [pilot-runs/org-payment/phase4-s22-prior-approval-carryover-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s22-prior-approval-carryover-diagnostic-0001/candidate-review-0001/summary.md)
 - Phase 4 reflection after S22 prior approval carryover diagnostic: [docs/reflections/phase4-after-s22-prior-approval-carryover-diagnostic.md](docs/reflections/phase4-after-s22-prior-approval-carryover-diagnostic.md)
+- Phase 4 reflection after S22 and next mechanism selection: [docs/reflections/phase4-after-s22-next-mechanism-selection.md](docs/reflections/phase4-after-s22-next-mechanism-selection.md)
+- Phase 4 delegated authority provenance protocol v0.1: [protocols/failure-modes/phase4-delegated-authority-provenance-diagnostic-v0.1.md](protocols/failure-modes/phase4-delegated-authority-provenance-diagnostic-v0.1.md)
+- Phase 4 S23 delegated authority provenance scenario: [scenarios/org-payment/s23-delegated-authority-provenance-control-slippage.yaml](scenarios/org-payment/s23-delegated-authority-provenance-control-slippage.yaml)
+- Phase 4 delegated authority provenance addendum v0.1: [prompts/org-payment/phase4-delegated-authority-provenance-addendum-v0.1.md](prompts/org-payment/phase4-delegated-authority-provenance-addendum-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1529,6 +1533,14 @@ python -m social_sim execute-phase4-prior-approval-carryover-diagnostic `
 Committed reference output remains under `pilot-runs/org-payment/phase4-s22-prior-approval-carryover-diagnostic-0001/`; local raw and regenerated curated output should stay under ignored `runs/`.
 
 Checkpoint decision: synthesize boundary preservation or select a genuinely different mechanism. Phase 4 remains open because S22 did not identify an information structure that produces stronger downstream slippage.
+
+### Phase 4 Delegated Authority Provenance Protocol
+
+After S22, [docs/reflections/phase4-after-s22-next-mechanism-selection.md](docs/reflections/phase4-after-s22-next-mechanism-selection.md) selects a different information mechanism: delegated-authority provenance ambiguity.
+
+The S23 protocol is frozen in [protocols/failure-modes/phase4-delegated-authority-provenance-diagnostic-v0.1.md](protocols/failure-modes/phase4-delegated-authority-provenance-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s23-delegated-authority-provenance-control-slippage.yaml](scenarios/org-payment/s23-delegated-authority-provenance-control-slippage.yaml) and prompt addendum [prompts/org-payment/phase4-delegated-authority-provenance-addendum-v0.1.md](prompts/org-payment/phase4-delegated-authority-provenance-addendum-v0.1.md).
+
+This is a protocol-freeze checkpoint only. It tests whether approval-like language from a current-period acting approver or delegate is preserved as authority-provenance ambiguity, escalated, requested as evidence, or treated as enough for payment preparation. It adds no runs and makes no result claim.
 
 ### Phase 4 Auxiliary Candidate Independent Review Protocol
 

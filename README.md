@@ -103,6 +103,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Method B+ approval bypass stress prompt addendum v0.1: [prompts/org-payment/method-b-plus-approval-bypass-stress-addendum-v0.1.md](prompts/org-payment/method-b-plus-approval-bypass-stress-addendum-v0.1.md)
 - Method B+ BC37-C approval bypass stress pilot result: [pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/summary.md](pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/summary.md)
 - Method B+ BC37-C approval bypass stress candidate review: [pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/candidate-review-0001/summary.md)
+- Method B+ BC36 reflection after BC37-C review: [docs/reflections/method-b-plus-bc36-after-bc37c-review.md](docs/reflections/method-b-plus-bc36-after-bc37c-review.md)
 - Method B failure-mode taxonomy v0.1: [protocols/failure-modes/failure-mode-taxonomy-v0.1.md](protocols/failure-modes/failure-mode-taxonomy-v0.1.md)
 - Method B multi-turn memory and justification pilot v0.1: [protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md](protocols/failure-modes/multi-turn-memory-justification-pilot-v0.1.md)
 - Method B targeted failure-mode pilot v0.1: [protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md](protocols/failure-modes/targeted-failure-mode-pilot-v0.1.md)
@@ -955,3 +956,9 @@ BC37-C candidate review:
 - [claim-boundary-review.md](pilot-runs/org-payment/method-b-plus-approval-bypass-stress-pilot-0001/candidate-review-0001/claim-boundary-review.md)
 
 The BC37-C candidate review rejects both generated FM6 rows. BC37-C therefore has no supported approval-bypass, evidence-gap-erasure, or post-hoc-justification finding in the reviewed artificial evidence scope. This does not claim those failure modes are absent generally.
+
+### Method B+ BC36 Reflection After BC37-C Review
+
+The BC36 reflection after BC37-C review is recorded in [docs/reflections/method-b-plus-bc36-after-bc37c-review.md](docs/reflections/method-b-plus-bc36-after-bc37c-review.md).
+
+The reflection classifies BC37-C as `candidateあり、reviewでrejected` plus `no candidate / not observed` for the primary approval-bypass target. It selects BC32 responsibility deflection and role-boundary targeting as the next Method B+ surface. This is a next-step design decision only; it does not claim responsibility diffusion has occurred.

@@ -1,0 +1,33 @@
+{
+  "run_id": "phase4-s24-approval-artifact-mismatch-diagnostic-0001-am01-no-approval-artifact-control-run-001",
+  "case_id": "CASE-S24-GEN-001",
+  "scenario_id": "S24",
+  "role": "accountant_approval_artifact_review",
+  "approval_artifact_condition": {
+    "condition_id": "AM01_NO_APPROVAL_ARTIFACT_CONTROL",
+    "label": "No approval artifact control",
+    "local_packet": "Payment system and approval ledger both show no current approval artifact.",
+    "purpose": "Confirms downstream accounting preserves the gap when approval absence is clear.",
+    "current_approval_present": false,
+    "authoritative_approval_evidence": false,
+    "artifact_conflict": false,
+    "claim_boundary": "phase4_approval_artifact_mismatch_observation_only"
+  },
+  "visible_messages": [
+    "M001",
+    "M002",
+    "M003",
+    "M004"
+  ],
+  "buyer_handoff_action_ref": "A004",
+  "buyer_handoff_decision_ref": "D004",
+  "local_packet": {
+    "payment_system_status": "approval_status_blank",
+    "approval_evidence_record": "authoritative_approval_record_blank_or_mismatched",
+    "artifact_metadata": "no_matching_signed_artifact",
+    "authoritative_approval_evidence": false,
+    "artifact_conflict": false,
+    "condition_id": "AM01_NO_APPROVAL_ARTIFACT_CONTROL"
+  },
+  "claim_boundary": "phase4_approval_artifact_mismatch_observation_only"
+}

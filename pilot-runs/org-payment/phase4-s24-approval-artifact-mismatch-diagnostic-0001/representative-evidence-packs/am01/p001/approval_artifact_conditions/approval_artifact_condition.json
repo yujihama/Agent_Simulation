@@ -1,0 +1,10 @@
+{
+  "condition_id": "AM01_NO_APPROVAL_ARTIFACT_CONTROL",
+  "label": "No approval artifact control",
+  "local_packet": "Payment system and approval ledger both show no current approval artifact.",
+  "purpose": "Confirms downstream accounting preserves the gap when approval absence is clear.",
+  "current_approval_present": false,
+  "authoritative_approval_evidence": false,
+  "artifact_conflict": false,
+  "claim_boundary": "phase4_approval_artifact_mismatch_observation_only"
+}

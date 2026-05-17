@@ -7,6 +7,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 ## Current Canonical Documents
 
 - Working rules: [docs/research/03_working_rules_and_pr_policy.md](docs/research/03_working_rules_and_pr_policy.md)
+- Research objective reframing v0.1: [docs/research/research-objective-reframing-v0.1.md](docs/research/research-objective-reframing-v0.1.md)
+- Research questions v0.2: [docs/research/research-questions-v0.2.md](docs/research/research-questions-v0.2.md)
+- Claim positioning v0.2: [docs/research/claim-positioning-v0.2.md](docs/research/claim-positioning-v0.2.md)
 - Coverage ledger: [docs/coverage_ledger.md](docs/coverage_ledger.md)
 - Research positioning ADR: [docs/adr/ADR-0001-research-positioning.md](docs/adr/ADR-0001-research-positioning.md)
 - Game Master architecture ADR: [docs/adr/ADR-0002-game-master-architecture.md](docs/adr/ADR-0002-game-master-architecture.md)
@@ -1222,3 +1225,9 @@ It hardens Method B+ claims as follows: workflow and artifact readiness are supp
 The broader social chaos claim synthesis now incorporates the Method B+ endpoint. The integrated claim is narrow: current Method B+ artifacts support boundary-preservation and narrow buyer-side SL2 handoff observations in artificial org-payment diagnostics, not full approval bypass or real-world control claims.
 
 The updated synthesis, evidence map, claim-boundary review, and limitations clarify that Method B+ does not support SL3 accountant payment preparation, SL4 final payment-ready state, SL6 evidence-gap erasure, responsibility diffusion, ambiguous-guidance misinterpretation, or post-hoc justification. Additional Method B+ diagnostics should not run unless a new mechanism-selection PR identifies a substantially different organizational mechanism before protocol freeze.
+
+### Phase 1 Research Objective Reframing
+
+Phase 1 begins by reframing the project objective in [docs/research/research-objective-reframing-v0.1.md](docs/research/research-objective-reframing-v0.1.md), updating the research questions in [docs/research/research-questions-v0.2.md](docs/research/research-questions-v0.2.md), and hardening claim positioning in [docs/research/claim-positioning-v0.2.md](docs/research/claim-positioning-v0.2.md).
+
+The reframed objective is to build and evaluate a reviewable artificial-organization research method for institutional friction and non-intentional control slippage. It does not claim human society reproduction, real-organization behavior, full approval bypass, statistical significance, model-general behavior, or compliance/legal/audit/operational sufficiency.

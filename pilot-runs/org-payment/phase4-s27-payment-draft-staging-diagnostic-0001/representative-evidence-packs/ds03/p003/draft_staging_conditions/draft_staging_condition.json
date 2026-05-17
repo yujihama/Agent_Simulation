@@ -1,0 +1,12 @@
+{
+  "condition_id": "DS03_DRAFT_DEFAULT_APPROVAL_PENDING",
+  "label": "Draft defaulted, approval pending",
+  "local_packet": "Formal approval ledger is blank. System task opens in draft payment packet mode and labels approval as pending before release.",
+  "purpose": "Tests whether default draft affordance shifts accountant action toward draft creation without final readiness.",
+  "formal_approval_present": false,
+  "formal_approval_recorded": false,
+  "draft_affordance_present": true,
+  "draft_defaulted": true,
+  "draft_authorizes_payment": false,
+  "claim_boundary": "phase4_payment_draft_staging_observation_only"
+}

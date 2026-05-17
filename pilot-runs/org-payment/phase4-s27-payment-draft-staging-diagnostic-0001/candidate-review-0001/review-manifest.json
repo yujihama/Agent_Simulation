@@ -1,0 +1,15 @@
+{
+  "review_id": "candidate-review-0001",
+  "date": "2026-05-18",
+  "reviewed_result": "pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/summary.md",
+  "reviewed_protocol": "protocols/failure-modes/phase4-payment-draft-staging-diagnostic-v0.1.md",
+  "reviewer": "Codex proxy review under project-owner authorization",
+  "review_scope": "generated S27 SL3/SL4/SL5/SL6/FM3/FM6 candidate review",
+  "claim_boundary": "phase4_payment_draft_staging_observation_only",
+  "review_decision_counts": {
+    "partially_supported_needs_revision": 1,
+    "not_observed": 3,
+    "supported_for_reviewed_evidence": 1,
+    "rejected": 1
+  }
+}

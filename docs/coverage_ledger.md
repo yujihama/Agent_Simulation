@@ -807,3 +807,34 @@ BC2-1 decision:
 Remaining gaps:
 
 - Evidence-pack methodology, review-protocol hardening, review-status labels v0.2, and negative/conservative-result methodology are not yet documented.
+
+## Phase 2 BC2-2 Evidence Pack And Review Protocol Hardening Update
+
+Latest PR label: `PR-Phase2-BC2-2-evidence-review-hardening`
+
+This update applies to C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/methodology/evidence-pack-methodology-v0.1.md`
+- `docs/methodology/review-protocol-hardening-v0.1.md`
+- `protocols/evaluation/review-status-labels-v0.2.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C15 Evidence Pack: evidence packs are now described as reconstruction artifacts with explicit source-reference, role-visibility, final-state, and reviewer-note expectations.
+- C16 Validity Protocol: review decisions must preserve generated/candidate/reviewed distinctions, source refs, counter-evidence, and claim boundaries.
+- C17 Human / LLM Review: review levels now distinguish generated-only, mechanical validation, proxy review, project-owner human review, independent human review, multi-reviewer adjudication, construct-validity review, and accepted documents.
+- C18 Reporting / Claims: canonical review status labels prevent candidate/support collapse, not-observed/proof-of-absence collapse, SL2/SL3/SL4 collapse, artificial/human collapse, validation/construct-validity collapse, and observation/statistical-inference collapse.
+- C20 Ethics / Misuse Boundaries: hidden chain-of-thought, summary-only impressions, and artificial evidence are explicitly blocked from supporting human, real-world, statistical, model-general, compliance, legal, audit, operational, governance, or safety sufficiency claims.
+
+BC2-2 decision:
+
+- Evidence-pack methodology, review protocol hardening, and review status labels v0.2 are complete.
+- Proceed to BC2-3 negative and conservative result methodology.
+
+Remaining gaps:
+
+- Negative/conservative-result methodology and boundary-preservation pattern synthesis are not yet documented.

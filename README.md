@@ -102,6 +102,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Negative and conservative results methodology v0.1: [docs/methodology/negative-and-conservative-results-v0.1.md](docs/methodology/negative-and-conservative-results-v0.1.md)
 - Boundary preservation patterns v0.1: [docs/synthesis/boundary-preservation-patterns-v0.1.md](docs/synthesis/boundary-preservation-patterns-v0.1.md)
 - Phase 2 methodology synthesis v0.1: [docs/synthesis/phase2-methodology-synthesis-v0.1.md](docs/synthesis/phase2-methodology-synthesis-v0.1.md)
+- Non-intentional control slippage model v0.1: [docs/models/non-intentional-control-slippage-model-v0.1.md](docs/models/non-intentional-control-slippage-model-v0.1.md)
+- Control slippage vs fraud: [docs/models/control-slippage-vs-fraud.md](docs/models/control-slippage-vs-fraud.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
 - Method B synthesis v0.1: [docs/synthesis/method-b-synthesis-v0.1.md](docs/synthesis/method-b-synthesis-v0.1.md)
 - Method B failure-mode status table: [docs/synthesis/method-b-failure-mode-status.csv](docs/synthesis/method-b-failure-mode-status.csv)
@@ -1281,3 +1283,9 @@ This stage treats SL5 evidence-gap preservation and reviewed rejections as metho
 The Phase 2 synthesis is recorded in [docs/synthesis/phase2-methodology-synthesis-v0.1.md](docs/synthesis/phase2-methodology-synthesis-v0.1.md).
 
 It concludes that Phase 2 is complete: the project's main contribution is a protocol-governed artificial-organization research method with freeze-before-execution discipline, Game Master boundaries, reconstructable evidence packs, mechanical validation, candidate review, conservative-result preservation, and explicit claim boundaries. Phase 3 should next model non-intentional control slippage and its evidence requirements before any new run-producing work.
+
+### Phase 3 Control Slippage Conceptual Model
+
+Phase 3 begins by defining non-intentional control slippage in [docs/models/non-intentional-control-slippage-model-v0.1.md](docs/models/non-intentional-control-slippage-model-v0.1.md) and separating it from fraud or malicious bypass in [docs/models/control-slippage-vs-fraud.md](docs/models/control-slippage-vs-fraud.md).
+
+The model treats SL1-SL6 as staged artificial-process concepts. Current evidence is positioned as narrow SL2 buyer-side handoff plus repeated SL5 evidence-gap preservation, with no support for SL3 accountant preparation, SL4 final payment-ready state, or SL6 evidence-gap erasure. The model does not claim fraud, intent, human behavior, real-world control deficiency, or audit sufficiency.

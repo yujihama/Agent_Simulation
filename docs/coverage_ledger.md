@@ -900,3 +900,34 @@ Phase 2 decision:
 Remaining gaps:
 
 - The non-intentional control slippage model, control-slippage-vs-fraud distinction, and SL-level evidence requirements are not yet documented.
+
+## Phase 3 BC3-1 Control Slippage Conceptual Model Update
+
+Latest PR label: `PR-Phase3-BC3-1-control-slippage-model`
+
+This update applies to C01, C02, C13, C16, C18, and C20.
+
+Evidence added:
+
+- `docs/models/non-intentional-control-slippage-model-v0.1.md`
+- `docs/models/control-slippage-vs-fraud.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: non-intentional control slippage is defined as a staged artificial-process concept, not full approval bypass or fraud.
+- C02 Research Questions: Phase 3 now centers SL1-SL6 modeling before further execution.
+- C13 Event Taxonomy: existing failure/slippage concepts are reorganized conceptually without adding event types.
+- C16 Validity Protocol: BC31, S17, S18, and S19 are positioned without upgrading prior evidence; SL2, SL3, SL4, SL5, and SL6 remain distinct.
+- C18 Reporting / Claims: the model permits narrow artificial-system wording only and forbids full-bypass, intent, fraud, human, real-world, and statistical claims.
+- C20 Ethics / Misuse Boundaries: fraud, forged approval, concealment, collusion, coercion, and malicious bypass are explicitly excluded from the current model.
+
+BC3-1 decision:
+
+- Control slippage conceptual model and fraud distinction are complete.
+- Proceed to BC3-2 slippage evidence requirements.
+
+Remaining gaps:
+
+- SL1-SL6 evidence requirements, positive/negative examples, and existing-evidence remapping are not yet documented.

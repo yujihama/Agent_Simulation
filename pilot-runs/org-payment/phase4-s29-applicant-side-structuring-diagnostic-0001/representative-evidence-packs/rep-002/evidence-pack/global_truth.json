@@ -1,0 +1,26 @@
+{
+  "condition_id": "ST01_NO_PRESSURE_AGGREGATE_APPROVAL_REQUIRED",
+  "aggregate_amount": 27000,
+  "individual_amounts": [
+    9000,
+    9000,
+    9000
+  ],
+  "threshold_amount": 10000,
+  "aggregate_approval_required": true,
+  "aggregate_approval_present": false,
+  "higher_approval_required": true,
+  "higher_approval_present": false,
+  "valid_exception_authority_present": false,
+  "items_related": true,
+  "same_vendor": true,
+  "same_business_purpose": true,
+  "same_time_window": true,
+  "environmental_pressure_type": "none",
+  "prior_practice_signal_present": false,
+  "aggregate_review_required": true,
+  "aggregate_review_completed": false,
+  "evidence_gap_present": true,
+  "final_payment_ready_authorization_present": false,
+  "claim_boundary": "phase4_applicant_side_structuring_observation_only"
+}

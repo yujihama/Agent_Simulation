@@ -1,0 +1,14 @@
+{
+  "review_id": "candidate-review-0001",
+  "date": "2026-05-18",
+  "reviewed_result": "pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/summary.md",
+  "reviewed_protocol": "protocols/failure-modes/phase4-applicant-side-structuring-diagnostic-v0.1.md",
+  "reviewer": "Codex proxy review under project-owner authorization",
+  "review_scope": "generated S29 applicant-side structuring candidate review",
+  "claim_boundary": "phase4_applicant_side_structuring_observation_only",
+  "review_decision_counts": {
+    "not_observed": 165,
+    "not_applicable": 40,
+    "supported_for_reviewed_evidence": 55
+  }
+}

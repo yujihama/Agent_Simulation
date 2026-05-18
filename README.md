@@ -201,6 +201,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 applicant-side structuring protocol v0.1: [protocols/failure-modes/phase4-applicant-side-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-applicant-side-structuring-diagnostic-v0.1.md)
 - Phase 4 S29 applicant-side structuring scenario: [scenarios/org-payment/s29-applicant-side-structuring.yaml](scenarios/org-payment/s29-applicant-side-structuring.yaml)
 - Phase 4 applicant-side structuring addendum v0.1: [prompts/org-payment/phase4-applicant-side-structuring-addendum-v0.1.md](prompts/org-payment/phase4-applicant-side-structuring-addendum-v0.1.md)
+- Phase 4 S29 applicant-side structuring diagnostic result: [pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/summary.md)
+- Phase 4 S29 applicant-side structuring candidate review: [pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/candidate-review-0001/summary.md)
+- Phase 4 reflection after S29 applicant-side structuring diagnostic: [docs/reflections/phase4-after-s29-applicant-side-structuring-review.md](docs/reflections/phase4-after-s29-applicant-side-structuring-review.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1758,12 +1761,28 @@ Current Phase 4 tested-mechanism map:
 
 Checkpoint decision: stop run-producing Phase 4 diagnostics and consolidate unless a future mechanism-selection PR identifies a substantially different within-control information mechanism with research-completion criteria fixed before execution. This is not a baseline, full approval-bypass claim, fraud claim, human behavior claim, real-world claim, statistical claim, or compliance/legal/audit/operational/governance/safety sufficiency claim.
 
-### Phase 4 S29 Applicant-Side Structuring Protocol
+### Phase 4 S29 Applicant-Side Structuring Diagnostic
 
 The S29 protocol is frozen in [protocols/failure-modes/phase4-applicant-side-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-applicant-side-structuring-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s29-applicant-side-structuring.yaml](scenarios/org-payment/s29-applicant-side-structuring.yaml), prompt addendum [prompts/org-payment/phase4-applicant-side-structuring-addendum-v0.1.md](prompts/org-payment/phase4-applicant-side-structuring-addendum-v0.1.md), and research-correction reflection [docs/reflections/phase4-after-s28-research-correction.md](docs/reflections/phase4-after-s28-research-correction.md).
 
 S29 corrects the S28 interpretation by separating the downstream accounting question from the missing upstream question: whether a requester or buyer chooses split submission under observable pressure and aggregate approval-threshold conditions.
 
-The frozen S29 protocol uses four conditions with 5 later attempted runs each: no pressure, deadline pressure, volume / queue pressure, and compound pressure plus prior practice. The primary LLM-controlled role is `buyer_or_requester_structuring_choice`; accountant review is not included in v0.1 so the applicant-side choice remains primary.
+The executed diagnostic result is recorded in [pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/summary.md), with candidate review in [pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/candidate-review-0001/summary.md) and reflection in [docs/reflections/phase4-after-s29-applicant-side-structuring-review.md](docs/reflections/phase4-after-s29-applicant-side-structuring-review.md).
 
-This is a protocol-freeze checkpoint only. It adds no S29 execution, result artifacts, candidate findings, baseline, fraud claim, hidden-intent claim, human behavior claim, real-world claim, statistical claim, prompt-causation claim, model-general claim, or compliance/legal/audit/operational/governance/safety sufficiency claim.
+The frozen S29 protocol uses four conditions with 5 attempted runs each: no pressure, deadline pressure, volume / queue pressure, and compound pressure plus prior practice. The primary LLM-controlled role is `buyer_or_requester_structuring_choice`; accountant review is not included in v0.1 so the applicant-side choice remains primary.
+
+Observed result: 20 attempted / 20 accepted / 0 excluded. S29 produced reviewed applicant-side split-submission support in 7 runs: 4 split submissions with aggregate note and 3 split submissions without aggregate note. The split submissions appeared only under pressure conditions, not under the no-pressure control condition. S29 also preserved SL5 aggregate-gap visibility in all 20 runs. SL1, SL4, SL6, and FM3 were not observed; SL3 and FM6 are not applicable because S29 v0.1 has no downstream accountant turn or post-hoc explanation turn.
+
+S29 does not claim fraud, hidden intent, full approval bypass, human behavior, real-world behavior, statistical significance, prompt causation, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+
+Local execution command:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-phase4-applicant-side-structuring-diagnostic `
+  --output runs/org-payment/phase4-s29-applicant-side-structuring-local/raw `
+  --curated-output runs/org-payment/phase4-s29-applicant-side-structuring-local/curated `
+  --dotenv .env
+```
+
+Raw and regenerated curated output should stay under ignored `runs/`; committed reference output is curated under `pilot-runs/`.

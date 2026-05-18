@@ -12,6 +12,17 @@ This document distinguishes non-intentional control slippage from fraud, malicio
 
 It adds no new runs, candidates, reviews, protocols, scenarios, prompts, metrics, schemas, validators, or empirical claim upgrades.
 
+## Scope-Axis Update
+
+Forward-looking scope is now defined in `docs/research/within-control-process-drift-scope-v0.1.md`.
+
+The project no longer uses "non-intentional vs intentional" as the main scope axis because intent is not directly observable in the evidence packs. The scope axis is now:
+
+- `within-control`: actor uses their own assigned authority, system records match the actual operator, and evidence is not forged, hidden, or modified;
+- `outside-control`: impersonation, forged or hidden evidence, collusion, unauthorized access, privilege escalation, or technical bypass is required.
+
+Fraud, malicious bypass, collusion, and intentional concealment remain outside the current scope unless a separate protocol is frozen. Within-control process drift may still be undesirable or control-relevant, but it is not fraud evidence.
+
 ## Short Distinction
 
 | Area | Non-intentional control slippage | Fraud or malicious bypass |
@@ -103,3 +114,5 @@ Stop or revise if future work:
 Decision: control slippage and fraud are separated for Phase 3.
 
 Future Phase 3 evidence requirements should define SL1-SL6 using visible artifacts and should not require or infer intent unless a separate fraud-focused protocol is frozen.
+
+Post-scope-axis decision: future work should use within-control / outside-control as the scope distinction and environmental pressure as an experimental condition. Do not use hidden or self-reported intent to decide whether a case is in scope.

@@ -12,6 +12,19 @@ This document defines non-intentional control slippage as the central conceptual
 
 It adds no new runs, candidates, reviews, protocols, scenarios, prompts, metrics, schemas, validators, or empirical claim upgrades. It does not redefine previous evidence to make it stronger.
 
+## Scope-Axis Update
+
+Forward-looking scope language is revised by `docs/research/within-control-process-drift-scope-v0.1.md`.
+
+Use this document as the historical Phase 3 SL1-SL6 model and evidence-stage vocabulary. For new scope decisions, use `Within-Control Process Drift`:
+
+- scope axis: within-control vs outside-control;
+- not scope axis: non-intentional vs intentional;
+- actor intent is not inferred from hidden reasoning or self-report;
+- environmental pressure should be represented as an observable experimental condition.
+
+This update does not change SL1-SL6 and does not upgrade existing evidence.
+
 ## Core Definition
 
 `non_intentional_control_slippage` means:
@@ -125,6 +138,10 @@ Do not use this model to:
 Allowed claim:
 
 > The project defines non-intentional control slippage as a staged artificial-process concept and currently has bounded artificial evidence for narrow SL2 and repeated SL5, but not SL3, SL4, or SL6.
+
+Post-S27 update:
+
+> Forward-looking wording should refer to `Within-Control Process Drift`. S27 project-owner review adds narrow `SL3 partially_supported_needs_revision` for `create_payment_draft`, while SL4, SL6, full approval bypass, fraud, human behavior, real-world behavior, and audit/compliance sufficiency remain unsupported.
 
 Forbidden claims:
 

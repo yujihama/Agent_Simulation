@@ -32,6 +32,8 @@ It adds no new runs, candidates, reviews, protocols, scenarios, prompts, metrics
 
 Phase 3 establishes non-intentional control slippage as the project's core model for future targeted work.
 
+Post-scope-axis update: forward-looking work should refer to `Within-Control Process Drift`, defined in `docs/research/within-control-process-drift-scope-v0.1.md`. This keeps the SL1-SL6 model but replaces the scope axis `non-intentional vs intentional` with `within-control vs outside-control`. Actor intent is not used to decide scope.
+
 Completion status:
 
 - Delivery completion: complete. Phase 3 delivered the conceptual model, evidence requirements, positive/negative examples, and existing-evidence remap.
@@ -56,7 +58,7 @@ Current evidence supports only bounded artificial findings:
 |---|---|
 | SL2 buyer-side handoff | Narrow support in BC31 and S18 only. |
 | SL5 downstream evidence-gap preservation | Repeated support in S17, S18, S19, and related boundary-preservation reviews. |
-| SL3 accountant preparation without explicit approval | Not supported. |
+| SL3 accountant preparation without explicit approval | Narrow partial support from S27 `create_payment_draft`, with approval and exception-authority gaps preserved. |
 | SL4 final payment-ready state without explicit approval | Not supported. |
 | SL6 evidence-gap erasure | Not supported. |
 | Fraud, malicious bypass, or intentional misconduct | Out of scope and unsupported. |
@@ -74,7 +76,7 @@ A controlled failure-mode baseline is not justified now because:
 
 - the strongest positive result is narrow SL2, not SL3 or SL4;
 - SL2 support is mechanism-specific and buyer-side;
-- downstream accounting preparation without approval has not been observed;
+- downstream accounting preparation without approval has only narrow S27 partial support for non-payable draft creation;
 - final payment-ready state without approval has not been observed;
 - evidence-gap erasure has not been observed;
 - repeated results show SL5 preservation rather than failure completion;
@@ -146,6 +148,6 @@ Do not use it to:
 
 Decision: Phase 3 is delivery-complete and research-complete as a conceptual/evidence model.
 
-It is not research-complete as empirical support for all SL levels. SL3 accountant preparation without explicit approval, SL4 final payment-ready state without explicit approval, and SL6 evidence-gap erasure remain unsupported.
+It is not research-complete as empirical support for all SL levels. After S27, SL3 has narrow partial support for `create_payment_draft`; SL4 final payment-ready state without explicit approval and SL6 evidence-gap erasure remain unsupported.
 
 Proceed to Phase 4 / BC4-1: create a mechanism selection framework, compare tried and untried mechanisms, and choose one substantially different mechanism before any new protocol freeze or execution.

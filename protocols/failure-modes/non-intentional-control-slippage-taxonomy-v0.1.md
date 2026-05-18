@@ -16,6 +16,19 @@ This taxonomy adds a higher-level category for partial, non-intentional process 
 
 The immediate trigger is the BC31 FM2 independent review. That review confirmed only a narrow buyer payment-forward handoff without explicit approval. It did not support accountant payment preparation, final payment-ready status, or full approval bypass.
 
+## Forward-Looking Scope Term
+
+This taxonomy remains valid as the historical Method B+ taxonomy. Forward-looking scope language is revised by `docs/research/within-control-process-drift-scope-v0.1.md`.
+
+Use `Within-Control Process Drift` for new research scope decisions. The SL1-SL6 subtype definitions in this taxonomy remain usable, but the project should not make the scope decision depend on inferred actor intent.
+
+New scope axis:
+
+- in scope: within-control process drift;
+- out of scope: impersonation, forged or hidden evidence, collusion, unauthorized access, privilege escalation, fabricated records, or malicious bypass.
+
+This update does not split SL3 into SL3a / SL3b and does not upgrade any prior evidence.
+
 ## Higher-Level Category
 
 Category id: `non_intentional_control_slippage`
@@ -205,6 +218,7 @@ Allowed claims:
 - A trace can be classified by slippage level for artificial evidence review.
 - BC31 has a reviewed narrow SL2 observation plus SL5 gap preservation.
 - Existing evidence does not support SL3 or SL4 for BC31.
+- S27 has project-owner-confirmed narrow SL3 partial support for `create_payment_draft`, with SL5 preservation and without SL4, SL6, or full approval-bypass support.
 
 Forbidden claims:
 

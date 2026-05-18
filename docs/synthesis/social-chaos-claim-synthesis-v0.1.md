@@ -24,6 +24,7 @@ This synthesis does not add new LLM runs, revise scenarios, revise prompts, revi
 | Intervention and sensitivity | `results/org-payment/exp-0003-intervention-validity-stress-test-0001/summary.md`; `results/org-payment/exp-0004-provider-randomness-sensitivity-0001/summary.md`; `results/org-payment/exp-0004-provider-randomness-sensitivity-0001/review.md` |
 | Second domain | `protocols/domain-expansion/expense-reimbursement-pilot-v0.1.md`; `results/expense-reimbursement/exp-0005-second-domain-pilot-0001/summary.md`; `results/expense-reimbursement/exp-0005-second-domain-pilot-0001/review.md` |
 | Method B+ endpoint | `docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md`; `docs/synthesis/method-b-plus-periodic-synthesis-after-s18-s19-v0.1.md`; `docs/synthesis/method-b-plus-endpoint-claim-hardening-review-v0.1.md`; `docs/synthesis/non-intentional-control-slippage-map.csv`; `docs/synthesis/method-b-plus-failure-mode-status.csv` |
+| Scope-axis revision | `docs/research/within-control-process-drift-scope-v0.1.md` |
 
 ## Synthesis Summary
 
@@ -33,7 +34,9 @@ The strongest supported claim is not that the system reproduces real social chao
 
 Under staged, frozen artificial-organization protocols, this project shows that LLM-controlled roles can generate mechanically valid, reviewable traces of institutional friction-like patterns such as evidence gaps, approval ambiguity, pressure context, and coordination holds in a constrained org-payment setting, with one limited second-domain transfer pilot. These are artificial-system observations and hypotheses for future validation, not direct evidence about human societies or real organizations.
 
-The Method B+ endpoint extends the synthesis with a more targeted control-boundary finding. It supports a bounded artificial-system claim that downstream accounting often preserved explicit approval/evidence gaps under current Method B+ protocols, while narrow buyer-side SL2 handoff can appear under some artificial conditions, especially lossy handoff. It does not support stronger non-intentional control slippage such as accountant payment preparation without explicit approval, final payment-ready state without explicit approval, or evidence-gap erasure.
+The Method B+ endpoint extends the synthesis with a more targeted control-boundary finding. It supports a bounded artificial-system claim that downstream accounting often preserved explicit approval/evidence gaps under current Method B+ protocols, while narrow buyer-side SL2 handoff can appear under some artificial conditions, especially lossy handoff. Later S27 project-owner review adds narrow SL3 partial support for non-payable `create_payment_draft` while approval and exception-authority gaps remain visible. The project still does not support final payment-ready state without explicit approval, evidence-gap erasure, full approval bypass, fraud, human behavior, real-world behavior, or statistical claims.
+
+Forward-looking scope should use `Within-Control Process Drift`: observations remain in scope when actors use their own assigned authority, system records match the actual operator, and evidence is not forged, hidden, modified, or fabricated. Intent is not the scope axis.
 
 ## What The Project Can Claim
 
@@ -49,6 +52,7 @@ The Method B+ endpoint extends the synthesis with a more targeted control-bounda
 | `bounded_observation_claim` | EXP-0005 shows that the action-proposal, Game Master, evidence-pack, validator, and aggregate-reporting structure can produce one mechanically valid expense-reimbursement pilot artifact. | `results/expense-reimbursement/exp-0005-second-domain-pilot-0001/summary.md`; `review.md`. | It is one second-domain pilot, not cross-domain validation. |
 | `bounded_artificial_system_claim` | Method B+ supports that downstream accounting often preserves explicit approval/evidence gaps under current targeted protocols. | `docs/synthesis/method-b-plus-endpoint-claim-hardening-review-v0.1.md`; S17/S18/S19 candidate reviews. | Artificial Method B+ scope only; no real-world control-effectiveness or general LLM-safety claim. |
 | `boundary_limited_observation_claim` | Narrow buyer-side SL2 handoff can appear under some artificial Method B+ conditions, especially S18 lossy handoff. | BC31 second-pass review; S18 candidate review; `docs/synthesis/non-intentional-control-slippage-map.csv`. | Does not support SL3 accountant preparation, SL4 final payment readiness, full approval bypass, or causation. |
+| `boundary_limited_observation_claim` | S27 `create_payment_draft` has narrow SL3 partial support in reviewed artificial evidence. | S27 project-owner review. | Does not support SL4 final readiness, SL6 gap erasure, full approval bypass, fraud, or audit/compliance sufficiency. |
 | `hypothesis_for_future_work` | The artificial-organization method may be useful for generating reviewable hypotheses about institutional friction mechanisms. | Combined pipeline and review artifacts. | Requires broader domains, more review, sensitivity axes, and external validation before stronger claims. |
 
 ## What The Project Cannot Claim
@@ -61,7 +65,7 @@ The project cannot claim that:
 - Institutional failure has been proven.
 - Responsibility diffusion, approval bypass, or policy exploitation has been proven as a real-world or human phenomenon.
 - Full approval bypass has been reproduced in Method B+.
-- Method B+ supports accountant payment preparation without explicit approval, final payment-ready state without explicit approval, or evidence-gap erasure.
+- S27 narrow SL3 partial support implies final payment-ready state without explicit approval, evidence-gap erasure, full approval bypass, fraud, or audit/compliance sufficiency.
 - Vendor pressure, requester framing, scenario settings, monitoring, or hard control caused any observed path.
 - Any contrast is statistically significant.
 - Org-payment findings generalize to expense reimbursement or other domains.
@@ -117,7 +121,7 @@ The current Method B+ finding is two-sided:
 
 The endpoint also records what did not appear or did not survive review:
 
-- SL3 accountant payment preparation without explicit approval is not supported;
+- S27 adds narrow SL3 partial support for `create_payment_draft`, not final payment readiness or full approval bypass;
 - SL4 final payment-ready state without explicit approval is not supported;
 - SL6 evidence-gap erasure is not supported;
 - FM1 responsibility diffusion is not supported;
@@ -148,8 +152,8 @@ Method B+ does not justify a controlled failure-mode baseline. Additional autono
 - EXP-0003 contrasts are descriptive over existing artifacts and do not isolate causal interventions.
 - EXP-0004 tests only provider randomness; it does not test prompt, model, menu, Game Master, scenario wording, or metric sensitivity.
 - EXP-0005 uses one adjacent second-domain scenario and has no human review or domain baseline.
-- Method B+ did not produce reviewed support for SL3, SL4, SL6, responsibility diffusion, ambiguous-guidance misinterpretation, or post-hoc justification.
-- Method B+ evidence for non-intentional control slippage remains narrow and buyer-side; it does not justify a controlled failure-mode baseline.
+- Method B+ endpoint did not produce reviewed support for SL3, SL4, SL6, responsibility diffusion, ambiguous-guidance misinterpretation, or post-hoc justification. Later S27 adds narrow SL3 partial support for non-payable draft creation only.
+- The control-drift evidence remains narrow: Method B+ endpoint evidence is buyer-side SL2, and S27 adds only narrow SL3 partial support for non-payable draft creation. It does not justify a controlled failure-mode baseline.
 
 ## Human Review Limits
 
@@ -163,7 +167,7 @@ Construct validity is limited to the reviewed representative-pack scope. The str
 
 Pressure remains a pressure-context construct, not a causal construct. Missing constructs are also findings: the reviewed packs did not show approval bypass, responsibility diffusion, policy ambiguity exploitation, or communication breakdown.
 
-Method B+ adds a more fine-grained control-slippage vocabulary. The supported endpoint is narrow: SL2 buyer handoff has reviewed artificial support in limited conditions, while SL3 accountant preparation, SL4 final payment readiness, and SL6 evidence-gap erasure remain unsupported. This distinction must be preserved in any future report.
+Method B+ adds a more fine-grained control-slippage vocabulary. The endpoint support is narrow: SL2 buyer handoff has reviewed artificial support in limited conditions. Later S27 adds narrow SL3 partial support for non-payable draft creation. SL4 final payment readiness and SL6 evidence-gap erasure remain unsupported. This distinction must be preserved in any future report.
 
 ## Sensitivity Limits
 
@@ -191,7 +195,7 @@ The project supports a bounded artificial-system synthesis:
 
 Method B+ adds a narrower endpoint claim:
 
-> In targeted artificial org-payment diagnostics, downstream accounting often preserved explicit approval/evidence gaps under current protocols, while narrow buyer-side handoff without explicit approval appeared under some conditions, especially lossy handoff. This is not full approval bypass, does not support accountant payment preparation or final payment readiness without approval, and does not establish human, real-world, statistical, causal, model-general, compliance, legal, audit, or operational claims.
+> In targeted artificial org-payment diagnostics, downstream accounting often preserved explicit approval/evidence gaps under current protocols, while narrow buyer-side handoff without explicit approval appeared under some conditions, especially lossy handoff. Later S27 adds narrow SL3 partial support for non-payable draft creation while gaps remained visible. This is not full approval bypass, does not support final payment readiness without approval, and does not establish human, real-world, statistical, causal, model-general, compliance, legal, audit, or operational claims.
 
 ## Future Work
 

@@ -12,6 +12,8 @@ This inventory organizes the project's current evidence base after BC1-1 researc
 
 It adds no new runs, candidates, reviews, protocols, scenarios, prompts, metrics, or baseline artifacts. It classifies existing artifacts by claim level and review level so later synthesis does not overstate the evidence.
 
+Post-scope-axis update: `docs/research/within-control-process-drift-scope-v0.1.md` changes forward-looking scope language from intent-based `non-intentional` framing to `within-control / outside-control`. This inventory keeps historical artifact names but future evidence entries should classify whether the observation remains within-control.
+
 ## Companion Tables
 
 | Table | Purpose |
@@ -97,7 +99,7 @@ It does not support:
 
 ### Boundary-Limited Method B+ Claims
 
-Method B+ endpoint findings are boundary-limited:
+Method B+ endpoint and later Phase 4 findings are boundary-limited:
 
 - BC31 supports a narrow buyer handoff observation under second-pass proxy review.
 - S18 supports SL2 buyer handoff in 3 of 5 reviewed artificial runs under lossy handoff.
@@ -112,6 +114,8 @@ These do not support:
 - responsibility diffusion;
 - ambiguous-guidance misinterpretation;
 - post-hoc justification.
+
+They also do not support fraud, intentional misconduct, impersonation, collusion, forged evidence, concealment, unauthorized access, or any outside-control finding.
 
 ## Review-Level Inventory
 

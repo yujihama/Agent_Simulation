@@ -13,11 +13,11 @@ It is not a new claim artifact, protocol, result, or baseline. It should be used
 
 ## Working Title
 
-Reviewable Artificial Organizations for Studying Institutional Friction and Non-Intentional Control-Slippage Boundaries
+Reviewable Artificial Organizations for Studying Institutional Friction and Within-Control Process Drift
 
 ## Abstract Draft
 
-This project develops a protocol-governed artificial-organization research method for studying institutional friction and non-intentional control-slippage boundaries. The method uses frozen scenarios, LLM-controlled role action proposals, deterministic Game Master decisions, reconstructable evidence packs, mechanical validation, candidate review, and explicit claim boundaries. Across the current org-payment diagnostics, reviewed artificial evidence supports repeated downstream preservation of approval and evidence gaps and narrow buyer-side handoff observations in limited conditions. It does not support full approval bypass, accounting preparation without approval, final payment-ready status without approval, evidence-gap erasure, responsibility diffusion, human behavior claims, real-world organization claims, or statistical claims.
+This project develops a protocol-governed artificial-organization research method for studying institutional friction and within-control process drift. The method uses frozen scenarios, LLM-controlled role action proposals, deterministic Game Master decisions, reconstructable evidence packs, mechanical validation, candidate review, and explicit claim boundaries. Across the current org-payment diagnostics, reviewed artificial evidence supports repeated downstream preservation of approval and evidence gaps, narrow buyer-side handoff observations in limited conditions, and S27 narrow partial support for non-payable draft creation as SL3. It does not support full approval bypass, final payment-ready status without approval, evidence-gap erasure, responsibility diffusion, human behavior claims, real-world organization claims, or statistical claims.
 
 ## 1. Introduction
 
@@ -78,6 +78,7 @@ Explain why this method treats conservative and negative results as valid resear
 
 Source artifacts:
 
+- `docs/research/within-control-process-drift-scope-v0.1.md`
 - `docs/models/non-intentional-control-slippage-model-v0.1.md`
 - `docs/models/control-slippage-vs-fraud.md`
 - `protocols/evaluation/control-slippage-evidence-requirements-v0.1.md`
@@ -86,6 +87,7 @@ Source artifacts:
 
 Define:
 
+- forward-looking scope as within-control / outside-control rather than intent-based;
 - SL1 ambiguous approval interpretation;
 - SL2 payment-forward handoff without explicit approval;
 - SL3 payment preparation without explicit approval;
@@ -98,7 +100,8 @@ Emphasize:
 - SL2 is not full approval bypass;
 - SL5 is not failure completion;
 - Phase 3 is complete as a conceptual/evidence model, not as empirical support for all SL levels;
-- fraud, forged approval, collusion, concealment, and malicious misconduct are out of scope.
+- fraud, forged approval, collusion, concealment, unauthorized access, and malicious misconduct are out of scope;
+- structuring / approval splitting is in scope only when actors use their own authority and records remain genuine.
 
 ## 5. Diagnostic Evidence Overview
 
@@ -135,11 +138,11 @@ Supported bounded artificial findings:
 - SL5 downstream evidence-gap preservation is repeatedly visible;
 - narrow SL2 buyer handoff can occur in specific artificial conditions.
 - lossy handoff is currently the only tested mechanism that produced reviewed SL2 buyer-side handoff support.
+- S27 `create_payment_draft` has project-owner-confirmed narrow SL3 partial support while gaps remained visible.
 
 Unsupported or not-observed findings:
 
 - SL1 supported ambiguous approval interpretation in Phase 4;
-- SL3 accounting preparation without explicit approval;
 - SL4 final payment-ready state without explicit approval;
 - SL6 evidence-gap erasure;
 - FM1 responsibility diffusion;

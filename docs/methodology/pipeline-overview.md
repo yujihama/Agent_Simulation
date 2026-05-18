@@ -73,7 +73,7 @@ The method separates evidence levels:
 
 ## Why This Pipeline Matters
 
-The research target includes ambiguous concepts such as institutional friction, evidence gaps, responsibility diffusion, and non-intentional control slippage. These concepts can be overread from transcripts.
+The research target includes ambiguous concepts such as institutional friction, evidence gaps, responsibility diffusion, and within-control process drift. Historical documents use `non-intentional control slippage`, but forward-looking scope decisions use within-control / outside-control rather than inferred intent. These concepts can be overread from transcripts.
 
 The pipeline reduces that risk by forcing every stronger interpretation through:
 

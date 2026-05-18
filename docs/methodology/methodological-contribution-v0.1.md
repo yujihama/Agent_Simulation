@@ -14,7 +14,7 @@ It adds no new runs, candidates, reviews, protocols, scenarios, prompts, metrics
 
 ## Contribution Statement
 
-The project contributes a reviewable artificial-organization research method for studying institutional friction, evidence gaps, and non-intentional control-slippage boundaries.
+The project contributes a reviewable artificial-organization research method for studying institutional friction, evidence gaps, and within-control process drift. Earlier documents use `non-intentional control slippage`; forward-looking scope is defined by `docs/research/within-control-process-drift-scope-v0.1.md`.
 
 The method is not "multiple LLMs chatting in a simulated office." Its contribution is the disciplined separation of:
 
@@ -117,11 +117,12 @@ Claim boundaries are therefore part of the method, not a reporting afterthought.
 
 The project treats conservative results as research information.
 
-Method B+ showed that:
+Method B+ and later Phase 4 reviews showed that:
 
 - narrow SL2 buyer handoff can appear under limited artificial conditions;
+- S27 produced narrow SL3 partial support for non-payable draft creation while gaps stayed visible;
 - downstream SL5 evidence-gap preservation appears repeatedly;
-- stronger slippage levels such as SL3, SL4, and SL6 remain unsupported.
+- stronger slippage levels such as SL4 and SL6 remain unsupported.
 
 This is not a failed experiment. It is evidence that the current artificial setup, prompts, action menus, Game Master decisions, and review rules often preserve control boundaries. The method keeps that result visible instead of discarding it because it is not a dramatic failure.
 
@@ -160,7 +161,8 @@ Phase 1 established the current evidence position:
 - artifact and pipeline claims are relatively strong;
 - selected EXP-0002 representative packs have bounded human-review support;
 - Method B+ has narrow SL2 and repeated SL5 support in artificial scope;
-- stronger failure modes remain unsupported, rejected, or not observed.
+- S27 adds narrow SL3 partial support for `create_payment_draft`;
+- stronger failure modes such as SL4 final readiness, SL6 gap erasure, full approval bypass, fraud, human behavior, or real-world organization behavior remain unsupported, rejected, or not observed.
 
 This methodological contribution therefore rests less on reproducing a severe failure mode and more on building a disciplined way to inspect, reject, narrow, and preserve artificial evidence.
 

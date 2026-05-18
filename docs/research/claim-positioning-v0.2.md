@@ -10,6 +10,8 @@ Claim boundary: `claim_positioning_reframing_only`
 
 This document states how project claims should be positioned after the current evidence base and the Method B+ endpoint. It adds no new run, result, protocol, scenario, prompt, candidate review, or metric.
 
+Post-scope-axis update: forward-looking project claims should use `Within-Control Process Drift` for the research target and `within-control / outside-control` for scope classification. Do not use hidden or self-reported intent to decide whether an observation is in scope.
+
 ## Claim Positioning Principle
 
 The project should use the weakest claim that accurately represents the evidence.
@@ -48,7 +50,7 @@ The difference matters:
 - SL5 is evidence-gap preservation.
 - SL6 is evidence-gap erasure.
 
-The current evidence supports only narrow SL2 and repeated SL5 in Method B+ endpoint scope. It does not support SL3, SL4, or SL6.
+The Method B+ endpoint supports only narrow SL2 and repeated SL5 in its scope. Later S27 project-owner review adds narrow SL3 partial support for `create_payment_draft`. The current evidence still does not support SL4 or SL6.
 
 ## Required Boundaries
 
@@ -61,6 +63,7 @@ Every project-level synthesis should preserve these boundaries:
 - pressure context is not pressure causation;
 - scenario contrast is not causal intervention unless a protocol supports that design;
 - Method B+ SL2 is not full approval bypass;
+- S27 SL3 partial support is not SL4, full approval bypass, fraud, or audit/compliance sufficiency;
 - artifact validity is not construct validity;
 - construct validity is not external validity.
 
@@ -85,7 +88,7 @@ The project must not claim:
 
 The current project can be summarized as:
 
-> A staged artificial-organization research pipeline that can generate, validate, review, and synthesize traceable artificial interactions about institutional friction and control boundaries. Current evidence supports bounded artificial-system claims about reconstructable evidence gaps, coordination holds, pressure context, downstream gap preservation, and narrow buyer-side handoff under limited conditions. These are not claims about humans, real organizations, statistical effects, or operational sufficiency.
+> A staged artificial-organization research pipeline that can generate, validate, review, and synthesize traceable artificial interactions about institutional friction and within-control process drift. Current evidence supports bounded artificial-system claims about reconstructable evidence gaps, coordination holds, pressure context, downstream gap preservation, narrow buyer-side handoff under limited conditions, and S27 narrow partial support for non-payable draft creation. These are not claims about humans, real organizations, statistical effects, fraud, or operational sufficiency.
 
 ## STOP Condition Review
 

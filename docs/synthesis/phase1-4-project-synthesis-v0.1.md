@@ -22,6 +22,7 @@ It adds no new runs, candidates, protocols, scenarios, prompts, metrics, schemas
 | Phase 4 mechanism exploration synthesis | `docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md` |
 | Phase 4 structuring / approval-splitting synthesis | `docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md` |
 | Phase 4 applicant-side structuring synthesis | `docs/synthesis/phase4-applicant-side-structuring-synthesis-v0.1.md` |
+| Phase 4 freeform vs menu-conditioned structuring synthesis | `docs/synthesis/phase4-freeform-vs-menu-conditioned-structuring-synthesis-v0.1.md` |
 | Current evidence inventory | `docs/synthesis/current-evidence-inventory-v0.1.md` |
 | Current claim-level table | `docs/synthesis/current-claim-level-table.csv` |
 | Social chaos claim synthesis | `docs/synthesis/social-chaos-claim-synthesis-v0.1.md` |
@@ -59,6 +60,7 @@ Current reviewed artificial evidence supports the following bounded statements:
 - Boundary-preserving outcomes are repeatedly visible in the current protocol family.
 - SL5 evidence-gap preservation is the strongest repeated Method B+ pattern.
 - Narrow SL2 payment-forward handoff, split-item handoff, or applicant-side split submission can appear under specific artificial conditions, including BC31, S18 lossy handoff, S28 downstream structuring / approval splitting, and project-owner-reviewed S29 applicant-side structuring.
+- S30 freeform applicant structuring did not reproduce S29 split submission without explicit split-submission choices; it instead preserved aggregate review / higher approval paths in all accepted runs.
 - S27 payment-draft staging produced project-owner-confirmed narrow SL3 partial support for `create_payment_draft`.
 
 Current reviewed artificial evidence does not support:
@@ -73,7 +75,7 @@ Current reviewed artificial evidence does not support:
 - full approval bypass;
 - human behavior, real-world organization behavior, or statistical significance.
 
-Queue/ticket mismatch, exception-route ambiguity, approval-artifact mismatch, conflicting operational norms, shadow approval / informal preclearance, S28 downstream structuring, and S29 applicant-side structuring did not produce stronger downstream slippage and instead reinforced SL5 preservation. No tested mechanism has produced SL4 or SL6 support.
+Queue/ticket mismatch, exception-route ambiguity, approval-artifact mismatch, conflicting operational norms, shadow approval / informal preclearance, S28 downstream structuring, S29 applicant-side structuring, and S30 freeform applicant structuring did not produce stronger downstream slippage and instead reinforced SL5 preservation. No tested mechanism has produced SL4 or SL6 support.
 
 ## What Has Been Learned
 
@@ -128,6 +130,7 @@ Reasons:
 - S20 exception-route ambiguity did not add stronger slippage support;
 - S28 added bounded SL2 downstream handoff support but did not add downstream preparation, final readiness, or gap erasure;
 - S29 project-owner review confirms bounded applicant-side SL2 split-submission / within-control process drift support but S29 did not test downstream accountant preparation and did not add final readiness or gap erasure;
+- S30 did not produce freeform split-submission proposals, so the S30-to-S31 multi-role chain trigger is not met;
 - Phase 4 now answers the current tested-mechanism map but does not justify a stronger downstream-slippage or baseline claim;
 - additional run-producing diagnostics would risk repeating a conservative pattern unless a genuinely different mechanism is selected first.
 
@@ -237,3 +240,27 @@ Project-owner review confirms S29 as bounded applicant-side within-control proce
 S29 does not support fraud, hidden intent, full approval bypass, SL3, SL4, SL6, human behavior, real-world organization behavior, statistical significance, prompt causation, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
 
 Checkpoint decision after S29 project-owner review: pause run-producing Phase 4 work until a new target-definition/protocol-freeze checkpoint decides whether to build on the S29 applicant-side SL2 boundary, test downstream consequences, or consolidate the Phase 4 findings for reporting.
+
+## Post-S30 Freeform Applicant Structuring Update
+
+Later Phase 4 work produced S30 freeform applicant structuring, synthesized in `docs/synthesis/phase4-freeform-vs-menu-conditioned-structuring-synthesis-v0.1.md`.
+
+S30 tests whether the S29 applicant-side split-submission pattern appears when the requester/buyer is asked to generate a submission or handling plan without visible fixed split-submission actions.
+
+S30 result:
+
+- 20 attempted / 20 accepted / 0 excluded.
+- Freeform multi-packet proposals: 0.
+- Single aggregate submission plans: 9.
+- Higher approval / aggregate review plans: 11.
+- SL5 aggregate-gap preservation: 20/20.
+- SL1, SL2, and SL6 were not observed.
+
+This updates the Phase 4 conclusion:
+
+- S29 remains bounded project-owner-reviewed applicant-side SL2 support, but it is menu-conditioned in the current tested evidence.
+- S30 does not support freeform emergent applicant-side structuring.
+- S31 should not proceed from S30 because its trigger condition was observed freeform split-proposal candidates, and that condition was not met.
+- Baseline preparation remains unsupported because SL4 and SL6 remain unsupported and S30 adds another boundary-preserving result.
+
+Checkpoint decision after S30: stop the S30-to-S31 execution path and consolidate Phase 4 unless a new mechanism-selection or target-definition checkpoint is frozen first.

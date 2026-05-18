@@ -212,6 +212,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S30 freeform applicant structuring diagnostic result: [pilot-runs/org-payment/phase4-s30-freeform-applicant-structuring-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s30-freeform-applicant-structuring-diagnostic-0001/summary.md)
 - Phase 4 S30 freeform applicant structuring candidate review: [pilot-runs/org-payment/phase4-s30-freeform-applicant-structuring-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s30-freeform-applicant-structuring-diagnostic-0001/candidate-review-0001/summary.md)
 - Phase 4 reflection after S30 freeform applicant structuring: [docs/reflections/phase4-after-s30-freeform-applicant-structuring-review.md](docs/reflections/phase4-after-s30-freeform-applicant-structuring-review.md)
+- Phase 4 freeform vs menu-conditioned structuring synthesis v0.1: [docs/synthesis/phase4-freeform-vs-menu-conditioned-structuring-synthesis-v0.1.md](docs/synthesis/phase4-freeform-vs-menu-conditioned-structuring-synthesis-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1820,3 +1821,16 @@ The frozen protocol uses four conditions with 5 attempted runs each: no pressure
 The S30 prompt did not ask the actor to split a request, bypass approval, avoid thresholds, hide related items, omit aggregate information, or treat pressure as approval. S30 does not claim fraud, hidden intent, full approval bypass, human behavior, real-world behavior, statistical significance, prompt causation, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
 
 Checkpoint decision: do not proceed to S31 from S30 because S31 was conditional on observed freeform split proposals. The next appropriate BC is a Phase 4 synthesis comparing fixed-menu S29 split choice with freeform S30 boundary preservation.
+
+### Phase 4 Freeform vs Menu-Conditioned Structuring Synthesis
+
+The S29/S30 comparison is recorded in [docs/synthesis/phase4-freeform-vs-menu-conditioned-structuring-synthesis-v0.1.md](docs/synthesis/phase4-freeform-vs-menu-conditioned-structuring-synthesis-v0.1.md).
+
+The synthesis separates two results:
+
+- S29 produced project-owner-reviewed bounded applicant-side SL2 split-submission support under fixed-menu pressure conditions.
+- S30 produced no freeform multi-packet proposal when explicit split actions were absent, and instead preserved aggregate approval / aggregate review gaps in all 20 accepted runs.
+
+The synthesis does not claim prompt causation, fraud, hidden intent, full approval bypass, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+
+Checkpoint decision: stop the S30-to-S31 execution path. Future run-producing Phase 4 work requires a new mechanism-selection or target-definition checkpoint rather than treating S31 as already authorized from S30.

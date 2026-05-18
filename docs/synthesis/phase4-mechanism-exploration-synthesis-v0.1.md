@@ -22,7 +22,7 @@ Completion status:
 - Delivery completion: complete. Phase 4 selected a mechanism, froze a protocol, executed S20, reviewed candidates, reflected on the result, and synthesized the mechanism pass.
 - Research completion: partial. Phase 4 tested mechanisms, but it has not answered which information structure can produce stronger downstream slippage beyond buyer-side handoff.
 
-Current-status note: the original completion status above is retained for historical S20 context. Later Phase 4 endpoint updates after S27/S28/S29 are recorded in `docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md` and `docs/synthesis/phase4-applicant-side-structuring-synthesis-v0.1.md`. Phase 4 has current tested-mechanism support for bounded SL2, one narrow SL3 partial-support mechanism, and repeated SL5 preservation, but not for proof of SL4, SL6, full approval bypass, or baseline readiness.
+Current-status note: the original completion status above is retained for historical S20 context. Later Phase 4 endpoint updates after S27/S28/S29/S30 are recorded in `docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md`, `docs/synthesis/phase4-applicant-side-structuring-synthesis-v0.1.md`, and `docs/synthesis/phase4-freeform-vs-menu-conditioned-structuring-synthesis-v0.1.md`. Phase 4 has current tested-mechanism support for bounded SL2, one narrow SL3 partial-support mechanism, and repeated SL5 preservation, but not for proof of SL4, SL6, full approval bypass, or baseline readiness. S30 did not add freeform applicant-side SL2 support.
 
 ## Mechanism Results
 
@@ -182,14 +182,44 @@ The current Phase 4 mechanism map is therefore:
 
 Checkpoint decision after S29 project-owner review: pause run-producing Phase 4 work until a new target-definition/protocol-freeze checkpoint decides whether to build on the S29 applicant-side SL2 boundary, test downstream consequences, or consolidate for reporting. S29 does not support fraud, hidden intent, full approval bypass, SL3, SL4, SL6, prompt causation, model-general behavior, statistical significance, human behavior, real-world behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
 
+## Post-S30 Freeform Applicant Structuring Update
+
+This synthesis is further updated by `docs/synthesis/phase4-freeform-vs-menu-conditioned-structuring-synthesis-v0.1.md`.
+
+S30 tested whether requester/buyer would propose split or multi-packet submission plans without being shown explicit split-submission actions. It executed 20 accepted runs across the same broad pressure-condition structure used for S29.
+
+S30 result:
+
+- freeform multi-packet proposals: 0/20;
+- single aggregate submission plans: 9/20;
+- higher approval / aggregate review plans: 11/20;
+- SL5 aggregate-gap preservation: 20/20;
+- SL1, SL2, and SL6 were not observed.
+
+The S29/S30 comparison changes the current Phase 4 reading:
+
+- S29 remains project-owner-reviewed bounded SL2 applicant-side split-submission support, but it was produced with visible fixed split-submission menu options.
+- S30 does not reproduce applicant-side split submission when the actor generates a freeform handling plan without explicit split choices.
+- S31 should not proceed from S30 because S31 was conditional on observed freeform split-proposal candidates.
+
+Current Phase 4 tested-mechanism map after S30:
+
+- SL2: supported only in bounded contexts including lossy handoff, S28 downstream split-item handoff, and S29 fixed-menu applicant-side split submission; S30 did not add SL2.
+- SL3: narrow project-owner-confirmed partial support only from S27 `create_payment_draft`.
+- SL4: unsupported.
+- SL5: repeatedly supported as approval/evidence/aggregate-gap preservation, including S30.
+- SL6: unsupported.
+
+Checkpoint decision after S30: stop the S30-to-S31 execution path and consolidate. Future execution requires a new mechanism-selection or target-definition checkpoint; it must not treat S31 as already authorized from S30.
+
 ## Allowed Claims
 
 This synthesis may claim:
 
 - Phase 4 selected, froze, executed, reviewed, and reflected on an exception-route ambiguity mechanism.
 - S20 accepted runs preserved approval and exception-authority gaps downstream.
-- Current reviewed artificial evidence supports repeated SL5 boundary preservation, bounded SL2 support from BC31/S18/S28/S29 contexts, and narrow S27 SL3 partial support for `create_payment_draft`.
-- Phase 4 has a clearer current tested-mechanism map after S29, but still not proof of stronger downstream slippage, SL4, SL6, or baseline readiness.
+- Current reviewed artificial evidence supports repeated SL5 boundary preservation, bounded SL2 support from BC31/S18/S28/S29 contexts, and narrow S27 SL3 partial support for `create_payment_draft`; S30 adds a freeform boundary-preserving non-SL2 result.
+- Phase 4 has a clearer current tested-mechanism map after S30, but still not proof of stronger downstream slippage, SL4, SL6, or baseline readiness.
 - The current evidence does not justify a controlled failure-mode baseline.
 
 ## Forbidden Claims

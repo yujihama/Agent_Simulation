@@ -190,6 +190,19 @@ Project-owner review confirms that S29 supports bounded SL2 applicant-side split
 
 This is not a fraud finding, hidden-intent finding, SL4 finding, SL6 finding, full approval-bypass finding, human behavior claim, real-world organization claim, statistical claim, prompt-causation claim, model-general claim, or compliance/legal/audit/operational/governance/safety sufficiency claim.
 
+## Post-S30 Freeform Comparison Update
+
+S30 is synthesized separately in `docs/synthesis/phase4-freeform-vs-menu-conditioned-structuring-synthesis-v0.1.md`.
+
+S30 tests whether the S29 applicant-side split-submission pattern appears without a visible fixed split-submission menu. It did not: S30 recorded 0/20 freeform multi-packet proposals and 20/20 SL5 aggregate-gap preservation.
+
+This does not invalidate S29. It narrows the interpretation:
+
+- S29 remains project-owner-reviewed bounded applicant-side SL2 support under fixed-menu pressure conditions.
+- S30 shows that the same broad pressure-condition family did not produce freeform emergent split proposals when explicit split actions were absent.
+- The S29 result should therefore be described as menu-conditioned applicant-side split submission unless a later protocol produces freeform split-proposal support.
+- S31 should not proceed from S30 because S31 was conditional on observed freeform split-proposal candidates.
+
 ## Allowed Claims
 
 This synthesis may claim:

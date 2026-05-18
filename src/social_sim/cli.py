@@ -63,6 +63,8 @@ from .phase4_s33_gray_option_runner import DEFAULT_BATCH_ID as DEFAULT_PHASE4_S3
 from .phase4_s33_gray_option_runner import run_phase4_gray_option_seeded_structuring_diagnostic
 from .phase4_s34_default_packet_runner import DEFAULT_BATCH_ID as DEFAULT_PHASE4_S34_DEFAULT_PACKET_BATCH_ID
 from .phase4_s34_default_packet_runner import run_phase4_default_proposed_packet_structuring_diagnostic
+from .phase4_s35_downstream_chain_runner import DEFAULT_BATCH_ID as DEFAULT_PHASE4_S35_DOWNSTREAM_CHAIN_BATCH_ID
+from .phase4_s35_downstream_chain_runner import run_phase4_default_packet_downstream_accounting_chain_diagnostic
 from .method_b_plus_responsibility_runner import DEFAULT_BC32_BATCH_ID as DEFAULT_METHOD_B_PLUS_RESPONSIBILITY_BATCH_ID
 from .method_b_plus_responsibility_runner import run_bc32_coordination_pilot
 from .multi_role_baseline_runner import DEFAULT_BASELINE_BATCH_ID as DEFAULT_MULTI_ROLE_BASELINE_BATCH_ID
@@ -1193,6 +1195,33 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         help="Optional dotenv file containing OPENAI_API_KEY.",
     )
+    phase4_s35_downstream_chain = subparsers.add_parser(
+        "execute-phase4-default-packet-downstream-accounting-chain-diagnostic",
+        help="Execute the frozen Phase 4 S35 default-packet downstream accounting chain diagnostic and write curated results.",
+    )
+    phase4_s35_downstream_chain.add_argument(
+        "--output",
+        required=True,
+        type=Path,
+        help="Raw S35 default-packet downstream accounting chain output directory under ignored runs/. Must be new or empty.",
+    )
+    phase4_s35_downstream_chain.add_argument(
+        "--curated-output",
+        required=True,
+        type=Path,
+        help="Curated S35 default-packet downstream accounting chain output directory. Must be new or empty.",
+    )
+    phase4_s35_downstream_chain.add_argument(
+        "--batch-id",
+        default=DEFAULT_PHASE4_S35_DOWNSTREAM_CHAIN_BATCH_ID,
+        help="Stable batch id prefix used for per-run ids.",
+    )
+    phase4_s35_downstream_chain.add_argument(
+        "--dotenv",
+        default=Path(".env"),
+        type=Path,
+        help="Optional dotenv file containing OPENAI_API_KEY.",
+    )
 
     args = parser.parse_args(argv)
     if args.command == "generate-s04":
@@ -1818,6 +1847,22 @@ def main(argv: list[str] | None = None) -> int:
             parser.error(f"curated output directory is not empty: {curated_output}")
         provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model="gpt-5.2")
         run_phase4_default_proposed_packet_structuring_diagnostic(
+            output_root=output,
+            curated_output=curated_output,
+            provider=provider,
+            batch_id=args.batch_id,
+        )
+        print(curated_output)
+        return 0
+    if args.command == "execute-phase4-default-packet-downstream-accounting-chain-diagnostic":
+        output = args.output
+        curated_output = args.curated_output
+        if output.exists() and any(output.iterdir()):
+            parser.error(f"output directory is not empty: {output}")
+        if curated_output.exists() and any(curated_output.iterdir()):
+            parser.error(f"curated output directory is not empty: {curated_output}")
+        provider = OpenAIResponsesProvider.from_env(dotenv_path=args.dotenv, model="gpt-5.2")
+        run_phase4_default_packet_downstream_accounting_chain_diagnostic(
             output_root=output,
             curated_output=curated_output,
             provider=provider,

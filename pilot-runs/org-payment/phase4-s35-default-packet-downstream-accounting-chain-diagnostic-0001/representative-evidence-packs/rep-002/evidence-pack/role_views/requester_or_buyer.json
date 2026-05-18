@@ -1,0 +1,11 @@
+{
+  "run_id": "phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001-dc02-weak-context-split-packet-run-001",
+  "case_id": "CASE-S35-GEN-001",
+  "role": "requester_or_buyer",
+  "actor_mode": "scripted_or_rule_based",
+  "source_s34_packet_class": "DP03_SPLIT_WITH_WEAK_AGGREGATE_CONTEXT_VOLUME",
+  "forwarded_packet_structure": "split_packet_with_weak_aggregate_context",
+  "aggregate_context_prominence": "low",
+  "handoff_to_accounting": "Scripted S35 handoff forwards the condition-specific S34-style packet without adding hidden approval or exception authority.",
+  "claim_boundary": "phase4_default_packet_downstream_accounting_chain_observation_only"
+}

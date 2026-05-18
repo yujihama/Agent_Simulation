@@ -240,6 +240,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S35 default-packet downstream accounting chain protocol v0.1: [protocols/failure-modes/phase4-default-packet-downstream-accounting-chain-diagnostic-v0.1.md](protocols/failure-modes/phase4-default-packet-downstream-accounting-chain-diagnostic-v0.1.md)
 - Phase 4 S35 default-packet downstream accounting chain scenario: [scenarios/org-payment/s35-default-packet-downstream-accounting-chain.yaml](scenarios/org-payment/s35-default-packet-downstream-accounting-chain.yaml)
 - Phase 4 S35 default-packet downstream accounting chain addendum v0.1: [prompts/org-payment/phase4-default-packet-downstream-accounting-chain-addendum-v0.1.md](prompts/org-payment/phase4-default-packet-downstream-accounting-chain-addendum-v0.1.md)
+- Phase 4 S35 default-packet downstream accounting chain result: [pilot-runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001/summary.md)
+- Phase 4 S35 default-packet downstream accounting chain synthesis: [docs/synthesis/phase4-default-packet-downstream-chain-synthesis-v0.1.md](docs/synthesis/phase4-default-packet-downstream-chain-synthesis-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1968,7 +1970,7 @@ The S35 mechanism-selection reflection is recorded in [docs/reflections/phase4-a
 
 The S35 protocol is frozen in [protocols/failure-modes/phase4-default-packet-downstream-accounting-chain-diagnostic-v0.1.md](protocols/failure-modes/phase4-default-packet-downstream-accounting-chain-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s35-default-packet-downstream-accounting-chain.yaml](scenarios/org-payment/s35-default-packet-downstream-accounting-chain.yaml) and prompt addendum [prompts/org-payment/phase4-default-packet-downstream-accounting-chain-addendum-v0.1.md](prompts/org-payment/phase4-default-packet-downstream-accounting-chain-addendum-v0.1.md).
 
-S35 is a protocol-freeze checkpoint only. It starts from S34-style split-forwarding packet classes and freezes a downstream accountant review diagnostic. It tests whether accounting preserves, weakens, erases, or moves beyond aggregate approval/review gaps after a default packet reaches accounting.
+S35 executes the downstream accountant review question left open by S34. It starts from S34-style split-forwarding packet classes and tests whether accounting preserves, weakens, erases, or moves beyond aggregate approval/review gaps after a default packet reaches accounting.
 
 Frozen S35 execution scope:
 
@@ -1979,4 +1981,23 @@ Frozen S35 execution scope:
 - deterministic Game Master with global truth preserved;
 - claim boundary: `phase4_default_packet_downstream_accounting_chain_observation_only`.
 
-S35 adds no execution result yet. It does not claim downstream slippage, SL3, SL4, SL6, prompt causation, fraud, hidden intent, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+Local execution command:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-phase4-default-packet-downstream-accounting-chain-diagnostic `
+  --output runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-local/raw `
+  --curated-output runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-local/curated `
+  --dotenv .env
+```
+
+Curated S35 output:
+
+- [pilot-runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001/summary.md)
+- [pilot-runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001/aggregate.json](pilot-runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001/aggregate.json)
+- [pilot-runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001/candidate-review-0001/summary.md)
+- [docs/synthesis/phase4-default-packet-downstream-chain-synthesis-v0.1.md](docs/synthesis/phase4-default-packet-downstream-chain-synthesis-v0.1.md)
+
+Observed S35 result: 20 attempted / 20 accepted / 0 excluded. Accountant selected `request_aggregate_review` in 5 runs, `request_more_evidence` in 10 runs, and `prepare_payment` in 5 positive-control runs where valid aggregate approval/review was recorded. S35 records 15 SL2 input-boundary candidates, SL5 preservation or valid-control handling in all 20 runs, and no SL3, SL4, SL6, FM3, or FM6 support.
+
+This remains an artificial Phase 4 diagnostic, not a baseline. It does not claim downstream slippage, full approval bypass, prompt causation, fraud, hidden intent, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.

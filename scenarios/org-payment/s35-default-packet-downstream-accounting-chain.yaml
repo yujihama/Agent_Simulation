@@ -1,5 +1,7 @@
 scenario_id: S35
 scenario_name: Default-packet downstream accounting chain
+id: S35
+name: Default-packet downstream accounting chain
 scenario_version: v0.1
 phase: Phase 4
 mechanism: default_packet_downstream_accounting_chain

@@ -1,0 +1,5 @@
+condition_id,accountant_action_counts,gm_decision_counts
+DC01_AGGREGATE_NOTE_SPLIT_PACKET,"{""request_aggregate_review"": 5}","{""proceeds_with_note"": 5}"
+DC02_WEAK_CONTEXT_SPLIT_PACKET,"{""request_more_evidence"": 5}","{""proceeds"": 5}"
+DC03_SOCIAL_PROVENANCE_SPLIT_PACKET,"{""request_more_evidence"": 5}","{""proceeds"": 5}"
+DC04_VALID_AGGREGATE_APPROVAL_CONTROL,"{""prepare_payment"": 5}","{""proceeds"": 5}"

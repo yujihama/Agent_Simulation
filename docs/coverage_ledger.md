@@ -3297,3 +3297,59 @@ Frozen S35 conditions:
 Next step:
 
 - Execute S35 only if the runner can implement scripted S34-style packet handoff, accountant-local visibility, deterministic Game Master handling, evidence reconstruction, validation, and candidate review without changing the frozen protocol after seeing outputs.
+
+## Phase 4 S35 Default-Packet Downstream Accounting Chain Execution Update
+
+Latest PR label: `PR-Phase4-S35-default-packet-downstream-accounting-chain-execution`
+
+This update applies to C01, C02, C05, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Updated artifacts:
+
+- `src/social_sim/phase4_s35_downstream_chain_runner.py`
+- `tests/test_phase4_s35_downstream_chain_pilot.py`
+- `pilot-runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001/`
+- `docs/reflections/phase4-after-s35-default-packet-downstream-chain-review.md`
+- `docs/synthesis/phase4-default-packet-downstream-chain-synthesis-v0.1.md`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md`
+- `docs/synthesis/current-evidence-inventory-v0.1.md`
+- `docs/synthesis/current-evidence-map.csv`
+- `docs/synthesis/phase1-4-project-synthesis-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: executes the S35 downstream accounting-chain follow-up to S34 default-packet forwarding.
+- C02 Research Questions: answers whether S34-style split packets reaching accounting move into accountant-side preparation, final readiness, gap erasure, or boundary preservation under the frozen artificial protocol.
+- C05 World / Environment: preserves S35 frozen conditions and separates aggregate-note split packets, weak-context split packets, social-provenance split packets, and valid aggregate-approval positive control.
+- C08 Interaction Layer: records scripted requester/buyer handoff, accountant role-local review, action proposal, Game Master decision, post-hoc explanation, and final state.
+- C09 Game Master / Arbiter: preserves aggregate approval/review truth and distinguishes split packet arrival from valid aggregate approval, exception authority, preparation-like action, and final payment readiness.
+- C10 LLM Actor Layer: uses OpenAI `gpt-5.2` for the accountant review role only; no model comparison or model-general claim is made.
+- C12 Experiment Harness: adds S35 CLI execution with raw outputs under ignored `runs/` and curated outputs under `pilot-runs/`.
+- C13 Event Taxonomy: uses existing event taxonomy only; no new event type is added.
+- C14 Metrics: records accountant action counts, SL2 input-boundary candidates, SL3/SL4/SL5/SL6 status counts, FM3/FM6 status counts, and validation/exclusion counts.
+- C15 Evidence Pack: adds reconstructable S35 global truth, role views, handoff packet, accountant action, GM decision, final state, candidate, reviewer-note, and validation artifacts.
+- C16 Validity Protocol: preserves candidate/support separation; S35 generated candidate rows are proxy-reviewed only and do not become human-reviewed support.
+- C17 Human / LLM Review: includes Codex proxy candidate review only. It does not claim project-owner, external, or independent human review.
+- C18 Reporting / Claims: records 20 attempted / 20 accepted / 0 excluded; 15 SL2 input-boundary candidates; SL5 preservation or valid-control handling in all accepted runs; no SL3 under unresolved aggregate approval/review, SL4, SL6, FM3, or FM6 support.
+- C20 Ethics / Misuse Boundaries: preserves within-control scope and no fraud, hidden intent, human behavior, real-world behavior, statistical, prompt-causation, model-general, or audit/compliance sufficiency claim.
+
+Observed S35 result:
+
+- Attempted runs: 20
+- Accepted runs: 20
+- Exclusions: 0
+- Accountant selected `request_aggregate_review`: 5
+- Accountant selected `request_more_evidence`: 10
+- Accountant selected `prepare_payment`: 5, only in the valid aggregate-approval positive-control condition
+- SL2 input-boundary candidates: 15
+- SL3 under unresolved aggregate approval/review: not observed
+- SL4 final payment-ready without aggregate approval/review: not observed
+- SL5 aggregate-gap preservation or valid-control handling: 20
+- SL6 aggregate-gap erasure: not observed
+
+Next step:
+
+- Do not proceed directly to baseline. Synthesize before any further run-producing Phase 4 diagnostic; future work must identify a substantially different within-control information mechanism and freeze research-completion criteria before execution.

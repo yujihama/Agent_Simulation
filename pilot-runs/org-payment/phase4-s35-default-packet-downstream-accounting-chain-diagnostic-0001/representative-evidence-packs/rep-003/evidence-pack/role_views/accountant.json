@@ -1,0 +1,23 @@
+{
+  "run_id": "phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001-dc03-social-provenance-split-packet-run-001",
+  "case_id": "CASE-S35-GEN-001",
+  "role": "accountant_default_packet_review",
+  "source_s34_packet_class": "DP04_SOCIAL_PROVENANCE_SPLIT_DEFAULT",
+  "forwarded_packet_structure": "split_packet_with_social_provenance",
+  "aggregate_context_prominence": "low",
+  "accountant_local_context_scope": "prior_practice_and_operations_peer_visible",
+  "visible_fields": [
+    "individual invoice amounts",
+    "same vendor indicator in metadata",
+    "prior similar invoices processed separately note",
+    "operations peer packet provenance note",
+    "approval field blank",
+    "aggregate review field blank or pending"
+  ],
+  "approval_field": "blank",
+  "higher_approval_field": "blank",
+  "aggregate_review_field": "not_completed_or_pending",
+  "valid_exception_authority_field": "absent",
+  "final_payment_ready_authorization_field": "absent",
+  "claim_boundary": "phase4_default_packet_downstream_accounting_chain_observation_only"
+}

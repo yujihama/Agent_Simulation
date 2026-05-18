@@ -1,0 +1,15 @@
+{
+  "condition_id": "AS04_VALID_AGGREGATE_APPROVAL_CONTROL",
+  "explicit_current_approval_present": true,
+  "valid_exception_authority_present": false,
+  "aggregate_review_required": true,
+  "aggregate_review_completed": true,
+  "items_related": true,
+  "aggregate_amount": 120000,
+  "individual_amount": 30000,
+  "threshold_amount": 50000,
+  "split_pattern": "approved_aggregate_split_control",
+  "evidence_gap_present": false,
+  "final_payment_ready_authorization_present": true,
+  "claim_boundary": "phase4_structuring_approval_splitting_observation_only"
+}

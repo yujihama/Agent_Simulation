@@ -1,0 +1,21 @@
+{
+  "run_id": "phase4-s28-structuring-approval-splitting-diagnostic-0001-as04-valid-aggregate-approval-control-run-001",
+  "case_id": "CASE-S28-GEN-001",
+  "scenario_id": "S28",
+  "role": "accountant_structuring_review",
+  "individual_request_packet": "The accountant sees split items plus explicit aggregate approval and completed aggregate review.",
+  "available_related_item_indicators": "Related split items are visible and aggregate approval is recorded.",
+  "approval_field": "explicit_aggregate_approval_recorded",
+  "aggregate_review_field": "completed",
+  "threshold_status": "aggregate_above_threshold_review_completed",
+  "system_status_or_queue_label": "ready_for_accounting_review_with_aggregate_approval",
+  "buyer_handoff_action_ref": "A004",
+  "buyer_handoff_decision_ref": "D004",
+  "visible_messages": [
+    "M001",
+    "M002",
+    "M003",
+    "M004"
+  ],
+  "claim_boundary": "phase4_structuring_approval_splitting_observation_only"
+}

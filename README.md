@@ -193,6 +193,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 structuring / approval-splitting protocol v0.1: [protocols/failure-modes/phase4-structuring-approval-splitting-diagnostic-v0.1.md](protocols/failure-modes/phase4-structuring-approval-splitting-diagnostic-v0.1.md)
 - Phase 4 S28 structuring / approval-splitting scenario: [scenarios/org-payment/s28-structuring-approval-splitting.yaml](scenarios/org-payment/s28-structuring-approval-splitting.yaml)
 - Phase 4 structuring / approval-splitting addendum v0.1: [prompts/org-payment/phase4-structuring-approval-splitting-addendum-v0.1.md](prompts/org-payment/phase4-structuring-approval-splitting-addendum-v0.1.md)
+- Phase 4 S28 structuring / approval-splitting diagnostic result: [pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/summary.md)
+- Phase 4 S28 structuring / approval-splitting candidate review: [pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/candidate-review-0001/summary.md)
+- Phase 4 reflection after S28 structuring / approval-splitting diagnostic: [docs/reflections/phase4-after-s28-structuring-approval-splitting-review.md](docs/reflections/phase4-after-s28-structuring-approval-splitting-review.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1708,15 +1711,19 @@ The recommended forward-looking term is `Within-Control Process Drift`. SL1-SL6 
 
 This scope revision adds no runs, protocols, or claim upgrades. S27 remains narrow SL3 partial support with SL5 gap preservation; SL4, SL6, full approval bypass, fraud, human behavior, real-world behavior, statistical significance, and audit/compliance sufficiency remain unsupported.
 
-### Phase 4 S28 Structuring / Approval-Splitting Protocol
+### Phase 4 S28 Structuring / Approval-Splitting Diagnostic
 
 After the scope-axis revision, [docs/reflections/phase4-after-s27-next-mechanism-selection.md](docs/reflections/phase4-after-s27-next-mechanism-selection.md) selects `structuring_approval_splitting` as the next Phase 4 mechanism.
 
 The S28 protocol is frozen in [protocols/failure-modes/phase4-structuring-approval-splitting-diagnostic-v0.1.md](protocols/failure-modes/phase4-structuring-approval-splitting-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s28-structuring-approval-splitting.yaml](scenarios/org-payment/s28-structuring-approval-splitting.yaml) and prompt addendum [prompts/org-payment/phase4-structuring-approval-splitting-addendum-v0.1.md](prompts/org-payment/phase4-structuring-approval-splitting-addendum-v0.1.md).
 
-This is a protocol-freeze checkpoint only. It tests whether splitting payment requests, invoices, periods, cost categories, or processing units can create within-control process drift while aggregate approval or aggregate review remains unresolved. The protocol freezes four conditions: no-splitting control, amount splitting below threshold, invoice/period splitting, and valid aggregate approval control.
+The executed diagnostic result is recorded in [pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/summary.md), with candidate review in [pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/candidate-review-0001/summary.md) and reflection in [docs/reflections/phase4-after-s28-structuring-approval-splitting-review.md](docs/reflections/phase4-after-s28-structuring-approval-splitting-review.md).
 
-S28 adds `stage_payment_batch` and `request_aggregate_review` as backward-compatible action types. It does not execute runs, add result artifacts, claim structuring slippage, claim fraud or intentional misconduct, or make human, real-world, statistical, prompt-causation, model-comparison, compliance, legal, audit, operational, governance, or safety sufficiency claims.
+S28 tests whether splitting payment requests, invoices, periods, cost categories, or processing units can create within-control process drift while aggregate approval or aggregate review remains unresolved. It uses four conditions: no-splitting control, amount splitting below threshold, invoice/period splitting, and valid aggregate approval control.
+
+Observed result: 20 attempted / 20 accepted / 0 excluded. S28 produced bounded SL2 split-item handoff candidates in AS02/AS03 and SL5 aggregate-gap preservation in all non-control runs. SL1, SL3, SL4, SL6, FM3, and FM6 were not observed. Positive-control AS04 prepared payment only when aggregate approval/review was recorded.
+
+S28 adds `stage_payment_batch` and `request_aggregate_review` as backward-compatible action types. It does not claim structuring slippage beyond bounded SL2 handoff candidates, fraud or intentional misconduct, full approval bypass, human behavior, real-world behavior, statistical significance, prompt causation, model comparison, or compliance, legal, audit, operational, governance, or safety sufficiency.
 
 Local execution command for a later execution PR:
 
@@ -1728,4 +1735,4 @@ python -m social_sim execute-phase4-structuring-approval-splitting-diagnostic `
   --dotenv .env
 ```
 
-The command is documented for the later execution PR only. Raw and regenerated curated output must stay under ignored `runs/`; committed reference output, if execution occurs later, should be curated under `pilot-runs/`.
+Raw and regenerated curated output should stay under ignored `runs/`; committed reference output is curated under `pilot-runs/`.

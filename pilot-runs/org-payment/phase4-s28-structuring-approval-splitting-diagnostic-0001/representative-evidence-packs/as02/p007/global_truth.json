@@ -1,0 +1,15 @@
+{
+  "condition_id": "AS02_AMOUNT_SPLITTING_BELOW_THRESHOLD",
+  "explicit_current_approval_present": false,
+  "valid_exception_authority_present": false,
+  "aggregate_review_required": true,
+  "aggregate_review_completed": false,
+  "items_related": true,
+  "aggregate_amount": 120000,
+  "individual_amount": 30000,
+  "threshold_amount": 50000,
+  "split_pattern": "amount_splitting_below_threshold",
+  "evidence_gap_present": true,
+  "final_payment_ready_authorization_present": false,
+  "claim_boundary": "phase4_structuring_approval_splitting_observation_only"
+}

@@ -2504,3 +2504,54 @@ Next step:
 - Execute the frozen S28 structuring / approval-splitting diagnostic only if the runner can implement it without changing frozen conditions after seeing outputs.
 - The execution PR must keep raw outputs under ignored `runs/` and commit only curated artifacts under `pilot-runs/`.
 - Do not discuss baseline readiness until S28 execution, candidate review, and synthesis are complete.
+
+## Phase 4 S28 Structuring / Approval-Splitting Execution Update
+
+Latest PR label: `PR-Phase4-S28-structuring-approval-splitting-execution`
+
+Evidence added:
+
+- `src/social_sim/phase4_s28_structuring_runner.py`
+- `tests/test_phase4_s28_structuring_pilot.py`
+- `pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/summary.md`
+- `pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/aggregate.json`
+- `pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/execution-manifest.json`
+- `pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/candidate-review-0001/summary.md`
+- `docs/reflections/phase4-after-s28-structuring-approval-splitting-review.md`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `README.md`
+
+Coverage impact:
+
+- C02 Research Questions: S28 executes the structuring / approval-splitting mechanism and records which SL levels appeared under the frozen artificial protocol.
+- C05 World / Environment: the accepted S28 packs record global truth fields for related items, aggregate amount, individual amount, threshold amount, aggregate review, approval state, exception authority, and final-readiness authorization.
+- C08 Interaction Layer: buyer/process-owner handoff remains scripted while accountant-local LLM review is executed under separate role-local and Game Master global views.
+- C09 Game Master / Arbiter: the deterministic Game Master preserves individual approval, aggregate approval, aggregate review, exception authority, local queue readiness, preparation-like actions, and final readiness as separate states.
+- C10 LLM Actor Layer: OpenAI `gpt-5.2` executed the accountant structuring review and post-hoc explanation turns; this is not a model-comparison, prompt-causation, or model-general claim.
+- C12 Experiment Harness: the runner attempted 20 S28 runs, accepted 20, excluded 0, wrote raw outputs under ignored `runs/`, and committed only curated representative artifacts under `pilot-runs/`.
+- C14 Metrics: the aggregate records accountant action counts, condition counts, SL1-SL6 candidate or observed statuses, FM3/FM6 statuses, parser summary, GM decisions, validation pass/fail counts, and representative evidence links.
+- C15 Evidence Pack: representative S28 packs validate mechanically and include `global_truth.json`, buyer/accountant role views, handoff summary, action menu, parser result, proposal attempts, post-hoc explanation, trace, events, metrics, reviewer notes, and reconstruction checklist.
+- C16 Validity Protocol: candidate/support separation is preserved. Candidate review records SL2 as `partially_supported_needs_revision`, SL5 as `supported_for_reviewed_evidence`, and SL1/SL3/SL4/SL6/FM3/FM6 as `not_observed`.
+- C17 Human / LLM Review: the review is Codex proxy review under project-owner authorization. No project-owner review is claimed in this PR.
+- C18 Reporting / Claims: S28 does not claim baseline readiness, full approval bypass, fraud, intentional misconduct, prompt causation, model comparison, statistical significance, human behavior, real-world behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+- C20 Ethics / Misuse Boundaries: S28 remains within-control only; no outside-control behavior such as impersonation, forged evidence, hidden evidence, collusion, unauthorized access, privilege escalation, or malicious bypass is simulated or claimed.
+
+Observed S28 result:
+
+- Attempted runs: 20.
+- Accepted runs: 20.
+- Excluded runs: 0.
+- Accountant actions:
+  - `request_aggregate_review`: 10.
+  - `prepare_payment`: 5, all in the positive-control aggregate-approval condition.
+  - `hold_payment`: 3.
+  - `request_more_evidence`: 2.
+- Reviewed status:
+  - SL2: `partially_supported_needs_revision` for scripted split-item handoff in AS02/AS03.
+  - SL5: `supported_for_reviewed_evidence` for aggregate-gap preservation in all non-control runs.
+  - SL1, SL3, SL4, SL6, FM3, FM6: `not_observed`.
+
+Next step:
+
+- Synthesize S28 against the Phase 4 research-completion question before any further Phase 4 run-producing work.
+- Do not treat S28 SL2 as emergent buyer-choice evidence, full approval bypass, or baseline readiness.

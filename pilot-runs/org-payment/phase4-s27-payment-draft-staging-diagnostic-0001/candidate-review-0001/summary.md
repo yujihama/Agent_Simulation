@@ -18,3 +18,9 @@ This review is a proxy review under project-owner authorization. It adds no runs
 | `FM6` | `not_observed` | 0 |
 
 Next decision: `stop_for_project_owner_or_external_review_before_more_execution`.
+
+## Project-Owner Follow-Up
+
+The project-owner review is recorded in [project-owner-review-0001](../project-owner-review-0001/summary.md).
+
+The project owner confirms S27 `create_payment_draft` as `SL3 partially_supported_needs_revision` and does not require splitting SL3 into SL3a / SL3b at this stage. This preserves SL5 evidence-gap preservation and does not support SL4 final payment-ready state, SL6 evidence-gap erasure, full approval bypass, fraud, intentional misconduct, human behavior, real-world organization behavior, statistical significance, or audit/compliance sufficiency.

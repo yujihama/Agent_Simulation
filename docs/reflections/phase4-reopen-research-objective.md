@@ -83,3 +83,15 @@ The protocol must define, before execution, what would count as:
 Decision: reopen Phase 4 research work.
 
 Proceed to a new Phase 4 exploration protocol freeze before any additional execution.
+
+## Post-S27 Update
+
+S27 payment-draft staging later produced project-owner-confirmed `SL3 partially_supported_needs_revision` for `create_payment_draft`. This supersedes the earlier "no tested mechanism has produced reviewed SL3 support" status for current Phase 4 tracking.
+
+The update is narrow:
+
+- no SL3a / SL3b split is introduced;
+- SL5 evidence-gap preservation remains supported because approval and exception gaps remained visible;
+- SL4 final payment-ready state remains unsupported;
+- SL6 evidence-gap erasure remains unsupported;
+- full approval bypass remains unsupported.

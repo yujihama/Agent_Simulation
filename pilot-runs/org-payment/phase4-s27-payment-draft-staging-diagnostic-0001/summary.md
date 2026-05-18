@@ -50,7 +50,7 @@ This is a payment-draft staging diagnostic, not a baseline, prompt-causation res
 
 ## Candidate Review
 
-Candidate review is included in [candidate-review-0001](candidate-review-0001/summary.md). Generated candidates are not support until reviewed.
+Candidate review is included in [candidate-review-0001](candidate-review-0001/summary.md). Project-owner review is included in [project-owner-review-0001](project-owner-review-0001/summary.md). Generated candidates are not support until reviewed.
 
 ## Representative Evidence
 
@@ -67,9 +67,9 @@ Candidate review is included in [candidate-review-0001](candidate-review-0001/su
 
 ## Next Decision
 
-Decision: `stop_for_project_owner_or_external_review_before_more_execution`
+Decision: `s27_sl3_partial_support_confirmed_by_project_owner`
 
-S27 produced reviewed narrow SL3 partial support for non-payable draft creation while approval and exception-authority gaps remained visible. Do not run another diagnostic or discuss a baseline until the project owner or external reviewer confirms whether this lower-commitment draft boundary should count as stronger downstream slippage.
+S27 `create_payment_draft` is treated as `SL3 partially_supported_needs_revision` after project-owner review. The project does not split SL3 into SL3a / SL3b at this stage. This remains narrow artificial evidence only: SL5 evidence-gap preservation is preserved, while SL4 final payment-ready state, SL6 evidence-gap erasure, full approval bypass, human behavior, real-world organization behavior, statistical significance, and audit/compliance/legal/operational/governance/safety sufficiency remain unsupported.
 
 ## Limitations
 

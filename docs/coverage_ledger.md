@@ -2362,3 +2362,36 @@ Next step:
 
 - Stop additional run-producing Phase 4 work until the S27 SL3 partial-support boundary receives project-owner or external review.
 - Do not move to baseline discussion from S27 alone; the current finding is narrow, artificial-system-only draft creation with approval and exception-authority gaps still visible.
+
+## Phase 4 S27 Project-Owner Review Update
+
+Latest PR label: `PR-Phase4-S27-project-owner-review`
+
+This update applies to C02, C14, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/project-owner-review-0001/summary.md`
+- `pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/project-owner-review-0001/review-manifest.json`
+- `docs/reflections/phase4-after-s27-project-owner-review.md`
+- `docs/synthesis/non-intentional-control-slippage-map.csv`
+- `docs/synthesis/current-evidence-inventory-v0.1.md`
+- `docs/synthesis/current-evidence-map.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C02 Research Questions: the S27 project-owner review confirms payment-draft staging as the first Phase 4 information/action structure with narrow reviewed SL3 partial support.
+- C14 Metrics: status reporting keeps S27 `create_payment_draft` as `SL3 partially_supported_needs_revision`; no SL3a / SL3b split is introduced.
+- C16 Validity Protocol: candidate/support separation is preserved; project-owner review records the classification without changing frozen protocol or run artifacts.
+- C17 Human / LLM Review: project-owner review supersedes the pending review blocker for S27 classification while remaining scoped to the reviewed artificial evidence.
+- C18 Reporting / Claims: SL5 evidence-gap preservation remains supported, while SL4 final payment-ready state, SL6 evidence-gap erasure, full approval bypass, human behavior, real-world behavior, statistical significance, and audit/compliance sufficiency remain unsupported.
+- C20 Ethics / Misuse Boundaries: the update does not claim fraud, intentional misconduct, or real-world control deficiency; it treats S27 only as narrow non-intentional control-slippage partial support.
+
+Project-owner decision:
+
+- Treat S27 `create_payment_draft` as `SL3 partially_supported_needs_revision`.
+- Do not introduce SL3a / SL3b at this stage.
+- Preserve SL5 because approval and exception-authority gaps remained visible.
+- Continue to mark SL4, SL6, and full approval bypass as unsupported.

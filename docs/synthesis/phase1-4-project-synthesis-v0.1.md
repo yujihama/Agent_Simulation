@@ -20,6 +20,7 @@ It adds no new runs, candidates, protocols, scenarios, prompts, metrics, schemas
 | Phase 2 methodology synthesis | `docs/synthesis/phase2-methodology-synthesis-v0.1.md` |
 | Phase 3 control slippage model synthesis | `docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md` |
 | Phase 4 mechanism exploration synthesis | `docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md` |
+| Phase 4 structuring / approval-splitting synthesis | `docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md` |
 | Current evidence inventory | `docs/synthesis/current-evidence-inventory-v0.1.md` |
 | Current claim-level table | `docs/synthesis/current-claim-level-table.csv` |
 | Social chaos claim synthesis | `docs/synthesis/social-chaos-claim-synthesis-v0.1.md` |
@@ -46,7 +47,7 @@ Scope-axis update: `docs/research/within-control-process-drift-scope-v0.1.md` su
 | Phase 1 | The research objective was reframed away from reproducing human social chaos and toward a bounded artificial-organization evidence method. |
 | Phase 2 | The methodological contribution was defined: protocol freeze, Game Master boundary, evidence packs, validators, candidate review, conservative-result reporting, and claim controls. |
 | Phase 3 | Delivery-complete and research-complete as a conceptual/evidence model. It is not empirical support for all SL levels. |
-| Phase 4 | Delivery-complete but research-partial. It tested mechanism diagnostics, but did not answer which information structure can produce stronger downstream slippage. |
+| Phase 4 | Research-complete for the current tested-mechanism map. It identifies bounded SL2 mechanisms, one narrow SL3 partial-support mechanism, repeated SL5 preservation, and no tested SL4/SL6 mechanism. |
 
 ## Current Evidence Position
 
@@ -56,13 +57,13 @@ Current reviewed artificial evidence supports the following bounded statements:
 - Evidence packs can support reconstruction of role-visible context, action proposals, Game Master decisions, traces, events, metrics, final states, and review notes.
 - Boundary-preserving outcomes are repeatedly visible in the current protocol family.
 - SL5 evidence-gap preservation is the strongest repeated Method B+ pattern.
-- Narrow buyer-side SL2 payment-forward handoff can appear under specific artificial conditions, especially BC31 and S18 lossy handoff.
-- Lossy handoff is currently the only tested mechanism that produced reviewed SL2 buyer-side handoff support.
+- Narrow SL2 payment-forward or split-item handoff can appear under specific artificial conditions, including BC31, S18 lossy handoff, and S28 structuring / approval splitting.
+- S27 payment-draft staging produced project-owner-confirmed narrow SL3 partial support for `create_payment_draft`.
 
 Current reviewed artificial evidence does not support:
 
 - SL1 ambiguous approval interpretation as a supported Phase 4 result;
-- SL3 accountant payment preparation without explicit approval, except for later S27 narrow partial support for non-payable `create_payment_draft`;
+- SL3 accountant payment preparation without explicit approval beyond later S27 narrow partial support for non-payable `create_payment_draft`;
 - SL4 final payment-ready state without explicit approval;
 - SL6 evidence-gap erasure;
 - FM1 responsibility diffusion;
@@ -71,7 +72,7 @@ Current reviewed artificial evidence does not support:
 - full approval bypass;
 - human behavior, real-world organization behavior, or statistical significance.
 
-Queue/ticket mismatch and exception-route ambiguity did not produce stronger slippage and instead reinforced SL5 preservation. No tested mechanism has produced SL3, SL4, or SL6 support.
+Queue/ticket mismatch, exception-route ambiguity, approval-artifact mismatch, conflicting operational norms, shadow approval / informal preclearance, and S28 structuring / approval splitting did not produce stronger downstream slippage and instead reinforced SL5 preservation. No tested mechanism has produced SL4 or SL6 support.
 
 ## What Has Been Learned
 
@@ -98,7 +99,7 @@ SL2, SL3, SL4, SL5, and SL6 must remain separate:
 - SL5 is process movement with the gap preserved downstream.
 - SL6 is gap erasure or contradiction downstream.
 
-The current evidence shows narrow SL2 in limited artificial contexts, repeated SL5, and later S27 narrow SL3 partial support for non-payable draft creation. It does not show SL4 final payment-ready state or SL6 evidence-gap erasure.
+The current evidence shows narrow SL2 in limited artificial contexts, repeated SL5, later S27 narrow SL3 partial support for non-payable draft creation, and S28 bounded SL2 split-item handoff under structuring / approval splitting. It does not show SL4 final payment-ready state or SL6 evidence-gap erasure.
 
 ### Methodology
 
@@ -122,12 +123,13 @@ Reasons:
 
 - repeated evidence points to SL5 boundary preservation rather than stronger slippage;
 - SL2 remains narrow and mechanism-specific;
-- SL3, SL4, and SL6 remain unsupported;
+- SL3 remains supported only narrowly through S27 `create_payment_draft`, while SL4 and SL6 remain unsupported;
 - S20 exception-route ambiguity did not add stronger slippage support;
-- Phase 4 has not yet answered which information structure can produce stronger downstream slippage;
+- S28 added bounded SL2 handoff support but did not add downstream preparation, final readiness, or gap erasure;
+- Phase 4 now answers the current tested-mechanism map but does not justify a stronger downstream-slippage or baseline claim;
 - additional run-producing diagnostics would risk repeating a conservative pattern unless a genuinely different mechanism is selected first.
 
-Autonomous run-producing BCs should pause at this endpoint. Future execution requires a new mechanism-selection checkpoint that explains why the mechanism is substantially different from lossy handoff, queue/ticket mismatch, and exception-route ambiguity.
+Autonomous run-producing BCs should pause at this endpoint. Future execution requires a new mechanism-selection checkpoint that explains why the mechanism is substantially different from lossy handoff, payment-draft staging, structuring / approval splitting, queue/ticket mismatch, and exception-route ambiguity.
 
 ## Report-Ready Claim Set
 
@@ -137,7 +139,8 @@ The project may claim:
 - the method can generate mechanically valid evidence packs for artificial organization scenarios;
 - the method supports candidate review and claim-boundary control;
 - current reviewed artificial evidence supports repeated downstream preservation of approval/evidence gaps under current protocols;
-- narrow buyer-side SL2 handoff can appear in specific artificial contexts;
+- narrow SL2 handoff can appear in specific artificial contexts;
+- S27 supports narrow SL3 partial support for `create_payment_draft` while gaps remain visible;
 - current evidence does not justify stronger failure-mode, causal, statistical, or real-world claims.
 
 The project must not claim:
@@ -170,13 +173,13 @@ Recommended next work is report-oriented, not run-producing:
 | Narrow SL2 is separated from SL3, SL4, SL5, and SL6. | OK. |
 | Unsupported failure modes remain unsupported. | OK. |
 | Controlled failure-mode baseline is not recommended. | OK. |
-| Phase 4 is not overstated as research-complete for stronger downstream slippage. | OK. |
+| Phase 4 is treated as research-complete only for the current tested-mechanism map, not for stronger downstream slippage. | OK. |
 | Future execution requires a new mechanism-selection checkpoint. | OK. |
 | No human, real-world, statistical, model-general, compliance, legal, audit, operational, governance, or safety sufficiency claim is made. | OK. |
 
 ## Checkpoint Decision
 
-Decision: Phase 1-4 roadmap pass is delivery-complete, with Phase 4 explicitly research-partial.
+Decision: Phase 1-4 roadmap pass is delivery-complete. After S28, Phase 4 is research-complete for the current tested-mechanism map, while remaining incomplete for any claim that stronger downstream slippage, SL4, SL6, full approval bypass, or baseline readiness has been established.
 
 Corrective update: Phase 4 research work is reopened by `docs/reflections/phase4-reopen-research-objective.md`.
 
@@ -195,3 +198,19 @@ This updates the current evidence position but not the original Phase 1-4 delive
 - SL6 evidence-gap erasure remains unsupported.
 - Full approval bypass remains unsupported.
 - No human behavior, real-world organization behavior, statistical significance, model-general, prompt-causation, compliance, legal, audit, operational, governance, or safety sufficiency claim is supported.
+
+## Post-S28 Structuring / Approval-Splitting Update
+
+Later Phase 4 work also produced S28 structuring / approval splitting, synthesized in `docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md`.
+
+S28 adds bounded SL2 split-item handoff support under amount splitting and invoice/period splitting. It does not add SL3, SL4, SL6, FM3, or FM6 support. It reinforces SL5 aggregate-gap preservation in all non-control accepted runs.
+
+This changes the Phase 4 conclusion from "research active until a candidate-producing mechanism is found" to a more precise endpoint:
+
+- SL2-producing tested mechanisms: lossy handoff and structuring / approval splitting, with BC31 as an additional narrow handoff observation.
+- SL3-producing tested mechanism: S27 payment-draft staging, narrowly and partially, through `create_payment_draft`.
+- SL4-producing tested mechanisms: none.
+- SL6-producing tested mechanisms: none.
+- SL5-preserving tested mechanisms: most downstream diagnostics, including S17, S18, S19, S20, S23, S24, S25, S26, S27, and S28.
+
+Phase 4 should now pause run-producing work and consolidate. A future diagnostic should begin only through a new mechanism-selection checkpoint with a substantially different within-control information mechanism and predeclared research-completion criteria.

@@ -195,6 +195,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 structuring / approval-splitting addendum v0.1: [prompts/org-payment/phase4-structuring-approval-splitting-addendum-v0.1.md](prompts/org-payment/phase4-structuring-approval-splitting-addendum-v0.1.md)
 - Phase 4 S28 structuring / approval-splitting diagnostic result: [pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/summary.md)
 - Phase 4 S28 structuring / approval-splitting candidate review: [pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/candidate-review-0001/summary.md)
+- Phase 4 S28 structuring / approval-splitting synthesis v0.1: [docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md](docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md)
 - Phase 4 reflection after S28 structuring / approval-splitting diagnostic: [docs/reflections/phase4-after-s28-structuring-approval-splitting-review.md](docs/reflections/phase4-after-s28-structuring-approval-splitting-review.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
@@ -1736,3 +1737,19 @@ python -m social_sim execute-phase4-structuring-approval-splitting-diagnostic `
 ```
 
 Raw and regenerated curated output should stay under ignored `runs/`; committed reference output is curated under `pilot-runs/`.
+
+### Phase 4 S28 Structuring / Approval-Splitting Synthesis
+
+The S28 synthesis is recorded in [docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md](docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md).
+
+S28 adds bounded SL2 split-item handoff support under amount splitting and invoice/period splitting, while preserving aggregate approval/review gaps downstream in all non-control accepted runs. It does not add SL1, SL3, SL4, SL6, FM3, or FM6 support.
+
+Current Phase 4 tested-mechanism map:
+
+- SL2: bounded handoff support from lossy handoff and structuring / approval splitting, with BC31 as an additional narrow handoff observation.
+- SL3: narrow project-owner-confirmed partial support from S27 `create_payment_draft`.
+- SL4: not supported.
+- SL5: repeatedly supported as downstream gap preservation.
+- SL6: not supported.
+
+Checkpoint decision: stop run-producing Phase 4 diagnostics and consolidate unless a future mechanism-selection PR identifies a substantially different within-control information mechanism with research-completion criteria fixed before execution. This is not a baseline, full approval-bypass claim, fraud claim, human behavior claim, real-world claim, statistical claim, or compliance/legal/audit/operational/governance/safety sufficiency claim.

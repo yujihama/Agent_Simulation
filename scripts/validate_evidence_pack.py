@@ -481,26 +481,45 @@ def validate_advisor_seeded_artifacts(
     ids: dict[str, set[str]],
     report: ValidationReport,
 ) -> None:
+    if (pack_dir / "option_generation" / "gray_options.json").exists():
+        option_label = "gray-option seeded"
+        generation_label = "gray-option seeded"
+        options_path = pack_dir / "option_generation" / "gray_options.json"
+        filtered_path = pack_dir / "option_generation" / "filtered_gray_options.json"
+        seeded_menu_path = pack_dir / "action_menus" / "requester_or_buyer_gray_seeded.json"
+        generator_role = "gray_option_ideation_advisor"
+        filter_path = pack_dir / "classifier_results" / "gray_option_filter.json"
+        filter_role = "gray_option_filter"
+    else:
+        option_label = "advisor"
+        generation_label = "advisor-seeded"
+        options_path = pack_dir / "option_generation" / "advisor_options.json"
+        filtered_path = pack_dir / "option_generation" / "filtered_options.json"
+        seeded_menu_path = pack_dir / "action_menus" / "requester_or_buyer_seeded.json"
+        generator_role = "processing_option_advisor"
+        filter_path = pack_dir / "classifier_results" / "option_filter.json"
+        filter_role = "option_filter"
+
     required_paths = [
-        pack_dir / "option_generation" / "advisor_options.json",
-        pack_dir / "option_generation" / "filtered_options.json",
+        options_path,
+        filtered_path,
         pack_dir / "action_menus" / "canonical_requester_or_buyer.json",
-        pack_dir / "action_menus" / "requester_or_buyer_seeded.json",
-        pack_dir / "parser_results" / "processing_option_advisor.json",
+        seeded_menu_path,
+        pack_dir / "parser_results" / f"{generator_role}.json",
         pack_dir / "parser_results" / "requester_or_buyer.json",
-        pack_dir / "proposal_attempts" / "processing_option_advisor.jsonl",
+        pack_dir / "proposal_attempts" / f"{generator_role}.jsonl",
         pack_dir / "proposal_attempts" / "requester_or_buyer.jsonl",
-        pack_dir / "classifier_results" / "option_filter.json",
+        filter_path,
         pack_dir / "classifier_results" / "requester_or_buyer.json",
     ]
     for path in required_paths:
         if not path.exists():
-            raise ValidationError(f"missing advisor-seeded artifact: {path.relative_to(pack_dir)}")
+            raise ValidationError(f"missing {generation_label} artifact: {path.relative_to(pack_dir)}")
 
-    advisor_options = load_json(pack_dir / "option_generation" / "advisor_options.json")
+    advisor_options = load_json(options_path)
     options = advisor_options.get("options") if isinstance(advisor_options, dict) else None
     if not isinstance(options, list) or not options:
-        raise ValidationError("option_generation/advisor_options.json options must be a non-empty array")
+        raise ValidationError(f"{options_path.relative_to(pack_dir)} options must be a non-empty array")
     for index, option in enumerate(options):
         if not isinstance(option, dict):
             raise ValidationError(f"advisor option {index} must be an object")
@@ -512,46 +531,46 @@ def validate_advisor_seeded_artifacts(
                 raise ValidationError(f"advisor option {index} {field} must be an array")
         for ref in option.get("source_refs", []):
             if not check_ref(ref, ids, pack_dir):
-                raise ValidationError(f"advisor option {option.get('option_id')} has unknown source ref {ref}")
-    report.add("advisor option source references resolve")
+                raise ValidationError(f"{option_label} option {option.get('option_id')} has unknown source ref {ref}")
+    report.add(f"{option_label} option source references resolve")
 
-    filtered = load_json(pack_dir / "option_generation" / "filtered_options.json")
+    filtered = load_json(filtered_path)
     accepted_options = filtered.get("accepted_options")
     rejected_options = filtered.get("rejected_options")
     seeded_menu = filtered.get("seeded_menu")
     if not isinstance(accepted_options, list):
-        raise ValidationError("filtered_options accepted_options must be an array")
+        raise ValidationError(f"{filtered_path.relative_to(pack_dir)} accepted_options must be an array")
     if not isinstance(rejected_options, list):
-        raise ValidationError("filtered_options rejected_options must be an array")
+        raise ValidationError(f"{filtered_path.relative_to(pack_dir)} rejected_options must be an array")
     if not isinstance(seeded_menu, list) or not seeded_menu:
-        raise ValidationError("filtered_options seeded_menu must be a non-empty array")
+        raise ValidationError(f"{filtered_path.relative_to(pack_dir)} seeded_menu must be a non-empty array")
 
     rejected_ids = {option.get("option_id") for option in rejected_options if isinstance(option, dict)}
     menu_ids = {item.get("option_id") for item in seeded_menu if isinstance(item, dict)}
     leaked_ids = sorted(str(option_id) for option_id in rejected_ids & menu_ids if option_id)
     if leaked_ids:
-        raise ValidationError(f"rejected advisor options leaked into seeded menu: {', '.join(leaked_ids)}")
-    report.add("rejected advisor options are excluded from requester/buyer seeded menu")
+        raise ValidationError(f"rejected {option_label} options leaked into seeded menu: {', '.join(leaked_ids)}")
+    report.add(f"rejected {option_label} options are excluded from requester/buyer seeded menu")
 
-    seeded_menu_file = load_json(pack_dir / "action_menus" / "requester_or_buyer_seeded.json")
+    seeded_menu_file = load_json(seeded_menu_path)
     allowed_actions = seeded_menu_file.get("allowed_actions") if isinstance(seeded_menu_file, dict) else None
     if not isinstance(allowed_actions, list) or not allowed_actions:
-        raise ValidationError("action_menus/requester_or_buyer_seeded.json allowed_actions must be non-empty")
+        raise ValidationError(f"{seeded_menu_path.relative_to(pack_dir)} allowed_actions must be non-empty")
     menu_pairs = {
         (item.get("action_type"), item.get("target_role"))
         for item in allowed_actions
         if isinstance(item, dict)
     }
 
-    advisor_parser = load_json(pack_dir / "parser_results" / "processing_option_advisor.json")
-    if advisor_parser.get("role") != "processing_option_advisor":
-        raise ValidationError("processing_option_advisor parser result role mismatch")
+    advisor_parser = load_json(pack_dir / "parser_results" / f"{generator_role}.json")
+    if advisor_parser.get("role") != generator_role:
+        raise ValidationError(f"{generator_role} parser result role mismatch")
     if advisor_parser.get("status") != "accepted_by_parser":
-        raise ValidationError("processing_option_advisor parser result must be accepted_by_parser")
-    advisor_attempts = load_jsonl(pack_dir / "proposal_attempts" / "processing_option_advisor.jsonl")
+        raise ValidationError(f"{generator_role} parser result must be accepted_by_parser")
+    advisor_attempts = load_jsonl(pack_dir / "proposal_attempts" / f"{generator_role}.jsonl")
     advisor_accepted = [attempt for attempt in advisor_attempts if attempt.get("status") == "accepted_by_parser"]
     if len(advisor_accepted) != 1:
-        raise ValidationError("processing_option_advisor proposal attempts must contain exactly one accepted attempt")
+        raise ValidationError(f"{generator_role} proposal attempts must contain exactly one accepted attempt")
 
     requester_parser = load_json(pack_dir / "parser_results" / "requester_or_buyer.json")
     if requester_parser.get("role") != "requester_or_buyer":
@@ -580,9 +599,9 @@ def validate_advisor_seeded_artifacts(
         raise ValidationError(f"requester_or_buyer selected action {selected_action['action_id']} has no Game Master decision")
     report.add("requester/buyer selected seeded-menu action has a Game Master decision")
 
-    option_filter = load_json(pack_dir / "classifier_results" / "option_filter.json")
-    if option_filter.get("role") != "option_filter":
-        raise ValidationError("classifier_results/option_filter.json role must be option_filter")
+    option_filter = load_json(filter_path)
+    if option_filter.get("role") != filter_role:
+        raise ValidationError(f"{filter_path.relative_to(pack_dir)} role must be {filter_role}")
     requester_classifier = load_json(pack_dir / "classifier_results" / "requester_or_buyer.json")
     if requester_classifier.get("role") != "requester_or_buyer":
         raise ValidationError("classifier_results/requester_or_buyer.json role must be requester_or_buyer")
@@ -590,7 +609,7 @@ def validate_advisor_seeded_artifacts(
         raise ValidationError("requester_or_buyer classifier candidate_labels must be an object")
     if not isinstance(requester_classifier.get("sl_statuses"), dict):
         raise ValidationError("requester_or_buyer classifier sl_statuses must be an object")
-    report.add("advisor-seeded option generation, filtering, and selected action artifacts validate")
+    report.add(f"{generation_label} option generation, filtering, and selected action artifacts validate")
 
 
 def validate_generated_plan_artifacts(

@@ -3107,3 +3107,51 @@ Frozen S33 conditions:
 Next step:
 
 - Execute S33 only if the runner can implement gray-option ideation, deterministic filtering, gray-seeded menu construction, applicant selection, evidence reconstruction, and candidate review without changing the frozen protocol after seeing outputs.
+
+## Phase 4 S33 Gray-Option Seeded Structuring Execution Update
+
+Latest PR label: `PR-Phase4-S33-gray-option-seeded-structuring-execution`
+
+This update applies to C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `src/social_sim/phase4_s33_gray_option_runner.py`
+- `tests/test_phase4_s33_gray_option_seeded_structuring_pilot.py`
+- `pilot-runs/org-payment/phase4-s33-gray-option-seeded-structuring-diagnostic-0001/`
+- `docs/reflections/phase4-after-s33-gray-option-seeded-structuring-review.md`
+- `docs/synthesis/phase4-gray-option-seeded-structuring-synthesis-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+
+Coverage impact:
+
+- C08 Interaction Layer: executes gray-option ideation, deterministic outside-control filtering, and requester/buyer gray-seeded menu selection as separate reconstructable steps.
+- C09 Game Master / Arbiter: records requester/buyer selected action and preserves aggregate approval/review gaps without converting gray-option availability, pressure, prior practice, or split-packet suggestions into approval.
+- C10 LLM Actor Layer: executes OpenAI `gpt-5.2` for the gray-option ideation advisor and requester/buyer selector under the frozen S33 protocol; this is not model comparison or model-general evidence.
+- C12 Experiment Harness: records 20 attempted / 19 accepted / 1 excluded S33 runs across four frozen conditions; excluded runs were not replaced.
+- C13 Event Taxonomy: uses existing `evidence_gap` and `informal_pressure` event types only; no event taxonomy change is introduced.
+- C14 Metrics: records accepted/rejected gray-option counts, seeded split option presence, selected action counts, selected option source counts, SL status counts, and validation counts.
+- C15 Evidence Pack: representative S33 evidence packs validate mechanically and include role views, option generation, filtering, seeded menus, actions, GM decisions, trace, events, metrics, reviewer notes, and reconstruction checklists.
+- C16 Validity Protocol: generated gray-option candidates remain separate from reviewed support; candidate review is Codex proxy review, not independent human review.
+- C17 Human / LLM Review: S33 includes proxy review only. It does not claim project-owner review or external human review.
+- C18 Reporting / Claims: S33 reports that gray split options were present in all accepted runs. Requester/buyer selected one gray-seeded split action with aggregate note and selected conservative canonical actions in the other accepted runs. It adds one bounded SL2 candidate with SL5 aggregate-gap preservation and does not add SL4 or SL6 support.
+- C20 Ethics / Misuse Boundaries: outside-control options are deterministically rejected before requester/buyer selection. No fraud, forged evidence, hidden evidence, impersonation, collusion, unauthorized access, malicious bypass, hidden-intent, human behavior, real-world, statistical, model-general, or compliance/audit sufficiency claim is made.
+
+Observed S33 result:
+
+- Attempted runs: 20
+- Accepted runs: 19
+- Excluded runs: 1 provider failure, not replaced
+- Gray split option present: 19
+- Selected gray-seeded split option: 1
+- Selected canonical option: 18
+- Selected actions: `request_higher_approval` 11, `submit_single_aggregate_request` 7, `submit_split_requests_with_aggregate_note` 1
+- SL2 candidate: 1
+- SL5 aggregate-gap preservation: 19
+- SL1 / SL4 / SL6: not observed
+
+Next step:
+
+- Do not proceed directly to a downstream accountant chain from S33 without a separate mechanism-selection/protocol-freeze checkpoint. The single selected gray-seeded split action is useful but weak; a future diagnostic should change the decision structure or target the selected S33 boundary explicitly before any downstream expansion.

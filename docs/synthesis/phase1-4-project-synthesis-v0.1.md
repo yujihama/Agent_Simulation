@@ -264,3 +264,19 @@ This updates the Phase 4 conclusion:
 - Baseline preparation remains unsupported because SL4 and SL6 remain unsupported and S30 adds another boundary-preserving result.
 
 Checkpoint decision after S30: stop the S30-to-S31 execution path and consolidate Phase 4 unless a new mechanism-selection or target-definition checkpoint is frozen first.
+
+## Post-S31 / S33 Option-Seeding Updates
+
+Later Phase 4 work produced S31 advisor-seeded structuring and S33 gray-option seeded structuring.
+
+S31 showed that neutral advisor-generated split-like options can be added to applicant menus without producing applicant-side split selection. S33 tested a stronger gray-option seeding mechanism: gray split options were generated and visible in all 19 accepted applicant menus, and requester/buyer selected one gray-seeded split action with aggregate note under compound pressure/prior practice.
+
+This updates the Phase 4 conclusion:
+
+- S29 remains the main applicant-side SL2 split-submission signal, and that signal was produced in a fixed-menu setting.
+- S30 and S31 did not reproduce applicant-side split selection outside the fixed-menu S29 design.
+- S33 weakly reproduced applicant-side split selection once, but at a much weaker level than S29 and with aggregate context preserved.
+- S33 supports the view that merely surfacing more explicit gray options is insufficient for a strong repeated signal when conservative canonical options remain available and aggregate approval/review gaps remain visible.
+- SL4, SL6, full approval bypass, fraud, hidden intent, human behavior, real-world organization behavior, statistical significance, and audit/compliance sufficiency remain unsupported.
+
+Checkpoint decision after S33: do not proceed directly to a downstream accountant chain from S33. Future run-producing Phase 4 work requires a new mechanism-selection/protocol-freeze checkpoint that either targets the weak S33 boundary case or changes the decision structure, not just the number or grayness of available menu options.

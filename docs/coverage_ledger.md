@@ -2751,3 +2751,43 @@ Next step:
 
 - Pause run-producing Phase 4 diagnostics.
 - Request project-owner or external review of S29's split-without-aggregate-note boundary before baseline discussion or further diagnostic execution.
+
+## Phase 4 S29 Project-Owner Review Update
+
+Latest PR label: `PR-Phase4-S29-project-owner-review`
+
+This update applies to C01, C02, C14, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/project-owner-review-0001/summary.md`
+- `docs/synthesis/phase4-applicant-side-structuring-synthesis-v0.1.md`
+- `docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md`
+- `docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md`
+- `docs/synthesis/phase1-4-project-synthesis-v0.1.md`
+- `docs/synthesis/current-evidence-inventory-v0.1.md`
+- `docs/synthesis/current-evidence-map.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: S29 is now project-owner-reviewed as applicant-side within-control process drift, not merely a pending boundary topic.
+- C02 Research Questions: the review confirms bounded SL2 applicant-side split-submission evidence: 7/15 pressure-condition runs and 0/5 no-pressure runs selected split submission.
+- C14 Metrics: split-without-aggregate-note cases are classified as stronger boundary candidates, while SL3, SL4, SL6, and full approval bypass remain unsupported.
+- C16 Validity Protocol: project-owner review resolves the S29 split-without-aggregate-note boundary without changing frozen S29 run artifacts or upgrading claims beyond reviewed evidence.
+- C17 Human / LLM Review: the review level for the S29 boundary is now `project_owner_review`; it remains scoped to artificial evidence and is not independent multi-reviewer validation.
+- C18 Reporting / Claims: S29 may be described as approval-threshold / aggregate-review weakening risk in an artificial within-control process-drift frame, but not as fraud, hidden intent, full approval bypass, human behavior, real-world behavior, statistical significance, prompt causation, model-general behavior, or audit/compliance/legal/operational/governance/safety sufficiency.
+- C20 Ethics / Misuse Boundaries: the review preserves the distinction between a possible red flag in a separate real-world audit framing and a fraud finding in this artificial experiment.
+
+Project-owner decision:
+
+- S29 supports applicant-side within-control process drift.
+- S29 supports bounded SL2 applicant-side split-submission evidence.
+- Split submissions without aggregate note are stronger boundary candidates because related split items were submitted without explicitly preserving the aggregate-review requirement in the submitted packet.
+- S29 still does not support fraud, hidden intent, SL4, SL6, or full approval bypass.
+
+Next step:
+
+- Do not start a baseline directly from S29.
+- If execution resumes, first freeze a target-definition/protocol checkpoint that either builds narrowly on the S29 applicant-side SL2 boundary, tests downstream consequences, or consolidates Phase 4 findings for reporting.

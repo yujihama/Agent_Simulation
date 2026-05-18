@@ -58,7 +58,7 @@ Current reviewed artificial evidence supports the following bounded statements:
 - Evidence packs can support reconstruction of role-visible context, action proposals, Game Master decisions, traces, events, metrics, final states, and review notes.
 - Boundary-preserving outcomes are repeatedly visible in the current protocol family.
 - SL5 evidence-gap preservation is the strongest repeated Method B+ pattern.
-- Narrow SL2 payment-forward handoff, split-item handoff, or applicant-side split submission can appear under specific artificial conditions, including BC31, S18 lossy handoff, S28 downstream structuring / approval splitting, and S29 applicant-side structuring.
+- Narrow SL2 payment-forward handoff, split-item handoff, or applicant-side split submission can appear under specific artificial conditions, including BC31, S18 lossy handoff, S28 downstream structuring / approval splitting, and project-owner-reviewed S29 applicant-side structuring.
 - S27 payment-draft staging produced project-owner-confirmed narrow SL3 partial support for `create_payment_draft`.
 
 Current reviewed artificial evidence does not support:
@@ -100,7 +100,7 @@ SL2, SL3, SL4, SL5, and SL6 must remain separate:
 - SL5 is process movement with the gap preserved downstream.
 - SL6 is gap erasure or contradiction downstream.
 
-The current evidence shows narrow SL2 in limited artificial contexts, repeated SL5, later S27 narrow SL3 partial support for non-payable draft creation, S28 bounded SL2 split-item handoff under downstream structuring / approval splitting, and S29 bounded applicant-side SL2 split submission under pressure conditions. It does not show SL4 final payment-ready state or SL6 evidence-gap erasure.
+The current evidence shows narrow SL2 in limited artificial contexts, repeated SL5, later S27 narrow SL3 partial support for non-payable draft creation, S28 bounded SL2 split-item handoff under downstream structuring / approval splitting, and project-owner-confirmed S29 applicant-side within-control process drift / SL2 split submission under pressure conditions. It does not show SL4 final payment-ready state or SL6 evidence-gap erasure.
 
 ### Methodology
 
@@ -127,11 +127,11 @@ Reasons:
 - SL3 remains supported only narrowly through S27 `create_payment_draft`, while SL4 and SL6 remain unsupported;
 - S20 exception-route ambiguity did not add stronger slippage support;
 - S28 added bounded SL2 downstream handoff support but did not add downstream preparation, final readiness, or gap erasure;
-- S29 added bounded applicant-side SL2 split-submission support but did not test downstream accountant preparation and did not add final readiness or gap erasure;
+- S29 project-owner review confirms bounded applicant-side SL2 split-submission / within-control process drift support but S29 did not test downstream accountant preparation and did not add final readiness or gap erasure;
 - Phase 4 now answers the current tested-mechanism map but does not justify a stronger downstream-slippage or baseline claim;
 - additional run-producing diagnostics would risk repeating a conservative pattern unless a genuinely different mechanism is selected first.
 
-Autonomous run-producing BCs should pause at this endpoint. Future execution requires project-owner/external review of the S29 split-without-aggregate-note boundary or a new mechanism-selection checkpoint that explains why the mechanism is substantially different from lossy handoff, payment-draft staging, downstream structuring, applicant-side structuring, queue/ticket mismatch, and exception-route ambiguity.
+Autonomous run-producing BCs should pause at this endpoint. Future execution requires a new target-definition/protocol-freeze checkpoint that either builds narrowly on the project-owner-reviewed S29 applicant-side SL2 boundary or explains why a new mechanism is substantially different from lossy handoff, payment-draft staging, downstream structuring, applicant-side structuring, queue/ticket mismatch, and exception-route ambiguity.
 
 ## Report-Ready Claim Set
 
@@ -142,7 +142,7 @@ The project may claim:
 - the method supports candidate review and claim-boundary control;
 - current reviewed artificial evidence supports repeated downstream preservation of approval/evidence gaps under current protocols;
 - narrow SL2 handoff can appear in specific artificial contexts;
-- applicant-side split submission can appear under S29 pressure conditions in bounded artificial evidence;
+- project-owner-reviewed applicant-side within-control process drift / split submission can appear under S29 pressure conditions in bounded artificial evidence;
 - S27 supports narrow SL3 partial support for `create_payment_draft` while gaps remain visible;
 - current evidence does not justify stronger failure-mode, causal, statistical, or real-world claims.
 
@@ -163,7 +163,7 @@ Recommended next work is report-oriented, not run-producing:
 
 1. Draft a project report or paper using `docs/reports/phase1-4-report-outline.md`.
 2. Decide whether any external or project-owner human review is needed before public-facing claims.
-3. If execution resumes later, first review the S29 split-without-aggregate-note boundary, analyze why applicant-side pressure conditions produced split submission while downstream diagnostics preserved gaps, or select a genuinely new information mechanism with research-completion criteria defined before execution.
+3. If execution resumes later, first define whether to build on the project-owner-reviewed S29 split-without-aggregate-note boundary, analyze why applicant-side pressure conditions produced split submission while downstream diagnostics preserved gaps, or select a genuinely new information mechanism with research-completion criteria defined before execution.
 4. Do not freeze or execute another diagnostic merely to intensify pressure, strengthen prompts, or repeat S17/S18/S19/S20 conditions.
 
 ## OK / STOP Condition Review
@@ -232,6 +232,8 @@ This updates the Phase 4 conclusion again:
 - SL6-producing tested mechanisms: none.
 - SL5-preserving tested mechanisms: most diagnostics, including S17, S18, S19, S20, S23, S24, S25, S26, S27, S28, and S29.
 
+Project-owner review confirms S29 as bounded applicant-side within-control process drift and approval-threshold / aggregate-review weakening risk. Split submissions without aggregate note are stronger boundary candidates within that SL2 scope.
+
 S29 does not support fraud, hidden intent, full approval bypass, SL3, SL4, SL6, human behavior, real-world organization behavior, statistical significance, prompt causation, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
 
-Checkpoint decision after S29: pause run-producing Phase 4 work and request project-owner or external review of the split-without-aggregate-note boundary before any baseline discussion or further diagnostic execution.
+Checkpoint decision after S29 project-owner review: pause run-producing Phase 4 work until a new target-definition/protocol-freeze checkpoint decides whether to build on the S29 applicant-side SL2 boundary, test downstream consequences, or consolidate the Phase 4 findings for reporting.

@@ -230,6 +230,10 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S33 gray-option seeded structuring addendum v0.1: [prompts/org-payment/phase4-gray-option-seeded-structuring-addendum-v0.1.md](prompts/org-payment/phase4-gray-option-seeded-structuring-addendum-v0.1.md)
 - Phase 4 S33 gray-option seeded structuring result: [pilot-runs/org-payment/phase4-s33-gray-option-seeded-structuring-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s33-gray-option-seeded-structuring-diagnostic-0001/summary.md)
 - Phase 4 S33 gray-option seeded structuring synthesis: [docs/synthesis/phase4-gray-option-seeded-structuring-synthesis-v0.1.md](docs/synthesis/phase4-gray-option-seeded-structuring-synthesis-v0.1.md)
+- Phase 4 reflection after S33 next mechanism selection: [docs/reflections/phase4-after-s33-next-mechanism-default-packet.md](docs/reflections/phase4-after-s33-next-mechanism-default-packet.md)
+- Phase 4 S34 default proposed packet structuring protocol v0.1: [protocols/failure-modes/phase4-default-proposed-packet-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-default-proposed-packet-structuring-diagnostic-v0.1.md)
+- Phase 4 S34 default proposed packet structuring scenario: [scenarios/org-payment/s34-default-proposed-packet-structuring.yaml](scenarios/org-payment/s34-default-proposed-packet-structuring.yaml)
+- Phase 4 S34 default proposed packet structuring addendum v0.1: [prompts/org-payment/phase4-default-proposed-packet-structuring-addendum-v0.1.md](prompts/org-payment/phase4-default-proposed-packet-structuring-addendum-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1923,3 +1927,15 @@ python -m social_sim execute-phase4-gray-option-seeded-structuring-diagnostic `
 ```
 
 Observed S33 result: 20 attempted / 19 accepted / 1 excluded provider failure. Gray split options were present in all 19 accepted runs. Requester/buyer selected conservative canonical actions in 18 accepted runs (`request_higher_approval`: 11, `submit_single_aggregate_request`: 7) and selected one gray-seeded split action with aggregate note in the compound-pressure/prior-practice condition. S33 adds one bounded SL2 candidate with SL5 aggregate-gap preservation, and does not add SL4 or SL6 support.
+
+### Phase 4 S34 Default Proposed Packet Structuring Protocol
+
+The S34 mechanism-selection reflection is recorded in [docs/reflections/phase4-after-s33-next-mechanism-default-packet.md](docs/reflections/phase4-after-s33-next-mechanism-default-packet.md).
+
+The S34 protocol is frozen in [protocols/failure-modes/phase4-default-proposed-packet-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-default-proposed-packet-structuring-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s34-default-proposed-packet-structuring.yaml](scenarios/org-payment/s34-default-proposed-packet-structuring.yaml) and prompt addendum [prompts/org-payment/phase4-default-proposed-packet-structuring-addendum-v0.1.md](prompts/org-payment/phase4-default-proposed-packet-structuring-addendum-v0.1.md).
+
+S34 targets the adoption gap left by S33. Instead of adding gray ideas as menu options, a default packet advisor prepares one concrete proposed packet and requester/buyer must accept, revise, reject, hold, or escalate it. This tests default/framing/provenance effects without instructing any role to forge records, hide evidence, bypass approval, or infer hidden intent.
+
+The protocol freezes 20 future attempted runs across conservative aggregate default, split-with-aggregate-note deadline, split-with-weak-aggregate-context volume, and social-provenance split default conditions. It uses OpenAI `gpt-5.2`, includes no downstream accountant turn in v0.1, and preserves the claim boundary `phase4_default_proposed_packet_structuring_observation_only` for later execution.
+
+This protocol does not execute runs and does not claim default-packet structuring occurred. It also does not claim fraud, hidden intent, full approval bypass, prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.

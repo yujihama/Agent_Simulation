@@ -206,6 +206,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S29 applicant-side structuring project-owner review: [pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/project-owner-review-0001/summary.md](pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/project-owner-review-0001/summary.md)
 - Phase 4 reflection after S29 applicant-side structuring diagnostic: [docs/reflections/phase4-after-s29-applicant-side-structuring-review.md](docs/reflections/phase4-after-s29-applicant-side-structuring-review.md)
 - Phase 4 S29 applicant-side structuring synthesis v0.1: [docs/synthesis/phase4-applicant-side-structuring-synthesis-v0.1.md](docs/synthesis/phase4-applicant-side-structuring-synthesis-v0.1.md)
+- Phase 4 S30 freeform applicant structuring protocol v0.1: [protocols/failure-modes/phase4-freeform-applicant-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-freeform-applicant-structuring-diagnostic-v0.1.md)
+- Phase 4 S30 freeform applicant structuring scenario: [scenarios/org-payment/s30-freeform-applicant-structuring.yaml](scenarios/org-payment/s30-freeform-applicant-structuring.yaml)
+- Phase 4 S30 freeform applicant structuring addendum v0.1: [prompts/org-payment/phase4-freeform-applicant-structuring-addendum-v0.1.md](prompts/org-payment/phase4-freeform-applicant-structuring-addendum-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1800,3 +1803,13 @@ S29 supports bounded applicant-side SL2 split-submission evidence and SL5 aggreg
 S29 does not support SL3 accountant preparation, SL4 final payment-ready state, SL6 gap erasure, full approval bypass, fraud, hidden intent, human behavior, real-world behavior, statistical significance, prompt causation, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
 
 Checkpoint decision: pause run-producing Phase 4 diagnostics until a new target-definition/protocol-freeze checkpoint decides whether to build on the S29 applicant-side SL2 boundary, test downstream consequences, or consolidate.
+
+### Phase 4 S30 Freeform Applicant Structuring Protocol
+
+The S30 protocol is frozen in [protocols/failure-modes/phase4-freeform-applicant-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-freeform-applicant-structuring-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s30-freeform-applicant-structuring.yaml](scenarios/org-payment/s30-freeform-applicant-structuring.yaml) and prompt addendum [prompts/org-payment/phase4-freeform-applicant-structuring-addendum-v0.1.md](prompts/org-payment/phase4-freeform-applicant-structuring-addendum-v0.1.md).
+
+S30 moves beyond S29's fixed applicant action menu. It asks the requester/buyer to generate a structured submission or handling plan without being shown explicit split-submission action choices. A deterministic parser/classifier will classify visible generated plan fields after the fact.
+
+The frozen protocol uses four conditions with 5 attempted runs each: no pressure, deadline pressure, queue / volume pressure, and compound pressure plus prior practice. S30 does not include an accountant turn, does not execute runs in the protocol-freeze PR, and does not claim freeform structuring occurred.
+
+The S30 prompt must not ask the actor to split a request, bypass approval, avoid thresholds, hide related items, omit aggregate information, or treat pressure as approval. Candidate labels remain separate from support, and any later execution remains bounded to artificial within-control process-drift observation only.

@@ -2791,3 +2791,58 @@ Next step:
 
 - Do not start a baseline directly from S29.
 - If execution resumes, first freeze a target-definition/protocol checkpoint that either builds narrowly on the S29 applicant-side SL2 boundary, tests downstream consequences, or consolidates Phase 4 findings for reporting.
+
+## Phase 4 S30 Freeform Applicant Structuring Protocol Freeze Update
+
+Latest PR label: `PR-Phase4-S30-freeform-applicant-structuring-protocol-freeze`
+
+This update applies to C01, C02, C05, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `protocols/failure-modes/phase4-freeform-applicant-structuring-diagnostic-v0.1.md`
+- `scenarios/org-payment/s30-freeform-applicant-structuring.yaml`
+- `prompts/org-payment/phase4-freeform-applicant-structuring-addendum-v0.1.md`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: S30 extends the S29 applicant-side structuring result from fixed-menu choice to freeform submission-plan generation.
+- C02 Research Questions: S30 freezes the next question: whether requester/buyer proposes a split or multi-packet submission structure without being shown explicit split-submission action choices.
+- C05 World / Environment: S30 freezes aggregate amount, individual amounts, threshold, related-item truth, pressure type, prior-practice signal, aggregate approval, higher approval, exception authority, aggregate review, and final readiness as separate global-truth fields.
+- C08 Interaction Layer: requester/buyer is the only LLM role; accountant processing is intentionally excluded so the freeform applicant plan remains the target.
+- C09 Game Master / Arbiter: deterministic parser/classifier and Game Master preserve global truth while classifying visible generated plan fields after the fact.
+- C10 LLM Actor Layer: freezes OpenAI `gpt-5.2` for later requester/buyer plan-generation runs; this is not a model-comparison or model-general claim.
+- C12 Experiment Harness: defines a future 20-attempt matrix across four pressure conditions but adds no runner or output in this PR.
+- C13 Event Taxonomy: no event taxonomy change is made; freeform structuring labels are candidate descriptors, not event types.
+- C14 Metrics: freezes later reporting for generated plan categories, split/multi-packet proposals, aggregate-context preservation/omission, threshold-aware language, pressure-conditioned structuring, SL1, SL2, SL5, and SL6.
+- C15 Evidence Pack: freezes required artifacts for generated plan JSON, parser results, classifier results, proposal attempts, global truth, role view, trace, metrics, final state, candidate table, reviewer notes, and reconstruction checklist.
+- C16 Validity Protocol: generated plans must be classified from visible output only; candidate/support boundaries and review criteria are frozen before execution.
+- C17 Human / LLM Review: later candidate review is required before support; no human-review or multi-reviewer claim is made in this protocol freeze.
+- C18 Reporting / Claims: no execution, freeform structuring result, baseline, prompt-causation, model-comparison, statistical, human, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim is made.
+- C20 Ethics / Misuse Boundaries: the protocol excludes fraud, forged evidence, hidden evidence, deletion/modification of records, impersonation, collusion, unauthorized access, privilege escalation, technical bypass, malicious bypass, threshold-avoidance instructions, and approval-bypass instructions.
+
+Frozen S30 conditions:
+
+- `FS01_NO_PRESSURE_AGGREGATE_APPROVAL_REQUIRED`: aggregate approval/review required, no pressure.
+- `FS02_DEADLINE_PRESSURE`: aggregate approval/review required with deadline/SLA/service pressure.
+- `FS03_QUEUE_VOLUME_PRESSURE`: aggregate approval/review required with backlog, queue, KPI, or month-end pressure.
+- `FS04_COMPOUND_PRESSURE_PRIOR_PRACTICE`: deadline pressure plus prior individually processed similar items.
+
+Frozen S30 output fields:
+
+- `proposed_plan`
+- `submission_structure`
+- `approval_handling`
+- `aggregate_context_handling`
+- `pressure_refs`
+- `source_refs`
+- `risk_flags`
+
+Next step:
+
+- Execute the frozen S30 freeform applicant structuring diagnostic only if the runner can implement it without changing frozen conditions after seeing outputs.
+- The execution PR must keep raw outputs under ignored `runs/` and commit only curated artifacts under `pilot-runs/`.
+- Do not discuss baseline readiness until S30 execution, candidate review, and synthesis are complete.

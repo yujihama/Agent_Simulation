@@ -213,6 +213,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S30 freeform applicant structuring candidate review: [pilot-runs/org-payment/phase4-s30-freeform-applicant-structuring-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s30-freeform-applicant-structuring-diagnostic-0001/candidate-review-0001/summary.md)
 - Phase 4 reflection after S30 freeform applicant structuring: [docs/reflections/phase4-after-s30-freeform-applicant-structuring-review.md](docs/reflections/phase4-after-s30-freeform-applicant-structuring-review.md)
 - Phase 4 freeform vs menu-conditioned structuring synthesis v0.1: [docs/synthesis/phase4-freeform-vs-menu-conditioned-structuring-synthesis-v0.1.md](docs/synthesis/phase4-freeform-vs-menu-conditioned-structuring-synthesis-v0.1.md)
+- Phase 4 advisor-seeded structuring protocol v0.1: [protocols/failure-modes/phase4-advisor-seeded-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-advisor-seeded-structuring-diagnostic-v0.1.md)
+- Phase 4 S31 advisor-seeded structuring scenario: [scenarios/org-payment/s31-advisor-seeded-structuring.yaml](scenarios/org-payment/s31-advisor-seeded-structuring.yaml)
+- Phase 4 advisor-seeded structuring addendum v0.1: [prompts/org-payment/phase4-advisor-seeded-structuring-addendum-v0.1.md](prompts/org-payment/phase4-advisor-seeded-structuring-addendum-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1834,3 +1837,13 @@ The synthesis separates two results:
 The synthesis does not claim prompt causation, fraud, hidden intent, full approval bypass, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
 
 Checkpoint decision: stop the S30-to-S31 execution path. Future run-producing Phase 4 work requires a new mechanism-selection or target-definition checkpoint rather than treating S31 as already authorized from S30.
+
+### Phase 4 S31 Advisor-Seeded Structuring Protocol
+
+The S31 protocol is frozen in [protocols/failure-modes/phase4-advisor-seeded-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-advisor-seeded-structuring-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s31-advisor-seeded-structuring.yaml](scenarios/org-payment/s31-advisor-seeded-structuring.yaml) and prompt addendum [prompts/org-payment/phase4-advisor-seeded-structuring-addendum-v0.1.md](prompts/org-payment/phase4-advisor-seeded-structuring-addendum-v0.1.md).
+
+S31 is a new mechanism-selection checkpoint after S30, not the previously conditional S30-to-S31 multi-role chain. It tests advisor-seeded option expansion: a processing-option advisor generates within-control handling options from pressure and threshold context, deterministic filtering rejects outside-control options, and requester/buyer chooses from a seeded menu that combines conservative options with accepted advisor options.
+
+The protocol freezes 20 future attempted runs across no-pressure, deadline-pressure, queue/volume-pressure, and compound-pressure/prior-practice conditions. It uses OpenAI `gpt-5.2`, includes no downstream accountant turn in v0.1, and preserves the claim boundary `phase4_advisor_seeded_structuring_observation_only` for later execution.
+
+This protocol does not execute runs and does not claim advisor-seeded structuring occurred. It also does not claim fraud, hidden intent, full approval bypass, prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.

@@ -2935,3 +2935,46 @@ Next step:
 
 - Stop the S30-to-S31 execution path.
 - Do not begin another run-producing Phase 4 BC unless a new mechanism-selection or target-definition checkpoint is frozen first.
+
+## Phase 4 S31 Advisor-Seeded Structuring Protocol Freeze Update
+
+Latest PR label: `PR-Phase4-S31-advisor-seeded-structuring-protocol-freeze`
+
+This update applies to C01, C02, C05, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `protocols/failure-modes/phase4-advisor-seeded-structuring-diagnostic-v0.1.md`
+- `scenarios/org-payment/s31-advisor-seeded-structuring.yaml`
+- `prompts/org-payment/phase4-advisor-seeded-structuring-addendum-v0.1.md`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: S31 is selected as a new mechanism after S29/S30: advisor-seeded option expansion between fixed-menu choice and pure freeform generation.
+- C02 Research Questions: freezes the next question: whether pressure-conditioned option generation can introduce split or boundary-stretching within-control choices into an applicant menu.
+- C05 World / Environment: S31 freezes aggregate amount, individual amounts, threshold, related-item truth, pressure type, prior-practice signal, aggregate approval, higher approval, exception authority, aggregate review, and final readiness as separate global-truth fields.
+- C08 Interaction Layer: separates processing-option advisor, deterministic option filter, requester/buyer seeded-menu selector, and Game Master.
+- C09 Game Master / Arbiter: deterministic filtering rejects outside-control options before applicant selection and preserves global truth in later decisions.
+- C10 LLM Actor Layer: freezes OpenAI `gpt-5.2` for later advisor and requester/buyer roles; this is not model comparison or model-general evidence.
+- C12 Experiment Harness: defines a future 20-attempt matrix across four pressure conditions but adds no runner or output in this PR.
+- C13 Event Taxonomy: no event taxonomy change is made; advisor-seeded labels are candidate descriptors, not new event types.
+- C14 Metrics: freezes later reporting for advisor option counts, accepted/rejected options, seeded split-option availability, applicant selected seeded options, SL1, SL2, SL4, SL5, and SL6.
+- C15 Evidence Pack: freezes required artifacts for role views, option generation, filter results, seeded menus, applicant selection, parser/classifier results, final state, candidate table, reviewer notes, and reconstruction checklist.
+- C16 Validity Protocol: advisor-generated candidates remain candidates until reviewed; rejected outside-control options must not be shown to the applicant.
+- C17 Human / LLM Review: later candidate review is required before support; no human-review or multi-reviewer claim is made in this protocol freeze.
+- C18 Reporting / Claims: no execution, advisor-seeded result, baseline, prompt-causation, statistical, human, real-world, model-general, compliance, legal, audit, operational, governance, or safety sufficiency claim is made.
+- C20 Ethics / Misuse Boundaries: the protocol excludes fraud, forged evidence, hidden evidence, deletion/modification of records, impersonation, collusion, unauthorized access, privilege escalation, technical bypass, malicious bypass, and approval-bypass instructions. Operationally gray options may be studied only inside within-control boundaries and must remain reconstructable.
+
+Frozen S31 conditions:
+
+- `OS01_NO_PRESSURE_AGGREGATE_APPROVAL_REQUIRED`
+- `OS02_DEADLINE_PRESSURE`
+- `OS03_QUEUE_VOLUME_PRESSURE`
+- `OS04_COMPOUND_PRESSURE_PRIOR_PRACTICE`
+
+Next step:
+
+- Execute S31 only if the runner can implement advisor option generation, deterministic filtering, seeded menu construction, applicant selection, evidence reconstruction, and candidate review without changing the frozen protocol after seeing outputs.

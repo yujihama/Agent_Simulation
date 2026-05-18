@@ -236,6 +236,10 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S34 default proposed packet structuring addendum v0.1: [prompts/org-payment/phase4-default-proposed-packet-structuring-addendum-v0.1.md](prompts/org-payment/phase4-default-proposed-packet-structuring-addendum-v0.1.md)
 - Phase 4 S34 default proposed packet structuring result: [pilot-runs/org-payment/phase4-s34-default-proposed-packet-structuring-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s34-default-proposed-packet-structuring-diagnostic-0001/summary.md)
 - Phase 4 S34 default proposed packet structuring synthesis: [docs/synthesis/phase4-default-proposed-packet-structuring-synthesis-v0.1.md](docs/synthesis/phase4-default-proposed-packet-structuring-synthesis-v0.1.md)
+- Phase 4 reflection after S34 next mechanism selection: [docs/reflections/phase4-after-s34-next-mechanism-downstream-chain.md](docs/reflections/phase4-after-s34-next-mechanism-downstream-chain.md)
+- Phase 4 S35 default-packet downstream accounting chain protocol v0.1: [protocols/failure-modes/phase4-default-packet-downstream-accounting-chain-diagnostic-v0.1.md](protocols/failure-modes/phase4-default-packet-downstream-accounting-chain-diagnostic-v0.1.md)
+- Phase 4 S35 default-packet downstream accounting chain scenario: [scenarios/org-payment/s35-default-packet-downstream-accounting-chain.yaml](scenarios/org-payment/s35-default-packet-downstream-accounting-chain.yaml)
+- Phase 4 S35 default-packet downstream accounting chain addendum v0.1: [prompts/org-payment/phase4-default-packet-downstream-accounting-chain-addendum-v0.1.md](prompts/org-payment/phase4-default-packet-downstream-accounting-chain-addendum-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1957,3 +1961,22 @@ Curated S34 output:
 Observed S34 result: 20 attempted / 20 accepted / 0 excluded. Default split packets were present in 15 accepted runs. Requester/buyer selected `revise_to_single_aggregate_request` in 11 runs, `revise_with_aggregate_note` in 4 runs, and `accept_default_packet` in 5 runs. S34 records 8 bounded SL2 split-packet-forwarding candidates and SL5 aggregate-gap preservation in all accepted runs. S34 does not add SL4 or SL6 support.
 
 This remains an artificial Phase 4 diagnostic, not a baseline. It does not claim fraud, hidden intent, full approval bypass, prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+
+### Phase 4 S35 Default-Packet Downstream Accounting Chain
+
+The S35 mechanism-selection reflection is recorded in [docs/reflections/phase4-after-s34-next-mechanism-downstream-chain.md](docs/reflections/phase4-after-s34-next-mechanism-downstream-chain.md).
+
+The S35 protocol is frozen in [protocols/failure-modes/phase4-default-packet-downstream-accounting-chain-diagnostic-v0.1.md](protocols/failure-modes/phase4-default-packet-downstream-accounting-chain-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s35-default-packet-downstream-accounting-chain.yaml](scenarios/org-payment/s35-default-packet-downstream-accounting-chain.yaml) and prompt addendum [prompts/org-payment/phase4-default-packet-downstream-accounting-chain-addendum-v0.1.md](prompts/org-payment/phase4-default-packet-downstream-accounting-chain-addendum-v0.1.md).
+
+S35 is a protocol-freeze checkpoint only. It starts from S34-style split-forwarding packet classes and freezes a downstream accountant review diagnostic. It tests whether accounting preserves, weakens, erases, or moves beyond aggregate approval/review gaps after a default packet reaches accounting.
+
+Frozen S35 execution scope:
+
+- 20 attempted runs, 5 per condition;
+- OpenAI `gpt-5.2`;
+- one LLM-controlled role: `accountant_default_packet_review`;
+- scripted requester/buyer packet handoff;
+- deterministic Game Master with global truth preserved;
+- claim boundary: `phase4_default_packet_downstream_accounting_chain_observation_only`.
+
+S35 adds no execution result yet. It does not claim downstream slippage, SL3, SL4, SL6, prompt causation, fraud, hidden intent, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.

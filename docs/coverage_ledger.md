@@ -3253,3 +3253,47 @@ Observed S34 result:
 Next step:
 
 - Do not proceed directly to baseline. If Phase 4 continues, freeze a separate downstream-chain diagnostic from reviewed S34 split-forwarding artifacts before execution.
+
+## Phase 4 S35 Default-Packet Downstream Accounting Chain Protocol Freeze Update
+
+Latest PR label: `PR-Phase4-S35-default-packet-downstream-accounting-chain-protocol`
+
+This update applies to C01, C02, C05, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Updated artifacts:
+
+- `docs/reflections/phase4-after-s34-next-mechanism-downstream-chain.md`
+- `protocols/failure-modes/phase4-default-packet-downstream-accounting-chain-diagnostic-v0.1.md`
+- `scenarios/org-payment/s35-default-packet-downstream-accounting-chain.yaml`
+- `prompts/org-payment/phase4-default-packet-downstream-accounting-chain-addendum-v0.1.md`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: selects S35 as the downstream-chain follow-up to S34's reviewed split-packet-forwarding candidates.
+- C02 Research Questions: freezes the next question as accountant-side handling after a default packet reaches accounting, not another applicant-choice or option-generation diagnostic.
+- C05 World / Environment: freezes aggregate amount, individual amounts, threshold, related-item truth, approval, higher approval, exception authority, aggregate review, final readiness, S34 packet class, aggregate-context prominence, and accountant-local context scope as separate fields.
+- C08 Interaction Layer: separates scripted requester/buyer handoff, accountant role-local review, parser validation, Game Master decision, post-hoc explanation, and final state.
+- C09 Game Master / Arbiter: preserves global truth and distinguishes split packet forwarding, aggregate approval, aggregate review, higher approval, valid exception authority, preparation-like action, and final payment readiness.
+- C10 LLM Actor Layer: freezes future OpenAI `gpt-5.2` use for `accountant_default_packet_review`; no model comparison or model-general claim is made.
+- C12 Experiment Harness: future execution must attempt 20 runs, 5 per frozen condition, with raw output under ignored `runs/` and curated output under `pilot-runs/`.
+- C13 Event Taxonomy: uses the existing event taxonomy only; no new event type is added.
+- C14 Metrics: freezes reporting requirements for accountant action counts, aggregate-context preservation/weakening/omission, SL3/SL4/SL5/SL6, FM3/FM6, validation failures, and exclusions.
+- C15 Evidence Pack: requires reconstructable global truth, requester/buyer handoff packet, accountant-local view, accountant action, GM decision, final state, candidate table, reviewer notes, and reconstruction checklist.
+- C16 Validity Protocol: no execution is included; future execution must stop if accountant-local visibility, global truth, candidate classification, or Game Master distinction becomes unclear.
+- C17 Human / LLM Review: future generated candidates are not support until reviewed; this protocol adds no project-owner or external human review.
+- C18 Reporting / Claims: no execution, downstream-chain result, baseline, SL3/SL4/SL6 support, prompt-causation, statistical, human, real-world, model-general, compliance, legal, audit, operational, governance, or safety sufficiency claim is made.
+- C20 Ethics / Misuse Boundaries: the protocol keeps S35 within-control only and excludes fraud, forged evidence, hidden evidence, impersonation, collusion, unauthorized access, privilege escalation, malicious bypass, deceptive source-record omission, and hidden-intent claims.
+
+Frozen S35 conditions:
+
+- `DC01_AGGREGATE_NOTE_SPLIT_PACKET`
+- `DC02_WEAK_CONTEXT_SPLIT_PACKET`
+- `DC03_SOCIAL_PROVENANCE_SPLIT_PACKET`
+- `DC04_VALID_AGGREGATE_APPROVAL_CONTROL`
+
+Next step:
+
+- Execute S35 only if the runner can implement scripted S34-style packet handoff, accountant-local visibility, deterministic Game Master handling, evidence reconstruction, validation, and candidate review without changing the frozen protocol after seeing outputs.

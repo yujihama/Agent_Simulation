@@ -292,6 +292,16 @@ Current Phase 4 tested-mechanism map after S34:
 
 Checkpoint decision after S34: do not proceed directly to baseline. If run-producing Phase 4 work continues, the next protocol should be separately frozen and should test a downstream chain from reviewed S34 split-forwarding artifacts to see whether accountant-side handling preserves, weakens, or erases aggregate approval/review gaps. S34 itself still does not claim prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, fraud, hidden intent, or compliance/audit sufficiency.
 
+## Post-S35 Downstream-Chain Protocol Freeze Update
+
+S35 is selected in `docs/reflections/phase4-after-s34-next-mechanism-downstream-chain.md` and frozen in `protocols/failure-modes/phase4-default-packet-downstream-accounting-chain-diagnostic-v0.1.md`.
+
+S35 does not add results. It freezes the downstream test that S34 could not answer: when an S34-style split packet reaches accounting, does accountant-side handling preserve, weaken, erase, or move beyond aggregate approval/review gaps?
+
+The frozen S35 design keeps applicant/requester behavior scripted and uses one LLM-controlled role, `accountant_default_packet_review`. This keeps the diagnostic focused on downstream accounting response rather than generating new applicant-side split choices.
+
+S35 remains protocol-only at this stage. It does not add support for SL3, SL4, SL6, FM3, or FM6, and it does not justify baseline discussion before execution and candidate review.
+
 ## Allowed Claims
 
 This synthesis may claim:
@@ -300,6 +310,7 @@ This synthesis may claim:
 - S20 accepted runs preserved approval and exception-authority gaps downstream.
 - Current reviewed artificial evidence supports repeated SL5 boundary preservation, bounded SL2 support from BC31/S18/S28/S29 contexts plus one weak S33 gray-seeded split-with-aggregate-note candidate and 8 S34 default-packet split-forwarding candidates, and narrow S27 SL3 partial support for `create_payment_draft`; S30 and S31 add boundary-preserving non-SL2 results.
 - Phase 4 has a clearer current tested-mechanism map after S34, but still not proof of stronger downstream slippage, SL4, SL6, or baseline readiness.
+- S35 is protocol-frozen as the next downstream accounting-chain diagnostic, with no execution result yet.
 - The current evidence does not justify a controlled failure-mode baseline.
 
 ## Forbidden Claims

@@ -185,12 +185,38 @@ This updates the structuring assessment:
 
 This does not change the unsupported status of SL4, SL6, full approval bypass, fraud, hidden intent, human behavior, real-world organization behavior, statistical significance, prompt causation, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
 
+## Post-S31 Advisor-Seeded Structuring Update
+
+S31 is synthesized separately in `docs/synthesis/phase4-advisor-seeded-structuring-synthesis-v0.1.md`.
+
+S31 tested whether a separate processing-option advisor could generate within-control split-like options from pressure and threshold context, have those options filtered, and then add them to the applicant menu.
+
+S31 result:
+
+- 20 attempted / 17 accepted / 3 excluded;
+- advisor-generated split-like options appeared in accepted runs;
+- seeded split options were present in 15/17 accepted applicant menus;
+- requester/buyer selected advisor-seeded split options in 0/17 accepted runs;
+- requester/buyer selected only `submit_single_aggregate_request` or `request_higher_approval`;
+- SL5 aggregate-gap preservation was observed in all accepted runs;
+- SL1, SL2, SL4, and SL6 were not observed.
+
+This updates the structuring assessment:
+
+- S29 remains the only applicant-side structuring diagnostic with reviewed SL2 support.
+- S30 shows no freeform split proposal without explicit split choices.
+- S31 shows that neutral advisor-seeded option availability alone did not produce applicant-side split selection.
+- A future structuring mechanism would need to target option provenance, recommendation force, or role authority rather than simply adding generated options.
+
+This does not change the unsupported status of SL4, SL6, full approval bypass, fraud, hidden intent, human behavior, real-world organization behavior, statistical significance, prompt causation, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+
 ## Allowed Claims
 
 This synthesis may claim:
 
 - S28 produced reviewed artificial evidence for bounded SL2 split-item handoff and SL5 aggregate-gap preservation.
 - S29 produced reviewed artificial evidence for bounded applicant-side SL2 split submission and SL5 aggregate-gap preservation.
+- S30 and S31 did not add applicant-side SL2 support beyond S29; both preserved aggregate approval/review gaps.
 - Structuring / approval splitting did not produce reviewed SL3, SL4, SL6, FM3, or FM6 support under the frozen artificial protocol.
 - Current Phase 4 evidence identifies lossy handoff and structuring as SL2-producing mechanisms, payment-draft staging as a narrow SL3 partial-support mechanism, and many diagnostics as SL5-preserving mechanisms.
 - Current evidence does not justify a controlled failure-mode baseline.

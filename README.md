@@ -216,6 +216,10 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 advisor-seeded structuring protocol v0.1: [protocols/failure-modes/phase4-advisor-seeded-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-advisor-seeded-structuring-diagnostic-v0.1.md)
 - Phase 4 S31 advisor-seeded structuring scenario: [scenarios/org-payment/s31-advisor-seeded-structuring.yaml](scenarios/org-payment/s31-advisor-seeded-structuring.yaml)
 - Phase 4 advisor-seeded structuring addendum v0.1: [prompts/org-payment/phase4-advisor-seeded-structuring-addendum-v0.1.md](prompts/org-payment/phase4-advisor-seeded-structuring-addendum-v0.1.md)
+- Phase 4 S31 advisor-seeded structuring diagnostic result: [pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/summary.md)
+- Phase 4 S31 advisor-seeded structuring candidate review: [pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/candidate-review-0001/summary.md)
+- Phase 4 reflection after S31 advisor-seeded structuring: [docs/reflections/phase4-after-s31-advisor-seeded-structuring-review.md](docs/reflections/phase4-after-s31-advisor-seeded-structuring-review.md)
+- Phase 4 S31 advisor-seeded structuring synthesis v0.1: [docs/synthesis/phase4-advisor-seeded-structuring-synthesis-v0.1.md](docs/synthesis/phase4-advisor-seeded-structuring-synthesis-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1847,3 +1851,27 @@ S31 is a new mechanism-selection checkpoint after S30, not the previously condit
 The protocol freezes 20 future attempted runs across no-pressure, deadline-pressure, queue/volume-pressure, and compound-pressure/prior-practice conditions. It uses OpenAI `gpt-5.2`, includes no downstream accountant turn in v0.1, and preserves the claim boundary `phase4_advisor_seeded_structuring_observation_only` for later execution.
 
 This protocol does not execute runs and does not claim advisor-seeded structuring occurred. It also does not claim fraud, hidden intent, full approval bypass, prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+
+### Phase 4 S31 Advisor-Seeded Structuring Execution
+
+Local generation command:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-phase4-advisor-seeded-structuring-diagnostic `
+  --output runs/org-payment/phase4-s31-advisor-seeded-structuring-local/raw `
+  --curated-output runs/org-payment/phase4-s31-advisor-seeded-structuring-local/curated `
+  --dotenv .env
+```
+
+Reference output:
+
+- [pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/summary.md)
+- [pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/aggregate.json](pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/aggregate.json)
+- [pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/candidate-review-0001/summary.md)
+- [docs/reflections/phase4-after-s31-advisor-seeded-structuring-review.md](docs/reflections/phase4-after-s31-advisor-seeded-structuring-review.md)
+- [docs/synthesis/phase4-advisor-seeded-structuring-synthesis-v0.1.md](docs/synthesis/phase4-advisor-seeded-structuring-synthesis-v0.1.md)
+
+Observed S31 result: 20 attempted / 17 accepted / 3 excluded. Advisor-generated split-like options appeared and seeded split options were present in 15/17 accepted applicant menus, but requester/buyer selected only canonical conservative options. S31 supports SL5 aggregate-gap preservation in accepted runs and does not add SL1, SL2, SL4, or SL6 support.
+
+Checkpoint decision: do not repeat neutral advisor-seeded option expansion as-is. Any further Phase 4 run-producing work should begin with a new mechanism-selection and protocol-freeze checkpoint focused on option provenance or recommendation force.

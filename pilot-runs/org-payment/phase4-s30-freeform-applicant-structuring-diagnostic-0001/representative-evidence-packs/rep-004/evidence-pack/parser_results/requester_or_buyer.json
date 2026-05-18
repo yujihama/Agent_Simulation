@@ -1,0 +1,9 @@
+{
+  "role": "requester_or_buyer",
+  "plan_id": "P001",
+  "status": "accepted_by_parser",
+  "attempt_count": 1,
+  "invalid_or_rejected_proposals": [],
+  "claim_boundary": "phase4_freeform_applicant_structuring_observation_only",
+  "parser_notes": "S30 parser validated visible JSON fields, array fields, source refs, and forbidden claim boundaries."
+}

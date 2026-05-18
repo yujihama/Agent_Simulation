@@ -2846,3 +2846,53 @@ Next step:
 - Execute the frozen S30 freeform applicant structuring diagnostic only if the runner can implement it without changing frozen conditions after seeing outputs.
 - The execution PR must keep raw outputs under ignored `runs/` and commit only curated artifacts under `pilot-runs/`.
 - Do not discuss baseline readiness until S30 execution, candidate review, and synthesis are complete.
+
+## Phase 4 S30 Freeform Applicant Structuring Execution Update
+
+Latest PR label: `PR-Phase4-S30-freeform-applicant-structuring-execution`
+
+This update applies to C01, C02, C09, C10, C12, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `src/social_sim/phase4_s30_freeform_applicant_runner.py`
+- `tests/test_phase4_s30_freeform_applicant_structuring_pilot.py`
+- `pilot-runs/org-payment/phase4-s30-freeform-applicant-structuring-diagnostic-0001/summary.md`
+- `pilot-runs/org-payment/phase4-s30-freeform-applicant-structuring-diagnostic-0001/aggregate.json`
+- `pilot-runs/org-payment/phase4-s30-freeform-applicant-structuring-diagnostic-0001/execution-manifest.json`
+- `pilot-runs/org-payment/phase4-s30-freeform-applicant-structuring-diagnostic-0001/candidate-review-0001/summary.md`
+- `docs/reflections/phase4-after-s30-freeform-applicant-structuring-review.md`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: S30 is executed as a freeform applicant-side diagnostic, separating fixed-menu split choice from generated submission-plan behavior.
+- C02 Research Questions: S30 answers the immediate question by recording no freeform multi-packet proposal in 20 accepted runs under the frozen artificial conditions.
+- C09 Game Master / Arbiter: deterministic parser/classifier handling records generated plans while preserving aggregate approval, higher approval, exception authority, aggregate review, and final readiness gaps.
+- C10 LLM Actor Layer: OpenAI `gpt-5.2` requester/buyer generated freeform plan records are captured without a visible fixed action menu.
+- C12 Experiment Harness: a new CLI path executes 20 runs, writes raw output under ignored `runs/`, and commits only curated output under `pilot-runs/`.
+- C14 Metrics: generated plan category, freeform multi-packet proposal, SL2, SL5, SL6, parser/classifier, and validation counts are reported separately.
+- C15 Evidence Pack: S30 adds backward-compatible generated-plan, parser-result, classifier-result, proposal-attempt, and representative evidence-pack artifacts.
+- C16 Validity Protocol: validator support is extended compatibly for generated-plan artifacts while existing evidence pack formats remain valid.
+- C17 Human / LLM Review: candidate review is proxy review under project-owner authorization; no event is marked human-reviewed.
+- C18 Reporting / Claims: S30 supports only the bounded observation that freeform plans preserved aggregate-gap controls in this diagnostic; it does not support SL2, SL4, SL6, full approval bypass, prompt causation, model-general behavior, statistical significance, human behavior, real-world behavior, or audit/compliance/legal/operational/governance/safety sufficiency.
+- C20 Ethics / Misuse Boundaries: within-control / outside-control boundaries remain intact; no fraud, hidden intent, concealment, collusion, forged evidence, impersonation, unauthorized access, or malicious bypass claim is made.
+
+Observed S30 result:
+
+- Attempted runs: 20.
+- Accepted runs: 20.
+- Exclusions: 0.
+- Freeform multi-packet proposals: 0.
+- Single aggregate submission plans: 9.
+- Higher approval / aggregate review plans: 11.
+- SL2: not observed.
+- SL5: observed in all 20 accepted runs.
+- SL6: not observed.
+
+Next step:
+
+- Do not proceed to S31 from S30 because S31 was conditional on observed freeform split proposals.
+- Prepare a Phase 4 synthesis comparing menu-conditioned S29 split choice with freeform S30 boundary preservation before any further run-producing work.

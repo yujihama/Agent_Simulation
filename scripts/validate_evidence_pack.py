@@ -352,7 +352,10 @@ def validate_pack(pack_dir: Path) -> ValidationReport:
 
     if (pack_dir / "action_menu.json").exists():
         validate_free_choice_artifacts(pack_dir, actions, decisions, report)
-    if (pack_dir / "action_menus").exists() or (pack_dir / "parser_results").exists():
+    has_generated_plan_artifacts = (pack_dir / "generated_plan").exists() or (pack_dir / "classifier_results").exists()
+    if has_generated_plan_artifacts:
+        validate_generated_plan_artifacts(pack_dir, ids, report)
+    if (pack_dir / "action_menus").exists() or ((pack_dir / "parser_results").exists() and not has_generated_plan_artifacts):
         validate_multirole_artifacts(pack_dir, actions, decisions, report)
 
     for event in events:
@@ -460,6 +463,90 @@ def validate_multirole_artifacts(
     for role in roles:
         validate_role_multirole_artifacts(pack_dir, actions, decisions, role, report)
     report.add(f"multi-role role artifacts validate: {', '.join(roles)}")
+
+
+def validate_generated_plan_artifacts(
+    pack_dir: Path,
+    ids: dict[str, set[str]],
+    report: ValidationReport,
+) -> None:
+    roles = discover_generated_plan_roles(pack_dir)
+    for role in roles:
+        plan_path = pack_dir / "generated_plan" / f"{role}.json"
+        parser_result_path = pack_dir / "parser_results" / f"{role}.json"
+        classifier_result_path = pack_dir / "classifier_results" / f"{role}.json"
+        proposal_attempts_path = pack_dir / "proposal_attempts" / f"{role}.jsonl"
+
+        for label, path in [
+            ("generated plan", plan_path),
+            ("parser result", parser_result_path),
+            ("classifier result", classifier_result_path),
+            ("proposal attempts", proposal_attempts_path),
+        ]:
+            if not path.exists():
+                raise ValidationError(f"missing {label} for {role}: {path.relative_to(pack_dir)}")
+
+        plan = load_json(plan_path)
+        if not isinstance(plan, dict):
+            raise ValidationError(f"generated_plan/{role}.json must be an object")
+        for field in ["proposed_plan", "submission_structure", "approval_handling", "aggregate_context_handling"]:
+            if not isinstance(plan.get(field), str) or not plan[field].strip():
+                raise ValidationError(f"generated_plan/{role}.json {field} must be a non-empty string")
+        for field in ["pressure_refs", "source_refs", "risk_flags"]:
+            if not isinstance(plan.get(field), list):
+                raise ValidationError(f"generated_plan/{role}.json {field} must be an array")
+        for ref in plan.get("source_refs", []):
+            if not check_ref(ref, ids, pack_dir):
+                raise ValidationError(f"generated_plan/{role}.json has unknown source ref {ref}")
+        report.add(f"generated plan source references resolve for {role}")
+
+        parser_result = load_json(parser_result_path)
+        if parser_result.get("role") != role:
+            raise ValidationError(f"parser_results/{role}.json role must be {role!r}")
+        if parser_result.get("status") != "accepted_by_parser":
+            raise ValidationError(f"parser_results/{role}.json status must be accepted_by_parser")
+        if parser_result.get("plan_id") != plan.get("plan_id"):
+            raise ValidationError(f"parser_results/{role}.json plan_id must match generated plan")
+
+        classifier_result = load_json(classifier_result_path)
+        if classifier_result.get("role") != role:
+            raise ValidationError(f"classifier_results/{role}.json role must be {role!r}")
+        if classifier_result.get("plan_id") != plan.get("plan_id"):
+            raise ValidationError(f"classifier_results/{role}.json plan_id must match generated plan")
+        labels = classifier_result.get("candidate_labels")
+        if not isinstance(labels, dict):
+            raise ValidationError(f"classifier_results/{role}.json candidate_labels must be an object")
+        sl_statuses = classifier_result.get("sl_statuses")
+        if not isinstance(sl_statuses, dict):
+            raise ValidationError(f"classifier_results/{role}.json sl_statuses must be an object")
+
+        attempts = load_jsonl(proposal_attempts_path)
+        accepted_attempts = [attempt for attempt in attempts if attempt.get("status") == "accepted_by_parser"]
+        if len(accepted_attempts) != 1:
+            raise ValidationError(f"proposal_attempts/{role}.jsonl must include exactly one accepted_by_parser attempt")
+        accepted = accepted_attempts[0]
+        if accepted.get("plan_id") != plan.get("plan_id"):
+            raise ValidationError(f"accepted {role} proposal attempt plan_id does not match generated plan")
+        report.add(f"generated plan parser/classifier artifacts validate for {role}")
+    report.add(f"generated plan role artifacts validate: {', '.join(roles)}")
+
+
+def discover_generated_plan_roles(pack_dir: Path) -> list[str]:
+    roles: set[str] = set()
+    for directory, suffix in [
+        (pack_dir / "generated_plan", ".json"),
+        (pack_dir / "classifier_results", ".json"),
+        (pack_dir / "parser_results", ".json"),
+        (pack_dir / "proposal_attempts", ".jsonl"),
+    ]:
+        if not directory.exists():
+            continue
+        for path in directory.iterdir():
+            if path.is_file() and path.name.endswith(suffix):
+                roles.add(path.stem)
+    if not roles:
+        raise ValidationError("generated plan artifacts directory exists but no role artifacts were found")
+    return sorted(roles)
 
 
 def discover_multirole_roles(pack_dir: Path) -> list[str]:

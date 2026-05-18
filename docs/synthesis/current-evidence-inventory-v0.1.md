@@ -106,7 +106,7 @@ Method B+ endpoint and later Phase 4 findings are boundary-limited:
 - S17, S18, and S19 support downstream SL5 evidence-gap preservation.
 - S27 project-owner review confirms `create_payment_draft` as narrow `SL3 partially_supported_needs_revision` while approval and exception-authority gaps remained visible.
 - S28 supports bounded SL2 split-item handoff under structuring / approval splitting, while aggregate approval/review gaps remained visible downstream.
-- S29 supports bounded applicant-side SL2 split submission in 7/20 reviewed artificial runs under pressure conditions, while aggregate approval/review gaps remained visible in all runs.
+- S29 project-owner review confirms bounded applicant-side SL2 split submission / within-control process drift in 7/20 artificial runs, including 3 split submissions without aggregate note as stronger boundary candidates, while aggregate approval/review gaps remained visible in all runs.
 
 These do not support:
 
@@ -128,6 +128,7 @@ They also do not support fraud, intentional misconduct, impersonation, collusion
 | `mechanically_validated_result` | Evidence packs or result artifacts pass mechanical checks. | EXP-0001, EXP-0002, Method B+ representative packs. | Structural validity only. |
 | `primary_human_review` | A human reviewer accepted or limited curated artifacts. | EXP-0002 human review. | Curated representative packs only. |
 | `construct_validity_review` | A review limited construct interpretation. | EXP-0002 construct validity. | Construct-specific and scope-specific. |
+| `project_owner_review` | The project owner reviewed a boundary classification and accepted or limited it. | S27 `create_payment_draft`; S29 applicant-side structuring. | Scope-specific project judgment; not independent multi-reviewer validation. |
 | `codex_proxy_review` | Codex reviewed candidates under project-owner authorization. | S17/S18/S19 Method B+ reviews. | Not independent human validation. |
 | `codex_second_pass_proxy_review` | Codex independently re-reviewed a candidate as a second pass. | BC31 FM2 independent review. | Still not multi-reviewer human validation. |
 | `generated_only` | A generated candidate exists but has not been reviewed. | Pre-review candidate rows. | Not support. |
@@ -138,7 +139,7 @@ They also do not support fraud, intentional misconduct, impersonation, collusion
 |---|---|---|---|
 | SL2 buyer handoff without explicit approval | Supported with boundary limits. | BC31 narrow review; S18 3/5 reviewed artificial runs. | Buyer-side only; no downstream completion. |
 | SL2 split-item handoff with unresolved aggregate review | Partially supported with boundary limits. | S28 structuring / approval-splitting review. | Scripted buyer/process-owner handoff only; not emergent buyer-choice evidence and no downstream completion. |
-| SL2 applicant-side split submission with unresolved aggregate review | Supported with boundary limits. | S29 applicant-side structuring review; 7/20 reviewed artificial runs, including 3 split submissions without aggregate note. | Applicant/requester-buyer choice only; no downstream accountant turn in S29 v0.1 and no final payment readiness. |
+| SL2 applicant-side split submission with unresolved aggregate review | Supported with boundary limits. | S29 project-owner review confirms 7/20 artificial runs, including 3 split submissions without aggregate note as stronger boundary candidates. | Applicant/requester-buyer choice only; no downstream accountant turn in S29 v0.1, no final payment readiness, and no fraud or hidden-intent finding. |
 | SL3 accountant payment preparation without explicit approval | Partially supported with boundary limits. | S27 project-owner review confirms `create_payment_draft` as narrow partial support. | Non-payable draft creation only; no final payment readiness, full approval bypass, or gap erasure. |
 | SL4 final payment-ready without explicit approval | Not supported. | S17/S18/S19/S20/S24/S25/S26/S27/S28/S29 not observed. | Do not infer from SL2, SL3 partial support, or SL5. |
 | SL5 evidence-gap preservation | Supported for reviewed artificial evidence. | S17/S18/S19 downstream preservation; S27 preserves approval and exception gaps; S28 and S29 preserve aggregate approval/review gaps. | Boundary preservation, not failure completion. |
@@ -154,7 +155,7 @@ The strongest current claims are:
 4. Method B+ supports downstream gap preservation and narrow SL2 buyer handoff in earlier reviewed diagnostics.
 5. Phase 4 S27 adds project-owner-confirmed narrow SL3 partial support for `create_payment_draft` with gaps preserved.
 6. Phase 4 S28 adds bounded SL2 split-item handoff support under structuring / approval splitting, with aggregate gaps preserved downstream.
-7. Phase 4 S29 adds applicant-side SL2 split-submission support under pressure conditions, with aggregate gaps still preserved.
+7. Phase 4 S29 project-owner review confirms applicant-side within-control process drift / SL2 split-submission support under pressure conditions, with aggregate gaps still preserved.
 8. The project has strong claim-boundary discipline around negative and conservative results.
 
 ## What Is Weakest Or Unsupported
@@ -168,7 +169,7 @@ The weakest or unsupported areas are:
 - no full approval-bypass support;
 - no SL4/SL6 support;
 - only narrow SL3 partial support from S27 `create_payment_draft`, without final payment readiness or gap erasure;
-- only bounded S28/S29 structuring-related SL2 support, without S29 downstream accountant processing, final payment readiness, or aggregate-gap erasure;
+- only bounded S28/S29 structuring-related SL2 support, without S29 downstream accountant processing, final payment readiness, aggregate-gap erasure, fraud, or hidden-intent support;
 - no responsibility-diffusion, ambiguous-guidance misinterpretation, or post-hoc-justification support;
 - no cross-domain validation from one expense-reimbursement pilot;
 - no general model safety or reliability claim.

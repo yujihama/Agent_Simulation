@@ -7,6 +7,7 @@ Checkpoint: BC4-S29-C
 Related protocol: `protocols/failure-modes/phase4-applicant-side-structuring-diagnostic-v0.1.md`
 Related result: `pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/summary.md`
 Related review: `pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/candidate-review-0001/summary.md`
+Related project-owner review: `pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/project-owner-review-0001/summary.md`
 Related reflection: `docs/reflections/phase4-after-s29-applicant-side-structuring-review.md`
 Claim boundary: `phase4_applicant_side_structuring_synthesis_only`
 
@@ -118,11 +119,11 @@ S29 therefore fills the missing upstream question that S28 did not test.
 
 11. Did S29 justify more execution, project-owner review, or consolidation?
 
-Decision: move to project-owner / external review before baseline discussion, while consolidating the current Phase 4 map.
+Decision after project-owner review: record S29 as bounded applicant-side within-control process drift support at SL2, while consolidating the current Phase 4 map.
 
-S29 adds meaningful applicant-side SL2 evidence, especially the 3 split submissions without aggregate note. However, that boundary is domain-sensitive: whether split submission without an aggregate note should be treated as sufficient process drift for future baseline design requires project-owner or external review before stronger interpretation.
+S29 adds meaningful applicant-side SL2 evidence, especially the 3 split submissions without aggregate note. Project-owner review confirms that those split-without-aggregate-note cases should be treated as stronger boundary candidates because the actor submitted related split items without explicitly preserving the aggregate-review requirement in the submitted packet.
 
-S29 does not justify immediate baseline preparation because it does not test or support SL3, SL4, or SL6. It also does not justify another run-producing Phase 4 diagnostic unless a later mechanism-selection checkpoint identifies a substantially different within-control mechanism and states why S29's applicant-side result is insufficient.
+S29 does not justify immediate baseline preparation because it does not test or support SL3, SL4, or SL6. It also does not justify another run-producing Phase 4 diagnostic unless a later mechanism-selection checkpoint identifies a substantially different within-control mechanism or a narrowly scoped follow-up that tests downstream consequences of the reviewed S29 SL2 pattern.
 
 ## Mechanism Comparison
 
@@ -137,7 +138,7 @@ S29 does not justify immediate baseline preparation because it does not test or 
 | S26 shadow approval / informal preclearance | SL5 preservation where formal current approval was absent. | No SL1, SL3, SL4, SL6, FM3, or FM6. |
 | S27 payment-draft staging | Project-owner-confirmed narrow SL3 partial support for `create_payment_draft`; SL5 gap preservation remained visible. | No SL4, SL6, full approval bypass, fraud, or baseline readiness. |
 | S28 structuring / approval splitting | Bounded downstream split-item handoff support and repeated SL5 aggregate-gap preservation. | No emergent applicant-side split choice; no SL1, SL3, SL4, SL6, FM3, or FM6. |
-| S29 applicant-side structuring | Applicant-side split submission appeared in 7/20 runs under pressure conditions; SL5 preserved in all runs. | No accountant processing, SL3, SL4, SL6, FM3, FM6, fraud, hidden intent, or baseline readiness. |
+| S29 applicant-side structuring | Project-owner review confirms bounded applicant-side within-control process drift / SL2 split-submission support in 7/20 runs under pressure conditions; split-without-aggregate-note cases are stronger boundary candidates. | No accountant processing, SL3, SL4, SL6, FM3, FM6, fraud, hidden intent, full approval bypass, or baseline readiness. |
 
 ## Current Phase 4 Evidence Map
 
@@ -178,14 +179,16 @@ The project can now answer:
 | Which tested mechanisms produce SL4? | None. |
 | Which tested mechanisms produce SL6? | None. |
 | Which mechanisms mainly preserve gaps as SL5? | Most downstream diagnostics and S29 global truth/final-state artifacts preserve the relevant approval or aggregate-review gap. |
-| Why pause, continue, or prepare baseline? | Pause run-producing diagnostics and request project-owner/external review for S29's split-without-aggregate-note boundary before any baseline discussion. |
-| What remains unknown? | Whether applicant-side split submission without aggregate note should be treated as a strong enough within-control process-drift target for a future baseline, and whether a later downstream protocol can connect S29-like split submission to reviewed SL3/SL4/SL6 support without outside-control behavior. |
+| Why pause, continue, or prepare baseline? | Do not start a baseline yet. Project-owner review confirms bounded S29 SL2 support, but a baseline would still need a separate target definition and protocol freeze. |
+| What remains unknown? | Whether a later downstream protocol can connect S29-like split submission to reviewed SL3/SL4/SL6 support without outside-control behavior, and whether S29's pressure-conditioned pattern is stable enough for a baseline target. |
 
 ## Decision
 
-Decision: move to project-owner / external review for the S29 applicant-side split boundary, and consolidate the Phase 4 map before any additional execution.
+Decision: record project-owner-reviewed S29 applicant-side within-control process drift support, and consolidate the Phase 4 map before any additional execution.
 
-This corresponds to Decision B from the S29 synthesis instruction. S29 produced useful and bounded applicant-side SL2 support, but it does not support SL3, SL4, SL6, full approval bypass, fraud, human behavior, real-world behavior, statistical significance, prompt causation, model-general claims, or compliance/legal/audit/operational/governance/safety sufficiency.
+Project-owner review confirms that S29 supports bounded SL2 applicant-side split-submission evidence. It also confirms that split submissions without aggregate note are stronger boundary candidates and can be described as approval-threshold / aggregate-review weakening risk within an artificial within-control process-drift frame.
+
+This is not a fraud finding, hidden-intent finding, SL4 finding, SL6 finding, full approval-bypass finding, human behavior claim, real-world organization claim, statistical claim, prompt-causation claim, model-general claim, or compliance/legal/audit/operational/governance/safety sufficiency claim.
 
 ## Allowed Claims
 
@@ -194,6 +197,7 @@ This synthesis may claim:
 - S29 tested applicant-side / buyer-side structuring under frozen pressure and threshold conditions.
 - S29 produced reviewed artificial evidence that requester/buyer chose split submission in 7/20 runs, all under pressure conditions.
 - S29 produced reviewed artificial evidence for bounded applicant-side SL2 split submission and SL5 aggregate-gap preservation.
+- Project-owner review classifies S29 as applicant-side within-control process drift and approval-threshold / aggregate-review weakening risk in the artificial evidence scope.
 - S29 did not produce reviewed SL1, SL4, SL6, or FM3 support, and did not test SL3 or FM6 in v0.1.
 
 ## Forbidden Claims
@@ -202,6 +206,7 @@ This synthesis must not claim:
 
 - actors intentionally bypassed controls;
 - fraud occurred;
+- split submission is a fraud finding in this artificial experiment;
 - split submission proves full approval bypass;
 - real organizations behave this way;
 - humans behave this way;

@@ -164,23 +164,23 @@ S29 corrects a limit in S28: S28 tested downstream accountant handling after spl
 
 S29 result:
 
-- Applicant-side split submission appeared in 7/20 accepted artificial runs.
+- Applicant-side split submission appeared in 7/20 accepted artificial runs; project-owner review confirms this as bounded applicant-side within-control process drift / SL2 support.
 - Split submission appeared only under pressure conditions: ST02 deadline, ST03 volume/queue, and ST04 compound pressure plus prior practice.
 - 4 split submissions preserved aggregate context through `submit_split_requests_with_aggregate_note`.
-- 3 split submissions omitted the aggregate note through `submit_split_requests_without_aggregate_note`.
+- 3 split submissions omitted the aggregate note through `submit_split_requests_without_aggregate_note`; project-owner review treats these as stronger boundary candidates.
 - SL5 aggregate-gap preservation remained supported in all 20 runs.
 - SL1, SL4, SL6, and FM3 were not observed.
 - SL3 and FM6 were not applicable in S29 v0.1 because no downstream accountant or post-hoc explanation turn was included.
 
 The current Phase 4 mechanism map is therefore:
 
-- SL2: supported in bounded contexts including lossy handoff, S28 downstream split-item handoff, and S29 applicant-side split submission.
+- SL2: supported in bounded contexts including lossy handoff, S28 downstream split-item handoff, and project-owner-reviewed S29 applicant-side split submission.
 - SL3: narrow project-owner-confirmed partial support only from S27 `create_payment_draft`.
 - SL4: unsupported.
 - SL5: repeatedly supported as approval/evidence/aggregate-gap preservation.
 - SL6: unsupported.
 
-Checkpoint decision after S29: request project-owner or external review of the split-without-aggregate-note boundary before any baseline discussion or further run-producing Phase 4 diagnostic. S29 does not support fraud, hidden intent, full approval bypass, SL3, SL4, SL6, prompt causation, model-general behavior, statistical significance, human behavior, real-world behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+Checkpoint decision after S29 project-owner review: pause run-producing Phase 4 work until a new target-definition/protocol-freeze checkpoint decides whether to build on the S29 applicant-side SL2 boundary, test downstream consequences, or consolidate for reporting. S29 does not support fraud, hidden intent, full approval bypass, SL3, SL4, SL6, prompt causation, model-general behavior, statistical significance, human behavior, real-world behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
 
 ## Allowed Claims
 

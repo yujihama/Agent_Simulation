@@ -114,10 +114,10 @@ S29 answers the upstream question that S28 did not test: whether the requester/b
 S29 result:
 
 - 20 attempted / 20 accepted / 0 excluded.
-- Applicant-side split submission appeared in 7/20 reviewed artificial runs.
+- Applicant-side split submission appeared in 7/20 reviewed artificial runs; project-owner review confirms this as bounded applicant-side within-control process drift / SL2 support.
 - Split submissions appeared only under pressure conditions, not in the no-pressure control condition.
 - 4 split submissions included an aggregate note.
-- 3 split submissions did not include an aggregate note.
+- 3 split submissions did not include an aggregate note; project-owner review treats these as stronger boundary candidates.
 - SL2 applicant-side split submission is supported with boundary limits.
 - SL5 aggregate-gap preservation is supported in all 20 runs.
 - SL1, SL4, SL6, and FM3 were not observed.
@@ -129,7 +129,7 @@ This update changes the structuring mechanism assessment:
 - S29 shows the upstream applicant/requester-buyer can choose split submission under pressure conditions.
 - Neither S28 nor S29 supports SL4 final payment-ready state, SL6 gap erasure, full approval bypass, fraud, hidden intent, human behavior, real-world organization behavior, statistical significance, prompt causation, model-general behavior, or audit/compliance/legal/operational/governance/safety sufficiency.
 
-The S29 split-without-aggregate-note pattern is meaningful enough to require project-owner or external review before it is used as a baseline target or stronger Phase 4 conclusion.
+The S29 split-without-aggregate-note pattern has now received project-owner review. It may be described as approval-threshold / aggregate-review weakening risk in the artificial within-control process-drift scope, but not as fraud, hidden intent, full approval bypass, SL4, or SL6.
 
 ## Baseline Discussion
 
@@ -137,7 +137,7 @@ S28 does not justify baseline preparation.
 
 Reasons:
 
-- SL2 support is bounded: S28 is scripted at the downstream handoff layer, and S29 is applicant-side split submission without downstream accountant processing.
+- SL2 support is bounded: S28 is scripted at the downstream handoff layer, and S29 is project-owner-reviewed applicant-side split submission without downstream accountant processing.
 - S28 did not produce SL3 accountant preparation without aggregate approval/review.
 - S28 did not produce SL4 final payment-ready state.
 - S28 did not produce SL6 aggregate-gap erasure.
@@ -159,12 +159,12 @@ The project can now answer the research-completion questions for the mechanisms 
 | Which tested mechanisms produce SL4? | None. |
 | Which tested mechanisms produce SL6? | None. |
 | Which mechanisms mainly preserve gaps as SL5? | Most downstream diagnostics, including S17, S18, S19, S20, S23, S24, S25, S26, S27, S28, and S29. |
-| Why pause, continue, or prepare baseline? | Pause run-producing Phase 4 work and request project-owner/external review for S29's split-without-aggregate-note boundary before any baseline discussion. |
-| What remains unknown? | Whether S29 split-without-aggregate-note should be treated as a strong enough process-drift boundary for future baseline design, and whether a later downstream protocol can connect applicant-side split submission to reviewed SL3/SL4/SL6 support without outside-control behavior. |
+| Why pause, continue, or prepare baseline? | Pause run-producing Phase 4 work until a new target-definition/protocol-freeze checkpoint decides whether to build on the reviewed S29 applicant-side SL2 boundary, test downstream consequences, or consolidate. |
+| What remains unknown? | Whether a later downstream protocol can connect applicant-side split submission to reviewed SL3/SL4/SL6 support without outside-control behavior, and whether S29's pressure-conditioned pattern is stable enough for a baseline target. |
 
 ## Decision
 
-Decision: stop run-producing Phase 4 diagnostics, consolidate, and request project-owner / external review for the S29 applicant-side split-without-aggregate-note boundary before baseline discussion.
+Decision: stop run-producing Phase 4 diagnostics and consolidate until a new target-definition/protocol-freeze checkpoint decides whether to build on the project-owner-reviewed S29 applicant-side split-without-aggregate-note boundary.
 
 This updates Decision B from the S28 synthesis instruction after S29. S28 mostly reinforced SL5 while adding bounded downstream SL2 support. S29 adds applicant-side SL2 split-submission support, but still does not justify baseline preparation because SL3, SL4, and SL6 are not supported by S29.
 

@@ -22,6 +22,8 @@ Completion status:
 - Delivery completion: complete. Phase 4 selected a mechanism, froze a protocol, executed S20, reviewed candidates, reflected on the result, and synthesized the mechanism pass.
 - Research completion: partial. Phase 4 tested mechanisms, but it has not answered which information structure can produce stronger downstream slippage beyond buyer-side handoff.
 
+Current-status note: the original completion status above is retained for historical S20 context. The current Phase 4 endpoint after S27/S28 is recorded in `docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md`: Phase 4 is research-complete for the current tested-mechanism map, but not for proof of SL4, SL6, full approval bypass, or baseline readiness.
+
 ## Mechanism Results
 
 | Mechanism / checkpoint | Primary artifact | Reviewed result | Current status |
@@ -109,7 +111,7 @@ Any future run-producing work must define, before execution, what would count as
 
 This synthesis is superseded in one respect by `docs/reflections/phase4-reopen-research-objective.md`.
 
-The delivery-complete / research-partial distinction remains valid. However, Phase 4 should no longer be treated as paused by default. Under the user's current instruction, Phase 4 research is reopened until the project identifies which information structures can produce reviewable slippage candidates, or until a concrete blocker prevents further progress.
+The delivery-complete / research-partial distinction remains valid for the S20-era synthesis. Under the user's later instruction, Phase 4 research was reopened until the project identified which information structures can produce reviewable slippage candidates, or until a concrete blocker prevented further progress. The post-S28 synthesis now records the endpoint for the current tested-mechanism map.
 
 Future execution still requires protocol freeze before any run-producing work.
 
@@ -129,14 +131,39 @@ This update is narrow and does not change the forbidden-claim boundary:
 - Full approval bypass remains unsupported.
 - No human, real-world, statistical, model-general, prompt-causation, compliance, legal, audit, operational, governance, or safety sufficiency claim is supported.
 
+## Post-S28 Structuring / Approval-Splitting Update
+
+This synthesis is further updated by `docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md`.
+
+S28 tests structuring / approval splitting under the revised `Within-Control Process Drift` scope. It executed 20 accepted runs across no-splitting, amount-splitting, invoice/period-splitting, and valid aggregate-approval control conditions.
+
+S28 result:
+
+- SL2 split-item handoff is `partially_supported_needs_revision` for AS02/AS03, but only as a bounded scripted buyer/process-owner handoff observation.
+- SL5 aggregate-gap preservation is supported for all non-control accepted runs.
+- SL1, SL3, SL4, SL6, FM3, and FM6 were not observed.
+- Positive-control AS04 prepared payment only when aggregate approval/review was recorded.
+
+The current Phase 4 mechanism map is therefore:
+
+- SL2: supported only in bounded handoff contexts, including lossy handoff and S28 structuring / approval splitting.
+- SL3: narrow project-owner-confirmed partial support only from S27 `create_payment_draft`.
+- SL4: unsupported.
+- SL5: repeatedly supported as downstream gap preservation.
+- SL6: unsupported.
+
+Phase 4 can now be treated as research-complete for the current tested-mechanism map: it identifies which tested mechanisms produced bounded SL2, which produced narrow SL3 partial support, and which mostly preserved gaps. It is not research-complete as proof of stronger downstream slippage, full approval bypass, or baseline readiness.
+
+Checkpoint decision after S28: stop run-producing Phase 4 diagnostics and consolidate unless a future mechanism-selection PR identifies a substantially different within-control information mechanism with research-completion criteria fixed before execution.
+
 ## Allowed Claims
 
 This synthesis may claim:
 
 - Phase 4 selected, froze, executed, reviewed, and reflected on an exception-route ambiguity mechanism.
 - S20 accepted runs preserved approval and exception-authority gaps downstream.
-- Current reviewed artificial evidence supports repeated SL5 boundary preservation and only narrow SL2 support from earlier BC31/S18 contexts.
-- Phase 4 is delivery-complete but research-partial because no tested mechanism has produced SL3, SL4, or SL6 support.
+- Current reviewed artificial evidence supports repeated SL5 boundary preservation, bounded SL2 support from BC31/S18/S28 contexts, and narrow S27 SL3 partial support for `create_payment_draft`.
+- Phase 4 is research-complete for the current tested-mechanism map, but not for proof of stronger downstream slippage, SL4, SL6, or baseline readiness.
 - The current evidence does not justify a controlled failure-mode baseline.
 
 ## Forbidden Claims

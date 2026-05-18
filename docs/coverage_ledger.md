@@ -2555,3 +2555,43 @@ Next step:
 
 - Synthesize S28 against the Phase 4 research-completion question before any further Phase 4 run-producing work.
 - Do not treat S28 SL2 as emergent buyer-choice evidence, full approval bypass, or baseline readiness.
+
+## Phase 4 S28 Structuring / Approval-Splitting Synthesis Update
+
+Latest PR label: `PR-Phase4-S28-structuring-approval-splitting-synthesis`
+
+This update applies to C01, C02, C14, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md`
+- `docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md`
+- `docs/synthesis/phase1-4-project-synthesis-v0.1.md`
+- `docs/synthesis/current-evidence-inventory-v0.1.md`
+- `docs/synthesis/current-evidence-map.csv`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: Phase 4 is now summarized around the tested `Within-Control Process Drift` mechanism map rather than around an intent-based or fraud framing.
+- C02 Research Questions: the synthesis answers which tested mechanisms produced bounded SL2, which produced narrow SL3 partial support, which produced SL5 preservation, and which did not produce SL4 or SL6.
+- C14 Metrics: status reporting keeps SL2, SL3, SL4, SL5, and SL6 separated. S28 SL2 is not collapsed into S27 SL3, SL4, or full approval bypass.
+- C16 Validity Protocol: generated S28 candidates remain separated from reviewed support. S28 support is limited to bounded SL2 split-item handoff and SL5 aggregate-gap preservation.
+- C17 Human / LLM Review: S28 review remains Codex proxy review under project-owner authorization; it is not upgraded to independent human review.
+- C18 Reporting / Claims: the synthesis explicitly rejects baseline readiness, full approval bypass, SL4, SL6, fraud, prompt causation, model-general, statistical, human, real-world, compliance, legal, audit, operational, governance, and safety sufficiency claims.
+- C20 Ethics / Misuse Boundaries: the synthesis preserves the within-control / outside-control boundary and does not treat structuring as fraud, concealment, collusion, impersonation, unauthorized access, privilege escalation, or malicious bypass.
+
+Current Phase 4 tested-mechanism map:
+
+- SL2: bounded support from lossy handoff and structuring / approval splitting, plus the earlier BC31 narrow handoff observation.
+- SL3: narrow project-owner-confirmed partial support from S27 `create_payment_draft`.
+- SL4: unsupported.
+- SL5: repeatedly supported as downstream gap preservation.
+- SL6: unsupported.
+
+Next step:
+
+- Stop run-producing Phase 4 diagnostics and consolidate.
+- Resume run-producing Phase 4 work only if a future mechanism-selection PR identifies a substantially different within-control information mechanism and fixes research-completion criteria before execution.

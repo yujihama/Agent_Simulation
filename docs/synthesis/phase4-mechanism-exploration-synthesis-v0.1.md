@@ -22,7 +22,7 @@ Completion status:
 - Delivery completion: complete. Phase 4 selected a mechanism, froze a protocol, executed S20, reviewed candidates, reflected on the result, and synthesized the mechanism pass.
 - Research completion: partial. Phase 4 tested mechanisms, but it has not answered which information structure can produce stronger downstream slippage beyond buyer-side handoff.
 
-Current-status note: the original completion status above is retained for historical S20 context. The current Phase 4 endpoint after S27/S28 is recorded in `docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md`: Phase 4 is research-complete for the current tested-mechanism map, but not for proof of SL4, SL6, full approval bypass, or baseline readiness.
+Current-status note: the original completion status above is retained for historical S20 context. Later Phase 4 endpoint updates after S27/S28/S29 are recorded in `docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md` and `docs/synthesis/phase4-applicant-side-structuring-synthesis-v0.1.md`. Phase 4 has current tested-mechanism support for bounded SL2, one narrow SL3 partial-support mechanism, and repeated SL5 preservation, but not for proof of SL4, SL6, full approval bypass, or baseline readiness.
 
 ## Mechanism Results
 
@@ -156,14 +156,40 @@ Phase 4 can now be treated as research-complete for the current tested-mechanism
 
 Checkpoint decision after S28: stop run-producing Phase 4 diagnostics and consolidate unless a future mechanism-selection PR identifies a substantially different within-control information mechanism with research-completion criteria fixed before execution.
 
+## Post-S29 Applicant-Side Structuring Update
+
+This synthesis is further updated by `docs/synthesis/phase4-applicant-side-structuring-synthesis-v0.1.md`.
+
+S29 corrects a limit in S28: S28 tested downstream accountant handling after split items reached accounting, while S29 tests whether a requester/buyer chooses split submission under observable pressure and aggregate-threshold conditions.
+
+S29 result:
+
+- Applicant-side split submission appeared in 7/20 accepted artificial runs.
+- Split submission appeared only under pressure conditions: ST02 deadline, ST03 volume/queue, and ST04 compound pressure plus prior practice.
+- 4 split submissions preserved aggregate context through `submit_split_requests_with_aggregate_note`.
+- 3 split submissions omitted the aggregate note through `submit_split_requests_without_aggregate_note`.
+- SL5 aggregate-gap preservation remained supported in all 20 runs.
+- SL1, SL4, SL6, and FM3 were not observed.
+- SL3 and FM6 were not applicable in S29 v0.1 because no downstream accountant or post-hoc explanation turn was included.
+
+The current Phase 4 mechanism map is therefore:
+
+- SL2: supported in bounded contexts including lossy handoff, S28 downstream split-item handoff, and S29 applicant-side split submission.
+- SL3: narrow project-owner-confirmed partial support only from S27 `create_payment_draft`.
+- SL4: unsupported.
+- SL5: repeatedly supported as approval/evidence/aggregate-gap preservation.
+- SL6: unsupported.
+
+Checkpoint decision after S29: request project-owner or external review of the split-without-aggregate-note boundary before any baseline discussion or further run-producing Phase 4 diagnostic. S29 does not support fraud, hidden intent, full approval bypass, SL3, SL4, SL6, prompt causation, model-general behavior, statistical significance, human behavior, real-world behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+
 ## Allowed Claims
 
 This synthesis may claim:
 
 - Phase 4 selected, froze, executed, reviewed, and reflected on an exception-route ambiguity mechanism.
 - S20 accepted runs preserved approval and exception-authority gaps downstream.
-- Current reviewed artificial evidence supports repeated SL5 boundary preservation, bounded SL2 support from BC31/S18/S28 contexts, and narrow S27 SL3 partial support for `create_payment_draft`.
-- Phase 4 is research-complete for the current tested-mechanism map, but not for proof of stronger downstream slippage, SL4, SL6, or baseline readiness.
+- Current reviewed artificial evidence supports repeated SL5 boundary preservation, bounded SL2 support from BC31/S18/S28/S29 contexts, and narrow S27 SL3 partial support for `create_payment_draft`.
+- Phase 4 has a clearer current tested-mechanism map after S29, but still not proof of stronger downstream slippage, SL4, SL6, or baseline readiness.
 - The current evidence does not justify a controlled failure-mode baseline.
 
 ## Forbidden Claims

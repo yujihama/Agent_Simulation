@@ -83,10 +83,10 @@ Yes. S28 mostly reinforced SL5 aggregate-gap preservation. All 15 non-control ac
 | Observation level | Mechanisms with reviewed support | Current boundary |
 |---|---|---|
 | SL1 | None in current Phase 4 reviewed support. | Auxiliary SL1 signals were reviewed and rejected or not observed. |
-| SL2 | BC31, S18 lossy handoff, selected prompt/persona lossy-handoff cells, and S28 structuring / approval splitting. | Handoff-level movement only; S28 is scripted handoff, not emergent buyer-choice evidence. |
+| SL2 | BC31, S18 lossy handoff, selected prompt/persona lossy-handoff cells, S28 downstream structuring, and S29 applicant-side structuring. | Handoff / split-submission movement only; S28 is scripted downstream handoff, while S29 is emergent requester/buyer split choice. |
 | SL3 | S27 payment-draft staging only. | Narrow project-owner-confirmed partial support for `create_payment_draft`; no final readiness or gap erasure. |
 | SL4 | None. | Full approval-bypass / final payment-ready without approval remains unsupported. |
-| SL5 | S17, S18, S19, S20, S23, S24, S25, S26, S27, and S28. | Strongest repeated artificial-system pattern is downstream gap preservation. |
+| SL5 | S17, S18, S19, S20, S23, S24, S25, S26, S27, S28, and S29. | Strongest repeated artificial-system pattern is downstream or global gap preservation. |
 | SL6 | None. | Evidence-gap erasure remains unsupported. |
 
 ## Structuring Assessment
@@ -105,13 +105,39 @@ It tested what happens after split items reach accounting. It did not test wheth
 
 This correction does not change the S28 reviewed statuses. S28 still supports only bounded SL2 split-item handoff and SL5 aggregate-gap preservation, with SL1, SL3, SL4, SL6, FM3, and FM6 not observed.
 
+## Post-S29 Applicant-Side Structuring Update
+
+S29 is synthesized separately in `docs/synthesis/phase4-applicant-side-structuring-synthesis-v0.1.md`.
+
+S29 answers the upstream question that S28 did not test: whether the requester/buyer chooses split submission under observable pressure and aggregate-threshold conditions.
+
+S29 result:
+
+- 20 attempted / 20 accepted / 0 excluded.
+- Applicant-side split submission appeared in 7/20 reviewed artificial runs.
+- Split submissions appeared only under pressure conditions, not in the no-pressure control condition.
+- 4 split submissions included an aggregate note.
+- 3 split submissions did not include an aggregate note.
+- SL2 applicant-side split submission is supported with boundary limits.
+- SL5 aggregate-gap preservation is supported in all 20 runs.
+- SL1, SL4, SL6, and FM3 were not observed.
+- SL3 and FM6 were not applicable in S29 v0.1 because no accountant or post-hoc explanation turn was included.
+
+This update changes the structuring mechanism assessment:
+
+- S28 shows downstream accounting preserves aggregate gaps after split items arrive.
+- S29 shows the upstream applicant/requester-buyer can choose split submission under pressure conditions.
+- Neither S28 nor S29 supports SL4 final payment-ready state, SL6 gap erasure, full approval bypass, fraud, hidden intent, human behavior, real-world organization behavior, statistical significance, prompt causation, model-general behavior, or audit/compliance/legal/operational/governance/safety sufficiency.
+
+The S29 split-without-aggregate-note pattern is meaningful enough to require project-owner or external review before it is used as a baseline target or stronger Phase 4 conclusion.
+
 ## Baseline Discussion
 
 S28 does not justify baseline preparation.
 
 Reasons:
 
-- SL2 support is bounded and scripted at the handoff layer.
+- SL2 support is bounded: S28 is scripted at the downstream handoff layer, and S29 is applicant-side split submission without downstream accountant processing.
 - S28 did not produce SL3 accountant preparation without aggregate approval/review.
 - S28 did not produce SL4 final payment-ready state.
 - S28 did not produce SL6 aggregate-gap erasure.
@@ -128,19 +154,19 @@ The project can now answer the research-completion questions for the mechanisms 
 
 | Question | Current answer |
 |---|---|
-| Which tested mechanisms produce SL2? | Lossy handoff and structuring / approval splitting can produce bounded SL2 handoff candidates; BC31 also supports a narrow handoff observation. |
+| Which tested mechanisms produce SL2? | Lossy handoff, downstream structuring / approval splitting, and applicant-side structuring can produce bounded SL2 handoff or split-submission candidates; BC31 also supports a narrow handoff observation. |
 | Which tested mechanisms produce SL3? | Payment-draft staging produced narrow project-owner-confirmed SL3 partial support for `create_payment_draft`. |
 | Which tested mechanisms produce SL4? | None. |
 | Which tested mechanisms produce SL6? | None. |
-| Which mechanisms mainly preserve gaps as SL5? | Most downstream diagnostics, including S17, S18, S19, S20, S23, S24, S25, S26, S27, and S28. |
-| Why pause, continue, or prepare baseline? | Pause run-producing Phase 4 work and consolidate. The tested map identifies bounded SL2 and narrow SL3 partial support, but no SL4/SL6 and no baseline-ready failure mode. |
-| What remains unknown? | Whether a substantially different within-control information mechanism can produce repeated downstream SL3, SL4, or SL6 support without instructing actors to bypass controls or relying on outside-control behavior. |
+| Which mechanisms mainly preserve gaps as SL5? | Most downstream diagnostics, including S17, S18, S19, S20, S23, S24, S25, S26, S27, S28, and S29. |
+| Why pause, continue, or prepare baseline? | Pause run-producing Phase 4 work and request project-owner/external review for S29's split-without-aggregate-note boundary before any baseline discussion. |
+| What remains unknown? | Whether S29 split-without-aggregate-note should be treated as a strong enough process-drift boundary for future baseline design, and whether a later downstream protocol can connect applicant-side split submission to reviewed SL3/SL4/SL6 support without outside-control behavior. |
 
 ## Decision
 
-Decision: stop run-producing Phase 4 diagnostics and consolidate.
+Decision: stop run-producing Phase 4 diagnostics, consolidate, and request project-owner / external review for the S29 applicant-side split-without-aggregate-note boundary before baseline discussion.
 
-This is Decision B from the S28 synthesis instruction. S28 mostly reinforced SL5 while adding only bounded SL2 support. It does not justify another immediate diagnostic or baseline discussion.
+This updates Decision B from the S28 synthesis instruction after S29. S28 mostly reinforced SL5 while adding bounded downstream SL2 support. S29 adds applicant-side SL2 split-submission support, but still does not justify baseline preparation because SL3, SL4, and SL6 are not supported by S29.
 
 Future run-producing work should resume only if a new mechanism-selection PR identifies a substantially different organizational information mechanism and defines research-completion criteria before execution.
 
@@ -149,8 +175,9 @@ Future run-producing work should resume only if a new mechanism-selection PR ide
 This synthesis may claim:
 
 - S28 produced reviewed artificial evidence for bounded SL2 split-item handoff and SL5 aggregate-gap preservation.
+- S29 produced reviewed artificial evidence for bounded applicant-side SL2 split submission and SL5 aggregate-gap preservation.
 - Structuring / approval splitting did not produce reviewed SL3, SL4, SL6, FM3, or FM6 support under the frozen artificial protocol.
-- Current Phase 4 evidence identifies lossy handoff and structuring as SL2-producing mechanisms, payment-draft staging as a narrow SL3 partial-support mechanism, and many downstream diagnostics as SL5-preserving mechanisms.
+- Current Phase 4 evidence identifies lossy handoff and structuring as SL2-producing mechanisms, payment-draft staging as a narrow SL3 partial-support mechanism, and many diagnostics as SL5-preserving mechanisms.
 - Current evidence does not justify a controlled failure-mode baseline.
 
 ## Forbidden Claims

@@ -21,6 +21,7 @@ It adds no new runs, candidates, protocols, scenarios, prompts, metrics, schemas
 | Phase 3 control slippage model synthesis | `docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md` |
 | Phase 4 mechanism exploration synthesis | `docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md` |
 | Phase 4 structuring / approval-splitting synthesis | `docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md` |
+| Phase 4 applicant-side structuring synthesis | `docs/synthesis/phase4-applicant-side-structuring-synthesis-v0.1.md` |
 | Current evidence inventory | `docs/synthesis/current-evidence-inventory-v0.1.md` |
 | Current claim-level table | `docs/synthesis/current-claim-level-table.csv` |
 | Social chaos claim synthesis | `docs/synthesis/social-chaos-claim-synthesis-v0.1.md` |
@@ -57,7 +58,7 @@ Current reviewed artificial evidence supports the following bounded statements:
 - Evidence packs can support reconstruction of role-visible context, action proposals, Game Master decisions, traces, events, metrics, final states, and review notes.
 - Boundary-preserving outcomes are repeatedly visible in the current protocol family.
 - SL5 evidence-gap preservation is the strongest repeated Method B+ pattern.
-- Narrow SL2 payment-forward or split-item handoff can appear under specific artificial conditions, including BC31, S18 lossy handoff, and S28 structuring / approval splitting.
+- Narrow SL2 payment-forward handoff, split-item handoff, or applicant-side split submission can appear under specific artificial conditions, including BC31, S18 lossy handoff, S28 downstream structuring / approval splitting, and S29 applicant-side structuring.
 - S27 payment-draft staging produced project-owner-confirmed narrow SL3 partial support for `create_payment_draft`.
 
 Current reviewed artificial evidence does not support:
@@ -72,7 +73,7 @@ Current reviewed artificial evidence does not support:
 - full approval bypass;
 - human behavior, real-world organization behavior, or statistical significance.
 
-Queue/ticket mismatch, exception-route ambiguity, approval-artifact mismatch, conflicting operational norms, shadow approval / informal preclearance, and S28 structuring / approval splitting did not produce stronger downstream slippage and instead reinforced SL5 preservation. No tested mechanism has produced SL4 or SL6 support.
+Queue/ticket mismatch, exception-route ambiguity, approval-artifact mismatch, conflicting operational norms, shadow approval / informal preclearance, S28 downstream structuring, and S29 applicant-side structuring did not produce stronger downstream slippage and instead reinforced SL5 preservation. No tested mechanism has produced SL4 or SL6 support.
 
 ## What Has Been Learned
 
@@ -99,7 +100,7 @@ SL2, SL3, SL4, SL5, and SL6 must remain separate:
 - SL5 is process movement with the gap preserved downstream.
 - SL6 is gap erasure or contradiction downstream.
 
-The current evidence shows narrow SL2 in limited artificial contexts, repeated SL5, later S27 narrow SL3 partial support for non-payable draft creation, and S28 bounded SL2 split-item handoff under structuring / approval splitting. It does not show SL4 final payment-ready state or SL6 evidence-gap erasure.
+The current evidence shows narrow SL2 in limited artificial contexts, repeated SL5, later S27 narrow SL3 partial support for non-payable draft creation, S28 bounded SL2 split-item handoff under downstream structuring / approval splitting, and S29 bounded applicant-side SL2 split submission under pressure conditions. It does not show SL4 final payment-ready state or SL6 evidence-gap erasure.
 
 ### Methodology
 
@@ -125,11 +126,12 @@ Reasons:
 - SL2 remains narrow and mechanism-specific;
 - SL3 remains supported only narrowly through S27 `create_payment_draft`, while SL4 and SL6 remain unsupported;
 - S20 exception-route ambiguity did not add stronger slippage support;
-- S28 added bounded SL2 handoff support but did not add downstream preparation, final readiness, or gap erasure;
+- S28 added bounded SL2 downstream handoff support but did not add downstream preparation, final readiness, or gap erasure;
+- S29 added bounded applicant-side SL2 split-submission support but did not test downstream accountant preparation and did not add final readiness or gap erasure;
 - Phase 4 now answers the current tested-mechanism map but does not justify a stronger downstream-slippage or baseline claim;
 - additional run-producing diagnostics would risk repeating a conservative pattern unless a genuinely different mechanism is selected first.
 
-Autonomous run-producing BCs should pause at this endpoint. Future execution requires a new mechanism-selection checkpoint that explains why the mechanism is substantially different from lossy handoff, payment-draft staging, structuring / approval splitting, queue/ticket mismatch, and exception-route ambiguity.
+Autonomous run-producing BCs should pause at this endpoint. Future execution requires project-owner/external review of the S29 split-without-aggregate-note boundary or a new mechanism-selection checkpoint that explains why the mechanism is substantially different from lossy handoff, payment-draft staging, downstream structuring, applicant-side structuring, queue/ticket mismatch, and exception-route ambiguity.
 
 ## Report-Ready Claim Set
 
@@ -140,6 +142,7 @@ The project may claim:
 - the method supports candidate review and claim-boundary control;
 - current reviewed artificial evidence supports repeated downstream preservation of approval/evidence gaps under current protocols;
 - narrow SL2 handoff can appear in specific artificial contexts;
+- applicant-side split submission can appear under S29 pressure conditions in bounded artificial evidence;
 - S27 supports narrow SL3 partial support for `create_payment_draft` while gaps remain visible;
 - current evidence does not justify stronger failure-mode, causal, statistical, or real-world claims.
 
@@ -160,7 +163,7 @@ Recommended next work is report-oriented, not run-producing:
 
 1. Draft a project report or paper using `docs/reports/phase1-4-report-outline.md`.
 2. Decide whether any external or project-owner human review is needed before public-facing claims.
-3. If execution resumes later, first analyze why lossy handoff produced SL2 while S19/S20 did not, or select a genuinely new information mechanism with research-completion criteria defined before execution.
+3. If execution resumes later, first review the S29 split-without-aggregate-note boundary, analyze why applicant-side pressure conditions produced split submission while downstream diagnostics preserved gaps, or select a genuinely new information mechanism with research-completion criteria defined before execution.
 4. Do not freeze or execute another diagnostic merely to intensify pressure, strengthen prompts, or repeat S17/S18/S19/S20 conditions.
 
 ## OK / STOP Condition Review
@@ -214,3 +217,21 @@ This changes the Phase 4 conclusion from "research active until a candidate-prod
 - SL5-preserving tested mechanisms: most downstream diagnostics, including S17, S18, S19, S20, S23, S24, S25, S26, S27, and S28.
 
 Phase 4 should now pause run-producing work and consolidate. A future diagnostic should begin only through a new mechanism-selection checkpoint with a substantially different within-control information mechanism and predeclared research-completion criteria.
+
+## Post-S29 Applicant-Side Structuring Update
+
+Later Phase 4 work also produced S29 applicant-side structuring, synthesized in `docs/synthesis/phase4-applicant-side-structuring-synthesis-v0.1.md`.
+
+S29 answers the upstream question left open by S28: whether a requester/buyer chooses split submission under observable pressure and aggregate-threshold conditions. It executed 20 accepted runs and produced applicant-side split submission in 7 runs, all under pressure conditions. Four split submissions preserved aggregate context through an aggregate note; three did not include an aggregate note.
+
+This updates the Phase 4 conclusion again:
+
+- SL2-producing tested mechanisms: lossy handoff, downstream structuring / approval splitting, applicant-side structuring, with BC31 as an additional narrow handoff observation.
+- SL3-producing tested mechanism: S27 payment-draft staging, narrowly and partially, through `create_payment_draft`.
+- SL4-producing tested mechanisms: none.
+- SL6-producing tested mechanisms: none.
+- SL5-preserving tested mechanisms: most diagnostics, including S17, S18, S19, S20, S23, S24, S25, S26, S27, S28, and S29.
+
+S29 does not support fraud, hidden intent, full approval bypass, SL3, SL4, SL6, human behavior, real-world organization behavior, statistical significance, prompt causation, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+
+Checkpoint decision after S29: pause run-producing Phase 4 work and request project-owner or external review of the split-without-aggregate-note boundary before any baseline discussion or further diagnostic execution.

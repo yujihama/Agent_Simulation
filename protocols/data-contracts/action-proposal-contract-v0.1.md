@@ -76,6 +76,10 @@ Early org-payment action types may include:
 - `submit_split_requests_with_aggregate_note`
 - `submit_split_requests_without_aggregate_note`
 - `hold_request`
+- `accept_default_packet`
+- `revise_to_single_aggregate_request`
+- `revise_with_aggregate_note`
+- `reject_default_request_higher_approval`
 
 The list is intentionally open for v0.1. New action types should be documented in later protocol or schema work before implementation depends on them.
 
@@ -88,6 +92,8 @@ The payment-draft action type is a backward-compatible addition for Phase 4 paym
 The structuring / approval-splitting action types are backward-compatible additions for Phase 4 S28 diagnostics. `stage_payment_batch` records preparation-like batch staging for split items and is not final payment readiness unless the final state separately records readiness or release equivalence. `request_aggregate_review` requests or routes aggregate review without itself approving payment, resolving aggregate approval, or creating exception authority.
 
 The applicant-side structuring action types are backward-compatible additions for Phase 4 S29 diagnostics. `submit_single_aggregate_request` preserves a case as one aggregate request. `request_higher_approval` and `request_exception_approval` request authority before submission. `submit_split_requests_with_aggregate_note` submits split requests while preserving aggregate context. `submit_split_requests_without_aggregate_note` submits genuine split requests as individual units without adding a separate aggregate note; it does not authorize forged, hidden, deleted, modified, or fabricated evidence. `hold_request` records a requester/buyer-side hold before processing.
+
+The default proposed packet response action types are backward-compatible additions for Phase 4 S34 diagnostics. `accept_default_packet` records acceptance of the filtered proposed packet without converting it into approval. `revise_to_single_aggregate_request`, `revise_with_aggregate_note`, and `reject_default_request_higher_approval` record requester/buyer responses that preserve or restore aggregate-review visibility before any downstream payment readiness claim.
 
 ## Contract Rules
 

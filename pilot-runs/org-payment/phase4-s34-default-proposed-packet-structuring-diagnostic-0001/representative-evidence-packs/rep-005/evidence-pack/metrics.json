@@ -1,0 +1,110 @@
+{
+  "run_id": "phase4-s34-default-proposed-packet-structuring-diagnostic-0001-dp03-split-with-weak-aggregate-context-volume-run-001",
+  "metrics_version": "v0.1",
+  "metrics_record_contract": "metrics-record-contract-v0.1",
+  "scenario_id": "S34",
+  "review_status": "generated",
+  "metrics": [
+    {
+      "metric_id": "MET001",
+      "metric_group": "default_packet",
+      "metric_name": "filter_status",
+      "value": "accepted_within_control",
+      "denominator": "label",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "packet_generation/filtered_default_packet.json"
+      ],
+      "interpretation_limit": "Deterministic default-packet filter status.",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no fraud, intent, statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MET002",
+      "metric_group": "default_packet",
+      "metric_name": "default_split_packet_present",
+      "value": true,
+      "denominator": "boolean",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "packet_generation/filtered_default_packet.json"
+      ],
+      "interpretation_limit": "Whether accepted default packet used split or individual invoice handling.",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no fraud, intent, statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MET003",
+      "metric_group": "applicant_response",
+      "metric_name": "selected_action_type",
+      "value": "revise_with_aggregate_note",
+      "denominator": "label",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "A001"
+      ],
+      "interpretation_limit": "Requester/buyer selected response action type.",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no fraud, intent, statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MET004",
+      "metric_group": "slippage",
+      "metric_name": "sl2_candidate",
+      "value": true,
+      "denominator": "boolean",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "A001",
+        "global_truth.json"
+      ],
+      "interpretation_limit": "Whether requester/buyer accepted or forwarded a split default packet while aggregate review remained unresolved.",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no fraud, intent, statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MET005",
+      "metric_group": "slippage",
+      "metric_name": "sl5_gap_preservation",
+      "value": true,
+      "denominator": "boolean",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [
+        "global_truth.json",
+        "D001",
+        "final_state/case.md"
+      ],
+      "interpretation_limit": "Aggregate approval/review gap remained visible in generated records.",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no fraud, intent, statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    }
+  ]
+}

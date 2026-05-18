@@ -234,6 +234,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S34 default proposed packet structuring protocol v0.1: [protocols/failure-modes/phase4-default-proposed-packet-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-default-proposed-packet-structuring-diagnostic-v0.1.md)
 - Phase 4 S34 default proposed packet structuring scenario: [scenarios/org-payment/s34-default-proposed-packet-structuring.yaml](scenarios/org-payment/s34-default-proposed-packet-structuring.yaml)
 - Phase 4 S34 default proposed packet structuring addendum v0.1: [prompts/org-payment/phase4-default-proposed-packet-structuring-addendum-v0.1.md](prompts/org-payment/phase4-default-proposed-packet-structuring-addendum-v0.1.md)
+- Phase 4 S34 default proposed packet structuring result: [pilot-runs/org-payment/phase4-s34-default-proposed-packet-structuring-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s34-default-proposed-packet-structuring-diagnostic-0001/summary.md)
+- Phase 4 S34 default proposed packet structuring synthesis: [docs/synthesis/phase4-default-proposed-packet-structuring-synthesis-v0.1.md](docs/synthesis/phase4-default-proposed-packet-structuring-synthesis-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1928,7 +1930,7 @@ python -m social_sim execute-phase4-gray-option-seeded-structuring-diagnostic `
 
 Observed S33 result: 20 attempted / 19 accepted / 1 excluded provider failure. Gray split options were present in all 19 accepted runs. Requester/buyer selected conservative canonical actions in 18 accepted runs (`request_higher_approval`: 11, `submit_single_aggregate_request`: 7) and selected one gray-seeded split action with aggregate note in the compound-pressure/prior-practice condition. S33 adds one bounded SL2 candidate with SL5 aggregate-gap preservation, and does not add SL4 or SL6 support.
 
-### Phase 4 S34 Default Proposed Packet Structuring Protocol
+### Phase 4 S34 Default Proposed Packet Structuring
 
 The S34 mechanism-selection reflection is recorded in [docs/reflections/phase4-after-s33-next-mechanism-default-packet.md](docs/reflections/phase4-after-s33-next-mechanism-default-packet.md).
 
@@ -1936,6 +1938,22 @@ The S34 protocol is frozen in [protocols/failure-modes/phase4-default-proposed-p
 
 S34 targets the adoption gap left by S33. Instead of adding gray ideas as menu options, a default packet advisor prepares one concrete proposed packet and requester/buyer must accept, revise, reject, hold, or escalate it. This tests default/framing/provenance effects without instructing any role to forge records, hide evidence, bypass approval, or infer hidden intent.
 
-The protocol freezes 20 future attempted runs across conservative aggregate default, split-with-aggregate-note deadline, split-with-weak-aggregate-context volume, and social-provenance split default conditions. It uses OpenAI `gpt-5.2`, includes no downstream accountant turn in v0.1, and preserves the claim boundary `phase4_default_proposed_packet_structuring_observation_only` for later execution.
+Local generation command:
 
-This protocol does not execute runs and does not claim default-packet structuring occurred. It also does not claim fraud, hidden intent, full approval bypass, prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-phase4-default-proposed-packet-structuring-diagnostic `
+  --output runs/org-payment/phase4-s34-default-proposed-packet-structuring-diagnostic-local/raw `
+  --curated-output runs/org-payment/phase4-s34-default-proposed-packet-structuring-diagnostic-local/curated `
+  --dotenv .env
+```
+
+Curated S34 output:
+
+- [pilot-runs/org-payment/phase4-s34-default-proposed-packet-structuring-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s34-default-proposed-packet-structuring-diagnostic-0001/summary.md)
+- [pilot-runs/org-payment/phase4-s34-default-proposed-packet-structuring-diagnostic-0001/aggregate.json](pilot-runs/org-payment/phase4-s34-default-proposed-packet-structuring-diagnostic-0001/aggregate.json)
+- [docs/synthesis/phase4-default-proposed-packet-structuring-synthesis-v0.1.md](docs/synthesis/phase4-default-proposed-packet-structuring-synthesis-v0.1.md)
+
+Observed S34 result: 20 attempted / 20 accepted / 0 excluded. Default split packets were present in 15 accepted runs. Requester/buyer selected `revise_to_single_aggregate_request` in 11 runs, `revise_with_aggregate_note` in 4 runs, and `accept_default_packet` in 5 runs. S34 records 8 bounded SL2 split-packet-forwarding candidates and SL5 aggregate-gap preservation in all accepted runs. S34 does not add SL4 or SL6 support.
+
+This remains an artificial Phase 4 diagnostic, not a baseline. It does not claim fraud, hidden intent, full approval bypass, prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.

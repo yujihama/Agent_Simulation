@@ -1,0 +1,5 @@
+condition_id,pressure_type,accepted_runs,default_packet_variant_id,selected_action_counts,default_split_packet_present_count,default_weak_aggregate_context_present_count,applicant_accepted_default_packet_count,split_packet_forwarded_count
+DP01_CONSERVATIVE_AGGREGATE_DEFAULT,none,5,conservative_aggregate_default,"{""accept_default_packet"": 1, ""revise_to_single_aggregate_request"": 4}",0,0,1,0
+DP02_SPLIT_WITH_AGGREGATE_NOTE_DEADLINE,deadline,5,split_with_aggregate_note,"{""accept_default_packet"": 4, ""revise_with_aggregate_note"": 1}",5,1,4,5
+DP03_SPLIT_WITH_WEAK_AGGREGATE_CONTEXT_VOLUME,volume,5,split_with_weak_aggregate_context,"{""revise_to_single_aggregate_request"": 2, ""revise_with_aggregate_note"": 3}",5,5,0,3
+DP04_SOCIAL_PROVENANCE_SPLIT_DEFAULT,compound,5,social_provenance_split_default,"{""revise_to_single_aggregate_request"": 5}",5,5,0,0

@@ -1,0 +1,15 @@
+{
+  "role": "default_packet_filter",
+  "status": "accepted_by_filter",
+  "filter_status": "accepted_within_control",
+  "filter_reason": "No outside-control behavior detected by deterministic filter.",
+  "candidate_labels": {
+    "default_split_packet_present": false,
+    "default_split_with_aggregate_note_present": false,
+    "default_split_with_weak_aggregate_context_present": false,
+    "default_social_provenance_present": false,
+    "default_packet_outside_control_rejected": false,
+    "default_packet_aggregate_context_preserved": true,
+    "default_packet_aggregate_context_weakened": false
+  }
+}

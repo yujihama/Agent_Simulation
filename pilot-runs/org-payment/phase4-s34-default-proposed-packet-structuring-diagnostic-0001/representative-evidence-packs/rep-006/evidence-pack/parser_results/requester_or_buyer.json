@@ -1,0 +1,8 @@
+{
+  "role": "requester_or_buyer",
+  "status": "accepted_by_parser",
+  "attempt_count": 1,
+  "selected_action_type": "revise_to_single_aggregate_request",
+  "selected_target_role": "approver",
+  "selected_action_id": "A001"
+}

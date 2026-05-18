@@ -352,19 +352,22 @@ def validate_pack(pack_dir: Path) -> ValidationReport:
 
     if (pack_dir / "action_menu.json").exists():
         validate_free_choice_artifacts(pack_dir, actions, decisions, report)
+    has_default_packet_artifacts = (pack_dir / "packet_generation" / "default_packet.json").exists()
+    if has_default_packet_artifacts:
+        validate_default_packet_artifacts(pack_dir, actions, decisions, ids, report)
     has_advisor_seeded_artifacts = (pack_dir / "option_generation").exists()
     if has_advisor_seeded_artifacts:
         validate_advisor_seeded_artifacts(pack_dir, actions, decisions, ids, report)
     has_generated_plan_artifacts = (
         (pack_dir / "generated_plan").exists()
-        or ((pack_dir / "classifier_results").exists() and not has_advisor_seeded_artifacts)
+        or ((pack_dir / "classifier_results").exists() and not has_advisor_seeded_artifacts and not has_default_packet_artifacts)
     )
     if has_generated_plan_artifacts:
         validate_generated_plan_artifacts(pack_dir, ids, report)
     if (
         (pack_dir / "action_menus").exists()
         or ((pack_dir / "parser_results").exists() and not has_generated_plan_artifacts)
-    ) and not has_advisor_seeded_artifacts:
+    ) and not has_advisor_seeded_artifacts and not has_default_packet_artifacts:
         validate_multirole_artifacts(pack_dir, actions, decisions, report)
 
     for event in events:
@@ -610,6 +613,123 @@ def validate_advisor_seeded_artifacts(
     if not isinstance(requester_classifier.get("sl_statuses"), dict):
         raise ValidationError("requester_or_buyer classifier sl_statuses must be an object")
     report.add(f"{generation_label} option generation, filtering, and selected action artifacts validate")
+
+
+def validate_default_packet_artifacts(
+    pack_dir: Path,
+    actions: list[dict[str, Any]],
+    decisions: list[dict[str, Any]],
+    ids: dict[str, set[str]],
+    report: ValidationReport,
+) -> None:
+    required_paths = [
+        pack_dir / "packet_generation" / "default_packet.json",
+        pack_dir / "packet_generation" / "filtered_default_packet.json",
+        pack_dir / "action_menus" / "requester_or_buyer_default_packet_response.json",
+        pack_dir / "parser_results" / "default_packet_advisor.json",
+        pack_dir / "parser_results" / "requester_or_buyer.json",
+        pack_dir / "proposal_attempts" / "default_packet_advisor.jsonl",
+        pack_dir / "proposal_attempts" / "requester_or_buyer.jsonl",
+        pack_dir / "classifier_results" / "default_packet_filter.json",
+        pack_dir / "classifier_results" / "requester_or_buyer.json",
+    ]
+    for path in required_paths:
+        if not path.exists():
+            raise ValidationError(f"missing default-packet artifact: {path.relative_to(pack_dir)}")
+
+    default_packet = load_json(pack_dir / "packet_generation" / "default_packet.json")
+    if not isinstance(default_packet, dict):
+        raise ValidationError("packet_generation/default_packet.json must be an object")
+    for field in [
+        "packet_id",
+        "packet_label",
+        "packet_summary",
+        "submission_structure",
+        "approval_handling",
+        "aggregate_context_handling",
+        "default_rationale",
+        "within_control_boundary",
+    ]:
+        if not isinstance(default_packet.get(field), str) or not default_packet[field].strip():
+            raise ValidationError(f"packet_generation/default_packet.json {field} must be a non-empty string")
+    for field in ["pressure_refs", "source_refs", "risk_flags"]:
+        if not isinstance(default_packet.get(field), list):
+            raise ValidationError(f"packet_generation/default_packet.json {field} must be an array")
+    for ref in default_packet.get("source_refs", []):
+        if not check_ref(ref, ids, pack_dir):
+            raise ValidationError(f"default proposed packet has unknown source ref {ref}")
+    report.add("default proposed packet source references resolve")
+
+    filtered = load_json(pack_dir / "packet_generation" / "filtered_default_packet.json")
+    if filtered.get("filter_status") != "accepted_within_control":
+        raise ValidationError("packet_generation/filtered_default_packet.json filter_status must be accepted_within_control for accepted packs")
+    accepted_packet = filtered.get("accepted_packet")
+    if not isinstance(accepted_packet, dict):
+        raise ValidationError("packet_generation/filtered_default_packet.json accepted_packet must be an object")
+    if accepted_packet.get("packet_id") != default_packet.get("packet_id"):
+        raise ValidationError("accepted default packet packet_id does not match generated packet")
+
+    action_menu = load_json(pack_dir / "action_menus" / "requester_or_buyer_default_packet_response.json")
+    allowed_actions = action_menu.get("allowed_actions") if isinstance(action_menu, dict) else None
+    if not isinstance(allowed_actions, list) or not allowed_actions:
+        raise ValidationError("action_menus/requester_or_buyer_default_packet_response.json allowed_actions must be non-empty")
+    menu_pairs = {
+        (item.get("action_type"), item.get("target_role"))
+        for item in allowed_actions
+        if isinstance(item, dict)
+    }
+    report.add("default-packet response menu is present and non-empty")
+
+    advisor_parser = load_json(pack_dir / "parser_results" / "default_packet_advisor.json")
+    if advisor_parser.get("role") != "default_packet_advisor":
+        raise ValidationError("default_packet_advisor parser result role mismatch")
+    if advisor_parser.get("status") != "accepted_by_parser":
+        raise ValidationError("default_packet_advisor parser result must be accepted_by_parser")
+    advisor_attempts = load_jsonl(pack_dir / "proposal_attempts" / "default_packet_advisor.jsonl")
+    advisor_accepted = [attempt for attempt in advisor_attempts if attempt.get("status") == "accepted_by_parser"]
+    if len(advisor_accepted) != 1:
+        raise ValidationError("default_packet_advisor proposal attempts must contain exactly one accepted attempt")
+
+    requester_parser = load_json(pack_dir / "parser_results" / "requester_or_buyer.json")
+    if requester_parser.get("role") != "requester_or_buyer":
+        raise ValidationError("requester_or_buyer parser result role mismatch")
+    selected_action_id = requester_parser.get("selected_action_id")
+    matching_actions = [action for action in actions if action.get("action_id") == selected_action_id]
+    if len(matching_actions) != 1:
+        raise ValidationError(f"requester_or_buyer parser selected_action_id {selected_action_id!r} does not match an action")
+    selected_action = matching_actions[0]
+    selected_pair = (selected_action.get("action_type"), selected_action.get("target_role"))
+    if selected_pair not in menu_pairs:
+        raise ValidationError(f"requester_or_buyer selected action is not in default-packet response menu: {selected_pair}")
+    for field, expected in {
+        "selected_action_type": selected_action["action_type"],
+        "selected_target_role": selected_action["target_role"],
+        "selected_action_id": selected_action["action_id"],
+    }.items():
+        if requester_parser.get(field) != expected:
+            raise ValidationError(f"requester_or_buyer parser result {field} mismatch")
+    report.add("selected requester/buyer default-packet response matches action menu")
+
+    requester_attempts = load_jsonl(pack_dir / "proposal_attempts" / "requester_or_buyer.jsonl")
+    requester_accepted = [attempt for attempt in requester_attempts if attempt.get("status") == "accepted_by_parser"]
+    if len(requester_accepted) != 1:
+        raise ValidationError("requester_or_buyer proposal attempts must contain exactly one accepted attempt")
+    matching_decisions = [decision for decision in decisions if decision.get("action_id") == selected_action["action_id"]]
+    if not matching_decisions:
+        raise ValidationError(f"requester_or_buyer selected action {selected_action['action_id']} has no Game Master decision")
+    report.add("requester/buyer default-packet response has a Game Master decision")
+
+    packet_filter = load_json(pack_dir / "classifier_results" / "default_packet_filter.json")
+    if packet_filter.get("role") != "default_packet_filter":
+        raise ValidationError("classifier_results/default_packet_filter.json role must be default_packet_filter")
+    requester_classifier = load_json(pack_dir / "classifier_results" / "requester_or_buyer.json")
+    if requester_classifier.get("role") != "requester_or_buyer":
+        raise ValidationError("classifier_results/requester_or_buyer.json role must be requester_or_buyer")
+    if not isinstance(requester_classifier.get("candidate_labels"), dict):
+        raise ValidationError("requester_or_buyer classifier candidate_labels must be an object")
+    if not isinstance(requester_classifier.get("sl_statuses"), dict):
+        raise ValidationError("requester_or_buyer classifier sl_statuses must be an object")
+    report.add("default proposed packet generation, filtering, and selected response artifacts validate")
 
 
 def validate_generated_plan_artifacts(

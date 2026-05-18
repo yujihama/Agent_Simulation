@@ -220,6 +220,10 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S31 advisor-seeded structuring candidate review: [pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/candidate-review-0001/summary.md)
 - Phase 4 reflection after S31 advisor-seeded structuring: [docs/reflections/phase4-after-s31-advisor-seeded-structuring-review.md](docs/reflections/phase4-after-s31-advisor-seeded-structuring-review.md)
 - Phase 4 S31 advisor-seeded structuring synthesis v0.1: [docs/synthesis/phase4-advisor-seeded-structuring-synthesis-v0.1.md](docs/synthesis/phase4-advisor-seeded-structuring-synthesis-v0.1.md)
+- Phase 4 reflection after S31 next mechanism selection: [docs/reflections/phase4-after-s31-next-mechanism-selection.md](docs/reflections/phase4-after-s31-next-mechanism-selection.md)
+- Phase 4 S32 recommendation-weighted advisor structuring protocol v0.1: [protocols/failure-modes/phase4-recommendation-weighted-advisor-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-recommendation-weighted-advisor-structuring-diagnostic-v0.1.md)
+- Phase 4 S32 recommendation-weighted advisor structuring scenario: [scenarios/org-payment/s32-recommendation-weighted-advisor-structuring.yaml](scenarios/org-payment/s32-recommendation-weighted-advisor-structuring.yaml)
+- Phase 4 S32 recommendation-weighted advisor structuring addendum v0.1: [prompts/org-payment/phase4-recommendation-weighted-advisor-structuring-addendum-v0.1.md](prompts/org-payment/phase4-recommendation-weighted-advisor-structuring-addendum-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1875,3 +1879,15 @@ Reference output:
 Observed S31 result: 20 attempted / 17 accepted / 3 excluded. Advisor-generated split-like options appeared and seeded split options were present in 15/17 accepted applicant menus, but requester/buyer selected only canonical conservative options. S31 supports SL5 aggregate-gap preservation in accepted runs and does not add SL1, SL2, SL4, or SL6 support.
 
 Checkpoint decision: do not repeat neutral advisor-seeded option expansion as-is. Any further Phase 4 run-producing work should begin with a new mechanism-selection and protocol-freeze checkpoint focused on option provenance or recommendation force.
+
+### Phase 4 S32 Recommendation-Weighted Advisor Structuring Protocol
+
+The S32 mechanism-selection reflection is recorded in [docs/reflections/phase4-after-s31-next-mechanism-selection.md](docs/reflections/phase4-after-s31-next-mechanism-selection.md).
+
+The S32 protocol is frozen in [protocols/failure-modes/phase4-recommendation-weighted-advisor-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-recommendation-weighted-advisor-structuring-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s32-recommendation-weighted-advisor-structuring.yaml](scenarios/org-payment/s32-recommendation-weighted-advisor-structuring.yaml) and prompt addendum [prompts/org-payment/phase4-recommendation-weighted-advisor-structuring-addendum-v0.1.md](prompts/org-payment/phase4-recommendation-weighted-advisor-structuring-addendum-v0.1.md).
+
+S32 is a protocol-freeze checkpoint only. It tests a mechanism distinct from S31: an operational advisor generates within-control options and marks one option as recommended with rationale and caveats, then requester/buyer chooses from a menu that includes canonical conservative options plus accepted advisor options and recommendation metadata. The recommendation is explicitly not approval, exception authority, final payment readiness, compliance clearance, or audit clearance.
+
+The protocol freezes 20 future attempted runs across no-pressure, deadline-pressure, queue/volume-pressure, and compound-pressure/prior-practice conditions. It uses OpenAI `gpt-5.2`, includes no downstream accountant turn in v0.1, and preserves the claim boundary `phase4_recommendation_weighted_advisor_structuring_observation_only` for later execution.
+
+This protocol does not execute runs and does not claim recommendation-weighted structuring occurred. It also does not claim fraud, hidden intent, full approval bypass, prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.

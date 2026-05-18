@@ -3019,3 +3019,47 @@ Remaining gaps:
 - S31 does not reproduce S29 applicant-side split submission.
 - S31 does not support SL1, SL2, SL4, or SL6.
 - Future run-producing work should not repeat neutral option seeding as-is; it requires a new mechanism-selection/protocol-freeze checkpoint focused on option provenance or recommendation force.
+
+## Phase 4 S32 Recommendation-Weighted Advisor Structuring Protocol Freeze Update
+
+Latest PR label: `PR-Phase4-S32-recommendation-weighted-advisor-structuring-protocol-freeze`
+
+This update applies to C01, C02, C05, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/reflections/phase4-after-s31-next-mechanism-selection.md`
+- `protocols/failure-modes/phase4-recommendation-weighted-advisor-structuring-diagnostic-v0.1.md`
+- `scenarios/org-payment/s32-recommendation-weighted-advisor-structuring.yaml`
+- `prompts/org-payment/phase4-recommendation-weighted-advisor-structuring-addendum-v0.1.md`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: S32 selects option provenance and recommendation force as a new information mechanism after S31, rather than repeating neutral advisor-seeded option expansion.
+- C02 Research Questions: freezes the next question: whether a recommendation-weighted advisor option changes requester/buyer selection under artificial pressure and aggregate-threshold conditions.
+- C05 World / Environment: S32 freezes aggregate amount, individual amounts, threshold, related-item truth, pressure type, prior-practice signal, aggregate approval, higher approval, exception authority, aggregate review, final readiness, recommendation source type, and recommendation authority boundary as separate global-truth fields.
+- C08 Interaction Layer: separates operational recommendation advisor, deterministic option/recommendation filter, requester/buyer recommended-menu selector, and Game Master.
+- C09 Game Master / Arbiter: deterministic filtering rejects outside-control options and prevents recommendation metadata from being treated as approval, exception authority, or final readiness.
+- C10 LLM Actor Layer: freezes OpenAI `gpt-5.2` for later advisor and requester/buyer roles; this is not model comparison or model-general evidence.
+- C12 Experiment Harness: defines a future 20-attempt matrix across four pressure conditions but adds no runner or output in this PR.
+- C13 Event Taxonomy: no event taxonomy change is made; recommendation-weighted labels are candidate descriptors, not new event types.
+- C14 Metrics: freezes later reporting for recommended option counts, recommended split-option counts, requester/buyer selected recommended option counts, requester/buyer selected recommended split counts, SL1, SL2, SL4, SL5, and SL6.
+- C15 Evidence Pack: freezes required artifacts for role views, option generation, recommendation metadata, filter results, recommended menus, applicant selection, parser/classifier results, final state, candidate table, reviewer notes, and reconstruction checklist.
+- C16 Validity Protocol: advisor-generated and advisor-recommended candidates remain candidates until reviewed; rejected outside-control options must not be shown to requester/buyer.
+- C17 Human / LLM Review: later candidate review is required before support; no human-review or multi-reviewer claim is made in this protocol freeze.
+- C18 Reporting / Claims: no execution, recommendation-weighted result, baseline, prompt-causation, statistical, human, real-world, model-general, compliance, legal, audit, operational, governance, or safety sufficiency claim is made.
+- C20 Ethics / Misuse Boundaries: the protocol excludes fraud, forged evidence, hidden evidence, deletion/modification of records, impersonation, collusion, unauthorized access, privilege escalation, technical bypass, malicious bypass, approval-bypass instructions, and threshold-avoidance instructions. Operationally gray options may be studied only inside within-control boundaries and must remain reconstructable.
+
+Frozen S32 conditions:
+
+- `RW01_NO_PRESSURE_AGGREGATE_APPROVAL_REQUIRED`
+- `RW02_DEADLINE_PRESSURE`
+- `RW03_QUEUE_VOLUME_PRESSURE`
+- `RW04_COMPOUND_PRESSURE_PRIOR_PRACTICE`
+
+Next step:
+
+- Execute S32 only if the runner can implement advisor option generation, recommendation metadata, deterministic filtering, recommended menu construction, applicant selection, evidence reconstruction, and candidate review without changing the frozen protocol after seeing outputs.

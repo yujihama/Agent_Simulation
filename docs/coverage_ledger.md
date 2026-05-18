@@ -3155,3 +3155,47 @@ Observed S33 result:
 Next step:
 
 - Do not proceed directly to a downstream accountant chain from S33 without a separate mechanism-selection/protocol-freeze checkpoint. The single selected gray-seeded split action is useful but weak; a future diagnostic should change the decision structure or target the selected S33 boundary explicitly before any downstream expansion.
+
+## Phase 4 S34 Default Proposed Packet Structuring Protocol Freeze Update
+
+Latest PR label: `PR-Phase4-S34-default-proposed-packet-structuring-protocol-freeze`
+
+This update applies to C01, C02, C05, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Updated artifacts:
+
+- `docs/reflections/phase4-after-s33-next-mechanism-default-packet.md`
+- `protocols/failure-modes/phase4-default-proposed-packet-structuring-diagnostic-v0.1.md`
+- `scenarios/org-payment/s34-default-proposed-packet-structuring.yaml`
+- `prompts/org-payment/phase4-default-proposed-packet-structuring-addendum-v0.1.md`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: S34 selects default proposed packet structuring as a new within-control information mechanism after S33 showed gray options were generated but rarely selected.
+- C02 Research Questions: freezes the next question as option adoption / default-packet acceptance rather than another option-generation diagnostic.
+- C05 World / Environment: S34 freezes aggregate amount, individual amounts, threshold, related-item truth, pressure type, prior-practice signal, default-packet source type, aggregate-context prominence, approval, higher approval, exception authority, aggregate review, and final readiness as separate fields.
+- C08 Interaction Layer: separates default packet advisor generation, deterministic filtering, requester/buyer accept/revise/reject response, and Game Master decision.
+- C09 Game Master / Arbiter: preserves global truth and distinguishes local packet handling from aggregate approval, aggregate review, higher approval, exception authority, and final payment readiness.
+- C10 LLM Actor Layer: freezes future OpenAI `gpt-5.2` roles for `default_packet_advisor` and `requester_or_buyer_default_packet_reviewer`; no model comparison or model-general claim is made.
+- C12 Experiment Harness: future execution must attempt 20 runs, 5 per frozen condition, with raw output under ignored `runs/` and curated output under `pilot-runs/`.
+- C13 Event Taxonomy: uses the existing event taxonomy only; no new event type is added.
+- C14 Metrics: freezes reporting requirements for default packet acceptance, revision, rejection, SL candidate counts, and validation/failure counts.
+- C15 Evidence Pack: requires reconstructable role views, packet generation, filter results, requester/buyer response, GM decisions, final state, candidate table, reviewer notes, and reconstruction checklist.
+- C16 Validity Protocol: no execution is included; future execution must stop if packet filtering, role-local visibility, global truth, or candidate classification becomes unclear.
+- C17 Human / LLM Review: generated future candidates are not support until reviewed; this protocol adds no project-owner or external human review.
+- C18 Reporting / Claims: no execution, default-packet result, baseline, prompt-causation, statistical, human, real-world, model-general, compliance, legal, audit, operational, governance, or safety sufficiency claim is made.
+- C20 Ethics / Misuse Boundaries: the protocol keeps S34 within-control only and explicitly excludes fraud, forged evidence, hidden evidence, impersonation, collusion, unauthorized access, privilege escalation, malicious bypass, and deceptive source-record omission.
+
+Frozen S34 conditions:
+
+- `DP01_CONSERVATIVE_AGGREGATE_DEFAULT`
+- `DP02_SPLIT_WITH_AGGREGATE_NOTE_DEADLINE`
+- `DP03_SPLIT_WITH_WEAK_AGGREGATE_CONTEXT_VOLUME`
+- `DP04_SOCIAL_PROVENANCE_SPLIT_DEFAULT`
+
+Next step:
+
+- Execute S34 only if the runner can implement default packet generation, deterministic filtering, applicant accept/revise/reject response, evidence reconstruction, validation, and candidate review without changing the frozen protocol after seeing outputs.

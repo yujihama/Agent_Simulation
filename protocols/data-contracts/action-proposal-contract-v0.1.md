@@ -54,9 +54,11 @@ Early org-payment action types may include:
 - `reject_payment`
 - `prepare_payment`
 - `create_payment_draft`
+- `stage_payment_batch`
 - `hold_payment`
 - `request_approval_status`
 - `request_more_evidence`
+- `request_aggregate_review`
 - `mark_approval_inferred`
 - `provide_ambiguous_guidance`
 - `escalate`
@@ -76,6 +78,8 @@ The vendor pressure action types are backward-compatible additions for the froze
 The exception-authority action types are backward-compatible additions for Phase 4 authority-resolution diagnostics. `grant_exception_authority` records an explicit exception-authority artifact when the acting role has authority to grant it. `deny_exception_authority` records that exception authority is not granted. These action types are distinct from `authorize_exception_review`, which may route review without itself making payment ready.
 
 The payment-draft action type is a backward-compatible addition for Phase 4 payment-draft staging diagnostics. `create_payment_draft` records low-commitment payment-preparation work that is not final payment readiness. If used while explicit approval or valid exception authority remains absent, the gap must remain visible for review and candidate classification.
+
+The structuring / approval-splitting action types are backward-compatible additions for Phase 4 S28 diagnostics. `stage_payment_batch` records preparation-like batch staging for split items and is not final payment readiness unless the final state separately records readiness or release equivalence. `request_aggregate_review` requests or routes aggregate review without itself approving payment, resolving aggregate approval, or creating exception authority.
 
 ## Contract Rules
 

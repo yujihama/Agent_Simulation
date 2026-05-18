@@ -2653,3 +2653,60 @@ Next step:
 - Execute the frozen S29 applicant-side structuring / approval-splitting diagnostic only if the runner can implement it without changing frozen conditions after seeing outputs.
 - The execution PR must keep raw outputs under ignored `runs/` and commit only curated artifacts under `pilot-runs/`.
 - Do not discuss baseline readiness until S29 execution, candidate review, and synthesis are complete.
+
+## Phase 4 S29 Applicant-Side Structuring Execution Update
+
+Latest PR label: `PR-Phase4-S29-applicant-side-structuring-execution-review`
+
+This update applies to C01, C02, C05, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `src/social_sim/phase4_s29_applicant_structuring_runner.py`
+- `tests/test_phase4_s29_applicant_structuring_pilot.py`
+- `pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/summary.md`
+- `pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/aggregate.json`
+- `pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/execution-manifest.json`
+- `pilot-runs/org-payment/phase4-s29-applicant-side-structuring-diagnostic-0001/candidate-review-0001/summary.md`
+- `docs/reflections/phase4-after-s29-applicant-side-structuring-review.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: S29 executes the upstream applicant-side structuring question that S28 did not test.
+- C02 Research Questions: S29 records whether requester/buyer selects single aggregate submission, approval routing, hold/escalation, split submission with aggregate note, or split submission without aggregate note under pressure and threshold conditions.
+- C05 World / Environment: accepted S29 packs record aggregate amount, individual amounts, threshold, related-item truth, pressure type, prior-practice signal, aggregate approval, higher approval, exception authority, aggregate review, and final readiness as separate fields.
+- C08 Interaction Layer: S29 uses one requester/buyer LLM action turn and no downstream accountant turn, keeping applicant-side choice primary.
+- C09 Game Master / Arbiter: deterministic rules preserve global truth and record split submission without converting individual below-threshold packets, pressure, prior practice, or local packet readiness into aggregate approval.
+- C10 LLM Actor Layer: OpenAI `gpt-5.2` is used for the requester/buyer action selector; this is not a model-comparison, model-ranking, or model-general behavior claim.
+- C12 Experiment Harness: the runner attempted 20 S29 runs, accepted 20, excluded 0, wrote raw output under ignored `runs/`, and committed curated representative artifacts under `pilot-runs/`.
+- C13 Event Taxonomy: no event taxonomy change is made; generated event labels remain proposed and not human-reviewed.
+- C14 Metrics: the aggregate keeps applicant-side split submission, split with aggregate note, split without aggregate note, pressure condition, prior-practice signal, SL1-SL6, FM3, and FM6 separate.
+- C15 Evidence Pack: representative S29 packs validate mechanically and include `global_truth.json`, requester/buyer role view, action menu, parser result, proposal attempts, trace, events, metrics, final state, reviewer notes, and reconstruction checklist.
+- C16 Validity Protocol: generated candidate rows are reviewed in the same PR, and candidate/support distinction is preserved.
+- C17 Human / LLM Review: S29 candidate review is Codex proxy review under project-owner authorization; split-without-aggregate-note remains a boundary topic for later project-owner/external review if synthesis requires it.
+- C18 Reporting / Claims: S29 does not claim baseline readiness, full approval bypass, fraud, hidden intent, prompt causation, model comparison, statistical significance, human behavior, real-world behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+- C20 Ethics / Misuse Boundaries: S29 remains within-control only and excludes forged evidence, hidden evidence, deletion/modification, impersonation, collusion, unauthorized access, privilege escalation, technical bypass, and malicious bypass.
+
+Observed S29 result:
+
+- Attempted runs: 20.
+- Accepted runs: 20.
+- Excluded runs: 0.
+- Selected actions:
+  - `submit_single_aggregate_request`: 7.
+  - `hold_request`: 4.
+  - `submit_split_requests_with_aggregate_note`: 4.
+  - `submit_split_requests_without_aggregate_note`: 3.
+  - `request_higher_approval`: 2.
+- Applicant-side split submission appeared in 7 runs, all under pressure conditions.
+- `SL2`: reviewed support for 7 applicant-side split-submission cases under artificial S29 evidence.
+- `SL5`: reviewed support for aggregate-gap preservation in all 20 runs.
+- `SL1`, `SL4`, `SL6`, and `FM3`: not observed.
+- `SL3` and `FM6`: not applicable in S29 v0.1 because no accountant or post-hoc explanation turn is included.
+
+Next step:
+
+- Synthesize S29 against Phase 4's corrected research question before any additional run-producing work.
+- Do not treat S29 SL2 as fraud, hidden intent, full approval bypass, SL3 downstream preparation, SL4 final payment readiness, SL6 gap erasure, or baseline readiness.

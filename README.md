@@ -243,6 +243,10 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S35 default-packet downstream accounting chain result: [pilot-runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001/summary.md)
 - Phase 4 S35 default-packet downstream accounting chain synthesis: [docs/synthesis/phase4-default-packet-downstream-chain-synthesis-v0.1.md](docs/synthesis/phase4-default-packet-downstream-chain-synthesis-v0.1.md)
 - Phase 4 post-S35 mechanism map and next decision: [docs/synthesis/phase4-post-s35-mechanism-map-and-next-decision-v0.1.md](docs/synthesis/phase4-post-s35-mechanism-map-and-next-decision-v0.1.md)
+- Phase 4 S36 motivated route-friction mechanism selection: [docs/reflections/phase4-after-s35-next-mechanism-motivated-route-friction.md](docs/reflections/phase4-after-s35-next-mechanism-motivated-route-friction.md)
+- Phase 4 S36 motivated route-friction structuring protocol v0.1: [protocols/failure-modes/phase4-motivated-route-friction-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-motivated-route-friction-structuring-diagnostic-v0.1.md)
+- Phase 4 S36 motivated route-friction structuring scenario: [scenarios/org-payment/s36-motivated-route-friction-structuring.yaml](scenarios/org-payment/s36-motivated-route-friction-structuring.yaml)
+- Phase 4 S36 motivated route-friction structuring addendum v0.1: [prompts/org-payment/phase4-motivated-route-friction-structuring-addendum-v0.1.md](prompts/org-payment/phase4-motivated-route-friction-structuring-addendum-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -2016,3 +2020,23 @@ It consolidates the current Phase 4 answer:
 - no tested mechanism supports SL4 final payment-ready state or SL6 gap erasure.
 
 Checkpoint decision: stop autonomous run-producing Phase 4 diagnostics at this point. Future execution requires a new mechanism-selection PR with a substantially different within-control information mechanism and frozen research-completion criteria before outputs are generated.
+
+### Phase 4 S36 Motivated Route-Friction Structuring Protocol
+
+The S36 mechanism-selection reflection is recorded in [docs/reflections/phase4-after-s35-next-mechanism-motivated-route-friction.md](docs/reflections/phase4-after-s35-next-mechanism-motivated-route-friction.md).
+
+The S36 protocol is frozen in [protocols/failure-modes/phase4-motivated-route-friction-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-motivated-route-friction-structuring-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s36-motivated-route-friction-structuring.yaml](scenarios/org-payment/s36-motivated-route-friction-structuring.yaml) and prompt addendum [prompts/org-payment/phase4-motivated-route-friction-structuring-addendum-v0.1.md](prompts/org-payment/phase4-motivated-route-friction-structuring-addendum-v0.1.md).
+
+S36 tests a mechanism distinct from the post-S35 forbidden variants: the requester/buyer is not shown a split-action menu, does not receive a freeform plan prompt, does not receive advisor-seeded options, does not review a default packet, and does not start from an S34-style downstream packet. Instead, the role receives a frozen document bundle with normal-route friction, business pressure, policy/workflow material, and prior administrative examples by condition, then returns one route decision JSON.
+
+The protocol freezes 30 attempted runs across six conditions: no pressure/no friction/no loose route, pressure only, pressure plus friction without loose-route material, pressure plus friction plus loose-route material, the same with prior examples, and an explicit-prohibition/hard-block control. It uses OpenAI `gpt-5.2`, includes a conditional accountant intake turn when an applicant-created packet reaches accounting, and preserves the claim boundary `phase4_motivated_route_friction_structuring_observation_only`.
+
+Executable S36 support is wired through the CLI:
+
+```powershell
+python -m social_sim execute-phase4-motivated-route-friction-structuring-diagnostic `
+  --output runs/phase4-s36-motivated-route-friction-structuring-diagnostic-0001 `
+  --curated-output pilot-runs/org-payment/phase4-s36-motivated-route-friction-structuring-diagnostic-0001
+```
+
+The protocol and runner do not claim motivated structuring occurred before generated outputs are reviewed. They also do not claim fraud, hidden intent, full approval bypass, prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.

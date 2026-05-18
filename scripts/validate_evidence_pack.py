@@ -358,15 +358,23 @@ def validate_pack(pack_dir: Path) -> ValidationReport:
     has_advisor_seeded_artifacts = (pack_dir / "option_generation").exists()
     if has_advisor_seeded_artifacts:
         validate_advisor_seeded_artifacts(pack_dir, actions, decisions, ids, report)
+    has_route_decision_artifacts = (pack_dir / "route_decisions").exists()
+    if has_route_decision_artifacts:
+        validate_route_decision_artifacts(pack_dir, ids, report)
     has_generated_plan_artifacts = (
         (pack_dir / "generated_plan").exists()
-        or ((pack_dir / "classifier_results").exists() and not has_advisor_seeded_artifacts and not has_default_packet_artifacts)
+        or (
+            (pack_dir / "classifier_results").exists()
+            and not has_advisor_seeded_artifacts
+            and not has_default_packet_artifacts
+            and not has_route_decision_artifacts
+        )
     )
     if has_generated_plan_artifacts:
         validate_generated_plan_artifacts(pack_dir, ids, report)
     if (
         (pack_dir / "action_menus").exists()
-        or ((pack_dir / "parser_results").exists() and not has_generated_plan_artifacts)
+        or ((pack_dir / "parser_results").exists() and not has_generated_plan_artifacts and not has_route_decision_artifacts)
     ) and not has_advisor_seeded_artifacts and not has_default_packet_artifacts:
         validate_multirole_artifacts(pack_dir, actions, decisions, report)
 
@@ -798,6 +806,86 @@ def validate_generated_plan_artifacts(
     report.add(f"generated plan role artifacts validate: {', '.join(roles)}")
 
 
+def validate_route_decision_artifacts(
+    pack_dir: Path,
+    ids: dict[str, set[str]],
+    report: ValidationReport,
+) -> None:
+    roles = discover_route_decision_roles(pack_dir)
+    for role in roles:
+        route_stem = f"{role}_route"
+        decision_path = pack_dir / "route_decisions" / f"{role}.json"
+        parser_result_path = pack_dir / "parser_results" / f"{route_stem}.json"
+        classifier_result_path = pack_dir / "classifier_results" / f"{route_stem}.json"
+        proposal_attempts_path = pack_dir / "proposal_attempts" / f"{route_stem}.jsonl"
+
+        for label, path in [
+            ("route decision", decision_path),
+            ("route parser result", parser_result_path),
+            ("route classifier result", classifier_result_path),
+            ("route proposal attempts", proposal_attempts_path),
+        ]:
+            if not path.exists():
+                raise ValidationError(f"missing {label} for {role}: {path.relative_to(pack_dir)}")
+
+        route_decision = load_json(decision_path)
+        if not isinstance(route_decision, dict):
+            raise ValidationError(f"route_decisions/{role}.json must be an object")
+        for field in [
+            "route_id",
+            "selected_route",
+            "submission_structure",
+            "approval_handling",
+            "aggregate_context_handling",
+            "business_pressure_basis",
+            "rule_boundary_assessment",
+        ]:
+            if not isinstance(route_decision.get(field), str) or not route_decision[field].strip():
+                raise ValidationError(f"route_decisions/{role}.json {field} must be a non-empty string")
+        for field in ["alternative_routes_considered", "source_refs", "risk_flags", "private_pressure_refs"]:
+            if not isinstance(route_decision.get(field), list):
+                raise ValidationError(f"route_decisions/{role}.json {field} must be an array")
+        for ref in route_decision.get("source_refs", []):
+            if not check_ref(ref, ids, pack_dir):
+                raise ValidationError(f"route_decisions/{role}.json has unknown source ref {ref}")
+        report.add(f"route decision source references resolve for {role}")
+
+        parser_result = load_json(parser_result_path)
+        if parser_result.get("role") != route_stem:
+            raise ValidationError(f"parser_results/{route_stem}.json role must be {route_stem!r}")
+        if parser_result.get("status") != "accepted_by_parser":
+            raise ValidationError(f"parser_results/{route_stem}.json status must be accepted_by_parser")
+        if parser_result.get("route_id") != route_decision.get("route_id"):
+            raise ValidationError(f"parser_results/{route_stem}.json route_id must match route decision")
+
+        classifier_result = load_json(classifier_result_path)
+        if classifier_result.get("role") != route_stem:
+            raise ValidationError(f"classifier_results/{route_stem}.json role must be {route_stem!r}")
+        if classifier_result.get("route_id") != route_decision.get("route_id"):
+            raise ValidationError(f"classifier_results/{route_stem}.json route_id must match route decision")
+        if not isinstance(classifier_result.get("candidate_labels"), dict):
+            raise ValidationError(f"classifier_results/{route_stem}.json candidate_labels must be an object")
+        if not isinstance(classifier_result.get("sl_statuses"), dict):
+            raise ValidationError(f"classifier_results/{route_stem}.json sl_statuses must be an object")
+
+        attempts = load_jsonl(proposal_attempts_path)
+        accepted_attempts = [attempt for attempt in attempts if attempt.get("status") == "accepted_by_parser"]
+        if len(accepted_attempts) != 1:
+            raise ValidationError(f"proposal_attempts/{route_stem}.jsonl must include exactly one accepted_by_parser attempt")
+        if accepted_attempts[0].get("route_id") != route_decision.get("route_id"):
+            raise ValidationError(f"accepted {route_stem} proposal attempt route_id does not match route decision")
+        report.add(f"route decision parser/classifier artifacts validate for {role}")
+    report.add(f"route decision role artifacts validate: {', '.join(roles)}")
+
+
+def discover_route_decision_roles(pack_dir: Path) -> list[str]:
+    directory = pack_dir / "route_decisions"
+    roles = {path.stem for path in directory.iterdir() if path.is_file() and path.suffix == ".json"}
+    if not roles:
+        raise ValidationError("route decision artifacts directory exists but no role artifacts were found")
+    return sorted(roles)
+
+
 def discover_generated_plan_roles(pack_dir: Path) -> list[str]:
     roles: set[str] = set()
     for directory, suffix in [
@@ -818,8 +906,13 @@ def discover_generated_plan_roles(pack_dir: Path) -> list[str]:
 
 def discover_multirole_roles(pack_dir: Path) -> list[str]:
     roles: set[str] = set()
+    action_menu_dir = pack_dir / "action_menus"
+    if action_menu_dir.exists():
+        roles = {path.stem for path in action_menu_dir.iterdir() if path.is_file() and path.suffix == ".json"}
+        if not roles:
+            raise ValidationError("action_menus directory exists but no role artifacts were found")
+        return sorted(roles)
     for directory, suffix in [
-        (pack_dir / "action_menus", ".json"),
         (pack_dir / "parser_results", ".json"),
         (pack_dir / "proposal_attempts", ".jsonl"),
     ]:

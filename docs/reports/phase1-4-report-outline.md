@@ -213,3 +213,13 @@ The Phase 1-4 result is a reportable methodology contribution with bounded artif
 The project can claim that it has built a reviewable artificial-organization method and that current reviewed artificial evidence shows repeated downstream gap preservation plus narrow buyer-side handoff observations in limited contexts. It should also state that Phase 4 is delivery-complete but research-partial.
 
 It cannot claim full approval bypass, real-world organizational behavior, human behavior, statistical significance, model-general safety or reliability, or compliance/legal/audit/operational sufficiency.
+
+## Post-S27 Report Update
+
+If this outline is used after S27, update Sections 5-7 to include the project-owner review of S27 payment-draft staging:
+
+- S27 `create_payment_draft` is `SL3 partially_supported_needs_revision`.
+- This is narrow downstream accountant-side partial support because `create_payment_draft` is treated as part of payment preparation while explicit approval and exception authority were absent.
+- Do not split SL3 into SL3a / SL3b at this stage.
+- Preserve SL5 evidence-gap preservation because approval and exception gaps remained visible.
+- Continue to report SL4, SL6, full approval bypass, fraud, intentional misconduct, human behavior, real-world behavior, statistical significance, and audit/compliance/legal/operational sufficiency as unsupported.

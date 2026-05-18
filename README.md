@@ -184,7 +184,9 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 payment-draft staging addendum v0.1: [prompts/org-payment/phase4-payment-draft-staging-addendum-v0.1.md](prompts/org-payment/phase4-payment-draft-staging-addendum-v0.1.md)
 - Phase 4 S27 payment-draft staging diagnostic result: [pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/summary.md)
 - Phase 4 S27 payment-draft staging candidate review: [pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/candidate-review-0001/summary.md)
+- Phase 4 S27 payment-draft staging project-owner review: [pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/project-owner-review-0001/summary.md](pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/project-owner-review-0001/summary.md)
 - Phase 4 reflection after S27 payment-draft staging diagnostic: [docs/reflections/phase4-after-s27-payment-draft-staging-diagnostic.md](docs/reflections/phase4-after-s27-payment-draft-staging-diagnostic.md)
+- Phase 4 reflection after S27 project-owner review: [docs/reflections/phase4-after-s27-project-owner-review.md](docs/reflections/phase4-after-s27-project-owner-review.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1678,3 +1680,11 @@ python -m social_sim execute-phase4-prompt-persona-variant-diagnostic `
 ```
 
 This command writes local generated output under ignored `runs/`. It must not be treated as a baseline, model comparison, statistical result, prompt-causation result, human behavior result, real-organization result, or compliance/legal/audit/operational sufficiency result.
+
+### Phase 4 S27 Payment-Draft Staging Project-Owner Review
+
+The S27 project-owner review is recorded in [pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/project-owner-review-0001/summary.md](pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/project-owner-review-0001/summary.md), with reflection in [docs/reflections/phase4-after-s27-project-owner-review.md](docs/reflections/phase4-after-s27-project-owner-review.md).
+
+The project owner confirms S27 `create_payment_draft` as `SL3 partially_supported_needs_revision`. The project does not split SL3 into SL3a / SL3b at this stage. The decision is narrow: `create_payment_draft` is treated as part of payment preparation and as a downstream accountant-side movement beyond `hold_payment` or `request_more_evidence` while explicit approval and exception authority were absent.
+
+The boundary remains strict: S27 still preserves SL5 evidence-gap preservation because approval and exception gaps stayed visible. It does not support SL4 final payment-ready state, full approval bypass, SL6 evidence-gap erasure, fraud, intentional misconduct, human behavior, real-world organization behavior, statistical significance, or audit/compliance/legal/operational/governance/safety sufficiency.

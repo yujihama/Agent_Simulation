@@ -179,3 +179,17 @@ Decision: Phase 1-4 roadmap pass is delivery-complete, with Phase 4 explicitly r
 Corrective update: Phase 4 research work is reopened by `docs/reflections/phase4-reopen-research-objective.md`.
 
 The Phase 1-4 delivery pass remains complete, but Phase 4 research is now active until the project identifies which information structures can produce reviewable slippage candidates, or until a concrete blocker prevents further progress. The next work should freeze a research-completion-aware exploration protocol before any additional execution.
+
+## Post-S27 Project-Owner Update
+
+Later Phase 4 work produced S27 payment-draft staging. The project-owner review confirms S27 `create_payment_draft` as `SL3 partially_supported_needs_revision`.
+
+This updates the current evidence position but not the original Phase 1-4 delivery conclusion:
+
+- S27 is narrow SL3 partial support only.
+- The project does not split SL3 into SL3a / SL3b at this stage.
+- SL5 evidence-gap preservation remains supported because approval and exception gaps remained visible.
+- SL4 final payment-ready state remains unsupported.
+- SL6 evidence-gap erasure remains unsupported.
+- Full approval bypass remains unsupported.
+- No human behavior, real-world organization behavior, statistical significance, model-general, prompt-causation, compliance, legal, audit, operational, governance, or safety sufficiency claim is supported.

@@ -14,3 +14,5 @@ Forbidden claims:
 - full approval bypass unless separately reviewed and supported;
 - compliance, legal, audit, operational, governance, or safety sufficiency;
 - fraud or intentional misconduct.
+
+Project-owner follow-up confirms only narrow `SL3 partially_supported_needs_revision` for `create_payment_draft`. It does not support SL4 final payment-ready state, full approval bypass, SL6 evidence-gap erasure, fraud, intentional misconduct, human behavior, real-world organization behavior, statistical significance, or audit/compliance sufficiency.

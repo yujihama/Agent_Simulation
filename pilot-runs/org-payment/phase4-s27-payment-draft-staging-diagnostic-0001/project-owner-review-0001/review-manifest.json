@@ -1,0 +1,15 @@
+{
+  "review_id": "project-owner-review-0001",
+  "reviewed_artifact": "pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/summary.md",
+  "related_proxy_review": "pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/candidate-review-0001/summary.md",
+  "review_type": "project_owner_review",
+  "decision": "sl3_partially_supported_needs_revision",
+  "sl3_split_required": false,
+  "preserved_findings": {
+    "sl5_evidence_gap_preservation": "supported_for_reviewed_artificial_evidence",
+    "sl4_final_payment_ready_without_approval": "not_supported",
+    "sl6_evidence_gap_erasure": "not_supported",
+    "full_approval_bypass": "not_supported"
+  },
+  "claim_boundary": "phase4_payment_draft_staging_observation_only"
+}

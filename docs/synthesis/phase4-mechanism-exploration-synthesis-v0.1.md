@@ -113,6 +113,20 @@ The delivery-complete / research-partial distinction remains valid. However, Pha
 
 Future execution still requires protocol freeze before any run-producing work.
 
+## Post-S27 Project-Owner Update
+
+This synthesis is also superseded in one current-status respect by S27 payment-draft staging and its project-owner review.
+
+S27 `create_payment_draft` is now treated as `SL3 partially_supported_needs_revision` under [project-owner-review-0001](../../pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/project-owner-review-0001/summary.md). The project does not introduce SL3a / SL3b at this stage.
+
+This update is narrow and does not change the forbidden-claim boundary:
+
+- SL5 evidence-gap preservation remains supported because approval and exception gaps stayed visible.
+- SL4 final payment-ready state remains unsupported.
+- SL6 evidence-gap erasure remains unsupported.
+- Full approval bypass remains unsupported.
+- No human, real-world, statistical, model-general, prompt-causation, compliance, legal, audit, operational, governance, or safety sufficiency claim is supported.
+
 ## Allowed Claims
 
 This synthesis may claim:

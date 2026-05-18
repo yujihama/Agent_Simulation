@@ -97,6 +97,14 @@ S28 shows that this mechanism can create handoff-level ambiguity: split items re
 
 Therefore S28 is more informative as a boundary-preservation and SL2-handoff mechanism than as a stronger downstream slippage mechanism.
 
+## Post-S28 Research Correction
+
+S28 should also be read with one important limit: it is a downstream accountant-side diagnostic.
+
+It tested what happens after split items reach accounting. It did not test whether a requester or buyer chooses to split a case under environmental pressure. That upstream choice is frozen separately in `protocols/failure-modes/phase4-applicant-side-structuring-diagnostic-v0.1.md`.
+
+This correction does not change the S28 reviewed statuses. S28 still supports only bounded SL2 split-item handoff and SL5 aggregate-gap preservation, with SL1, SL3, SL4, SL6, FM3, and FM6 not observed.
+
 ## Baseline Discussion
 
 S28 does not justify baseline preparation.

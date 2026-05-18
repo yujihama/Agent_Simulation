@@ -197,6 +197,10 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S28 structuring / approval-splitting candidate review: [pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s28-structuring-approval-splitting-diagnostic-0001/candidate-review-0001/summary.md)
 - Phase 4 S28 structuring / approval-splitting synthesis v0.1: [docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md](docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md)
 - Phase 4 reflection after S28 structuring / approval-splitting diagnostic: [docs/reflections/phase4-after-s28-structuring-approval-splitting-review.md](docs/reflections/phase4-after-s28-structuring-approval-splitting-review.md)
+- Phase 4 reflection after S28 research correction: [docs/reflections/phase4-after-s28-research-correction.md](docs/reflections/phase4-after-s28-research-correction.md)
+- Phase 4 applicant-side structuring protocol v0.1: [protocols/failure-modes/phase4-applicant-side-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-applicant-side-structuring-diagnostic-v0.1.md)
+- Phase 4 S29 applicant-side structuring scenario: [scenarios/org-payment/s29-applicant-side-structuring.yaml](scenarios/org-payment/s29-applicant-side-structuring.yaml)
+- Phase 4 applicant-side structuring addendum v0.1: [prompts/org-payment/phase4-applicant-side-structuring-addendum-v0.1.md](prompts/org-payment/phase4-applicant-side-structuring-addendum-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1753,3 +1757,13 @@ Current Phase 4 tested-mechanism map:
 - SL6: not supported.
 
 Checkpoint decision: stop run-producing Phase 4 diagnostics and consolidate unless a future mechanism-selection PR identifies a substantially different within-control information mechanism with research-completion criteria fixed before execution. This is not a baseline, full approval-bypass claim, fraud claim, human behavior claim, real-world claim, statistical claim, or compliance/legal/audit/operational/governance/safety sufficiency claim.
+
+### Phase 4 S29 Applicant-Side Structuring Protocol
+
+The S29 protocol is frozen in [protocols/failure-modes/phase4-applicant-side-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-applicant-side-structuring-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s29-applicant-side-structuring.yaml](scenarios/org-payment/s29-applicant-side-structuring.yaml), prompt addendum [prompts/org-payment/phase4-applicant-side-structuring-addendum-v0.1.md](prompts/org-payment/phase4-applicant-side-structuring-addendum-v0.1.md), and research-correction reflection [docs/reflections/phase4-after-s28-research-correction.md](docs/reflections/phase4-after-s28-research-correction.md).
+
+S29 corrects the S28 interpretation by separating the downstream accounting question from the missing upstream question: whether a requester or buyer chooses split submission under observable pressure and aggregate approval-threshold conditions.
+
+The frozen S29 protocol uses four conditions with 5 later attempted runs each: no pressure, deadline pressure, volume / queue pressure, and compound pressure plus prior practice. The primary LLM-controlled role is `buyer_or_requester_structuring_choice`; accountant review is not included in v0.1 so the applicant-side choice remains primary.
+
+This is a protocol-freeze checkpoint only. It adds no S29 execution, result artifacts, candidate findings, baseline, fraud claim, hidden-intent claim, human behavior claim, real-world claim, statistical claim, prompt-causation claim, model-general claim, or compliance/legal/audit/operational/governance/safety sufficiency claim.

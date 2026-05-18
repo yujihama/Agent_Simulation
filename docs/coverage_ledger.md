@@ -2595,3 +2595,61 @@ Next step:
 
 - Stop run-producing Phase 4 diagnostics and consolidate.
 - Resume run-producing Phase 4 work only if a future mechanism-selection PR identifies a substantially different within-control information mechanism and fixes research-completion criteria before execution.
+
+## Phase 4 S29 Applicant-Side Structuring Protocol Freeze Update
+
+Latest PR label: `PR-Phase4-S29-applicant-side-structuring-protocol-freeze`
+
+This update applies to C01, C02, C05, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/reflections/phase4-after-s28-research-correction.md`
+- `protocols/failure-modes/phase4-applicant-side-structuring-diagnostic-v0.1.md`
+- `scenarios/org-payment/s29-applicant-side-structuring.yaml`
+- `prompts/org-payment/phase4-applicant-side-structuring-addendum-v0.1.md`
+- `schemas/action-proposal.schema.json`
+- `protocols/data-contracts/action-proposal-contract-v0.1.md`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: S29 records a research correction after S28 by separating downstream accountant handling from upstream applicant/requester/buyer split-submission choice.
+- C02 Research Questions: S29 targets the missing Phase 4 question of whether an applicant-side actor chooses split submission under observable pressure and approval-threshold conditions.
+- C05 World / Environment: S29 freezes total amount, individual amounts, threshold, related-item truth, pressure type, prior-practice signal, aggregate approval, higher approval, exception authority, and aggregate review as separate fields.
+- C08 Interaction Layer: requester/buyer is the primary LLM-controlled action turn; accountant review is intentionally excluded from v0.1 so applicant-side choice remains the target.
+- C09 Game Master / Arbiter: deterministic rules preserve global truth, distinguish split-unit submission from aggregate approval, and keep aggregate approval/review gaps visible.
+- C10 LLM Actor Layer: freezes OpenAI `gpt-5.2` for later requester/buyer structuring-choice runs; this is not a model-comparison or model-general claim.
+- C12 Experiment Harness: defines a future 20-attempt matrix across four pressure conditions but adds no runner or output in this PR.
+- C13 Event Taxonomy: no event taxonomy change is made; new structuring labels are candidate descriptors, not event types.
+- C14 Metrics: freezes later reporting for split submission, split with aggregate note, split without aggregate note, pressure condition by action, prior-practice signal by action, SL1-SL6, FM3, and FM6.
+- C15 Evidence Pack: freezes required future global truth, requester/buyer role view, action menu, parser result, proposal attempt, GM decision, trace, metrics, final state, candidate table, reviewer notes, and reconstruction checklist artifacts.
+- C16 Validity Protocol: candidate classification must use visible artifacts and must not depend on hidden intent. Candidate labels remain distinct from reviewed support.
+- C17 Human / LLM Review: if later execution yields boundary cases around split submission or aggregate-note omission, project-owner or external review may be required before baseline discussion.
+- C18 Reporting / Claims: no execution, applicant-side structuring result, baseline, prompt-causation, model-comparison, statistical, human, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim is made.
+- C20 Ethics / Misuse Boundaries: the protocol excludes fraud, forged evidence, hidden evidence, deletion/modification of records, impersonation, collusion, unauthorized access, privilege escalation, technical bypass, and malicious bypass.
+
+Frozen S29 conditions:
+
+- `ST01_NO_PRESSURE_AGGREGATE_APPROVAL_REQUIRED`: aggregate approval/review required, no pressure.
+- `ST02_DEADLINE_PRESSURE`: aggregate approval/review required with deadline/SLA/service pressure.
+- `ST03_VOLUME_QUEUE_PRESSURE`: aggregate approval/review required with backlog or queue pressure.
+- `ST04_COMPOUND_PRESSURE_PRIOR_PRACTICE`: deadline pressure plus prior individually processed similar items.
+
+Schema impact:
+
+- `submit_single_aggregate_request` is added as a backward-compatible action type.
+- `request_higher_approval` is added as a backward-compatible action type.
+- `request_exception_approval` is added as a backward-compatible action type.
+- `submit_split_requests_with_aggregate_note` is added as a backward-compatible action type.
+- `submit_split_requests_without_aggregate_note` is added as a backward-compatible action type.
+- `hold_request` is added as a backward-compatible action type.
+- Existing action types and existing evidence packs remain compatible.
+
+Next step:
+
+- Execute the frozen S29 applicant-side structuring / approval-splitting diagnostic only if the runner can implement it without changing frozen conditions after seeing outputs.
+- The execution PR must keep raw outputs under ignored `runs/` and commit only curated artifacts under `pilot-runs/`.
+- Do not discuss baseline readiness until S29 execution, candidate review, and synthesis are complete.

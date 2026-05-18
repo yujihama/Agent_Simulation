@@ -2896,3 +2896,42 @@ Next step:
 
 - Do not proceed to S31 from S30 because S31 was conditional on observed freeform split proposals.
 - Prepare a Phase 4 synthesis comparing menu-conditioned S29 split choice with freeform S30 boundary preservation before any further run-producing work.
+
+## Phase 4 S29/S30 Structuring Synthesis Update
+
+Latest PR label: `PR-Phase4-S29-S30-structuring-synthesis`
+
+This update applies to C01, C02, C14, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/phase4-freeform-vs-menu-conditioned-structuring-synthesis-v0.1.md`
+- `docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md`
+- `docs/synthesis/phase4-applicant-side-structuring-synthesis-v0.1.md`
+- `docs/synthesis/phase1-4-project-synthesis-v0.1.md`
+- `docs/synthesis/current-evidence-inventory-v0.1.md`
+- `docs/synthesis/current-evidence-map.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: S29 fixed-menu applicant-side split submission and S30 freeform applicant plan generation are now separated as different artificial task structures.
+- C02 Research Questions: the synthesis answers the S30 trigger question: no freeform multi-packet proposals were observed, so the S30-to-S31 chain condition was not met.
+- C14 Metrics: S29 menu-conditioned SL2 support, S30 freeform non-SL2 result, S30 SL5 preservation, and unsupported SL1/SL4/SL6 remain separated.
+- C16 Validity Protocol: the synthesis preserves candidate/support boundaries and does not treat S30's negative result as proof of absence outside the frozen diagnostic.
+- C17 Human / LLM Review: S29 remains project-owner-reviewed; S30 remains proxy-reviewed candidate review. The review levels are not collapsed.
+- C18 Reporting / Claims: the synthesis does not claim prompt causation, fraud, hidden intent, full approval bypass, statistical significance, human behavior, real-world behavior, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+- C20 Ethics / Misuse Boundaries: within-control / outside-control boundaries remain intact, and split submission is not treated as intentional misconduct or fraud.
+
+Current Phase 4 structuring interpretation after S30:
+
+- S29 supports bounded applicant-side SL2 split submission under fixed-menu pressure conditions.
+- S30 does not support freeform emergent split proposal without explicit split choices.
+- Both S29 and S30 preserve aggregate approval/review gaps as SL5.
+- S31 should not proceed from S30 because the trigger condition of observed freeform split proposals was not met.
+
+Next step:
+
+- Stop the S30-to-S31 execution path.
+- Do not begin another run-producing Phase 4 BC unless a new mechanism-selection or target-definition checkpoint is frozen first.

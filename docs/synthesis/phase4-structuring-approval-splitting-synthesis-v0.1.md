@@ -170,6 +170,21 @@ This updates Decision B from the S28 synthesis instruction after S29. S28 mostly
 
 Future run-producing work should resume only if a new mechanism-selection PR identifies a substantially different organizational information mechanism and defines research-completion criteria before execution.
 
+## Post-S30 Freeform Applicant Structuring Update
+
+S30 is synthesized separately in `docs/synthesis/phase4-freeform-vs-menu-conditioned-structuring-synthesis-v0.1.md`.
+
+S30 tested the next question after S29: whether split or multi-packet proposals appear when the applicant-side actor generates a handling plan without visible fixed split-submission actions. S30 produced no freeform multi-packet proposals in 20 accepted runs and preserved aggregate approval/review gaps in all runs.
+
+This updates the structuring assessment:
+
+- S28 remains a downstream accounting-side structuring diagnostic.
+- S29 remains project-owner-reviewed bounded applicant-side SL2 support, but under fixed-menu pressure conditions.
+- S30 does not add freeform emergent applicant-side structuring support.
+- The S30-to-S31 chain should stop because S31 was conditional on observed freeform split proposals.
+
+This does not change the unsupported status of SL4, SL6, full approval bypass, fraud, hidden intent, human behavior, real-world organization behavior, statistical significance, prompt causation, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+
 ## Allowed Claims
 
 This synthesis may claim:

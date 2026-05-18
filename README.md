@@ -189,6 +189,10 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S27 payment-draft staging project-owner review: [pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/project-owner-review-0001/summary.md](pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/project-owner-review-0001/summary.md)
 - Phase 4 reflection after S27 payment-draft staging diagnostic: [docs/reflections/phase4-after-s27-payment-draft-staging-diagnostic.md](docs/reflections/phase4-after-s27-payment-draft-staging-diagnostic.md)
 - Phase 4 reflection after S27 project-owner review: [docs/reflections/phase4-after-s27-project-owner-review.md](docs/reflections/phase4-after-s27-project-owner-review.md)
+- Phase 4 reflection after S27 and next mechanism selection: [docs/reflections/phase4-after-s27-next-mechanism-selection.md](docs/reflections/phase4-after-s27-next-mechanism-selection.md)
+- Phase 4 structuring / approval-splitting protocol v0.1: [protocols/failure-modes/phase4-structuring-approval-splitting-diagnostic-v0.1.md](protocols/failure-modes/phase4-structuring-approval-splitting-diagnostic-v0.1.md)
+- Phase 4 S28 structuring / approval-splitting scenario: [scenarios/org-payment/s28-structuring-approval-splitting.yaml](scenarios/org-payment/s28-structuring-approval-splitting.yaml)
+- Phase 4 structuring / approval-splitting addendum v0.1: [prompts/org-payment/phase4-structuring-approval-splitting-addendum-v0.1.md](prompts/org-payment/phase4-structuring-approval-splitting-addendum-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1703,3 +1707,25 @@ The project no longer uses `non-intentional vs intentional` as the main scope ax
 The recommended forward-looking term is `Within-Control Process Drift`. SL1-SL6 remain the observation levels. Structuring / approval splitting is in scope when it remains within-control. Environmental pressure should be frozen as an observable condition such as deadline, volume, relationship, or compound pressure rather than inferred as hidden intent.
 
 This scope revision adds no runs, protocols, or claim upgrades. S27 remains narrow SL3 partial support with SL5 gap preservation; SL4, SL6, full approval bypass, fraud, human behavior, real-world behavior, statistical significance, and audit/compliance sufficiency remain unsupported.
+
+### Phase 4 S28 Structuring / Approval-Splitting Protocol
+
+After the scope-axis revision, [docs/reflections/phase4-after-s27-next-mechanism-selection.md](docs/reflections/phase4-after-s27-next-mechanism-selection.md) selects `structuring_approval_splitting` as the next Phase 4 mechanism.
+
+The S28 protocol is frozen in [protocols/failure-modes/phase4-structuring-approval-splitting-diagnostic-v0.1.md](protocols/failure-modes/phase4-structuring-approval-splitting-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s28-structuring-approval-splitting.yaml](scenarios/org-payment/s28-structuring-approval-splitting.yaml) and prompt addendum [prompts/org-payment/phase4-structuring-approval-splitting-addendum-v0.1.md](prompts/org-payment/phase4-structuring-approval-splitting-addendum-v0.1.md).
+
+This is a protocol-freeze checkpoint only. It tests whether splitting payment requests, invoices, periods, cost categories, or processing units can create within-control process drift while aggregate approval or aggregate review remains unresolved. The protocol freezes four conditions: no-splitting control, amount splitting below threshold, invoice/period splitting, and valid aggregate approval control.
+
+S28 adds `stage_payment_batch` and `request_aggregate_review` as backward-compatible action types. It does not execute runs, add result artifacts, claim structuring slippage, claim fraud or intentional misconduct, or make human, real-world, statistical, prompt-causation, model-comparison, compliance, legal, audit, operational, governance, or safety sufficiency claims.
+
+Local execution command for a later execution PR:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-phase4-structuring-approval-splitting-diagnostic `
+  --output runs/org-payment/phase4-s28-structuring-approval-splitting-local/raw `
+  --curated-output runs/org-payment/phase4-s28-structuring-approval-splitting-local/curated `
+  --dotenv .env
+```
+
+The command is documented for the later execution PR only. Raw and regenerated curated output must stay under ignored `runs/`; committed reference output, if execution occurs later, should be curated under `pilot-runs/`.

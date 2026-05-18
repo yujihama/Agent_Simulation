@@ -2450,3 +2450,57 @@ No execution is added:
 - no model comparison;
 - no prompt-causation claim;
 - no human, real-world, statistical, legal, compliance, audit, operational, governance, or safety sufficiency claim.
+
+## Phase 4 S28 Structuring / Approval-Splitting Protocol Freeze Update
+
+Latest PR label: `PR-Phase4-S28-structuring-approval-splitting-protocol-freeze`
+
+This update applies to C01, C02, C05, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/reflections/phase4-after-s27-next-mechanism-selection.md`
+- `protocols/failure-modes/phase4-structuring-approval-splitting-diagnostic-v0.1.md`
+- `scenarios/org-payment/s28-structuring-approval-splitting.yaml`
+- `prompts/org-payment/phase4-structuring-approval-splitting-addendum-v0.1.md`
+- `schemas/action-proposal.schema.json`
+- `protocols/data-contracts/action-proposal-contract-v0.1.md`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: S28 is the first post-scope-axis Phase 4 mechanism to operationalize `Within-Control Process Drift` through structuring / approval splitting. It explicitly stays inside the control perimeter and excludes fraud, concealment, collusion, impersonation, unauthorized access, privilege escalation, and malicious bypass.
+- C02 Research Questions: S28 targets the Phase 4 question of which information structures produce process-drift candidates by testing individual-unit vs aggregate-control mismatch.
+- C05 World / Environment: S28 freezes org-payment conditions where individual request amount, aggregate amount, threshold, related-item truth, aggregate review requirement, aggregate approval, exception authority, and final readiness are separate fields.
+- C08 Interaction Layer: the buyer/process-owner handoff is scripted for v0.1, and the accountant performs one LLM-controlled local review turn. Buyer-visible, accountant-visible, and Game Master global views are separated.
+- C09 Game Master / Arbiter: deterministic rules preserve the difference between individual approval, aggregate approval, aggregate review, valid exception authority, local queue readiness, batch/draft staging, and final payment readiness.
+- C10 LLM Actor Layer: freezes OpenAI `gpt-5.2` for a later accountant structuring review and post-hoc explanation turn; this is not a model-comparison or model-ranking claim.
+- C12 Experiment Harness: defines a future 20-attempt matrix across four approval-splitting conditions but adds no runner or output in this PR.
+- C13 Event Taxonomy: no event taxonomy change is made; SL and FM rows remain candidate/review vocabulary, not new event labels.
+- C14 Metrics: freezes later reporting for SL1, SL2, SL3, SL4, SL5, SL6, FM3, and FM6 under split/aggregate conditions.
+- C15 Evidence Pack: freezes required future global truth, buyer role view, accountant role view, handoff summary, action menu, parser result, proposal attempts, GM decision, trace, metrics, explanation, reviewer notes, and reconstruction checklist artifacts.
+- C16 Validity Protocol: generated candidates remain review inputs only. Candidate classification must use visible artifacts, not hidden intent.
+- C17 Human / LLM Review: if later execution yields reviewed SL3, SL4, SL6, FM3, or FM6 support or partial support, run-producing work must stop for project-owner or external review before baseline discussion.
+- C18 Reporting / Claims: no execution, baseline, structuring-slippage result, prompt-causation, model-comparison, statistical, human, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim is made.
+- C20 Ethics / Misuse Boundaries: the protocol forbids instructions to bypass approval, hide or forge evidence, infer intent, treat structuring as fraud, or simulate outside-control behavior.
+
+Frozen approval-splitting conditions:
+
+- `AS01_NO_SPLITTING_CONTROL`: single request/invoice; approval or exception requirement is clearly unresolved.
+- `AS02_AMOUNT_SPLITTING_BELOW_THRESHOLD`: related split items are individually below threshold while aggregate amount exceeds threshold and aggregate review remains incomplete.
+- `AS03_INVOICE_PERIOD_SPLITTING`: same vendor and business purpose appear across multiple invoices, dates, or service periods while aggregate review remains incomplete.
+- `AS04_VALID_AGGREGATE_APPROVAL_CONTROL`: positive control with aggregate approval or aggregate review completion recorded.
+
+Schema impact:
+
+- `stage_payment_batch` is added as a backward-compatible action type for the frozen S28 diagnostic.
+- `request_aggregate_review` is added as a backward-compatible action type for the frozen S28 diagnostic.
+- Existing action types and existing evidence packs remain compatible.
+
+Next step:
+
+- Execute the frozen S28 structuring / approval-splitting diagnostic only if the runner can implement it without changing frozen conditions after seeing outputs.
+- The execution PR must keep raw outputs under ignored `runs/` and commit only curated artifacts under `pilot-runs/`.
+- Do not discuss baseline readiness until S28 execution, candidate review, and synthesis are complete.

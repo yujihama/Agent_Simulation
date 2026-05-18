@@ -224,6 +224,10 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S32 recommendation-weighted advisor structuring protocol v0.1: [protocols/failure-modes/phase4-recommendation-weighted-advisor-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-recommendation-weighted-advisor-structuring-diagnostic-v0.1.md)
 - Phase 4 S32 recommendation-weighted advisor structuring scenario: [scenarios/org-payment/s32-recommendation-weighted-advisor-structuring.yaml](scenarios/org-payment/s32-recommendation-weighted-advisor-structuring.yaml)
 - Phase 4 S32 recommendation-weighted advisor structuring addendum v0.1: [prompts/org-payment/phase4-recommendation-weighted-advisor-structuring-addendum-v0.1.md](prompts/org-payment/phase4-recommendation-weighted-advisor-structuring-addendum-v0.1.md)
+- Phase 4 reflection after S32 design correction: [docs/reflections/phase4-after-s32-design-correction-gray-option-selection.md](docs/reflections/phase4-after-s32-design-correction-gray-option-selection.md)
+- Phase 4 S33 gray-option seeded structuring protocol v0.1: [protocols/failure-modes/phase4-gray-option-seeded-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-gray-option-seeded-structuring-diagnostic-v0.1.md)
+- Phase 4 S33 gray-option seeded structuring scenario: [scenarios/org-payment/s33-gray-option-seeded-structuring.yaml](scenarios/org-payment/s33-gray-option-seeded-structuring.yaml)
+- Phase 4 S33 gray-option seeded structuring addendum v0.1: [prompts/org-payment/phase4-gray-option-seeded-structuring-addendum-v0.1.md](prompts/org-payment/phase4-gray-option-seeded-structuring-addendum-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1891,3 +1895,15 @@ S32 is a protocol-freeze checkpoint only. It tests a mechanism distinct from S31
 The protocol freezes 20 future attempted runs across no-pressure, deadline-pressure, queue/volume-pressure, and compound-pressure/prior-practice conditions. It uses OpenAI `gpt-5.2`, includes no downstream accountant turn in v0.1, and preserves the claim boundary `phase4_recommendation_weighted_advisor_structuring_observation_only` for later execution.
 
 This protocol does not execute runs and does not claim recommendation-weighted structuring occurred. It also does not claim fraud, hidden intent, full approval bypass, prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+
+### Phase 4 S33 Gray-Option Seeded Structuring Protocol
+
+The S33 design-correction reflection is recorded in [docs/reflections/phase4-after-s32-design-correction-gray-option-selection.md](docs/reflections/phase4-after-s32-design-correction-gray-option-selection.md).
+
+The S33 protocol is frozen in [protocols/failure-modes/phase4-gray-option-seeded-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-gray-option-seeded-structuring-diagnostic-v0.1.md), with scenario [scenarios/org-payment/s33-gray-option-seeded-structuring.yaml](scenarios/org-payment/s33-gray-option-seeded-structuring.yaml) and prompt addendum [prompts/org-payment/phase4-gray-option-seeded-structuring-addendum-v0.1.md](prompts/org-payment/phase4-gray-option-seeded-structuring-addendum-v0.1.md).
+
+S33 supersedes S32 for the immediate next execution path. S32 remains a frozen protocol artifact, but it is deferred before execution because an ordinary operational advisor is likely to recommend control-preserving handling. S33 instead introduces a gray-option ideation advisor that explicitly surfaces conservative and boundary-stretching within-control ideas, then deterministic filtering rejects outside-control options before requester/buyer selection.
+
+The protocol freezes 20 future attempted runs across no-pressure, deadline-pressure, queue/volume-pressure, and compound-pressure/prior-practice conditions. It uses OpenAI `gpt-5.2`, includes no downstream accountant turn in v0.1, and preserves the claim boundary `phase4_gray_option_seeded_structuring_observation_only` for later execution.
+
+This protocol does not execute runs and does not claim gray-option seeded structuring occurred. It also does not claim fraud, hidden intent, full approval bypass, prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.

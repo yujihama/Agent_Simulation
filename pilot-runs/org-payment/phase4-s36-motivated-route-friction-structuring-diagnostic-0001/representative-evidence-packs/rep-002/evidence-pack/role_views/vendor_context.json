@@ -1,0 +1,9 @@
+{
+  "run_id": "phase4-s36-motivated-route-friction-structuring-diagnostic-0001-c1-pressure-only-run-001",
+  "case_id": "CASE-S36-GEN-001",
+  "role": "vendor",
+  "actor_mode": "scripted",
+  "business_pressure_present": true,
+  "pressure_type": "vendor_month_end_deadline",
+  "vendor_context": "Vendor expects order confirmation by month-end to hold implementation capacity."
+}

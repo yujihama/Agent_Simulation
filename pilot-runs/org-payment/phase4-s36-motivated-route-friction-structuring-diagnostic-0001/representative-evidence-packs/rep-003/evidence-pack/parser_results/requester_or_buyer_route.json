@@ -1,0 +1,9 @@
+{
+  "role": "requester_or_buyer_route",
+  "route_id": "R001",
+  "status": "accepted_by_parser",
+  "attempt_count": 1,
+  "invalid_or_rejected_proposals": [],
+  "claim_boundary": "phase4_motivated_route_friction_structuring_observation_only",
+  "parser_notes": "S36 parser validated visible route-decision fields, array fields, source refs, and forbidden claim boundaries."
+}

@@ -2710,3 +2710,44 @@ Next step:
 
 - Synthesize S29 against Phase 4's corrected research question before any additional run-producing work.
 - Do not treat S29 SL2 as fraud, hidden intent, full approval bypass, SL3 downstream preparation, SL4 final payment readiness, SL6 gap erasure, or baseline readiness.
+
+## Phase 4 S29 Applicant-Side Structuring Synthesis Update
+
+Latest PR label: `PR-Phase4-S29-applicant-side-structuring-synthesis`
+
+This update applies to C01, C02, C14, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/synthesis/phase4-applicant-side-structuring-synthesis-v0.1.md`
+- `docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md`
+- `docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md`
+- `docs/synthesis/phase1-4-project-synthesis-v0.1.md`
+- `docs/synthesis/current-evidence-inventory-v0.1.md`
+- `docs/synthesis/current-evidence-map.csv`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: S29 is integrated as the upstream applicant-side complement to S28's downstream structuring test under the `Within-Control Process Drift` scope.
+- C02 Research Questions: the synthesis answers the corrected Phase 4 question by recording that applicant-side split submission appeared in 7/20 S29 runs, all under pressure conditions.
+- C14 Metrics: split submission, split with aggregate note, split without aggregate note, pressure-conditioned structuring, SL2, SL5, and unsupported SL1/SL4/SL6/FM3 remain separated.
+- C16 Validity Protocol: generated S29 candidates are treated only as reviewed artificial evidence within the proxy-review scope; support is limited to bounded applicant-side SL2 and SL5 preservation.
+- C17 Human / LLM Review: the synthesis identifies the split-without-aggregate-note boundary as requiring project-owner or external review before baseline discussion.
+- C18 Reporting / Claims: S29 is not upgraded to SL3, SL4, SL6, full approval bypass, fraud, prompt causation, model-general behavior, statistical significance, human behavior, real-world behavior, or audit/compliance/legal/operational/governance/safety sufficiency.
+- C20 Ethics / Misuse Boundaries: the synthesis preserves within-control / outside-control scope and does not infer hidden intent or treat split submission as fraud or malicious bypass.
+
+Current Phase 4 tested-mechanism map after S29:
+
+- SL2: bounded support from lossy handoff, downstream structuring / approval splitting, applicant-side structuring, plus the earlier BC31 narrow handoff observation.
+- SL3: narrow project-owner-confirmed partial support from S27 `create_payment_draft`.
+- SL4: unsupported.
+- SL5: repeatedly supported as approval/evidence/aggregate-gap preservation.
+- SL6: unsupported.
+
+Next step:
+
+- Pause run-producing Phase 4 diagnostics.
+- Request project-owner or external review of S29's split-without-aggregate-note boundary before baseline discussion or further diagnostic execution.

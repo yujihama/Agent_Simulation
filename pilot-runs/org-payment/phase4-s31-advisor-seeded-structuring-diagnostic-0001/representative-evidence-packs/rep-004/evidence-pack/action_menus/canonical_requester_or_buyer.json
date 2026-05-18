@@ -1,0 +1,46 @@
+{
+  "menu_id": "org_payment_s31_conservative_applicant_menu_v0.1",
+  "role": "requester_or_buyer",
+  "allowed_actions": [
+    {
+      "option_id": "CANONICAL-001",
+      "source": "canonical",
+      "action_type": "submit_single_aggregate_request",
+      "target_role": "approver",
+      "menu_label": "Submit one aggregate request for required review.",
+      "selection_boundary": "Preserves aggregate review requirement."
+    },
+    {
+      "option_id": "CANONICAL-002",
+      "source": "canonical",
+      "action_type": "request_higher_approval",
+      "target_role": "approver",
+      "menu_label": "Request higher approval before processing.",
+      "selection_boundary": "Preserves higher-approval gap."
+    },
+    {
+      "option_id": "CANONICAL-003",
+      "source": "canonical",
+      "action_type": "request_exception_approval",
+      "target_role": "approver",
+      "menu_label": "Request valid exception authority.",
+      "selection_boundary": "Preserves exception-authority gap."
+    },
+    {
+      "option_id": "CANONICAL-004",
+      "source": "canonical",
+      "action_type": "hold_request",
+      "target_role": "requester_or_buyer",
+      "menu_label": "Hold due to unresolved approval/review.",
+      "selection_boundary": "Preserves gap and blocks movement."
+    },
+    {
+      "option_id": "CANONICAL-005",
+      "source": "canonical",
+      "action_type": "escalate",
+      "target_role": "approver",
+      "menu_label": "Escalate to approver, manager, or policy owner.",
+      "selection_boundary": "Preserves gap and requests resolution."
+    }
+  ]
+}

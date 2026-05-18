@@ -108,6 +108,7 @@ Method B+ endpoint and later Phase 4 findings are boundary-limited:
 - S28 supports bounded SL2 split-item handoff under structuring / approval splitting, while aggregate approval/review gaps remained visible downstream.
 - S29 project-owner review confirms bounded applicant-side SL2 split submission / within-control process drift in 7/20 artificial runs, including 3 split submissions without aggregate note as stronger boundary candidates, while aggregate approval/review gaps remained visible in all runs.
 - S30 freeform applicant structuring produced no freeform split or multi-packet proposals in 20 accepted runs and preserved aggregate approval/review gaps in all runs.
+- S31 advisor-seeded structuring produced advisor-generated split-like options and seeded split options in applicant menus, but requester/buyer selected conservative canonical actions in all 17 accepted runs; aggregate approval/review gaps remained visible.
 
 These do not support:
 
@@ -142,6 +143,7 @@ They also do not support fraud, intentional misconduct, impersonation, collusion
 | SL2 split-item handoff with unresolved aggregate review | Partially supported with boundary limits. | S28 structuring / approval-splitting review. | Scripted buyer/process-owner handoff only; not emergent buyer-choice evidence and no downstream completion. |
 | SL2 applicant-side split submission with unresolved aggregate review | Supported with boundary limits. | S29 project-owner review confirms 7/20 artificial runs, including 3 split submissions without aggregate note as stronger boundary candidates. | Applicant/requester-buyer choice only; no downstream accountant turn in S29 v0.1, no final payment readiness, and no fraud or hidden-intent finding. |
 | Freeform applicant-side split proposal with unresolved aggregate review | Not observed in reviewed S30 artificial evidence. | S30 freeform applicant structuring review: 0/20 freeform multi-packet proposals; 20/20 aggregate gap preservation. | Does not negate S29 fixed-menu SL2 support and does not prove freeform actors never split. |
+| Advisor-seeded applicant-side split selection with unresolved aggregate review | Not observed in reviewed S31 artificial evidence. | S31 advisor-seeded structuring review: seeded split options were present in 15/17 accepted runs, but requester/buyer selected advisor-seeded split options in 0/17. | Shows neutral option seeding alone did not reproduce S29 split selection; does not prove recommendation/provenance variants cannot work. |
 | SL3 accountant payment preparation without explicit approval | Partially supported with boundary limits. | S27 project-owner review confirms `create_payment_draft` as narrow partial support. | Non-payable draft creation only; no final payment readiness, full approval bypass, or gap erasure. |
 | SL4 final payment-ready without explicit approval | Not supported. | S17/S18/S19/S20/S24/S25/S26/S27/S28/S29/S30 not observed. | Do not infer from SL2, SL3 partial support, or SL5. |
 | SL5 evidence-gap preservation | Supported for reviewed artificial evidence. | S17/S18/S19 downstream preservation; S27 preserves approval and exception gaps; S28, S29, and S30 preserve aggregate approval/review gaps. | Boundary preservation, not failure completion. |
@@ -159,7 +161,8 @@ The strongest current claims are:
 6. Phase 4 S28 adds bounded SL2 split-item handoff support under structuring / approval splitting, with aggregate gaps preserved downstream.
 7. Phase 4 S29 project-owner review confirms applicant-side within-control process drift / SL2 split-submission support under pressure conditions, with aggregate gaps still preserved.
 8. Phase 4 S30 shows the S29 split-submission result did not appear in freeform plan generation without explicit split choices; S30 instead reinforced aggregate review / higher approval / SL5 preservation.
-9. The project has strong claim-boundary discipline around negative and conservative results.
+9. Phase 4 S31 shows neutral advisor-seeded split option availability did not produce applicant-side split selection; S31 reinforced canonical conservative selection and SL5 preservation.
+10. The project has strong claim-boundary discipline around negative and conservative results.
 
 ## What Is Weakest Or Unsupported
 
@@ -174,6 +177,7 @@ The weakest or unsupported areas are:
 - only narrow SL3 partial support from S27 `create_payment_draft`, without final payment readiness or gap erasure;
 - only bounded S28/S29 structuring-related SL2 support, without S29 downstream accountant processing, final payment readiness, aggregate-gap erasure, fraud, or hidden-intent support;
 - no S30 support for freeform emergent applicant-side structuring without explicit split-submission choices;
+- no S31 support for applicant-side split selection from neutral advisor-seeded options;
 - no responsibility-diffusion, ambiguous-guidance misinterpretation, or post-hoc-justification support;
 - no cross-domain validation from one expense-reimbursement pilot;
 - no general model safety or reliability claim.

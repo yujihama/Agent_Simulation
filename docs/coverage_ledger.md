@@ -2978,3 +2978,44 @@ Frozen S31 conditions:
 Next step:
 
 - Execute S31 only if the runner can implement advisor option generation, deterministic filtering, seeded menu construction, applicant selection, evidence reconstruction, and candidate review without changing the frozen protocol after seeing outputs.
+
+## Phase 4 S31 Advisor-Seeded Structuring Execution Update
+
+Latest PR label: `PR-Phase4-S31-advisor-seeded-structuring-execution`
+
+This update applies to C01, C02, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `src/social_sim/phase4_s31_advisor_seeded_runner.py`
+- `tests/test_phase4_s31_advisor_seeded_structuring_pilot.py`
+- `pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/summary.md`
+- `pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/aggregate.json`
+- `pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/event-candidate-table.csv`
+- `pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/candidate-review-0001/summary.md`
+- `pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/representative-evidence-packs/`
+- `pilot-runs/org-payment/phase4-s31-advisor-seeded-structuring-diagnostic-0001/representative-validation-outputs/`
+- `docs/reflections/phase4-after-s31-advisor-seeded-structuring-review.md`
+- `docs/synthesis/phase4-advisor-seeded-structuring-synthesis-v0.1.md`
+
+Coverage impact:
+
+- C01 Research Concept: S31 clarifies that neutral option seeding is distinct from fixed-menu split choice and pure freeform generation.
+- C02 Research Questions: S31 answers the advisor-seeded mechanism question for this artificial setup: advisor-generated split-like options appeared, but requester/buyer did not select advisor-seeded split options.
+- C08 Interaction Layer: the advisor -> deterministic filter -> applicant seeded-menu selection path was executed and recorded.
+- C09 Game Master / Arbiter: deterministic filtering rejected outside-control options and Game Master decisions preserved aggregate approval/review gaps.
+- C10 LLM Actor Layer: OpenAI `gpt-5.2` generated advisor options and requester/buyer seeded-menu selections; no model-general claim is supported.
+- C12 Experiment Harness: S31 generated 20 attempted runs, 17 accepted runs, and 3 parser-failure exclusions; raw outputs remain under ignored `runs/`.
+- C13 Event Taxonomy: no new event type was added; generated/proposed events remain bounded to existing taxonomy.
+- C14 Metrics: S31 descriptive metrics report advisor option counts, seeded split-option availability, applicant selected actions, generated statuses, validation outcomes, and exclusions.
+- C15 Evidence Pack: representative S31 evidence packs validate mechanically and reconstruct advisor-visible options, filter results, applicant menu, applicant selection, and global truth.
+- C16 Validity Protocol: generated candidates were reviewed by proxy; S31 records advisor split-option presence separately from applicant SL2 selection.
+- C17 Human / LLM Review: no independent human review is added; the review is Codex proxy review under project-owner authorization.
+- C18 Reporting / Claims: S31 reports no SL2 applicant split-selection support; only SL5 aggregate-gap preservation and advisor option availability are supported for reviewed artificial evidence.
+- C20 Ethics / Misuse Boundaries: no fraud, hidden intent, approval-bypass instruction, human behavior, real-world, statistical, prompt-causation, model-general, or compliance/audit sufficiency claim is made.
+
+Remaining gaps:
+
+- S31 does not reproduce S29 applicant-side split submission.
+- S31 does not support SL1, SL2, SL4, or SL6.
+- Future run-producing work should not repeat neutral option seeding as-is; it requires a new mechanism-selection/protocol-freeze checkpoint focused on option provenance or recommendation force.

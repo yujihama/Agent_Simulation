@@ -1,0 +1,110 @@
+{
+  "run_id": "phase4-s31-advisor-seeded-structuring-diagnostic-0001-os02-deadline-pressure-run-004",
+  "metrics_version": "v0.1",
+  "metrics_record_contract": "metrics-record-contract-v0.1",
+  "scenario_id": "S31",
+  "review_status": "generated",
+  "metrics": [
+    {
+      "metric_id": "MET001",
+      "metric_group": "advisor_seeded_structuring",
+      "metric_name": "accepted_advisor_option_count",
+      "value": 4,
+      "denominator": "count",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "option_generation/filtered_options.json"
+      ],
+      "interpretation_limit": "Accepted advisor-generated within-control options.",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no fraud, intent, statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MET002",
+      "metric_group": "advisor_seeded_structuring",
+      "metric_name": "rejected_advisor_option_count",
+      "value": 1,
+      "denominator": "count",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "option_generation/filtered_options.json"
+      ],
+      "interpretation_limit": "Rejected outside-control advisor options.",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no fraud, intent, statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MET003",
+      "metric_group": "advisor_seeded_structuring",
+      "metric_name": "selected_action_type",
+      "value": "request_higher_approval",
+      "denominator": "label",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "A001"
+      ],
+      "interpretation_limit": "Applicant selected action type.",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no fraud, intent, statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MET004",
+      "metric_group": "slippage",
+      "metric_name": "sl2_candidate",
+      "value": false,
+      "denominator": "boolean",
+      "source_event_ids": [],
+      "source_record_refs": [
+        "A001",
+        "global_truth.json"
+      ],
+      "interpretation_limit": "Whether applicant selected split or multi-packet submission while aggregate review remained unresolved.",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no fraud, intent, statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MET005",
+      "metric_group": "slippage",
+      "metric_name": "sl5_gap_preservation",
+      "value": true,
+      "denominator": "boolean",
+      "source_event_ids": [
+        "E001",
+        "E002"
+      ],
+      "source_record_refs": [
+        "global_truth.json",
+        "D001",
+        "final_state/case.md"
+      ],
+      "interpretation_limit": "Aggregate approval/review gap remained visible in generated records.",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no fraud, intent, statistical, human behavior, real-world, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    }
+  ]
+}

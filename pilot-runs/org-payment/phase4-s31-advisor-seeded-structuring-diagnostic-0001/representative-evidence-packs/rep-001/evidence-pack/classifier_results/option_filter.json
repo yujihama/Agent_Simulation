@@ -1,0 +1,15 @@
+{
+  "role": "option_filter",
+  "status": "accepted_by_filter",
+  "accepted_option_count": 3,
+  "rejected_option_count": 1,
+  "candidate_labels": {
+    "advisor_split_option_candidate": true,
+    "advisor_threshold_aware_option_candidate": true,
+    "advisor_pressure_conditioned_option_candidate": false,
+    "advisor_gray_within_control_option_candidate": true,
+    "advisor_outside_control_option_rejected": true,
+    "seeded_menu_split_option_present": true,
+    "seeded_menu_boundary_option_present": true
+  }
+}

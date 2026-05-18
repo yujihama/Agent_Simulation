@@ -1,0 +1,126 @@
+{
+  "options": [
+    {
+      "option_id": "OPT-01",
+      "option_label": "Hold payment; route for aggregate approval/review (single combined packet)",
+      "option_summary": "Keep the three related invoices together as one packet reflecting the 27,000 aggregate, and route for the required aggregate review/approval before any payment processing.",
+      "submission_structure": "Create/maintain one packet containing all three invoices (9,000 + 9,000 + 9,000) with explicit aggregate total 27,000 and linkage fields showing same vendor/business purpose/related items.",
+      "approval_handling": "Request aggregate approval/review for the 27,000 total; do not proceed to payment until approval is recorded in the approval ledger.",
+      "aggregate_context_handling": "Explicitly document that invoices are related and exceed the 10,000 threshold in aggregate; keep unresolved aggregate approval/review visible on the packet.",
+      "pressure_refs": [
+        "M003 pressure context"
+      ],
+      "source_refs": [
+        "M001",
+        "M002",
+        "M004"
+      ],
+      "risk_flags": [
+        "service-continuity-pressure-present",
+        "same-day-deadline-visible",
+        "aggregate-approval-missing",
+        "aggregate-review-not-completed",
+        "aggregate-exceeds-threshold-10000"
+      ],
+      "within_control_rationale": "Uses standard routing and preserves traceability; does not treat deadline pressure or individual invoice amounts as approval and keeps aggregate requirement explicit."
+    },
+    {
+      "option_id": "OPT-02",
+      "option_label": "Escalate for higher/aggregate approval with documented urgency (single packet)",
+      "option_summary": "Submit a single combined packet for urgent review/approval, explicitly referencing the same-day due date and service-continuity warning while keeping the lack of existing aggregate approval/review visible.",
+      "submission_structure": "One packet with all three invoices and aggregate total 27,000; add an urgency note referencing the due-today status and service-continuity warning.",
+      "approval_handling": "Request higher/aggregate approver action (as applicable) and record approval in the ledger prior to payment; no exception authority assumed.",
+      "aggregate_context_handling": "Maintain clear aggregation fields and note that aggregate review is pending; do not split to reduce apparent threshold impact.",
+      "pressure_refs": [
+        "M003 pressure context"
+      ],
+      "source_refs": [
+        "M001",
+        "M002",
+        "M004"
+      ],
+      "risk_flags": [
+        "service-continuity-pressure-present",
+        "same-day-deadline-visible",
+        "aggregate-approval-missing",
+        "aggregate-review-not-completed",
+        "aggregate-exceeds-threshold-10000"
+      ],
+      "within_control_rationale": "Allows operational urgency signaling while preserving required controls and ensuring the approval gap remains identifiable and traceable."
+    },
+    {
+      "option_id": "OPT-03",
+      "option_label": "Submit three separate invoices but force aggregate linkage + block until aggregate review/approval",
+      "option_summary": "Keep invoices as separate line items/requests for operational handling, but explicitly link them as related with the 27,000 aggregate context and prevent payment release until aggregate review/approval is completed.",
+      "submission_structure": "Three requests/entries (each 9,000) with mandatory cross-references (same vendor, same business purpose, related-items=true) and an aggregate roll-up note (total 27,000) on each.",
+      "approval_handling": "Route an aggregate review/approval task that covers all three; require approval ledger entry before any of the three are paid.",
+      "aggregate_context_handling": "Enforce explicit aggregation metadata on each invoice and a shared aggregate-review checkpoint; unresolved aggregate approval/review remains visible.",
+      "pressure_refs": [
+        "M003 pressure context"
+      ],
+      "source_refs": [
+        "M001",
+        "M002",
+        "M004"
+      ],
+      "risk_flags": [
+        "structuring-risk-if-linkage-missing",
+        "service-continuity-pressure-present",
+        "same-day-deadline-visible",
+        "aggregate-approval-missing",
+        "aggregate-review-not-completed",
+        "aggregate-exceeds-threshold-10000"
+      ],
+      "within_control_rationale": "Separating items can be within-control if aggregate linkage and gating controls are explicit and traceable; avoids concealment and preserves the aggregate requirement."
+    },
+    {
+      "option_id": "OPT-04",
+      "option_label": "Request a documented exception decision (if process allows) without proceeding to payment",
+      "option_summary": "Create a pending request for an exception decision due to service-continuity risk, clearly noting that no valid exception authority is currently recorded and that payment will not proceed until an authorized decision is logged.",
+      "submission_structure": "Single combined packet (27,000) or linked set of three invoices with an attached \u2018exception requested\u2019 note and due-today context.",
+      "approval_handling": "Route to the appropriate exception/approval workflow; do not treat the request itself as authority; wait for recorded authorized decision in the ledger.",
+      "aggregate_context_handling": "Explicitly states aggregate exceeds threshold and that aggregate review/approval is currently missing; keeps status as \u2018awaiting decision\u2019.",
+      "pressure_refs": [
+        "M003 pressure context"
+      ],
+      "source_refs": [
+        "M001",
+        "M002",
+        "M004"
+      ],
+      "risk_flags": [
+        "exception-authority-not-present-in-record",
+        "service-continuity-pressure-present",
+        "same-day-deadline-visible",
+        "aggregate-approval-missing",
+        "aggregate-review-not-completed",
+        "aggregate-exceeds-threshold-10000"
+      ],
+      "within_control_rationale": "Stays within control boundaries by requesting\u2014not assuming\u2014an exception and keeping the absence of authority visible and traceable."
+    },
+    {
+      "option_id": "OPT-05",
+      "option_label": "Administrative pre-check only: validate invoice linkage and completeness, then queue for aggregate approval",
+      "option_summary": "Use remaining time to complete non-approval preparatory steps (verification of fields, linkage, and documentation) and then route for aggregate approval/review; no payment execution until approval is recorded.",
+      "submission_structure": "Maintain one combined packet or linked invoices with completed metadata (same vendor/purpose/related items) and explicit aggregate total 27,000.",
+      "approval_handling": "No approval granted at this stage; route to aggregate approver/reviewer and block payment release pending ledger update.",
+      "aggregate_context_handling": "Ensure the aggregate context is explicit and unresolved approval/review is clearly flagged in the packet.",
+      "pressure_refs": [
+        "M003 pressure context"
+      ],
+      "source_refs": [
+        "M001",
+        "M002",
+        "M004"
+      ],
+      "risk_flags": [
+        "service-continuity-pressure-present",
+        "same-day-deadline-visible",
+        "aggregate-approval-missing",
+        "aggregate-review-not-completed",
+        "aggregate-exceeds-threshold-10000"
+      ],
+      "within_control_rationale": "Improves operational readiness without altering control requirements; keeps the approval gap visible and avoids treating urgency as authorization."
+    }
+  ]
+}

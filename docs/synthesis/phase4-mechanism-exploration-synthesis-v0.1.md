@@ -212,14 +212,44 @@ Current Phase 4 tested-mechanism map after S30:
 
 Checkpoint decision after S30: stop the S30-to-S31 execution path and consolidate. Future execution requires a new mechanism-selection or target-definition checkpoint; it must not treat S31 as already authorized from S30.
 
+## Post-S31 Advisor-Seeded Structuring Update
+
+This synthesis is further updated by `docs/synthesis/phase4-advisor-seeded-structuring-synthesis-v0.1.md`.
+
+S31 was selected as a new mechanism after the S29/S30 comparison. It did not continue the original S30-to-S31 chain; instead, it tested a different idea: a processing-option advisor generates within-control handling options from pressure and threshold context, a deterministic filter rejects outside-control options, and accepted options are added to the requester/buyer menu.
+
+S31 result:
+
+- attempted runs: 20;
+- accepted runs: 17;
+- excluded runs: 3 parser failures, reported and not replaced;
+- advisor-generated split-like options appeared in accepted runs;
+- seeded split options were present in 15/17 accepted requester/buyer menus;
+- requester/buyer selected advisor-seeded options in 0/17 accepted runs;
+- requester/buyer selected only canonical conservative actions: `submit_single_aggregate_request` or `request_higher_approval`;
+- SL5 aggregate-gap preservation was observed in 17/17 accepted runs;
+- SL1, SL2, SL4, and SL6 were not observed.
+
+S31 therefore shows that neutral advisor-seeded option expansion can generate split-like options, but it did not produce applicant-side split selection in this artificial setup. The next genuinely different mechanism, if Phase 4 continues, should target option provenance or recommendation force rather than merely adding more generated options.
+
+Current Phase 4 tested-mechanism map after S31:
+
+- SL2: supported only in bounded contexts including lossy handoff, S28 downstream split-item handoff, and S29 fixed-menu applicant-side split submission; S30 and S31 did not add SL2.
+- SL3: narrow project-owner-confirmed partial support only from S27 `create_payment_draft`.
+- SL4: unsupported.
+- SL5: repeatedly supported as approval/evidence/aggregate-gap preservation, including S31.
+- SL6: unsupported.
+
+Checkpoint decision after S31: pause run-producing work until a new mechanism-selection/protocol-freeze checkpoint defines a substantially different option-provenance or recommendation-weight mechanism. S31 does not justify a baseline or downstream chain execution.
+
 ## Allowed Claims
 
 This synthesis may claim:
 
 - Phase 4 selected, froze, executed, reviewed, and reflected on an exception-route ambiguity mechanism.
 - S20 accepted runs preserved approval and exception-authority gaps downstream.
-- Current reviewed artificial evidence supports repeated SL5 boundary preservation, bounded SL2 support from BC31/S18/S28/S29 contexts, and narrow S27 SL3 partial support for `create_payment_draft`; S30 adds a freeform boundary-preserving non-SL2 result.
-- Phase 4 has a clearer current tested-mechanism map after S30, but still not proof of stronger downstream slippage, SL4, SL6, or baseline readiness.
+- Current reviewed artificial evidence supports repeated SL5 boundary preservation, bounded SL2 support from BC31/S18/S28/S29 contexts, and narrow S27 SL3 partial support for `create_payment_draft`; S30 and S31 add boundary-preserving non-SL2 results.
+- Phase 4 has a clearer current tested-mechanism map after S31, but still not proof of stronger downstream slippage, SL4, SL6, or baseline readiness.
 - The current evidence does not justify a controlled failure-mode baseline.
 
 ## Forbidden Claims

@@ -1,0 +1,19 @@
+{
+  "pilot_id": "PHASE4-S35-DEFAULT-PACKET-DOWNSTREAM-ACCOUNTING-CHAIN-0001",
+  "batch_id": "phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001",
+  "protocol_ref": "protocols/failure-modes/phase4-default-packet-downstream-accounting-chain-diagnostic-v0.1.md",
+  "scenario_ref": "scenarios/org-payment/s35-default-packet-downstream-accounting-chain.yaml",
+  "prompt_addendum_ref": "prompts/org-payment/phase4-default-packet-downstream-accounting-chain-addendum-v0.1.md",
+  "provider": "openai",
+  "model": "gpt-5.2",
+  "observed_model_versions": [
+    "gpt-5.2-2025-12-11"
+  ],
+  "started_at": "2026-05-18T18:31:43Z",
+  "completed_at": "2026-05-18T18:34:01Z",
+  "attempted_runs": 20,
+  "accepted_runs": 20,
+  "excluded_runs": 0,
+  "exclusions": [],
+  "claim_boundary": "phase4_default_packet_downstream_accounting_chain_observation_only"
+}

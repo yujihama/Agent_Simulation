@@ -302,6 +302,36 @@ The frozen S35 design keeps applicant/requester behavior scripted and uses one L
 
 S35 remains protocol-only at this stage. It does not add support for SL3, SL4, SL6, FM3, or FM6, and it does not justify baseline discussion before execution and candidate review.
 
+## Post-S35 Default-Packet Downstream-Chain Execution Update
+
+This synthesis is further updated by `docs/synthesis/phase4-default-packet-downstream-chain-synthesis-v0.1.md`.
+
+S35 executed the downstream accounting-chain diagnostic frozen after S34. It tested whether S34-style split packets that reached accounting would lead accountant-side handling to preserve, weaken, erase, or move beyond aggregate approval/review gaps.
+
+S35 result:
+
+- attempted runs: 20;
+- accepted runs: 20;
+- excluded runs: 0;
+- accountant selected `request_aggregate_review` in 5 runs;
+- accountant selected `request_more_evidence` in 10 runs;
+- accountant selected `prepare_payment` in 5 runs, all in the valid aggregate-approval positive-control condition;
+- SL2 input-boundary candidates appeared in 15 runs where split packets reached accounting while aggregate approval/review remained unresolved;
+- SL5 aggregate-gap preservation or valid-control handling appeared in all 20 runs;
+- SL3, SL4, SL6, FM3, and FM6 were not observed.
+
+S35 clarifies the S34 downstream question. S34 produced split-packet forwarding upstream, but S35 did not show downstream accountant preparation under unresolved aggregate approval/review. Weak aggregate context and social-provenance cues led to evidence/review requests rather than preparation or final readiness.
+
+Current Phase 4 tested-mechanism map after S35:
+
+- SL2: supported in bounded contexts including lossy handoff, S28 downstream split-item handoff, S29 fixed-menu applicant-side split submission, one weak S33 gray-seeded split-with-aggregate-note candidate, S34 default-packet split-forwarding candidates, and S35 split-packet-arrival input-boundary candidates.
+- SL3: narrow project-owner-confirmed partial support only from S27 `create_payment_draft`; S35 did not add SL3 because `prepare_payment` occurred only in the valid aggregate-approval control condition.
+- SL4: unsupported.
+- SL5: repeatedly supported as approval/evidence/aggregate-gap preservation, including S35.
+- SL6: unsupported.
+
+Checkpoint decision after S35: do not proceed directly to baseline. Synthesize before any further Phase 4 run-producing diagnostic. Future work must define a substantially different within-control information mechanism beyond split options, default packets, or downstream review of S34-style packets.
+
 ## Allowed Claims
 
 This synthesis may claim:
@@ -309,8 +339,8 @@ This synthesis may claim:
 - Phase 4 selected, froze, executed, reviewed, and reflected on an exception-route ambiguity mechanism.
 - S20 accepted runs preserved approval and exception-authority gaps downstream.
 - Current reviewed artificial evidence supports repeated SL5 boundary preservation, bounded SL2 support from BC31/S18/S28/S29 contexts plus one weak S33 gray-seeded split-with-aggregate-note candidate and 8 S34 default-packet split-forwarding candidates, and narrow S27 SL3 partial support for `create_payment_draft`; S30 and S31 add boundary-preserving non-SL2 results.
-- Phase 4 has a clearer current tested-mechanism map after S34, but still not proof of stronger downstream slippage, SL4, SL6, or baseline readiness.
-- S35 is protocol-frozen as the next downstream accounting-chain diagnostic, with no execution result yet.
+- Current reviewed artificial evidence now includes S35 downstream accounting-chain execution: S35 preserved aggregate gaps or valid-control handling in all 20 accepted runs and did not add SL3, SL4, SL6, FM3, or FM6 support.
+- Phase 4 has a clearer current tested-mechanism map after S35, but still not proof of stronger downstream slippage, SL4, SL6, or baseline readiness.
 - The current evidence does not justify a controlled failure-mode baseline.
 
 ## Forbidden Claims

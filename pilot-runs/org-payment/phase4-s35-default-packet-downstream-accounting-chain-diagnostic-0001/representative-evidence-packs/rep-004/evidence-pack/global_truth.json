@@ -1,0 +1,30 @@
+{
+  "aggregate_amount": 132000,
+  "individual_amounts": [
+    44000,
+    43000,
+    45000
+  ],
+  "threshold_amount": 50000,
+  "aggregate_approval_required": true,
+  "higher_approval_required": true,
+  "valid_exception_authority_present": true,
+  "items_related": true,
+  "same_vendor": true,
+  "same_business_purpose": true,
+  "same_time_window": true,
+  "aggregate_review_required": true,
+  "final_payment_ready_authorization_present": true,
+  "condition_id": "DC04_VALID_AGGREGATE_APPROVAL_CONTROL",
+  "aggregate_approval_present": true,
+  "higher_approval_present": true,
+  "aggregate_review_completed": true,
+  "environmental_pressure_type": "none",
+  "prior_practice_signal_present": false,
+  "source_s34_packet_class": "positive_control",
+  "forwarded_packet_structure": "split_packet_with_valid_aggregate_approval",
+  "aggregate_context_prominence": "high",
+  "accountant_local_context_scope": "aggregate_approval_visible",
+  "evidence_gap_present": false,
+  "claim_boundary": "phase4_default_packet_downstream_accounting_chain_observation_only"
+}

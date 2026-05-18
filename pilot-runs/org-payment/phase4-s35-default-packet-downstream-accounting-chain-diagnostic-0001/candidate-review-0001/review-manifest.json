@@ -1,0 +1,10 @@
+{
+  "pilot_id": "PHASE4-S35-DEFAULT-PACKET-DOWNSTREAM-ACCOUNTING-CHAIN-0001",
+  "protocol_ref": "protocols/failure-modes/phase4-default-packet-downstream-accounting-chain-diagnostic-v0.1.md",
+  "reviewed_artifacts": [
+    "aggregate.json",
+    "event-candidate-table.csv",
+    "representative-evidence-packs"
+  ],
+  "claim_boundary": "phase4_default_packet_downstream_accounting_chain_observation_only"
+}

@@ -23,6 +23,7 @@ It adds no new runs, candidates, protocols, scenarios, prompts, metrics, schemas
 | Phase 4 structuring / approval-splitting synthesis | `docs/synthesis/phase4-structuring-approval-splitting-synthesis-v0.1.md` |
 | Phase 4 applicant-side structuring synthesis | `docs/synthesis/phase4-applicant-side-structuring-synthesis-v0.1.md` |
 | Phase 4 freeform vs menu-conditioned structuring synthesis | `docs/synthesis/phase4-freeform-vs-menu-conditioned-structuring-synthesis-v0.1.md` |
+| Phase 4 default-packet downstream-chain synthesis | `docs/synthesis/phase4-default-packet-downstream-chain-synthesis-v0.1.md` |
 | Current evidence inventory | `docs/synthesis/current-evidence-inventory-v0.1.md` |
 | Current claim-level table | `docs/synthesis/current-claim-level-table.csv` |
 | Social chaos claim synthesis | `docs/synthesis/social-chaos-claim-synthesis-v0.1.md` |
@@ -62,6 +63,7 @@ Current reviewed artificial evidence supports the following bounded statements:
 - Narrow SL2 payment-forward handoff, split-item handoff, or applicant-side split submission can appear under specific artificial conditions, including BC31, S18 lossy handoff, S28 downstream structuring / approval splitting, and project-owner-reviewed S29 applicant-side structuring.
 - S30 freeform applicant structuring did not reproduce S29 split submission without explicit split-submission choices; it instead preserved aggregate review / higher approval paths in all accepted runs.
 - S27 payment-draft staging produced project-owner-confirmed narrow SL3 partial support for `create_payment_draft`.
+- S34 default-packet framing produced bounded split-packet forwarding, but S35 downstream accounting review preserved unresolved aggregate approval/review gaps rather than producing SL3, SL4, or SL6 support.
 
 Current reviewed artificial evidence does not support:
 
@@ -75,7 +77,7 @@ Current reviewed artificial evidence does not support:
 - full approval bypass;
 - human behavior, real-world organization behavior, or statistical significance.
 
-Queue/ticket mismatch, exception-route ambiguity, approval-artifact mismatch, conflicting operational norms, shadow approval / informal preclearance, S28 downstream structuring, S29 applicant-side structuring, and S30 freeform applicant structuring did not produce stronger downstream slippage and instead reinforced SL5 preservation. No tested mechanism has produced SL4 or SL6 support.
+Queue/ticket mismatch, exception-route ambiguity, approval-artifact mismatch, conflicting operational norms, shadow approval / informal preclearance, S28 downstream structuring, S29 applicant-side structuring, S30 freeform applicant structuring, S31 advisor seeding, S33 gray-option seeding, S34 default proposed packet structuring, and S35 default-packet downstream accounting review did not produce stronger downstream slippage and instead reinforced SL5 preservation or valid-control handling. No tested mechanism has produced SL4 or SL6 support.
 
 ## What Has Been Learned
 
@@ -283,3 +285,28 @@ This updates the Phase 4 conclusion:
 - SL4, SL6, full approval bypass, fraud, hidden intent, human behavior, real-world organization behavior, statistical significance, and audit/compliance sufficiency remain unsupported.
 
 Checkpoint decision after S34: do not proceed directly to baseline. Future run-producing Phase 4 work requires a new mechanism-selection/protocol-freeze checkpoint, most plausibly a downstream-chain diagnostic from reviewed S34 split-forwarding artifacts to test accountant-side preservation, weakening, or erasure of aggregate approval/review gaps.
+
+## Post-S35 Default-Packet Downstream Accounting Update
+
+Later Phase 4 work executed S35 default-packet downstream accounting-chain review, synthesized in `docs/synthesis/phase4-default-packet-downstream-chain-synthesis-v0.1.md`.
+
+S35 tested the downstream accountant question left open by S34. It routed S34-style split packets to accounting while preserving global truth separately from role-local packet views.
+
+S35 result:
+
+- 20 attempted / 20 accepted / 0 excluded.
+- Split packets reached accounting in 15 unresolved-gap runs.
+- Accountant selected `request_aggregate_review` in 5 runs.
+- Accountant selected `request_more_evidence` in 10 runs.
+- Accountant selected `prepare_payment` in 5 positive-control runs with valid aggregate approval/review.
+- SL5 aggregate-gap preservation or valid-control handling was observed in all 20 runs.
+- SL3 under unresolved aggregate approval/review, SL4, SL6, FM3, and FM6 were not observed.
+
+This updates the Phase 4 conclusion:
+
+- S34 split-packet forwarding does not, by itself, produce downstream accountant preparation or final readiness under the tested S35 conditions.
+- S35 `prepare_payment` is not slippage evidence because it occurred only in the valid-control condition.
+- The strongest repeated downstream result remains gap preservation, not gap erasure or final payment readiness.
+- Phase 4 still has bounded SL2 mechanisms, one narrow S27 SL3 partial-support mechanism, repeated SL5 preservation, and no SL4 or SL6 support.
+
+Checkpoint decision after S35: do not proceed directly to baseline. Synthesize before any further run-producing Phase 4 work; a future diagnostic must define a substantially different within-control information mechanism and research-completion criteria before execution.

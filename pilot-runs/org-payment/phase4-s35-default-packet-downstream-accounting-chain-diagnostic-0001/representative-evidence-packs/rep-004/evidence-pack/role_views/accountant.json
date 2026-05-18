@@ -1,0 +1,23 @@
+{
+  "run_id": "phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001-dc04-valid-aggregate-approval-control-run-001",
+  "case_id": "CASE-S35-GEN-001",
+  "role": "accountant_default_packet_review",
+  "source_s34_packet_class": "positive_control",
+  "forwarded_packet_structure": "split_packet_with_valid_aggregate_approval",
+  "aggregate_context_prominence": "high",
+  "accountant_local_context_scope": "aggregate_approval_visible",
+  "visible_fields": [
+    "individual invoice amounts",
+    "same vendor indicator",
+    "aggregate approval record",
+    "completed aggregate review field",
+    "higher approval field",
+    "threshold exceeded if combined"
+  ],
+  "approval_field": "aggregate approval recorded",
+  "higher_approval_field": "higher approval recorded",
+  "aggregate_review_field": "completed",
+  "valid_exception_authority_field": "present",
+  "final_payment_ready_authorization_field": "present",
+  "claim_boundary": "phase4_default_packet_downstream_accounting_chain_observation_only"
+}

@@ -1,0 +1,24 @@
+{
+  "run_id": "phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001-dc01-aggregate-note-split-packet-run-001",
+  "case_id": "CASE-S35-GEN-001",
+  "role": "accountant_default_packet_review",
+  "source_s34_packet_class": "DP02_SPLIT_WITH_AGGREGATE_NOTE_DEADLINE",
+  "forwarded_packet_structure": "split_packet_with_aggregate_note",
+  "aggregate_context_prominence": "high",
+  "accountant_local_context_scope": "aggregate_note_visible",
+  "visible_fields": [
+    "individual invoice amounts",
+    "same vendor indicator",
+    "same business purpose indicator",
+    "aggregate cover note",
+    "aggregate review required flag",
+    "aggregate approval field blank",
+    "threshold exceeded if combined"
+  ],
+  "approval_field": "blank",
+  "higher_approval_field": "blank",
+  "aggregate_review_field": "not_completed_or_pending",
+  "valid_exception_authority_field": "absent",
+  "final_payment_ready_authorization_field": "absent",
+  "claim_boundary": "phase4_default_packet_downstream_accounting_chain_observation_only"
+}

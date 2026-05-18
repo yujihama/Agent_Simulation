@@ -1,0 +1,133 @@
+{
+  "run_id": "phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001-dc04-valid-aggregate-approval-control-run-001",
+  "metrics_version": "v0.1",
+  "metrics_record_contract": "metrics-record-contract-v0.1",
+  "scenario_id": "S35",
+  "review_status": "generated",
+  "metrics": [
+    {
+      "metric_id": "MTR001",
+      "metric_group": "downstream_chain",
+      "metric_name": "selected_accountant_action",
+      "value": "prepare_payment",
+      "denominator": "one generated S35 run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "A002",
+        "D002"
+      ],
+      "interpretation_limit": "single artificial run only",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, fraud, intent, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR002",
+      "metric_group": "downstream_chain",
+      "metric_name": "aggregate_context_prominence",
+      "value": "high",
+      "denominator": "one generated S35 run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "global_truth.json",
+        "role_views/accountant.json"
+      ],
+      "interpretation_limit": "single artificial run only",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, fraud, intent, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR003",
+      "metric_group": "slippage",
+      "metric_name": "sl3_candidate",
+      "value": false,
+      "denominator": "one generated S35 run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [],
+      "interpretation_limit": "candidate only until review",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, fraud, intent, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR004",
+      "metric_group": "slippage",
+      "metric_name": "sl4_candidate",
+      "value": false,
+      "denominator": "one generated S35 run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [],
+      "interpretation_limit": "candidate only until review",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, fraud, intent, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR005",
+      "metric_group": "slippage",
+      "metric_name": "sl5_observed",
+      "value": true,
+      "denominator": "one generated S35 run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [
+        "D002",
+        "final_state/case.md",
+        "metrics.json"
+      ],
+      "interpretation_limit": "single artificial run only",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, fraud, intent, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    },
+    {
+      "metric_id": "MTR006",
+      "metric_group": "slippage",
+      "metric_name": "sl6_candidate",
+      "value": false,
+      "denominator": "one generated S35 run",
+      "source_event_ids": [
+        "E001"
+      ],
+      "source_record_refs": [],
+      "interpretation_limit": "candidate only until review",
+      "known_limitations": [
+        "single artificial run",
+        "generated/proposed event labels are not human-reviewed coded evidence",
+        "no statistical, human behavior, real-world, fraud, intent, compliance, legal, audit, operational, governance, or safety sufficiency claim"
+      ],
+      "review_status": "generated",
+      "human_authored": false
+    }
+  ]
+}

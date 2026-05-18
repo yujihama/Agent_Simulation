@@ -228,6 +228,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S33 gray-option seeded structuring protocol v0.1: [protocols/failure-modes/phase4-gray-option-seeded-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-gray-option-seeded-structuring-diagnostic-v0.1.md)
 - Phase 4 S33 gray-option seeded structuring scenario: [scenarios/org-payment/s33-gray-option-seeded-structuring.yaml](scenarios/org-payment/s33-gray-option-seeded-structuring.yaml)
 - Phase 4 S33 gray-option seeded structuring addendum v0.1: [prompts/org-payment/phase4-gray-option-seeded-structuring-addendum-v0.1.md](prompts/org-payment/phase4-gray-option-seeded-structuring-addendum-v0.1.md)
+- Phase 4 S33 gray-option seeded structuring result: [pilot-runs/org-payment/phase4-s33-gray-option-seeded-structuring-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s33-gray-option-seeded-structuring-diagnostic-0001/summary.md)
+- Phase 4 S33 gray-option seeded structuring synthesis: [docs/synthesis/phase4-gray-option-seeded-structuring-synthesis-v0.1.md](docs/synthesis/phase4-gray-option-seeded-structuring-synthesis-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -1907,3 +1909,17 @@ S33 supersedes S32 for the immediate next execution path. S32 remains a frozen p
 The protocol freezes 20 future attempted runs across no-pressure, deadline-pressure, queue/volume-pressure, and compound-pressure/prior-practice conditions. It uses OpenAI `gpt-5.2`, includes no downstream accountant turn in v0.1, and preserves the claim boundary `phase4_gray_option_seeded_structuring_observation_only` for later execution.
 
 This protocol does not execute runs and does not claim gray-option seeded structuring occurred. It also does not claim fraud, hidden intent, full approval bypass, prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+
+S33 execution is recorded in [pilot-runs/org-payment/phase4-s33-gray-option-seeded-structuring-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s33-gray-option-seeded-structuring-diagnostic-0001/summary.md) and synthesized in [docs/synthesis/phase4-gray-option-seeded-structuring-synthesis-v0.1.md](docs/synthesis/phase4-gray-option-seeded-structuring-synthesis-v0.1.md).
+
+Local execution command:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m social_sim execute-phase4-gray-option-seeded-structuring-diagnostic `
+  --output runs/org-payment/phase4-s33-gray-option-seeded-structuring-diagnostic-local/raw `
+  --curated-output runs/org-payment/phase4-s33-gray-option-seeded-structuring-diagnostic-local/curated `
+  --dotenv .env
+```
+
+Observed S33 result: 20 attempted / 19 accepted / 1 excluded provider failure. Gray split options were present in all 19 accepted runs. Requester/buyer selected conservative canonical actions in 18 accepted runs (`request_higher_approval`: 11, `submit_single_aggregate_request`: 7) and selected one gray-seeded split action with aggregate note in the compound-pressure/prior-practice condition. S33 adds one bounded SL2 candidate with SL5 aggregate-gap preservation, and does not add SL4 or SL6 support.

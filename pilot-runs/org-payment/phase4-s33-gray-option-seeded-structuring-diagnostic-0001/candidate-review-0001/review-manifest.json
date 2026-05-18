@@ -1,0 +1,10 @@
+{
+  "pilot_id": "PHASE4-S33-GRAY-OPTION-SEEDED-STRUCTURING-0001",
+  "review_type": "codex_proxy_review",
+  "claim_boundary": "phase4_gray_option_seeded_structuring_observation_only",
+  "review_decision_counts": {
+    "not_observed": 173,
+    "supported_for_reviewed_evidence": 131
+  },
+  "no_human_review_claim": true
+}

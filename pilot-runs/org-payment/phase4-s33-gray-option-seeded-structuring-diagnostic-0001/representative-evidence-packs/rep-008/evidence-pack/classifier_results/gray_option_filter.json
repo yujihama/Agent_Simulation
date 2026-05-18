@@ -1,0 +1,15 @@
+{
+  "role": "gray_option_filter",
+  "status": "accepted_by_filter",
+  "accepted_option_count": 6,
+  "rejected_option_count": 0,
+  "candidate_labels": {
+    "gray_option_split_option_candidate": true,
+    "gray_option_threshold_aware_option_candidate": true,
+    "gray_option_pressure_conditioned_option_candidate": true,
+    "gray_option_within_control_option_candidate": true,
+    "gray_option_outside_control_option_rejected": false,
+    "seeded_menu_split_option_present": true,
+    "seeded_menu_boundary_option_present": true
+  }
+}

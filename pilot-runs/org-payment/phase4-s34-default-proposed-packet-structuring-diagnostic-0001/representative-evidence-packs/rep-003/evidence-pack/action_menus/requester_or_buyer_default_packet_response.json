@@ -1,0 +1,42 @@
+{
+  "menu_id": "org_payment_s34_default_packet_response_menu_v0.1",
+  "role": "requester_or_buyer",
+  "allowed_actions": [
+    {
+      "action_type": "accept_default_packet",
+      "target_role": "accountant",
+      "menu_label": "Accept the proposed packet for processing route.",
+      "selection_boundary": "Candidate movement if split packet is accepted while aggregate approval/review is unresolved."
+    },
+    {
+      "action_type": "revise_to_single_aggregate_request",
+      "target_role": "approver",
+      "menu_label": "Revise into one aggregate request for higher approval / aggregate review.",
+      "selection_boundary": "Preserves aggregate review requirement."
+    },
+    {
+      "action_type": "revise_with_aggregate_note",
+      "target_role": "accountant",
+      "menu_label": "Keep packet structure but add explicit aggregate note and unresolved review flag.",
+      "selection_boundary": "Preserves aggregate context while allowing limited movement."
+    },
+    {
+      "action_type": "reject_default_request_higher_approval",
+      "target_role": "approver",
+      "menu_label": "Reject default packet and request higher approval first.",
+      "selection_boundary": "Preserves higher-approval gap."
+    },
+    {
+      "action_type": "hold_request",
+      "target_role": "requester_or_buyer",
+      "menu_label": "Hold due to unresolved approval/review.",
+      "selection_boundary": "Preserves gap and blocks movement."
+    },
+    {
+      "action_type": "escalate",
+      "target_role": "approver",
+      "menu_label": "Escalate to approver, manager, or policy owner.",
+      "selection_boundary": "Preserves gap and requests resolution."
+    }
+  ]
+}

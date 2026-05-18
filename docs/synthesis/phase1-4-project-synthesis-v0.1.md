@@ -102,7 +102,7 @@ SL2, SL3, SL4, SL5, and SL6 must remain separate:
 - SL5 is process movement with the gap preserved downstream.
 - SL6 is gap erasure or contradiction downstream.
 
-The current evidence shows narrow SL2 in limited artificial contexts, repeated SL5, later S27 narrow SL3 partial support for non-payable draft creation, S28 bounded SL2 split-item handoff under downstream structuring / approval splitting, and project-owner-confirmed S29 applicant-side within-control process drift / SL2 split submission under pressure conditions. It does not show SL4 final payment-ready state or SL6 evidence-gap erasure.
+The current evidence shows narrow SL2 in limited artificial contexts, repeated SL5, later S27 narrow SL3 partial support for non-payable draft creation, S28 bounded SL2 split-item handoff under downstream structuring / approval splitting, project-owner-confirmed S29 applicant-side within-control process drift / SL2 split submission under pressure conditions, weak S33 gray-option split selection, and S34 default-packet split forwarding. It does not show SL4 final payment-ready state or SL6 evidence-gap erasure.
 
 ### Methodology
 
@@ -265,18 +265,21 @@ This updates the Phase 4 conclusion:
 
 Checkpoint decision after S30: stop the S30-to-S31 execution path and consolidate Phase 4 unless a new mechanism-selection or target-definition checkpoint is frozen first.
 
-## Post-S31 / S33 Option-Seeding Updates
+## Post-S31 / S33 / S34 Option-Seeding And Default-Packet Updates
 
-Later Phase 4 work produced S31 advisor-seeded structuring and S33 gray-option seeded structuring.
+Later Phase 4 work produced S31 advisor-seeded structuring, S33 gray-option seeded structuring, and S34 default proposed packet structuring.
 
 S31 showed that neutral advisor-generated split-like options can be added to applicant menus without producing applicant-side split selection. S33 tested a stronger gray-option seeding mechanism: gray split options were generated and visible in all 19 accepted applicant menus, and requester/buyer selected one gray-seeded split action with aggregate note under compound pressure/prior practice.
+
+S34 then changed the decision structure again: one concrete default proposed packet was generated and filtered before requester/buyer response. S34 executed 20 accepted runs. Default split packets were present in 15 runs, requester/buyer accepted the default unchanged 5 times, and split packet forwarding appeared in 8 runs.
 
 This updates the Phase 4 conclusion:
 
 - S29 remains the main applicant-side SL2 split-submission signal, and that signal was produced in a fixed-menu setting.
 - S30 and S31 did not reproduce applicant-side split selection outside the fixed-menu S29 design.
 - S33 weakly reproduced applicant-side split selection once, but at a much weaker level than S29 and with aggregate context preserved.
-- S33 supports the view that merely surfacing more explicit gray options is insufficient for a strong repeated signal when conservative canonical options remain available and aggregate approval/review gaps remain visible.
+- S34 produced a stronger SL2 split-forwarding signal than S33, but most requester/buyer responses still revised toward aggregate review or aggregate-note preservation.
+- S31/S33/S34 support the view that option availability and default-packet framing can change applicant-side movement, but visible aggregate approval/review gaps still strongly preserve the control boundary.
 - SL4, SL6, full approval bypass, fraud, hidden intent, human behavior, real-world organization behavior, statistical significance, and audit/compliance sufficiency remain unsupported.
 
-Checkpoint decision after S33: do not proceed directly to a downstream accountant chain from S33. Future run-producing Phase 4 work requires a new mechanism-selection/protocol-freeze checkpoint that either targets the weak S33 boundary case or changes the decision structure, not just the number or grayness of available menu options.
+Checkpoint decision after S34: do not proceed directly to baseline. Future run-producing Phase 4 work requires a new mechanism-selection/protocol-freeze checkpoint, most plausibly a downstream-chain diagnostic from reviewed S34 split-forwarding artifacts to test accountant-side preservation, weakening, or erasure of aggregate approval/review gaps.

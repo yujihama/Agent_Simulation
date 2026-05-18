@@ -272,13 +272,25 @@ Current Phase 4 tested-mechanism map after S33:
 
 Checkpoint decision after S33: do not proceed directly to a downstream accountant chain from this PR. The single S33 selected split option is useful but weak and preserved aggregate context. Future work must freeze a separate mechanism before execution, either to target this S33 boundary case or to test a genuinely different decision structure such as a default proposed packet, role-local packet acceptance, or social-provenance recommendation.
 
-## Post-S34 Default Proposed Packet Protocol Freeze Update
+## Post-S34 Default Proposed Packet Execution Update
 
 S34 is selected in `docs/reflections/phase4-after-s33-next-mechanism-default-packet.md` and frozen in `protocols/failure-modes/phase4-default-proposed-packet-structuring-diagnostic-v0.1.md`.
 
 S34 targets the adoption gap left by S33. S33 showed that gray split options can be generated and safely filtered into a menu, but requester/buyer selected only one gray-seeded split action. S34 changes the decision structure: a default packet advisor prepares one concrete proposed packet, then requester/buyer must accept, revise, reject, hold, or escalate it.
 
-This is a protocol-freeze update only. It does not add S34 execution results, generated candidates, or support for any SL level. It also does not claim prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, fraud, hidden intent, or compliance/audit sufficiency.
+S34 executed 20 attempted runs with 20 accepted and 0 excluded. Default split packets were present in 15 accepted runs. Requester/buyer selected `revise_to_single_aggregate_request` in 11 runs, `accept_default_packet` in 5 runs, and `revise_with_aggregate_note` in 4 runs.
+
+S34 adds 8 bounded SL2 split-packet-forwarding candidates while preserving SL5 aggregate-gap visibility in all 20 accepted runs. It does not add SL4 final payment-ready support or SL6 aggregate-gap erasure support. Because S34 has no downstream accountant turn, it also does not test SL3 directly.
+
+Current Phase 4 tested-mechanism map after S34:
+
+- SL2: supported in bounded contexts including lossy handoff, S28 downstream split-item handoff, S29 fixed-menu applicant-side split submission, one weak S33 gray-seeded split-with-aggregate-note candidate, and 8 S34 default-packet split-forwarding candidates.
+- SL3: narrow project-owner-confirmed partial support only from S27 `create_payment_draft`.
+- SL4: unsupported.
+- SL5: repeatedly supported as approval/evidence/aggregate-gap preservation, including S34.
+- SL6: unsupported.
+
+Checkpoint decision after S34: do not proceed directly to baseline. If run-producing Phase 4 work continues, the next protocol should be separately frozen and should test a downstream chain from reviewed S34 split-forwarding artifacts to see whether accountant-side handling preserves, weakens, or erases aggregate approval/review gaps. S34 itself still does not claim prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, fraud, hidden intent, or compliance/audit sufficiency.
 
 ## Allowed Claims
 
@@ -286,8 +298,8 @@ This synthesis may claim:
 
 - Phase 4 selected, froze, executed, reviewed, and reflected on an exception-route ambiguity mechanism.
 - S20 accepted runs preserved approval and exception-authority gaps downstream.
-- Current reviewed artificial evidence supports repeated SL5 boundary preservation, bounded SL2 support from BC31/S18/S28/S29 contexts plus one weak S33 gray-seeded split-with-aggregate-note candidate, and narrow S27 SL3 partial support for `create_payment_draft`; S30 and S31 add boundary-preserving non-SL2 results.
-- Phase 4 has a clearer current tested-mechanism map after S33, but still not proof of stronger downstream slippage, SL4, SL6, or baseline readiness.
+- Current reviewed artificial evidence supports repeated SL5 boundary preservation, bounded SL2 support from BC31/S18/S28/S29 contexts plus one weak S33 gray-seeded split-with-aggregate-note candidate and 8 S34 default-packet split-forwarding candidates, and narrow S27 SL3 partial support for `create_payment_draft`; S30 and S31 add boundary-preserving non-SL2 results.
+- Phase 4 has a clearer current tested-mechanism map after S34, but still not proof of stronger downstream slippage, SL4, SL6, or baseline readiness.
 - The current evidence does not justify a controlled failure-mode baseline.
 
 ## Forbidden Claims

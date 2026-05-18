@@ -1,0 +1,22 @@
+{
+  "pilot_id": "PHASE4-S34-DEFAULT-PROPOSED-PACKET-STRUCTURING-0001",
+  "batch_id": "phase4-s34-default-proposed-packet-structuring-diagnostic-0001",
+  "protocol_ref": "protocols/failure-modes/phase4-default-proposed-packet-structuring-diagnostic-v0.1.md",
+  "scenario_ref": "scenarios/org-payment/s34-default-proposed-packet-structuring.yaml",
+  "prompt_addendum_ref": "prompts/org-payment/phase4-default-proposed-packet-structuring-addendum-v0.1.md",
+  "scenario_id": "S34",
+  "started_at": "2026-05-18T17:56:23Z",
+  "completed_at": "2026-05-18T18:03:03Z",
+  "provider": "openai",
+  "model": "gpt-5.2",
+  "observed_model_versions": [
+    "gpt-5.2-2025-12-11"
+  ],
+  "attempted_runs": 20,
+  "accepted_runs": 20,
+  "excluded_runs": 0,
+  "runs_per_condition": 5,
+  "replacement_policy": "excluded runs are not replaced in the S34 default proposed packet structuring diagnostic",
+  "claim_boundary": "phase4_default_proposed_packet_structuring_observation_only",
+  "exclusions": []
+}

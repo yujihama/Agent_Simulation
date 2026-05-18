@@ -60,7 +60,11 @@
         "request_exception_approval",
         "submit_split_requests_with_aggregate_note",
         "submit_split_requests_without_aggregate_note",
-        "hold_request"
+        "hold_request",
+        "accept_default_packet",
+        "revise_to_single_aggregate_request",
+        "revise_with_aggregate_note",
+        "reject_default_request_higher_approval"
       ]
     },
     "case_id": { "type": "string", "minLength": 1 },

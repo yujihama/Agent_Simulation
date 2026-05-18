@@ -1,0 +1,8 @@
+{
+  "role": "requester_or_buyer",
+  "status": "accepted_by_parser",
+  "attempt_count": 1,
+  "selected_action_type": "accept_default_packet",
+  "selected_target_role": "accountant",
+  "selected_action_id": "A001"
+}

@@ -9,6 +9,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Working rules: [docs/research/03_working_rules_and_pr_policy.md](docs/research/03_working_rules_and_pr_policy.md)
 - Research objective reframing v0.1: [docs/research/research-objective-reframing-v0.1.md](docs/research/research-objective-reframing-v0.1.md)
 - Research questions v0.2: [docs/research/research-questions-v0.2.md](docs/research/research-questions-v0.2.md)
+- Within-Control Process Drift scope v0.1: [docs/research/within-control-process-drift-scope-v0.1.md](docs/research/within-control-process-drift-scope-v0.1.md)
 - Claim positioning v0.2: [docs/research/claim-positioning-v0.2.md](docs/research/claim-positioning-v0.2.md)
 - Coverage ledger: [docs/coverage_ledger.md](docs/coverage_ledger.md)
 - Research positioning ADR: [docs/adr/ADR-0001-research-positioning.md](docs/adr/ADR-0001-research-positioning.md)
@@ -102,6 +103,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Negative and conservative results methodology v0.1: [docs/methodology/negative-and-conservative-results-v0.1.md](docs/methodology/negative-and-conservative-results-v0.1.md)
 - Boundary preservation patterns v0.1: [docs/synthesis/boundary-preservation-patterns-v0.1.md](docs/synthesis/boundary-preservation-patterns-v0.1.md)
 - Phase 2 methodology synthesis v0.1: [docs/synthesis/phase2-methodology-synthesis-v0.1.md](docs/synthesis/phase2-methodology-synthesis-v0.1.md)
+- Within-Control Process Drift scope v0.1: [docs/research/within-control-process-drift-scope-v0.1.md](docs/research/within-control-process-drift-scope-v0.1.md)
 - Non-intentional control slippage model v0.1: [docs/models/non-intentional-control-slippage-model-v0.1.md](docs/models/non-intentional-control-slippage-model-v0.1.md)
 - Control slippage vs fraud: [docs/models/control-slippage-vs-fraud.md](docs/models/control-slippage-vs-fraud.md)
 - Control slippage evidence requirements v0.1: [protocols/evaluation/control-slippage-evidence-requirements-v0.1.md](protocols/evaluation/control-slippage-evidence-requirements-v0.1.md)
@@ -1067,7 +1069,7 @@ This is a Codex independent second-pass proxy review under project-owner authori
 
 The post-review reflection is recorded in [docs/reflections/method-b-plus-bc36-after-bc31-fm2-independent-review.md](docs/reflections/method-b-plus-bc36-after-bc31-fm2-independent-review.md). The new taxonomy is [protocols/failure-modes/non-intentional-control-slippage-taxonomy-v0.1.md](protocols/failure-modes/non-intentional-control-slippage-taxonomy-v0.1.md), with current evidence mapped in [docs/synthesis/non-intentional-control-slippage-map.csv](docs/synthesis/non-intentional-control-slippage-map.csv).
 
-This reframes the BC31 FM2 partial finding as non-intentional control slippage rather than full approval bypass. The current evidence supports only a narrow SL2 buyer payment-forward handoff without explicit approval, alongside SL5 evidence-gap preservation. It does not support SL3 payment preparation without explicit approval or SL4 final payment-ready state without explicit approval.
+This reframes the BC31 FM2 partial finding as non-intentional control slippage rather than full approval bypass. At that checkpoint, the evidence supported only a narrow SL2 buyer payment-forward handoff without explicit approval, alongside SL5 evidence-gap preservation. It did not support SL3 payment preparation without explicit approval or SL4 final payment-ready state without explicit approval.
 
 The selected next path is to freeze an `SL2 -> SL3 -> SL4` progression diagnostic before any new execution. This reframing does not add runs, change prior artifacts, claim fraud or intentional misconduct, or make human, real-world, statistical, compliance, legal, audit, operational, model-general, or prompt-causation claims.
 
@@ -1243,7 +1245,7 @@ The reflection classifies BC35 as `candidateあり、reviewでrejected` plus `no
 
 The Method B+ synthesis is recorded in [docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md](docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md), with the compact status table in [docs/synthesis/method-b-plus-failure-mode-status.csv](docs/synthesis/method-b-plus-failure-mode-status.csv) and claim-boundary review in [docs/synthesis/method-b-plus-claim-boundary-review.md](docs/synthesis/method-b-plus-claim-boundary-review.md).
 
-The synthesis records that Method B+ produced one narrow BC31 partially supported FM2 buyer-handoff boundary observation, reviewed and rejected or did not observe generated FM6 candidates across BC28/BC31/BC37-C/BC35/S17, and did not produce a fully supported failure-mode finding. After the BC31 FM2 independent review, that partial observation is better described as non-intentional control slippage: SL2 buyer handoff without explicit approval plus SL5 evidence-gap preservation. The S17 progression diagnostic did not reproduce SL2 and did not support SL3 accounting preparation, SL4 final payment-ready state, SL6 evidence-gap erasure, or FM6 post-hoc justification. The synthesis recommends pausing targeted execution rather than freezing a Method B+ controlled baseline from the current evidence.
+The synthesis records that Method B+ produced one narrow BC31 partially supported FM2 buyer-handoff boundary observation, reviewed and rejected or did not observe generated FM6 candidates across BC28/BC31/BC37-C/BC35/S17, and did not produce a fully supported failure-mode finding. After the BC31 FM2 independent review, that partial observation is better described as non-intentional control slippage: SL2 buyer handoff without explicit approval plus SL5 evidence-gap preservation. The S17 progression diagnostic did not reproduce SL2 and did not support SL3 accounting preparation, SL4 final payment-ready state, SL6 evidence-gap erasure, or FM6 post-hoc justification. The synthesis recommends pausing targeted execution rather than freezing a Method B+ controlled baseline from that evidence state.
 
 ### Method B+ Boundary Preservation Synthesis
 
@@ -1317,7 +1319,7 @@ It records that S18 added reviewed artificial evidence for narrow SL2 buyer hand
 
 The endpoint claim-hardening review is recorded in [docs/synthesis/method-b-plus-endpoint-claim-hardening-review-v0.1.md](docs/synthesis/method-b-plus-endpoint-claim-hardening-review-v0.1.md).
 
-It hardens Method B+ claims as follows: workflow and artifact readiness are supported; boundary preservation under current artificial conditions is supported for reviewed artificial evidence; narrow SL2 buyer handoff is supported with strict boundary limits; SL3/SL4/SL6/FM1/FM3/FM6 remain unsupported, reviewed rejected, or not observed. It records that a controlled Method B+ failure-mode baseline is not justified and that no further run-producing Method B+ diagnostic should be executed without a new mechanism-selection PR.
+It hardens Method B+ endpoint claims as follows: workflow and artifact readiness are supported; boundary preservation under the reviewed artificial conditions is supported for reviewed artificial evidence; narrow SL2 buyer handoff is supported with strict boundary limits; SL3/SL4/SL6/FM1/FM3/FM6 remain unsupported, reviewed rejected, or not observed in that endpoint scope. It records that a controlled Method B+ failure-mode baseline is not justified and that no further run-producing Method B+ diagnostic should be executed without a new mechanism-selection PR.
 
 ### Method B+ Integration Into Broader Synthesis
 
@@ -1329,7 +1331,7 @@ The updated synthesis, evidence map, claim-boundary review, and limitations clar
 
 Phase 1 begins by reframing the project objective in [docs/research/research-objective-reframing-v0.1.md](docs/research/research-objective-reframing-v0.1.md), updating the research questions in [docs/research/research-questions-v0.2.md](docs/research/research-questions-v0.2.md), and hardening claim positioning in [docs/research/claim-positioning-v0.2.md](docs/research/claim-positioning-v0.2.md).
 
-The reframed objective is to build and evaluate a reviewable artificial-organization research method for institutional friction and non-intentional control slippage. It does not claim human society reproduction, real-organization behavior, full approval bypass, statistical significance, model-general behavior, or compliance/legal/audit/operational sufficiency.
+The reframed objective is to build and evaluate a reviewable artificial-organization research method for institutional friction and within-control process drift. It does not claim human society reproduction, real-organization behavior, full approval bypass, statistical significance, model-general behavior, or compliance/legal/audit/operational sufficiency.
 
 ### Phase 1 Current Evidence Inventory
 
@@ -1341,7 +1343,7 @@ The inventory separates artifact claims, bounded observation claims, reviewed ev
 
 The Phase 1 synthesis is recorded in [docs/synthesis/phase1-research-position-synthesis-v0.1.md](docs/synthesis/phase1-research-position-synthesis-v0.1.md).
 
-It concludes that Phase 1 is complete: the project should be described as a reviewable artificial-organization research method for institutional friction and non-intentional control-slippage boundaries. Phase 2 should organize the methodological contribution, evidence-pack review process, and negative/conservative result methodology before any further execution-oriented work.
+It concludes that Phase 1 is complete: the project should be described as a reviewable artificial-organization research method for institutional friction and bounded process-drift observations. Forward-looking scope language is now refined by the Within-Control Process Drift scope revision. Phase 2 should organize the methodological contribution, evidence-pack review process, and negative/conservative result methodology before any further execution-oriented work.
 
 ### Phase 2 Methodological Contribution
 
@@ -1371,9 +1373,9 @@ It concludes that Phase 2 is complete: the project's main contribution is a prot
 
 ### Phase 3 Control Slippage Conceptual Model
 
-Phase 3 begins by defining non-intentional control slippage in [docs/models/non-intentional-control-slippage-model-v0.1.md](docs/models/non-intentional-control-slippage-model-v0.1.md) and separating it from fraud or malicious bypass in [docs/models/control-slippage-vs-fraud.md](docs/models/control-slippage-vs-fraud.md).
+Phase 3 begins by defining non-intentional control slippage in [docs/models/non-intentional-control-slippage-model-v0.1.md](docs/models/non-intentional-control-slippage-model-v0.1.md) and separating it from fraud or malicious bypass in [docs/models/control-slippage-vs-fraud.md](docs/models/control-slippage-vs-fraud.md). Forward-looking scope is revised by [docs/research/within-control-process-drift-scope-v0.1.md](docs/research/within-control-process-drift-scope-v0.1.md).
 
-The model treats SL1-SL6 as staged artificial-process concepts. Current evidence is positioned as narrow SL2 buyer-side handoff plus repeated SL5 evidence-gap preservation, with no support for SL3 accountant preparation, SL4 final payment-ready state, or SL6 evidence-gap erasure. The model does not claim fraud, intent, human behavior, real-world control deficiency, or audit sufficiency.
+The model treats SL1-SL6 as staged artificial-process concepts. Current evidence is positioned as narrow SL2 buyer-side handoff, S27 narrow SL3 partial support for non-payable draft creation, and repeated SL5 evidence-gap preservation, with no support for SL4 final payment-ready state or SL6 evidence-gap erasure. The model does not claim fraud, hidden intent, human behavior, real-world control deficiency, or audit sufficiency.
 
 ### Phase 3 Control Slippage Evidence Requirements
 
@@ -1391,7 +1393,7 @@ The remap preserves the current evidence boundary: narrow SL2 support appears on
 
 The Phase 3 synthesis is recorded in [docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md](docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md).
 
-It concludes that Phase 3 is complete: non-intentional control slippage is now the core model, current evidence supports narrow SL2 and repeated SL5 only, and a controlled failure-mode baseline is not justified. The next step is Phase 4 mechanism selection before any new protocol freeze or execution.
+It concludes that Phase 3 is complete as a conceptual/evidence model: SL1-SL6 remain the staged observation levels, while forward-looking scope uses within-control / outside-control rather than inferred intent. Current evidence supports narrow SL2, later S27 narrow SL3 partial support, and repeated SL5, but a controlled failure-mode baseline is not justified. The next step is Phase 4 mechanism selection before any new protocol freeze or execution.
 
 ### Phase 4 Mechanism Selection
 
@@ -1443,7 +1445,7 @@ Checkpoint decision: Phase 1-4 is delivery-complete for this roadmap pass, with 
 
 Phase 4 research is reopened in [docs/reflections/phase4-reopen-research-objective.md](docs/reflections/phase4-reopen-research-objective.md).
 
-The active Phase 4 objective is to identify which artificial organization information structures can produce reviewable non-intentional control-slippage candidates, especially whether any structure can move beyond narrow buyer-side SL2 handoff toward SL3 accountant preparation, SL4 final payment-ready state, or SL6 evidence-gap erasure.
+The active Phase 4 objective is to identify which artificial organization information structures can produce reviewable within-control process-drift candidates, especially whether any structure can move beyond narrow buyer-side SL2 handoff toward SL3 accountant preparation, SL4 final payment-ready state, or SL6 evidence-gap erasure.
 
 Future Phase 4 work may vary run counts, information structures, OpenAI model choices, and frozen prompt/persona conditions, but must preserve protocol freeze before execution, candidate/review separation, SL2/SL3/SL4/SL5/SL6 separation, and the existing no-human/no-real-world/no-statistical/no-compliance claim boundary.
 
@@ -1688,3 +1690,16 @@ The S27 project-owner review is recorded in [pilot-runs/org-payment/phase4-s27-p
 The project owner confirms S27 `create_payment_draft` as `SL3 partially_supported_needs_revision`. The project does not split SL3 into SL3a / SL3b at this stage. The decision is narrow: `create_payment_draft` is treated as part of payment preparation and as a downstream accountant-side movement beyond `hold_payment` or `request_more_evidence` while explicit approval and exception authority were absent.
 
 The boundary remains strict: S27 still preserves SL5 evidence-gap preservation because approval and exception gaps stayed visible. It does not support SL4 final payment-ready state, full approval bypass, SL6 evidence-gap erasure, fraud, intentional misconduct, human behavior, real-world organization behavior, statistical significance, or audit/compliance/legal/operational/governance/safety sufficiency.
+
+### Research Scope Axis Revision
+
+The forward-looking scope revision is recorded in [docs/research/within-control-process-drift-scope-v0.1.md](docs/research/within-control-process-drift-scope-v0.1.md).
+
+The project no longer uses `non-intentional vs intentional` as the main scope axis because actor intent is not directly observable in evidence packs. The scope axis is now:
+
+- `within-control`: actors use their own assigned authority, system operation records match the actual operator, and evidence is not forged, hidden, modified, or fabricated;
+- `outside-control`: impersonation, forged or hidden evidence, collusion, unauthorized access, privilege escalation, or malicious bypass.
+
+The recommended forward-looking term is `Within-Control Process Drift`. SL1-SL6 remain the observation levels. Structuring / approval splitting is in scope when it remains within-control. Environmental pressure should be frozen as an observable condition such as deadline, volume, relationship, or compound pressure rather than inferred as hidden intent.
+
+This scope revision adds no runs, protocols, or claim upgrades. S27 remains narrow SL3 partial support with SL5 gap preservation; SL4, SL6, full approval bypass, fraud, human behavior, real-world behavior, statistical significance, and audit/compliance sufficiency remain unsupported.

@@ -47,7 +47,24 @@ The project objective is:
 
 > Build and evaluate a reviewable artificial-organization research method that uses LLM-controlled roles, deterministic Game Master boundaries, evidence packs, validation, and candidate review to study how institutional friction and non-intentional control slippage can be represented, separated, and bounded in artificial settings.
 
+Post-scope-axis wording:
+
+> Build and evaluate a reviewable artificial-organization research method that uses LLM-controlled roles, deterministic Game Master boundaries, evidence packs, validation, and candidate review to study institutional friction and within-control process drift in artificial settings.
+
 This objective emphasizes method and evidence structure over social reproduction.
+
+## Scope-Axis Revision
+
+Forward-looking scope is revised by `docs/research/within-control-process-drift-scope-v0.1.md`.
+
+The project should now describe its core target as `Within-Control Process Drift`: process movement inside the ordinary control perimeter while approval, evidence, authority, or final-readiness conditions remain unresolved, weakened, preserved, or erased.
+
+This revision keeps the original claim boundary but removes intent as the scope axis:
+
+- actor intent is not directly observed or used to decide whether a case is in scope;
+- within-control cases are in scope when actors use their own authority, system records match the actual operator, and evidence is not forged or hidden;
+- outside-control cases such as impersonation, collusion, forged evidence, concealment, unauthorized access, or privilege escalation remain out of scope;
+- environmental pressure is modeled as an observable condition, not as hidden intent.
 
 ## Core Research Object
 
@@ -66,7 +83,7 @@ The Method B+ endpoint is central to the reframing. It shows why stage separatio
 
 - SL2 buyer-side handoff can appear under bounded artificial conditions, especially lossy handoff.
 - SL5 downstream evidence-gap preservation repeatedly appears in S17, S18, and S19.
-- SL3 accountant payment preparation without explicit approval is not supported.
+- Later S27 project-owner review adds narrow SL3 partial support for `create_payment_draft` while approval and exception-authority gaps remained visible.
 - SL4 final payment-ready state without explicit approval is not supported.
 - SL6 evidence-gap erasure is not supported.
 - FM1 responsibility diffusion, FM3 ambiguous-guidance misinterpretation, and FM6 post-hoc justification remain unsupported, reviewed rejected, or not observed.
@@ -79,6 +96,7 @@ The project can claim that:
 - the pipeline can generate, validate, review, and synthesize traceable artificial interactions;
 - current evidence supports bounded observations about evidence gaps, coordination holds, pressure context, and downstream boundary preservation;
 - Method B+ supports narrow buyer-side SL2 handoff under limited artificial conditions and repeated downstream SL5 preservation;
+- later S27 supports narrow SL3 partial support for non-payable draft creation, without SL4 or SL6 support;
 - the artifacts can generate hypotheses for future study.
 
 ## What The Research Cannot Say
@@ -106,7 +124,7 @@ Existing results are still valuable under the reframed objective.
 | Evidence packs and validator | Make traces reconstructable and mechanically checkable. |
 | EXP-0002 through EXP-0005 | Show that the pipeline can run baselines, reviews, sensitivity checks, and one adjacent-domain pilot under bounded claims. |
 | Method B | Shows how targeted failure-mode review can separate generated candidates from support. |
-| Method B+ | Establishes a fine-grained non-intentional control-slippage vocabulary and records narrow SL2 plus repeated SL5 preservation. |
+| Method B+ / Phase 4 | Establishes a fine-grained SL1-SL6 vocabulary, records narrow SL2 plus repeated SL5 preservation, and later adds S27 narrow SL3 partial support for non-payable draft creation. Forward-looking scope uses Within-Control Process Drift. |
 
 ## Research Position
 

@@ -93,11 +93,11 @@ Review level must also be preserved so proxy review, project-owner human review,
 
 Phase 2 makes negative and conservative results reportable.
 
-This is important because the current project did not produce a full approval-bypass or stronger non-intentional slippage result. Instead, Method B+ found:
+This is important because the project did not produce a full approval-bypass result. Instead, Method B+ and later Phase 4 reviews found:
 
 - narrow SL2 buyer handoff support in limited artificial conditions;
 - repeated downstream SL5 evidence-gap preservation;
-- no support for SL3 accountant payment preparation without explicit approval;
+- later S27 narrow SL3 partial support for non-payable draft creation;
 - no support for SL4 final payment-ready state without explicit approval;
 - no support for SL6 evidence-gap erasure;
 - reviewed rejection or not-observed status for several failure-mode candidates.
@@ -126,16 +126,16 @@ The project remains limited because:
 - only selected representative packs have human review;
 - construct validity is limited to reviewed constructs;
 - observed counts are descriptive unless a frozen statistical protocol exists;
-- Method B+ does not support full approval bypass or stronger slippage levels;
+- Method B+ / Phase 4 does not support full approval bypass, SL4, SL6, or real-world control claims;
 - no artifact supports human behavior, real-world organization, model-general, compliance, legal, audit, operational, governance, or safety sufficiency claims.
 
 ## Phase 3 Readiness
 
-Phase 3 should model non-intentional control slippage more precisely.
+Phase 3 should model control-slippage levels more precisely. Forward-looking scope is now refined by `docs/research/within-control-process-drift-scope-v0.1.md`.
 
 The next work should not restart run-producing diagnostics immediately. It should first define:
 
-- what non-intentional control slippage means;
+- what within-control process drift means;
 - how it differs from intentional fraud, malicious bypass, forged approval, concealment, or collusion;
 - how SL1 through SL6 relate conceptually;
 - which evidence is required for each level;

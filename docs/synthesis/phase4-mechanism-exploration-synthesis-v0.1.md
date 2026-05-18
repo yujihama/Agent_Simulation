@@ -119,6 +119,8 @@ This synthesis is also superseded in one current-status respect by S27 payment-d
 
 S27 `create_payment_draft` is now treated as `SL3 partially_supported_needs_revision` under [project-owner-review-0001](../../pilot-runs/org-payment/phase4-s27-payment-draft-staging-diagnostic-0001/project-owner-review-0001/summary.md). The project does not introduce SL3a / SL3b at this stage.
 
+Post-scope-axis update: forward-looking Phase 4 mechanism selection should use `Within-Control Process Drift` from `docs/research/within-control-process-drift-scope-v0.1.md`. This keeps the SL1-SL6 levels while changing the scope question from inferred intent to within-control / outside-control. Structuring / approval splitting is a valid future mechanism only when actor authority, operator records, and evidence integrity remain within-control.
+
 This update is narrow and does not change the forbidden-claim boundary:
 
 - SL5 evidence-gap preservation remains supported because approval and exception gaps stayed visible.

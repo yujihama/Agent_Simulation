@@ -16,7 +16,7 @@ This glossary keeps early project terms stable. It should stay concise; detailed
 | Social friction | Misunderstanding, pressure, incentive conflict, informal norms, information asymmetry, and relationship effects that make institutional behavior unstable. |
 | Institutional failure | A failure of rules, authority, approval, evidence, auditability, segregation of duties, or control mechanisms inside the artificial organization. |
 | Artificial participant | An LLM-driven actor used to generate social behavior in the simulation. It is not treated as a complete substitute for a human. |
-| LLM Actor | The layer that observes context, forms intent, generates messages, and proposes actions for an artificial participant. |
+| LLM Actor | The layer that observes context, generates messages, and proposes actions for an artificial participant. It is not treated as a direct window into human intent. |
 | Game Master / Arbiter | The layer that interprets proposed actions, applies world and institution rules, decides outcomes, records state changes, and preserves evidence. |
 | Institution Layer | The environment-side definition of formal rules, informal norms, authority, audit rules, sanctions, and control modes. |
 | Evidence pack | The structured record for a run, including manifest, trace, messages, actions, Game Master decisions, events, metrics, and review material. |
@@ -36,3 +36,8 @@ This glossary keeps early project terms stable. It should stay concise; detailed
 | Monitored control | A control mode where a questionable action can proceed but is detected, logged, or flagged for review. |
 | Hard control | A control mode where the environment blocks an action that violates defined authority or policy. |
 | Org-payment | The initial payment, procurement, and approval domain used as the first small artificial organization. |
+| Within-Control Process Drift | Forward-looking term for process movement inside the ordinary control perimeter while approval, evidence, authority, or final-readiness conditions remain unresolved, ambiguous, weakened, preserved, or erased. It replaces intent as the scope axis. |
+| Within-control | A scope classification where actors use their own assigned authority, system operation records match the actual operator, and evidence is not forged, hidden, modified, or fabricated. |
+| Outside-control | A scope classification for impersonation, forged or hidden evidence, collusion, unauthorized access, privilege escalation, or malicious bypass. These are outside the current research scope unless a later protocol explicitly changes scope. |
+| Environmental pressure condition | An observable scenario condition such as deadline pressure, queue-volume pressure, relationship pressure, or a frozen combination of them. It is used instead of hidden actor intent as an experimental condition. |
+| Structuring / approval splitting | Splitting or sequencing requests, invoices, approvals, or handoffs. It is in scope when it remains within-control and out of scope when it depends on impersonation, forged evidence, concealment, collusion, or unauthorized access. |

@@ -10,7 +10,7 @@ Related ADR: ADR-0001
 
 ## Context
 
-The project needs to observe social action under institutional constraints. If LLM agents directly edit state, files, approvals, or logs, the simulation cannot separate agent intent from institutional outcome.
+The project needs to observe social action under institutional constraints. If LLM agents directly edit state, files, approvals, or logs, the simulation cannot separate actor proposals from institutional outcomes.
 
 The technical selection draft also rejects using task-solving agent frameworks as the research core. Those frameworks are useful for work execution, but they can obscure whether an observed result came from social conditions, tool behavior, framework orchestration, or model capability.
 
@@ -23,7 +23,7 @@ Source drafts not yet imported into this repository:
 
 The simulation architecture will use a Game Master / Arbiter boundary.
 
-LLM actors may observe state, form intent, send messages, and propose actions. They do not directly mutate the world state. A Game Master / Arbiter interprets proposed actions, applies the Institution Layer and World / Environment rules, records the outcome, and writes evidence.
+LLM actors may observe state, send messages, and propose actions. They do not directly mutate the world state, and their text is not treated as direct evidence of hidden intent. A Game Master / Arbiter interprets proposed actions, applies the Institution Layer and World / Environment rules, records the outcome, and writes evidence.
 
 The intended architecture direction is:
 
@@ -40,12 +40,12 @@ Social Simulation Core
 `-- Evaluation Layer
 ```
 
-Early implementation should prefer a minimal custom Python core with a provider-neutral LLM actor adapter. Concordia is the primary conceptual reference because its Game Master pattern separates agent intent from world consequences. LangChain DeepAgents is not the research core; it may only be used as a limited actor implementation or comparison condition if later work needs it.
+Early implementation should prefer a minimal custom Python core with a provider-neutral LLM actor adapter. Concordia is the primary conceptual reference because its Game Master pattern separates actor-local proposals from world consequences. LangChain DeepAgents is not the research core; it may only be used as a limited actor implementation or comparison condition if later work needs it.
 
 ## Alternatives considered
 
 1. Let agents directly update world state and files.
-   - Rejected because it collapses agent intent, authority, institutional permission, and state mutation into one layer.
+   - Rejected because it collapses actor proposal, authority, institutional permission, and state mutation into one layer.
 
 2. Use LangChain DeepAgents as the core architecture.
    - Rejected for the research core because it is optimized for task execution, sub-agents, tools, and file work rather than auditable institutional simulation.

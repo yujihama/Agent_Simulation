@@ -53,6 +53,8 @@ Subsequent stress and diagnostic pilots were mechanically valid but conservative
 
 The repeated conservative outcomes are informative. They show that the current artificial setup, prompts, action menus, and deterministic Game Master can preserve approval and evidence boundaries. They do not prove that the failure modes are absent generally.
 
+Post-scope-axis update: forward-looking Method B+ language should use `Within-Control Process Drift` from `docs/research/within-control-process-drift-scope-v0.1.md`. The historical `non-intentional control slippage` label remains useful for this synthesis, but future scope decisions should use within-control / outside-control artifacts rather than inferred actor intent.
+
 ## Failure-Mode Status
 
 The compact status table is [method-b-plus-failure-mode-status.csv](method-b-plus-failure-mode-status.csv).

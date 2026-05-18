@@ -29,13 +29,15 @@ It adds no new runs, candidates, protocols, scenarios, prompts, metrics, schemas
 
 The project is best described as:
 
-> A reviewable artificial-organization research method for studying institutional friction, evidence gaps, and non-intentional control-slippage boundaries through frozen protocols, LLM-controlled role actions, deterministic Game Master decisions, reconstructable evidence packs, mechanical validation, candidate review, reflection, and explicit claim boundaries.
+> A reviewable artificial-organization research method for studying institutional friction, evidence gaps, and within-control process drift through frozen protocols, LLM-controlled role actions, deterministic Game Master decisions, reconstructable evidence packs, mechanical validation, candidate review, reflection, and explicit claim boundaries.
 
 The project should not be described as:
 
 > A reproduction of human society, proof of social chaos, proof of real organizational failure, or evidence that real controls are effective or ineffective.
 
 The strongest contribution is methodological. The project has built a disciplined way to generate and review artificial organizational traces without treating transcripts as direct evidence of human or real-world behavior.
+
+Scope-axis update: `docs/research/within-control-process-drift-scope-v0.1.md` supersedes intent-based scope language for forward-looking work. The project scope is now within-control / outside-control, while the SL1-SL6 levels remain the observation model.
 
 ## Phase Conclusions
 
@@ -60,7 +62,7 @@ Current reviewed artificial evidence supports the following bounded statements:
 Current reviewed artificial evidence does not support:
 
 - SL1 ambiguous approval interpretation as a supported Phase 4 result;
-- SL3 accountant payment preparation without explicit approval;
+- SL3 accountant payment preparation without explicit approval, except for later S27 narrow partial support for non-payable `create_payment_draft`;
 - SL4 final payment-ready state without explicit approval;
 - SL6 evidence-gap erasure;
 - FM1 responsibility diffusion;
@@ -84,9 +86,9 @@ The current artificial setup tends to preserve explicit approval and evidence ga
 
 This is a bounded artificial-system finding. It does not prove that real organizations preserve controls, and it does not prove that LLMs are generally safe or reliable.
 
-### Non-Intentional Control Slippage
+### Within-Control Process Drift
 
-The project has learned that "approval bypass" is too broad as a single label.
+The project has learned that "approval bypass" is too broad as a single label. Forward-looking scope should use `Within-Control Process Drift`: cases remain in scope when actors use their own assigned authority, system records match the actual operator, and evidence is not forged, hidden, modified, or fabricated.
 
 SL2, SL3, SL4, SL5, and SL6 must remain separate:
 
@@ -96,7 +98,7 @@ SL2, SL3, SL4, SL5, and SL6 must remain separate:
 - SL5 is process movement with the gap preserved downstream.
 - SL6 is gap erasure or contradiction downstream.
 
-The current evidence shows narrow SL2 in limited artificial contexts and repeated SL5. It does not show progression to SL3, SL4, or SL6.
+The current evidence shows narrow SL2 in limited artificial contexts, repeated SL5, and later S27 narrow SL3 partial support for non-payable draft creation. It does not show SL4 final payment-ready state or SL6 evidence-gap erasure.
 
 ### Methodology
 

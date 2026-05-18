@@ -23,6 +23,7 @@ It adds no new runs, candidates, protocols, scenarios, prompts, metrics, reviews
 | Research objective reframing | `docs/research/research-objective-reframing-v0.1.md` |
 | Research questions | `docs/research/research-questions-v0.2.md` |
 | Claim positioning | `docs/research/claim-positioning-v0.2.md` |
+| Within-Control Process Drift scope | `docs/research/within-control-process-drift-scope-v0.1.md` |
 | Current evidence inventory | `docs/synthesis/current-evidence-inventory-v0.1.md` |
 | Current evidence map | `docs/synthesis/current-evidence-map.csv` |
 | Claim-level table | `docs/synthesis/current-claim-level-table.csv` |
@@ -33,7 +34,7 @@ It adds no new runs, candidates, protocols, scenarios, prompts, metrics, reviews
 
 The project should now be described as:
 
-> A reviewable artificial-organization research method for studying institutional friction, evidence gaps, and non-intentional control-slippage boundaries through LLM-controlled roles, deterministic Game Master decisions, evidence packs, validators, candidate review, and explicit claim boundaries.
+> A reviewable artificial-organization research method for studying institutional friction, evidence gaps, and within-control process drift through LLM-controlled roles, deterministic Game Master decisions, evidence packs, validators, candidate review, and explicit claim boundaries.
 
 The project should not be described as:
 
@@ -73,18 +74,20 @@ The project has bounded artificial evidence for:
 
 These are artificial-system observations and reviewable hypotheses for future work. They are not human or real-world findings.
 
-### About Non-Intentional Control Slippage
+### About Within-Control Process Drift
 
 Method B+ refined the control-slippage model:
 
 - SL2 buyer-side payment-forward handoff can appear under bounded artificial conditions, especially lossy handoff.
 - SL5 downstream evidence-gap preservation appears repeatedly in S17, S18, and S19.
-- SL3 accountant payment preparation without explicit approval is not supported.
+- Later S27 project-owner review adds narrow SL3 partial support for `create_payment_draft` while approval and exception-authority gaps remained visible.
 - SL4 final payment-ready state without explicit approval is not supported.
 - SL6 evidence-gap erasure is not supported.
 - FM1 responsibility diffusion, FM3 ambiguous-guidance misinterpretation, and FM6 post-hoc justification remain unsupported, reviewed rejected, or not observed.
 
 The useful result is stage separation. The project can now avoid treating "approval bypass" as one undifferentiated label.
+
+Forward-looking scope uses within-control / outside-control rather than inferred intent. Structuring / approval splitting is in scope only when actors use their own authority, records match the actual operator, and evidence is not forged, hidden, modified, or fabricated.
 
 ## Current Research Questions
 
@@ -106,6 +109,7 @@ The project may claim:
 - selected EXP-0002 representative packs have bounded human-review support;
 - some constructs are usable with construct-validity limits;
 - Method B+ supports narrow SL2 buyer handoff and repeated SL5 downstream preservation under artificial conditions;
+- later S27 supports narrow SL3 partial support for non-payable draft creation under strict boundaries;
 - the artifact pipeline can generate hypotheses for future institutional-friction research.
 
 The project may not claim:
@@ -113,7 +117,8 @@ The project may not claim:
 - LLM agents reproduce human society;
 - real organizations behave like these runs;
 - full approval bypass has been reproduced;
-- SL3, SL4, or SL6 is supported;
+- SL4 or SL6 is supported;
+- S27 SL3 partial support is full approval bypass, fraud, or final payment readiness;
 - responsibility diffusion, ambiguous-guidance misinterpretation, or post-hoc justification has been proven;
 - scenario differences are causal effects;
 - results are statistically meaningful;

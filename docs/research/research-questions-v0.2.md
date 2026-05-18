@@ -13,7 +13,9 @@ This document updates the project research questions after the current evidence 
 
 ## Research Aim
 
-The project asks how to build a reviewable artificial-organization method for observing institutional friction and non-intentional control slippage without overclaiming human or real-world behavior.
+The project asks how to build a reviewable artificial-organization method for observing institutional friction and within-control process drift without overclaiming human or real-world behavior.
+
+Scope-axis update: forward-looking research should use `Within-Control Process Drift` as the scope term. The research target remains process movement inside the ordinary control perimeter, not hidden actor intent.
 
 ## Primary Research Questions
 
@@ -54,7 +56,7 @@ Open limits:
 
 - These are artificial-system observations, not direct evidence about humans or real organizations.
 
-### RQ4: Non-Intentional Control Slippage Stages
+### RQ4: Within-Control Process Drift Stages
 
 At which stage does a payment process move forward, and at which stage is the approval or evidence gap preserved?
 
@@ -62,12 +64,39 @@ Current evidence:
 
 - SL2 buyer-side handoff has narrow support in BC31 and reviewed support in S18 lossy handoff.
 - SL5 downstream evidence-gap preservation is repeatedly supported in S17, S18, and S19 reviewed artificial evidence.
+- S27 project-owner review confirms narrow SL3 partial support for `create_payment_draft` while approval and exception-authority gaps remained visible.
 
 Open limits:
 
-- SL3 accountant payment preparation without explicit approval is not supported.
 - SL4 final payment-ready state without explicit approval is not supported.
 - SL6 evidence-gap erasure is not supported.
+
+### RQ4a: Scope Boundary
+
+Which cases are within the control perimeter and therefore in scope?
+
+Current answer:
+
+- In scope: actors use their own assigned authority, system records match the actual operator, and evidence is not forged, hidden, or modified.
+- Out of scope: impersonation, evidence fabrication or concealment, collusion, unauthorized access, privilege escalation, or malicious bypass.
+- Structuring / approval splitting is in scope when it remains within-control.
+
+Open limits:
+
+- Future protocols must freeze boundary examples such as delegated authority, proxy approvals, exception approvals, or approval splitting before execution.
+
+### RQ4b: Environmental Pressure Conditions
+
+How do observable pressure conditions shape within-control process drift?
+
+Current answer:
+
+- Pressure should be represented as scenario state, system status, role-local packet, tool return, or prompt addendum.
+- Pressure is not an inferred mental state.
+
+Open limits:
+
+- No current result supports pressure causation or statistical pressure effects.
 
 ### RQ5: Boundary-Preserving Conditions
 

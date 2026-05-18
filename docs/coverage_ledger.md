@@ -2395,3 +2395,58 @@ Project-owner decision:
 - Do not introduce SL3a / SL3b at this stage.
 - Preserve SL5 because approval and exception-authority gaps remained visible.
 - Continue to mark SL4, SL6, and full approval bypass as unsupported.
+
+## Research Scope Axis Revision Update
+
+Latest PR label: `PR-research-within-control-process-drift-scope`
+
+This update applies to C01, C02, C13, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/research/within-control-process-drift-scope-v0.1.md`
+- `docs/models/non-intentional-control-slippage-model-v0.1.md`
+- `docs/models/control-slippage-vs-fraud.md`
+- `protocols/failure-modes/non-intentional-control-slippage-taxonomy-v0.1.md`
+- `protocols/evaluation/control-slippage-evidence-requirements-v0.1.md`
+- `docs/research/research-objective-reframing-v0.1.md`
+- `docs/research/research-questions-v0.2.md`
+- `docs/research/claim-positioning-v0.2.md`
+- `docs/methodology/methodological-contribution-v0.1.md`
+- `docs/methodology/pipeline-overview.md`
+- `docs/adr/ADR-0002-game-master-architecture.md`
+- `docs/glossary.md`
+- `docs/synthesis/current-evidence-inventory-v0.1.md`
+- `docs/synthesis/current-evidence-map.csv`
+- `docs/synthesis/phase1-research-position-synthesis-v0.1.md`
+- `docs/synthesis/evidence-map.csv`
+- `docs/synthesis/social-chaos-claim-synthesis-v0.1.md`
+- `docs/synthesis/limitations.md`
+- `docs/synthesis/phase2-methodology-synthesis-v0.1.md`
+- `docs/synthesis/phase3-control-slippage-model-synthesis-v0.1.md`
+- `docs/synthesis/phase4-mechanism-exploration-synthesis-v0.1.md`
+- `docs/synthesis/phase1-4-project-synthesis-v0.1.md`
+- `docs/synthesis/method-b-plus-iterative-targeting-synthesis-v0.1.md`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `docs/reports/phase1-4-report-outline.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: forward-looking scope language is revised from `non-intentional control slippage` to `Within-Control Process Drift`; the project now uses within-control / outside-control as the scope axis rather than inferred intent.
+- C02 Research Questions: research questions now separate SL1-SL6 observation levels, within-control scope classification, and environmental pressure conditions. Structuring / approval splitting is explicitly in scope when actor authority, operator records, and evidence integrity remain within-control.
+- C13 Event Taxonomy: no event taxonomy change is made. SL1-SL6 remain evidence-review levels rather than new event types.
+- C16 Validity Protocol: evidence support must use visible artifacts, authority scope, system records, evidence integrity, Game Master decisions, and final state. Hidden reasoning or self-reported intent cannot decide scope.
+- C17 Human / LLM Review: future reviews should classify whether observations are within-control or outside-control before interpreting SL level support. This does not convert proxy review into independent human review.
+- C18 Reporting / Claims: the new term does not upgrade prior results. S27 remains narrow SL3 partial support with SL5 preservation; SL4, SL6, full approval bypass, causal claims, statistical claims, human behavior claims, real-world claims, and compliance/audit sufficiency remain unsupported.
+- C20 Ethics / Misuse Boundaries: fraud, malicious bypass, impersonation, evidence fabrication or concealment, collusion, unauthorized access, privilege escalation, and intentional misconduct remain outside the current scope unless a future protocol explicitly changes scope.
+
+No execution is added:
+
+- no new runs;
+- no new mechanism protocol;
+- no baseline;
+- no model comparison;
+- no prompt-causation claim;
+- no human, real-world, statistical, legal, compliance, audit, operational, governance, or safety sufficiency claim.

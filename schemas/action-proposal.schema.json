@@ -54,7 +54,13 @@
         "apply_deadline_pressure",
         "signal_service_continuity_risk",
         "offer_flexible_timing",
-        "escalate_vendor_pressure"
+        "escalate_vendor_pressure",
+        "submit_single_aggregate_request",
+        "request_higher_approval",
+        "request_exception_approval",
+        "submit_split_requests_with_aggregate_note",
+        "submit_split_requests_without_aggregate_note",
+        "hold_request"
       ]
     },
     "case_id": { "type": "string", "minLength": 1 },

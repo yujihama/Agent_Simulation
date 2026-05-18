@@ -70,6 +70,12 @@ Early org-payment action types may include:
 - `signal_service_continuity_risk`
 - `offer_flexible_timing`
 - `escalate_vendor_pressure`
+- `submit_single_aggregate_request`
+- `request_higher_approval`
+- `request_exception_approval`
+- `submit_split_requests_with_aggregate_note`
+- `submit_split_requests_without_aggregate_note`
+- `hold_request`
 
 The list is intentionally open for v0.1. New action types should be documented in later protocol or schema work before implementation depends on them.
 
@@ -80,6 +86,8 @@ The exception-authority action types are backward-compatible additions for Phase
 The payment-draft action type is a backward-compatible addition for Phase 4 payment-draft staging diagnostics. `create_payment_draft` records low-commitment payment-preparation work that is not final payment readiness. If used while explicit approval or valid exception authority remains absent, the gap must remain visible for review and candidate classification.
 
 The structuring / approval-splitting action types are backward-compatible additions for Phase 4 S28 diagnostics. `stage_payment_batch` records preparation-like batch staging for split items and is not final payment readiness unless the final state separately records readiness or release equivalence. `request_aggregate_review` requests or routes aggregate review without itself approving payment, resolving aggregate approval, or creating exception authority.
+
+The applicant-side structuring action types are backward-compatible additions for Phase 4 S29 diagnostics. `submit_single_aggregate_request` preserves a case as one aggregate request. `request_higher_approval` and `request_exception_approval` request authority before submission. `submit_split_requests_with_aggregate_note` submits split requests while preserving aggregate context. `submit_split_requests_without_aggregate_note` submits genuine split requests as individual units without adding a separate aggregate note; it does not authorize forged, hidden, deleted, modified, or fabricated evidence. `hold_request` records a requester/buyer-side hold before processing.
 
 ## Contract Rules
 

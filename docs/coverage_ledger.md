@@ -3353,3 +3353,27 @@ Observed S35 result:
 Next step:
 
 - Do not proceed directly to baseline. Synthesize before any further run-producing Phase 4 diagnostic; future work must identify a substantially different within-control information mechanism and freeze research-completion criteria before execution.
+
+## Phase 4 Post-S35 Mechanism Map Synthesis Update
+
+Latest PR label: `PR-Phase4-post-S35-mechanism-map-synthesis`
+
+This update applies to C01, C02, C16, C18, and C20.
+
+Updated artifacts:
+
+- `docs/synthesis/phase4-post-s35-mechanism-map-and-next-decision-v0.1.md`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: consolidates the tested within-control process-drift mechanism map after S35.
+- C02 Research Questions: answers which tested artificial information structures produced bounded SL2, narrow partial SL3, repeated SL5, and no SL4/SL6 support.
+- C16 Validity Protocol: preserves the rule that future run-producing work requires a new mechanism-selection and protocol-freeze checkpoint before execution.
+- C18 Reporting / Claims: explicitly blocks baseline readiness, full approval-bypass claims, human/real-world claims, statistical claims, model-general claims, and compliance/audit sufficiency claims.
+- C20 Ethics / Misuse Boundaries: keeps the project within-control and excludes fraud, intentional misconduct, hidden evidence, forged evidence, impersonation, collusion, unauthorized access, and hidden-intent claims.
+
+Checkpoint decision:
+
+- Stop autonomous run-producing Phase 4 diagnostics at this point. Future work may continue only through a new mechanism-selection PR that identifies a substantially different within-control information mechanism and freezes research-completion criteria before execution.

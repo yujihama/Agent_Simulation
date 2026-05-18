@@ -242,6 +242,7 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S35 default-packet downstream accounting chain addendum v0.1: [prompts/org-payment/phase4-default-packet-downstream-accounting-chain-addendum-v0.1.md](prompts/org-payment/phase4-default-packet-downstream-accounting-chain-addendum-v0.1.md)
 - Phase 4 S35 default-packet downstream accounting chain result: [pilot-runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s35-default-packet-downstream-accounting-chain-diagnostic-0001/summary.md)
 - Phase 4 S35 default-packet downstream accounting chain synthesis: [docs/synthesis/phase4-default-packet-downstream-chain-synthesis-v0.1.md](docs/synthesis/phase4-default-packet-downstream-chain-synthesis-v0.1.md)
+- Phase 4 post-S35 mechanism map and next decision: [docs/synthesis/phase4-post-s35-mechanism-map-and-next-decision-v0.1.md](docs/synthesis/phase4-post-s35-mechanism-map-and-next-decision-v0.1.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -2001,3 +2002,17 @@ Curated S35 output:
 Observed S35 result: 20 attempted / 20 accepted / 0 excluded. Accountant selected `request_aggregate_review` in 5 runs, `request_more_evidence` in 10 runs, and `prepare_payment` in 5 positive-control runs where valid aggregate approval/review was recorded. S35 records 15 SL2 input-boundary candidates, SL5 preservation or valid-control handling in all 20 runs, and no SL3, SL4, SL6, FM3, or FM6 support.
 
 This remains an artificial Phase 4 diagnostic, not a baseline. It does not claim downstream slippage, full approval bypass, prompt causation, fraud, hidden intent, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+
+### Phase 4 Post-S35 Mechanism Map
+
+The post-S35 mechanism map is recorded in [docs/synthesis/phase4-post-s35-mechanism-map-and-next-decision-v0.1.md](docs/synthesis/phase4-post-s35-mechanism-map-and-next-decision-v0.1.md).
+
+It consolidates the current Phase 4 answer:
+
+- bounded SL2 appears in specific artificial mechanisms, especially S29 fixed-menu applicant-side split submission and S34 default-packet forwarding;
+- narrow SL3 partial support remains limited to S27 `create_payment_draft`;
+- S35 did not turn S34 packet forwarding into downstream SL3/SL4/SL6 support;
+- SL5 boundary preservation remains the strongest repeated downstream pattern;
+- no tested mechanism supports SL4 final payment-ready state or SL6 gap erasure.
+
+Checkpoint decision: stop autonomous run-producing Phase 4 diagnostics at this point. Future execution requires a new mechanism-selection PR with a substantially different within-control information mechanism and frozen research-completion criteria before outputs are generated.

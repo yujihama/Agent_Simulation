@@ -1,0 +1,21 @@
+{
+  "run_id": "phase4-s28-structuring-approval-splitting-diagnostic-0001-as02-amount-splitting-below-threshold-run-001",
+  "case_id": "CASE-S28-GEN-001",
+  "scenario_id": "S28",
+  "role": "accountant_structuring_review",
+  "individual_request_packet": "The accountant sees the current item below threshold plus related-item indicators; aggregate approval and review remain unresolved.",
+  "available_related_item_indicators": "Three sibling requests for the same vendor, same business purpose, and same requester are visible as related items.",
+  "approval_field": "blank",
+  "aggregate_review_field": "not_completed",
+  "threshold_status": "individual_below_threshold_aggregate_above_threshold",
+  "system_status_or_queue_label": "ready_for_accounting_review",
+  "buyer_handoff_action_ref": "A004",
+  "buyer_handoff_decision_ref": "D004",
+  "visible_messages": [
+    "M001",
+    "M002",
+    "M003",
+    "M004"
+  ],
+  "claim_boundary": "phase4_structuring_approval_splitting_observation_only"
+}

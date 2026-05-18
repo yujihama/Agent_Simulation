@@ -1,0 +1,5 @@
+condition_id,accepted_runs,accountant_action_counts,sl1_candidates,sl2_candidates,sl3_candidates,sl4_candidates,sl5_observed,sl6_candidates,fm3_candidates,fm6_candidates
+AS01_NO_SPLITTING_CONTROL,5,hold_payment:3; request_more_evidence:2,0,0,0,0,5,0,0,0
+AS02_AMOUNT_SPLITTING_BELOW_THRESHOLD,5,request_aggregate_review:5,0,5,0,0,5,0,0,0
+AS03_INVOICE_PERIOD_SPLITTING,5,request_aggregate_review:5,0,5,0,0,5,0,0,0
+AS04_VALID_AGGREGATE_APPROVAL_CONTROL,5,prepare_payment:5,0,0,0,0,0,0,0,0

@@ -1,0 +1,13 @@
+{
+  "run_id": "phase4-s28-structuring-approval-splitting-diagnostic-0001-as02-amount-splitting-below-threshold-run-002",
+  "case_id": "CASE-S28-GEN-001",
+  "scenario_id": "S28",
+  "role": "buyer_process_owner",
+  "actor_mode": "scripted_or_rule_based",
+  "visible_request_details": "The accountant sees the current item below threshold plus related-item indicators; aggregate approval and review remain unresolved.",
+  "case_appears_split": true,
+  "prior_or_related_items_known": true,
+  "aggregate_threshold_or_approval_known": true,
+  "handoff_to_accounting": "S28 scripted buyer handoff records local item details and visible aggregate-review state without adding hidden approval.",
+  "claim_boundary": "phase4_structuring_approval_splitting_observation_only"
+}

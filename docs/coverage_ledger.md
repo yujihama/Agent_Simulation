@@ -3063,3 +3063,47 @@ Frozen S32 conditions:
 Next step:
 
 - Execute S32 only if the runner can implement advisor option generation, recommendation metadata, deterministic filtering, recommended menu construction, applicant selection, evidence reconstruction, and candidate review without changing the frozen protocol after seeing outputs.
+
+## Phase 4 S33 Gray-Option Seeded Structuring Protocol Freeze Update
+
+Latest PR label: `PR-Phase4-S33-gray-option-seeded-structuring-protocol-freeze`
+
+This update applies to C01, C02, C05, C08, C09, C10, C12, C13, C14, C15, C16, C17, C18, and C20.
+
+Evidence added:
+
+- `docs/reflections/phase4-after-s32-design-correction-gray-option-selection.md`
+- `protocols/failure-modes/phase4-gray-option-seeded-structuring-diagnostic-v0.1.md`
+- `scenarios/org-payment/s33-gray-option-seeded-structuring.yaml`
+- `prompts/org-payment/phase4-gray-option-seeded-structuring-addendum-v0.1.md`
+- `docs/reflections/phase4-mechanism-candidate-table.csv`
+- `README.md`
+- `docs/coverage_ledger.md`
+
+Coverage impact:
+
+- C01 Research Concept: S33 corrects the S32 execution direction before results are generated, selecting gray-option ideation rather than ordinary operational recommendation as the next mechanism.
+- C02 Research Questions: freezes the next question: whether explicitly surfaced gray within-control ideas change requester/buyer selection under artificial pressure and aggregate-threshold conditions.
+- C05 World / Environment: S33 freezes aggregate amount, individual amounts, threshold, related-item truth, pressure type, prior-practice signal, aggregate approval, higher approval, exception authority, aggregate review, final readiness, and gray-option filter policy as separate global-truth fields.
+- C08 Interaction Layer: separates gray-option ideation advisor, deterministic gray-option filter, requester/buyer gray-seeded menu selector, and Game Master.
+- C09 Game Master / Arbiter: deterministic filtering rejects outside-control options before requester/buyer selection and preserves aggregate approval/review gaps.
+- C10 LLM Actor Layer: freezes OpenAI `gpt-5.2` for later gray-option advisor and requester/buyer roles; this is not model comparison or model-general evidence.
+- C12 Experiment Harness: defines a future 20-attempt matrix across four pressure conditions but adds no runner or output in this PR.
+- C13 Event Taxonomy: no event taxonomy change is made; gray-option labels are candidate descriptors, not new event types.
+- C14 Metrics: freezes later reporting for gray option counts, accepted/rejected options, split option availability, split-without-aggregate-note option availability, requester/buyer selected gray option counts, SL1, SL2, SL4, SL5, and SL6.
+- C15 Evidence Pack: freezes required artifacts for role views, gray option generation, filter results, gray-seeded menus, applicant selection, parser/classifier results, final state, candidate table, reviewer notes, and reconstruction checklist.
+- C16 Validity Protocol: generated gray-option candidates remain candidates until reviewed; rejected outside-control options must not be shown to requester/buyer.
+- C17 Human / LLM Review: later candidate review is required before support; no human-review or multi-reviewer claim is made in this protocol freeze.
+- C18 Reporting / Claims: no execution, gray-option seeded result, baseline, prompt-causation, statistical, human, real-world, model-general, compliance, legal, audit, operational, governance, or safety sufficiency claim is made.
+- C20 Ethics / Misuse Boundaries: the protocol excludes fraud, forged evidence, hidden evidence, deletion/modification of records, impersonation, collusion, unauthorized access, privilege escalation, technical bypass, malicious bypass, approval-bypass instructions, and threshold-avoidance through deception. Gray ideas may be studied only inside within-control boundaries and must remain reconstructable.
+
+Frozen S33 conditions:
+
+- `GO01_NO_PRESSURE_AGGREGATE_APPROVAL_REQUIRED`
+- `GO02_DEADLINE_PRESSURE`
+- `GO03_QUEUE_VOLUME_PRESSURE`
+- `GO04_COMPOUND_PRESSURE_PRIOR_PRACTICE`
+
+Next step:
+
+- Execute S33 only if the runner can implement gray-option ideation, deterministic filtering, gray-seeded menu construction, applicant selection, evidence reconstruction, and candidate review without changing the frozen protocol after seeing outputs.

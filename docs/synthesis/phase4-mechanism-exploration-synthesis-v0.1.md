@@ -332,6 +332,14 @@ Current Phase 4 tested-mechanism map after S35:
 
 Checkpoint decision after S35: do not proceed directly to baseline. Synthesize before any further Phase 4 run-producing diagnostic. Future work must define a substantially different within-control information mechanism beyond split options, default packets, or downstream review of S34-style packets.
 
+## Post-S35 Mechanism Map Synthesis
+
+`docs/synthesis/phase4-post-s35-mechanism-map-and-next-decision-v0.1.md` consolidates the post-S35 Phase 4 endpoint.
+
+That synthesis concludes that autonomous run-producing Phase 4 diagnostics should stop at this checkpoint. The tested mechanism family has identified bounded SL2 structures, one narrow S27 SL3 partial-support structure, repeated downstream SL5 preservation, and no SL4/SL6 support.
+
+Future execution requires a new mechanism-selection PR with a substantially different within-control information mechanism and frozen research-completion criteria before execution.
+
 ## Allowed Claims
 
 This synthesis may claim:

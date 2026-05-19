@@ -1,0 +1,9 @@
+{
+  "run_id": "phase4-s36-motivated-route-friction-structuring-diagnostic-0001-c0-no-pressure-no-friction-no-loose-route-run-001",
+  "case_id": "CASE-S36-GEN-001",
+  "role": "vendor",
+  "actor_mode": "scripted",
+  "business_pressure_present": false,
+  "pressure_type": "none",
+  "vendor_context": "Vendor has no month-end cutoff or service-continuity warning."
+}

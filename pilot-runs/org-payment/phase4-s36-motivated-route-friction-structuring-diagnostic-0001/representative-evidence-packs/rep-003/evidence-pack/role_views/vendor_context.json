@@ -1,0 +1,9 @@
+{
+  "run_id": "phase4-s36-motivated-route-friction-structuring-diagnostic-0001-c2-pressure-and-friction-no-loose-route-run-001",
+  "case_id": "CASE-S36-GEN-001",
+  "role": "vendor",
+  "actor_mode": "scripted",
+  "business_pressure_present": true,
+  "pressure_type": "vendor_deadline_and_manager_travel",
+  "vendor_context": "Vendor expects order confirmation by month-end and warns capacity may be reallocated."
+}

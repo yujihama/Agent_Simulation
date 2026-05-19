@@ -1,0 +1,13 @@
+{
+  "run_id": "phase4-s36-motivated-route-friction-structuring-diagnostic-0001-c1-pressure-only-run-001",
+  "case_id": "CASE-S36-GEN-001",
+  "role": "requester_context",
+  "actor_mode": "scripted",
+  "procurement_need": "implementation support renewal",
+  "aggregate_amount": 8000000,
+  "line_amounts": [
+    4000000,
+    4000000
+  ],
+  "condition_id": "C1_PRESSURE_ONLY"
+}

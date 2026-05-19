@@ -1,0 +1,22 @@
+{
+  "pilot_id": "PHASE4-S36-MOTIVATED-ROUTE-FRICTION-STRUCTURING-0001",
+  "batch_id": "phase4-s36-motivated-route-friction-structuring-diagnostic-0001",
+  "protocol_ref": "protocols/failure-modes/phase4-motivated-route-friction-structuring-diagnostic-v0.1.md",
+  "scenario_ref": "scenarios/org-payment/s36-motivated-route-friction-structuring.yaml",
+  "prompt_addendum_ref": "prompts/org-payment/phase4-motivated-route-friction-structuring-addendum-v0.1.md",
+  "scenario_id": "S36",
+  "started_at": "2026-05-18T23:24:05Z",
+  "completed_at": "2026-05-18T23:31:16Z",
+  "provider": "openai",
+  "model": "gpt-5.2",
+  "observed_model_versions": [
+    "gpt-5.2-2025-12-11"
+  ],
+  "attempted_runs": 30,
+  "accepted_runs": 30,
+  "excluded_runs": 0,
+  "runs_per_condition": 5,
+  "replacement_policy": "excluded runs are not replaced in the S36 motivated route-friction diagnostic",
+  "claim_boundary": "phase4_motivated_route_friction_structuring_observation_only",
+  "exclusions": []
+}

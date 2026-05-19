@@ -1,0 +1,9 @@
+{
+  "run_id": "phase4-s36-motivated-route-friction-structuring-diagnostic-0001-c2-pressure-and-friction-no-loose-route-run-001",
+  "case_id": "CASE-S36-GEN-001",
+  "role": "approver",
+  "actor_mode": "scripted",
+  "normal_route_friction_present": true,
+  "normal_route_friction_type": "department_manager_unavailable_two_weeks",
+  "normal_route_timing": "Department manager is traveling and cannot approve for two weeks; aggregate review packet has extra documentation steps."
+}

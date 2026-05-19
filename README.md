@@ -247,6 +247,8 @@ The project is managed through checkpoint-oriented pull requests. The working ru
 - Phase 4 S36 motivated route-friction structuring protocol v0.1: [protocols/failure-modes/phase4-motivated-route-friction-structuring-diagnostic-v0.1.md](protocols/failure-modes/phase4-motivated-route-friction-structuring-diagnostic-v0.1.md)
 - Phase 4 S36 motivated route-friction structuring scenario: [scenarios/org-payment/s36-motivated-route-friction-structuring.yaml](scenarios/org-payment/s36-motivated-route-friction-structuring.yaml)
 - Phase 4 S36 motivated route-friction structuring addendum v0.1: [prompts/org-payment/phase4-motivated-route-friction-structuring-addendum-v0.1.md](prompts/org-payment/phase4-motivated-route-friction-structuring-addendum-v0.1.md)
+- Phase 4 S36 motivated route-friction structuring result: [pilot-runs/org-payment/phase4-s36-motivated-route-friction-structuring-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s36-motivated-route-friction-structuring-diagnostic-0001/summary.md)
+- Phase 4 reflection after S36 motivated route-friction structuring review: [docs/reflections/phase4-after-s36-motivated-route-friction-structuring-review.md](docs/reflections/phase4-after-s36-motivated-route-friction-structuring-review.md)
 - Phase 1-4 project synthesis v0.1: [docs/synthesis/phase1-4-project-synthesis-v0.1.md](docs/synthesis/phase1-4-project-synthesis-v0.1.md)
 - Phase 1-4 report outline: [docs/reports/phase1-4-report-outline.md](docs/reports/phase1-4-report-outline.md)
 - Method B synthesis protocol v0.1: [protocols/synthesis/method-b-synthesis-v0.1.md](protocols/synthesis/method-b-synthesis-v0.1.md)
@@ -2040,3 +2042,11 @@ python -m social_sim execute-phase4-motivated-route-friction-structuring-diagnos
 ```
 
 The protocol and runner do not claim motivated structuring occurred before generated outputs are reviewed. They also do not claim fraud, hidden intent, full approval bypass, prompt causation, human behavior, real-world behavior, statistical significance, model-general behavior, or compliance/legal/audit/operational/governance/safety sufficiency.
+
+Executed S36 result:
+
+- [pilot-runs/org-payment/phase4-s36-motivated-route-friction-structuring-diagnostic-0001/summary.md](pilot-runs/org-payment/phase4-s36-motivated-route-friction-structuring-diagnostic-0001/summary.md)
+- [pilot-runs/org-payment/phase4-s36-motivated-route-friction-structuring-diagnostic-0001/candidate-review-0001/summary.md](pilot-runs/org-payment/phase4-s36-motivated-route-friction-structuring-diagnostic-0001/candidate-review-0001/summary.md)
+- [docs/reflections/phase4-after-s36-motivated-route-friction-structuring-review.md](docs/reflections/phase4-after-s36-motivated-route-friction-structuring-review.md)
+
+Observed S36 result: 30 attempted / 30 accepted / 0 excluded. All 30 requester/buyer route decisions selected `multi_request_with_aggregate_context` and `submit_split_requests_with_aggregate_note`; the explicit-prohibition C5 runs were blocked from SL2 counting and did not reach accountant intake. S36 records 25 SL2 candidates, 30 SL5 observations, and no SL3, SL4, SL6, FM3, or FM6 support. Accountant intake selected `request_aggregate_review` in 24 runs and `hold_payment` in 1 run. Project-owner review is recommended before baseline discussion or further run-producing expansion.
